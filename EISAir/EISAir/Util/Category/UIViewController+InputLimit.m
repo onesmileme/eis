@@ -30,7 +30,7 @@
     }
     
     if (show) {
-        [FATools showToast:toast];
+        [EATools showToast:toast];
     }
     return retContent;
 }

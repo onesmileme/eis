@@ -13,12 +13,12 @@ target 'EISAir' do
   #pod 'BlocksKit'
   pod 'MBProgressHUD'
   pod 'TPKeyboardAvoiding'
-  #pod 'WebViewJavascriptBridge'
-  #pod 'NJKWebViewProgress'
+  pod 'WebViewJavascriptBridge'
+  pod 'NJKWebViewProgress'
   pod 'SZTextView'
   pod 'Masonry'
   #pod 'Realm'
-
+  pod 'Bugly'
   target 'EISAirTests' do
     inherit! :search_paths
     # Pods for testing
