@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
+		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
+		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
+		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
+		6E6386A51F481F2600017FB8 /* EAReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A41F481F2600017FB8 /* EAReportViewController.m */; };
+		6E6386A81F481FF400017FB8 /* EASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A71F481FF400017FB8 /* EASettingViewController.m */; };
+		6E6386AB1F48200100017FB8 /* EASubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */; };
+		6E6386AE1F48208C00017FB8 /* EATaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386AD1F48208C00017FB8 /* EATaskViewController.m */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -138,6 +145,8 @@
 		6E68872D1F451B7C009AD662 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E68872C1F451B7C009AD662 /* libz.tbd */; };
 		6E68872F1F451BA4009AD662 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E68872E1F451BA4009AD662 /* TencentOpenAPI.framework */; };
 		6E6887311F451BC0009AD662 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6887301F451BC0009AD662 /* UMMobClick.framework */; };
+		6E6887531F4817CC009AD662 /* EALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6887511F4817CC009AD662 /* EALoginViewController.m */; };
+		6E6887541F4817CC009AD662 /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +177,20 @@
 /* Begin PBXFileReference section */
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
+		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
+		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
+		6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageViewController.m; sourceTree = "<group>"; };
+		6E6386A01F481F0B00017FB8 /* EARecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARecordViewController.h; sourceTree = "<group>"; };
+		6E6386A11F481F0B00017FB8 /* EARecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARecordViewController.m; sourceTree = "<group>"; };
+		6E6386A31F481F2600017FB8 /* EAReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportViewController.h; sourceTree = "<group>"; };
+		6E6386A41F481F2600017FB8 /* EAReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportViewController.m; sourceTree = "<group>"; };
+		6E6386A61F481FF400017FB8 /* EASettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASettingViewController.h; sourceTree = "<group>"; };
+		6E6386A71F481FF400017FB8 /* EASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASettingViewController.m; sourceTree = "<group>"; };
+		6E6386A91F48200100017FB8 /* EASubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASubscribeViewController.h; sourceTree = "<group>"; };
+		6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASubscribeViewController.m; sourceTree = "<group>"; };
+		6E6386AC1F48208C00017FB8 /* EATaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskViewController.h; sourceTree = "<group>"; };
+		6E6386AD1F48208C00017FB8 /* EATaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskViewController.m; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -418,6 +441,9 @@
 		6E68872E1F451BA4009AD662 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = ToolKit/ToolKit/ThirdParty/TencentSDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		6E6887301F451BC0009AD662 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = ToolKit/ToolKit/ThirdParty/UMAnalytics_Sdk/UMMobClick.framework; sourceTree = "<group>"; };
 		6E6887321F451BCF009AD662 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = ToolKit/ToolKit/ThirdParty/WXSDK/libWeChatSDK.a; sourceTree = "<group>"; };
+		6E6887501F4817CC009AD662 /* EALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginViewController.h; sourceTree = "<group>"; };
+		6E6887511F4817CC009AD662 /* EALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginViewController.m; sourceTree = "<group>"; };
+		6E6887521F4817CC009AD662 /* EALoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EALoginViewController.xib; sourceTree = "<group>"; };
 		96388FFD4F742D805950B839 /* libPods-EISAir.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAir.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5213142B48C8276E4B76135 /* Pods-EISAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.debug.xcconfig"; sourceTree = "<group>"; };
 		D677BF13055C157E3A660E7F /* Pods-EISAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.release.xcconfig"; sourceTree = "<group>"; };
@@ -577,6 +603,13 @@
 		6E6885611F43C71A009AD662 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				6E6887341F481772009AD662 /* Login */,
+				6E6887381F481772009AD662 /* Message */,
+				6E68873C1F481772009AD662 /* Record */,
+				6E6887401F481772009AD662 /* Report */,
+				6E6887441F481772009AD662 /* Setting */,
+				6E6887481F481772009AD662 /* Subscribe */,
+				6E68874C1F481772009AD662 /* Task */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1144,6 +1177,240 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		6E6887341F481772009AD662 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887351F481772009AD662 /* Controller */,
+				6E6887361F481772009AD662 /* Model */,
+				6E6887371F481772009AD662 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6E6887351F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887501F4817CC009AD662 /* EALoginViewController.h */,
+				6E6887511F4817CC009AD662 /* EALoginViewController.m */,
+				6E6887521F4817CC009AD662 /* EALoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E6887361F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E6887371F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386981F481BFE00017FB8 /* EALoginTextField.h */,
+				6E6386991F481BFE00017FB8 /* EALoginTextField.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E6887381F481772009AD662 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887391F481772009AD662 /* Controller */,
+				6E68873A1F481772009AD662 /* Model */,
+				6E68873B1F481772009AD662 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		6E6887391F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */,
+				6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E68873A1F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E68873B1F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E68873C1F481772009AD662 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				6E68873D1F481772009AD662 /* Controller */,
+				6E68873E1F481772009AD662 /* Model */,
+				6E68873F1F481772009AD662 /* View */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		6E68873D1F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386A01F481F0B00017FB8 /* EARecordViewController.h */,
+				6E6386A11F481F0B00017FB8 /* EARecordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E68873E1F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E68873F1F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E6887401F481772009AD662 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887411F481772009AD662 /* Controller */,
+				6E6887421F481772009AD662 /* Model */,
+				6E6887431F481772009AD662 /* View */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		6E6887411F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386A31F481F2600017FB8 /* EAReportViewController.h */,
+				6E6386A41F481F2600017FB8 /* EAReportViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E6887421F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E6887431F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E6887441F481772009AD662 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887451F481772009AD662 /* Controller */,
+				6E6887461F481772009AD662 /* Model */,
+				6E6887471F481772009AD662 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		6E6887451F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386A61F481FF400017FB8 /* EASettingViewController.h */,
+				6E6386A71F481FF400017FB8 /* EASettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E6887461F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E6887471F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E6887481F481772009AD662 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				6E6887491F481772009AD662 /* Controller */,
+				6E68874A1F481772009AD662 /* Model */,
+				6E68874B1F481772009AD662 /* View */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		6E6887491F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386A91F48200100017FB8 /* EASubscribeViewController.h */,
+				6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E68874A1F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E68874B1F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E68874C1F481772009AD662 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				6E68874D1F481772009AD662 /* Controller */,
+				6E68874E1F481772009AD662 /* Model */,
+				6E68874F1F481772009AD662 /* View */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		6E68874D1F481772009AD662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6386AC1F48208C00017FB8 /* EATaskViewController.h */,
+				6E6386AD1F48208C00017FB8 /* EATaskViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E68874E1F481772009AD662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E68874F1F481772009AD662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1271,6 +1538,7 @@
 				6E68853D1F433C49009AD662 /* Assets.xcassets in Resources */,
 				6E68853B1F433C49009AD662 /* Main.storyboard in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
+				6E6887541F4817CC009AD662 /* EALoginViewController.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
@@ -1403,6 +1671,7 @@
 				6E6886DB1F45124B009AD662 /* TKRequestHandler+Util.m in Sources */,
 				6E6887201F451542009AD662 /* UIImageView+Custom.m in Sources */,
 				6E6886731F43C71A009AD662 /* UIView+ZLExtension.m in Sources */,
+				6E6386AE1F48208C00017FB8 /* EATaskViewController.m in Sources */,
 				6E6887031F451261009AD662 /* TKWexinUserInfo.m in Sources */,
 				6E6886981F43C71A009AD662 /* ZLPhotoPickerImageView.m in Sources */,
 				6E6886461F43C71A009AD662 /* NSMutableArray+BlocksKit.m in Sources */,
@@ -1422,6 +1691,7 @@
 				6E68868D1F43C71A009AD662 /* ZLPhotoLayout.m in Sources */,
 				6E6886D51F45124B009AD662 /* EAUploadPicModel.m in Sources */,
 				6E6886DC1F45124B009AD662 /* EALoginTipAlertView.m in Sources */,
+				6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */,
 				6E6886831F43C71A009AD662 /* ZLCameraView.m in Sources */,
 				6E6886D91F45124B009AD662 /* TKRequestHandler+Push.m in Sources */,
 				6E68865B1F43C71A009AD662 /* UIBarButtonItem+BlocksKit.m in Sources */,
@@ -1462,15 +1732,18 @@
 				6E6886D01F45124B009AD662 /* EABaseImageModel.m in Sources */,
 				6E68871F1F451542009AD662 /* UIColor+Theme.m in Sources */,
 				6E6886571F43C71A009AD662 /* MFMailComposeViewController+BlocksKit.m in Sources */,
+				6E6887531F4817CC009AD662 /* EALoginViewController.m in Sources */,
 				6E6886491F43C71A009AD662 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
 				6E6886711F43C71A009AD662 /* TTTAttributedLabel.m in Sources */,
 				6E6886921F43C71A009AD662 /* ZLPhotoPickerViewController.m in Sources */,
+				6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */,
 				6E6886931F43C71A009AD662 /* ZLPhotoPickerCollectionView.m in Sources */,
 				6E6886591F43C71A009AD662 /* UIActionSheet+BlocksKit.m in Sources */,
 				6E68864A1F43C71A009AD662 /* NSMutableSet+BlocksKit.m in Sources */,
 				6E68868A1F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				6E68868C1F43C71A009AD662 /* ZLPhotoAssets.m in Sources */,
 				6E6886901F43C71A009AD662 /* ZLPhotoPickerAssetsViewController.m in Sources */,
+				6E6386A81F481FF400017FB8 /* EASettingViewController.m in Sources */,
 				6E6886441F43C71A009AD662 /* NSIndexSet+BlocksKit.m in Sources */,
 				6E6886451F43C71A009AD662 /* NSInvocation+BlocksKit.m in Sources */,
 				6E6887061F451261009AD662 /* EACrashManager.m in Sources */,
@@ -1481,12 +1754,15 @@
 				6E6887001F451261009AD662 /* TKUserInfo.m in Sources */,
 				6E6886871F43C71A009AD662 /* ZLPhotoPickerBrowserCollectionViewCell.m in Sources */,
 				6E6886D71F45124B009AD662 /* TKRequestHandler+Account.m in Sources */,
+				6E6386A51F481F2600017FB8 /* EAReportViewController.m in Sources */,
+				6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */,
 				6E6886521F43C71A009AD662 /* A2DynamicDelegate.m in Sources */,
 				6E6886D11F45124B009AD662 /* EAConfigModel.m in Sources */,
 				6E68868B1F43C71A009AD662 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				6E68865A1F43C71A009AD662 /* UIAlertView+BlocksKit.m in Sources */,
 				6E6886561F43C71A009AD662 /* NSObject+A2DynamicDelegate.m in Sources */,
 				6E6886431F43C71A009AD662 /* NSDictionary+BlocksKit.m in Sources */,
+				6E6386AB1F48200100017FB8 /* EASubscribeViewController.m in Sources */,
 				6E68868F1F43C71A009AD662 /* ZLPhotoPickerGroup.m in Sources */,
 				6E6886421F43C71A009AD662 /* NSArray+BlocksKit.m in Sources */,
 			);

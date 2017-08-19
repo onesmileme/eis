@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "EAUIInitManager.h"
+#import "EANetworkManager.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
+
+@property(nonatomic , strong) UINavigationController *rootNavController;
 
 @end
 
@@ -17,6 +22,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    application.statusBarHidden = false;
+    
+    //[NSThread sleepForTimeInterval:duration];
+    
+    [EAUIInitManager sharedInstance];
+    [EANetworkManager sharedInstance];
+    
+    self.mainController = (ViewController *)self.window.rootViewController;
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.mainController];
+    self.rootNavController = navController;
+    self.window.rootViewController = navController;
+    
+//    [self checkShowGuide];
+    
+    
     return YES;
 }
 
@@ -47,5 +68,54 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#if 0
+/**
+ *  检查是否需要引导页
+ */
+- (void)checkShowGuide
+{
+    self.isShowGuide = NO;
+    NSString *lastShowVersion  = [[NSUserDefaults standardUserDefaults] objectForKey: kUserDefaultsFirstOpenTheApp];
+    
+    NSString *appVersion = [TKAppInfo appVersion];
+    
+    if (![lastShowVersion isKindOfClass:[NSString class]] || lastShowVersion.length == 0 || ![lastShowVersion isEqualToString:appVersion])
+    {
+        
+        NSMutableArray * images = [[NSMutableArray alloc]init];
+        
+        for (int index = 1; index <= 3; index++)
+        {
+            UIImage *image;
+            if (IsIphone4x) {
+                image = [UIImage imageNamed: [NSString stringWithFormat: @"appfac_guide_%d_4.jpg",index]];
+            }else{
+                image = [UIImage imageNamed: [NSString stringWithFormat: @"appfac_guide_%d_6s.jpg",index]];
+            }
+            
+            if (image) {
+                [images addObject:image];
+            }
+        }
+        
+        if (images.count > 0) {
+            self.isShowGuide = true;
+            TKGuideViewController *controller = [[TKGuideViewController alloc]initWithNibName:nil bundle:nil];
+            
+            controller.guideImages = images;
+            controller.tapLastToQuit = true;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.rootNavController presentViewController:controller animated:false completion:nil];
+            });
+            
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:appVersion forKey: kUserDefaultsFirstOpenTheApp];
+    }
+}
+
+#endif
 
 @end

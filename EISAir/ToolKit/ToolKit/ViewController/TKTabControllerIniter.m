@@ -90,7 +90,8 @@
             [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:item.titleSelectedColor,NSForegroundColorAttributeName, nil]forState:UIControlStateSelected];
         }
         
-        [tabbarItem setTitlePositionAdjustment:UIOffsetMake(0, -5)];
+//        [tabbarItem setTitlePositionAdjustment:UIOffsetMake(0, 10)];
+        tabbarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
         subContorller.tabBarItem = tabbarItem;        
         
         if (item.addNavController) {
