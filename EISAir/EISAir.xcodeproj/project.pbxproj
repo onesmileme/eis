@@ -20,6 +20,8 @@
 		6E6386B61F483DA000017FB8 /* EALoginCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386B51F483DA000017FB8 /* EALoginCountdownView.m */; };
 		6E6386B91F4923DF00017FB8 /* EAAddRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386B81F4923DF00017FB8 /* EAAddRecordView.m */; };
 		6E6386BC1F4927A800017FB8 /* EASlideCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386BB1F4927A800017FB8 /* EASlideCollectionViewCell.m */; };
+		6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */; };
+		6E6386C21F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -205,6 +207,10 @@
 		6E6386B81F4923DF00017FB8 /* EAAddRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAddRecordView.m; sourceTree = "<group>"; };
 		6E6386BA1F4927A800017FB8 /* EASlideCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASlideCollectionViewCell.h; sourceTree = "<group>"; };
 		6E6386BB1F4927A800017FB8 /* EASlideCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASlideCollectionViewCell.m; sourceTree = "<group>"; };
+		6E6386BD1F49993600017FB8 /* EAMessageSlideListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageSlideListViewController.h; sourceTree = "<group>"; };
+		6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageSlideListViewController.m; sourceTree = "<group>"; };
+		6E6386C01F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageSlideCollectionViewCell.h; sourceTree = "<group>"; };
+		6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageSlideCollectionViewCell.m; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1249,6 +1255,8 @@
 			children = (
 				6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */,
 				6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */,
+				6E6386BD1F49993600017FB8 /* EAMessageSlideListViewController.h */,
+				6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1263,6 +1271,8 @@
 		6E68873B1F481772009AD662 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E6386C01F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.h */,
+				6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1722,6 +1732,7 @@
 				6E68865B1F43C71A009AD662 /* UIBarButtonItem+BlocksKit.m in Sources */,
 				6E6886911F43C71A009AD662 /* ZLPhotoPickerGroupViewController.m in Sources */,
 				6E6886821F43C71A009AD662 /* ZLCameraImageView.m in Sources */,
+				6E6386C21F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m in Sources */,
 				6E68871E1F451542009AD662 /* UIBarButtonItem+Navigation.m in Sources */,
 				6E68870A1F451261009AD662 /* EAUIInitManager.m in Sources */,
 				6E68865C1F43C71A009AD662 /* UIControl+BlocksKit.m in Sources */,
@@ -1742,6 +1753,7 @@
 				6E6886841F43C71A009AD662 /* ZLCameraViewController.m in Sources */,
 				6E6886861F43C71A009AD662 /* ZLPhotoPickerBrowserViewController.m in Sources */,
 				6E6887221F451542009AD662 /* EATools.m in Sources */,
+				6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */,
 				6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */,
 				6E68871C1F451542009AD662 /* EABrowserTranistion.m in Sources */,
 				6E6886891F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
@@ -1875,7 +1887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1917,7 +1929,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

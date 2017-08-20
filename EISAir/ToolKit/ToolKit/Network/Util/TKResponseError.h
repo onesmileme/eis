@@ -20,6 +20,6 @@ typedef NS_ENUM(NSInteger, TKResponseErrorType) {
 @property(nonatomic, strong) NSError *error;
 @property(nonatomic) BOOL isHandled;
 
-+ (instancetype)errorWithType:(TKResponseErrorType)type code:(int)code msg:(NSString *)msg;
++ (instancetype)errorWithType:(TKResponseErrorType)type code:(NSInteger)code msg:(NSString *)msg;
 
 @end

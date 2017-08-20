@@ -88,7 +88,7 @@ static NSString* emotionBundlePath()
     if (self) {
         
         NSString *bundlePath = emotionBundlePath();
-        NSFileManager *fm = [NSFileManager defaultManager];
+//        NSFileManager *fm = [NSFileManager defaultManager];
         NSString *infoPath = [bundlePath stringByAppendingPathComponent:@"info.txt"];
         NSString *info = [NSString stringWithContentsOfFile:infoPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *emoTypes = [info componentsSeparatedByString:@"\n"];

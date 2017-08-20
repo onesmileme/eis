@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, TKLogType) {
  * @param: args 参数
  * @param: addToBoss 是否记录到boss
  */
--(void)logBeginWithLevel:(TKLogLevel)level key:(NSString *)key args:(NSArray *)args  addToBoss:(BOOL)addToBoss;
+//-(void)logBeginWithLevel:(TKLogLevel)level key:(NSString *)key args:(NSArray *)args  addToBoss:(BOOL)addToBoss;
 /*
  * 记录事件结束 同时记录到boss
  * @param: level 记录的等级 对于boss 无效
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, TKLogType) {
  * @param: args 参数
  * @param: addToBoss 是否记录到boss
  */
--(void)logEndWithLevel:(TKLogLevel)level key:(NSString *)key args:(NSArray *)args  addToBoss:(BOOL)addToBoss;
+//-(void)logEndWithLevel:(TKLogLevel)level key:(NSString *)key args:(NSArray *)args  addToBoss:(BOOL)addToBoss;
 /*
  * 添加统计事件  同时添加到boss 非实时
  * @param: level 记录的等级  对于boss 无效

@@ -91,13 +91,18 @@ extern NSString *_Nonnull kTKNetworkChangeNotification;
  
  @warning If using a background `NSURLSessionConfiguration` on iOS, these blocks will be lost when the app is terminated. Background sessions may prefer to use `-setDownloadTaskDidFinishDownloadingBlock:` to specify the URL for saving the downloaded file, rather than the destination block of this method.
  */
--(nullable NSURLSessionTask *)download:(nonnull NSString *)URLString
+-(nullable NSURLSessionDataTask *)download:(nonnull NSString *)URLString
                               progress:(NSProgress * __nullable __autoreleasing * __nullable)progress
                            destination:(nullable NSURL *_Nonnull (^)( NSURL *_Nonnull targetPath, NSURLResponse * _Nonnull response))destination
                      completionHandler:(nullable void (^)(NSURLResponse *_Nonnull response, NSURL * __nullable filePath, NSError * __nullable error))completionHandler;
 
--(BOOL)handleResponse:(nullable NSDictionary *)response;
+//-(BOOL)handleResponse:(nullable NSDictionary *)response;
 
+#pragma mark header
+- (void)setAuthorizationHeaderFieldWithUsername:(NSString * _Nonnull )username
+                                       password:(NSString * _Nonnull)password;
+
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString * _Nonnull)field;
 
 #pragma mark - net check
 -(void)stopNotifier;
@@ -105,6 +110,7 @@ extern NSString *_Nonnull kTKNetworkChangeNotification;
 -(BOOL)networkReachable;
 //当前网络状态
 -(NetworkStatus)networkStatus;
+
 
 #pragma mark - https cers
 /*

@@ -60,11 +60,19 @@ IMP_SINGLETON
         handler.extraInfoBlock = ^(){
             return [wself extraParam];
         };
+
         
-        [self fetchUUID];
-//        handler.codeSignBlock = ^(NSDictionary *dic){
-//            return [CSCodeSignHelper signWithDictionary:dic];
-//        };
+        if ([[TKAccountManager sharedInstance] isLogin]) {
+            TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
+            [handler setValue:[NSString stringWithFormat:@"Bearer %@",userinfo.token] forHTTPHeaderField:@"Authorization"];
+        }
+        
+//        [self fetchUUID];
+        handler.codeSignBlock = ^(NSDictionary *dic){
+            //no code sign
+            return @"";
+        };
+        
         NSString *notificatioName = kTKNetworkChangeNotification;
         [NotificationCenter addObserver:self selector:@selector(networkChangeNotification:) name:notificatioName object:nil];
         
@@ -75,7 +83,7 @@ IMP_SINGLETON
 
 +(NSString *)appHost
 {
-    return @"";
+    return @"http://218.247.171.92:8090";
 //    return [[FAConfigManager sharedInstance]host];
 }
 

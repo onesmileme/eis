@@ -7,7 +7,10 @@
 //
 
 #import "TKSwitchSlidePageViewController.h"
+#import "EABaseViewController.h"
 
 @interface EAMessageViewController : TKSwitchSlidePageViewController
+//@interface EAMessageViewController  : EABaseViewController
+
 
 @end

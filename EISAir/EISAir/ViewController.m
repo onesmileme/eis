@@ -19,6 +19,8 @@
 #import "EASubscribeViewController.h"
 #import "EAAddRecordView.h"
 
+#import "EANetworkManager.h"
+
 @interface ViewController ()<UITabBarControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
@@ -57,6 +59,11 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     self.navigationController.interactivePopGestureRecognizer.enabled = true;
     self.delegate = self;
+    
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self test];
+//    });
     
 }
 
@@ -102,6 +109,23 @@
     return YES;
 }
 
+
+#pragma network request test
+-(void)test
+{
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/constants/findHomeConfTypeList",AppHost];
+    NSLog(@"path is: \n%@\n\n",path);
+    
+    [[TKRequestHandler sharedInstance] getRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"error is: \n%@\n\n",error);
+        }
+        
+        if (response) {
+            NSLog(@"response is:\n%@\n\n",response);
+        }
+    }];
+}
 
 
 @end

@@ -128,7 +128,7 @@
 - (UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *)currentShowController
 {
     NSInteger index = [self currentIndex];
-    UIViewController *controller = [self showedControllerForIndex:[NSIndexPath indexPathForItem:index inSection:0]];
+    UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *controller = [self showedControllerForIndex:[NSIndexPath indexPathForItem:index inSection:0]];
     return controller;
 }
 

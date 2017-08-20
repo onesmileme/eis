@@ -10,13 +10,13 @@
 
 @implementation TKUserInfo
 
--(NSString *)avatar
-{
-    if (_avatar) {
-        return _avatar;
-    }
-    return self.headimgurl;
-}
+//-(NSString *)avatar
+//{
+//    if (_avatar) {
+//        return _avatar;
+//    }
+//    return self.headimgurl;
+//}
 
 
 

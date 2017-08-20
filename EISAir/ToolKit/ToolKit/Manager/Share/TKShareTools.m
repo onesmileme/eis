@@ -270,7 +270,8 @@ presentedController:(UIViewController *)presentedController
         {
             message.title = data.title;
             message.description = data.shareText;
-            [message setThumbImage:[self thumbImage:data.shareImage]];
+            NSData *imgData = [self thumbImage:data.shareImage];
+            [message setThumbImage:[UIImage imageWithData:imgData]];
             
             WXVideoObject *ext = [WXVideoObject object];
             ext.videoUrl = data.url;
@@ -280,7 +281,8 @@ presentedController:(UIViewController *)presentedController
             break;
         case TKShareTypeEmotion:
         {
-            [message setThumbImage:[self thumbImage:data.shareImage]];
+            NSData *imgData = [self thumbImage:data.shareImage];
+            [message setThumbImage:[UIImage imageWithData:imgData]];
             
             WXEmoticonObject *ext = [WXEmoticonObject object];
             ext.emoticonData = data.emotionData;
@@ -292,7 +294,8 @@ presentedController:(UIViewController *)presentedController
         {
             message.title = data.title;
             message.description = data.shareText;
-            [message setThumbImage:[self thumbImage:data.shareImage]];
+            NSData *imgData = [self thumbImage:data.shareImage];
+            [message setThumbImage:[UIImage imageWithData:imgData]];
             
             WXFileObject *ext = [WXFileObject object];
             ext.fileExtension = data.fileExtension;
@@ -312,8 +315,8 @@ presentedController:(UIViewController *)presentedController
             message.title = data.title;
             message.description = data.shareText;
             message.mediaObject = ext;
-            [message setThumbImage:[self thumbImage:data.shareImage]];
-            
+            NSData *imgData = [self thumbImage:data.shareImage];
+            [message setThumbImage:[UIImage imageWithData:imgData]];            
         }
             break;
         default:

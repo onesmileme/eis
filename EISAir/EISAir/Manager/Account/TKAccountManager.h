@@ -18,7 +18,6 @@ extern NSString *const kLoginDoneNotification ;
 @interface TKAccountManager : NSObject
 
 @property(nonatomic , strong) TKUserInfo *userInfo;
-//@property(nonatomic , strong) TKWexinUserInfo *wxUserInfo;
 
 + (TKAccountManager *)sharedInstance;
 
@@ -31,22 +30,9 @@ extern NSString *const kLoginDoneNotification ;
 - (NSString *)avatar;
 
 - (BOOL)needBind;
-/*
- * 是否是默认用户 审核时用
- */
-- (BOOL)isDefaultUser;
-
-- (void)wxlogin:(void(^)(bool success))completion;
-
--(void)syncLogin;
--(void)syncLogin:(void(^)(BOOL success))done;
 
 - (void)save;
 - (void)logout;
 
-/*
- * 拉取默认用户信息
- */
--(void)loadDefaultInfo;
 
 @end

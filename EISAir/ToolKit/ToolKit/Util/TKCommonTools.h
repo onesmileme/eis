@@ -93,7 +93,7 @@ void tk_safe_dispatch_sync_main_queue(void (^block)(void));
 /**
  *  随机uuid
  *
- *  @return
+ *  @return uuid
  */
 + (NSString *)uuid;
 
@@ -115,14 +115,13 @@ void tk_safe_dispatch_sync_main_queue(void (^block)(void));
  *  根据格式化字符串格式化一个时间戳
  *
  *  @param format 格式化字符串
- *  @param date   NSDate
+ *  @param timeStamp   NSDate
  *
  *  @return string
  */
 + (NSString *)datestringWithFormat:(NSString *)format timeStamp:(NSTimeInterval)timeStamp;
 
 /**
- * @function    dateWithFormat
  * @abstract    按照指定的格式将字符串转换成日期对象
  * @param       format
  *              字符串日期的格式

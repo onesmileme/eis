@@ -56,7 +56,7 @@
         emojiFrame.origin.y = kCollectionTopPadding;
         emojiFrame.size.height -= (kPageControlHeight + kToolbarHeight + emojiFrame.origin.y);
         
-        NSInteger rowCount = [self numberOfRows];
+//        NSInteger rowCount = [self numberOfRows];
         TKKeyboardItemCollectionViewLayout *layout = [[TKKeyboardItemCollectionViewLayout alloc]init];
         layout.itemSize = CGSizeMake(kEmojiWidth, kEmojiWidth);
         layout.lineSpacing = (emojiFrame.size.height)/[self numberOfRows] - kEmojiWidth;
@@ -158,7 +158,7 @@
 {
     NSArray *allEmotions = [[TKInputEmojiManager sharedInstance]allEmotions];
     NSArray *emos = allEmotions[_currentEmotionIndex];
-    NSInteger count = 0;
+//    NSInteger count = 0;
     NSInteger rows = [self numberOfRows];
     NSInteger cols = [self numberItemsPerRow];
     NSInteger itemsPerPage = rows*cols - 1;

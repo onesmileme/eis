@@ -10,7 +10,7 @@
 
 }
 
-+ (instancetype)errorWithType:(TKResponseErrorType)type code:(int)code msg:(NSString *)msg {
++ (instancetype)errorWithType:(TKResponseErrorType)type code:(NSInteger)code msg:(NSString *)msg {
     TKResponseError *e = [[TKResponseError alloc] init];
     e.type = type;
     e.code = code;

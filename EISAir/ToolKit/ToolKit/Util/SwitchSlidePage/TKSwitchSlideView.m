@@ -43,7 +43,7 @@
     return self;
 }
 
--(UICollectionView *)scrollView
+-(UICollectionView *_Nonnull)scrollView
 {
     if (!_scrollView) {
         
@@ -98,7 +98,7 @@
 
 -(void)adjustCellAtIndex:(NSInteger)index offset:(CGFloat)offset
 {
-    TKSwitchSlideItemCollectionViewCell *cell = [_scrollView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    TKSwitchSlideItemCollectionViewCell *cell = (TKSwitchSlideItemCollectionViewCell *)[_scrollView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     
     [cell updateWithOffset:offset];
 }

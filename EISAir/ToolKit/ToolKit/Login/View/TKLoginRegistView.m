@@ -296,7 +296,7 @@
     return _linesArray;
 }
 
-- (void)setHasEmail:(BOOL *)hasEmail {
+- (void)setHasEmail:(BOOL)hasEmail {
     
     if (!hasEmail) {
         self.emailImg.hidden = !hasEmail;

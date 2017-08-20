@@ -49,7 +49,7 @@
     [[TKNetworkManager sharedInstance] loadCerWithPath:cerPath];
 }
 
--(void)loadCersWithPaths:(NSString *_Nonnull)cerPaths
+-(void)loadCersWithPaths:(NSArray *_Nonnull)cerPaths
 {
     [[TKNetworkManager sharedInstance] loadCersWithPaths:cerPaths];
 }
@@ -117,6 +117,18 @@
     }
     
     return [paramter build];
+}
+
+#pragma mark header
+- (void)setAuthorizationHeaderFieldWithUsername:(NSString * _Nonnull )username
+                                       password:(NSString * _Nonnull)password
+{
+    [[TKNetworkManager sharedInstance]setAuthorizationHeaderFieldWithUsername:username password:password];
+}
+
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString * _Nonnull)field
+{
+    [[TKNetworkManager sharedInstance]setValue:value forHTTPHeaderField:field];
 }
 
 -(NSURLSessionDataTask *)getRequestForPath:(NSString *)path param:(NSDictionary *)param jsonName:(NSString *)jsonName finish:(void (^)(NSURLSessionDataTask *sessionDataTask, JSONModel *model , NSError *error))finish
@@ -242,15 +254,15 @@
  *
  *  @return 请求对象
  */
--(NSURLSessionDataTask *)downloadFile:(NSString *)path progress:(void(^)(CGFloat progress))progress targetPath:(NSURL *)destinationPath finish:(void (^)(NSURLSessionDataTask *sessionDataTask, NSString *path , NSError *error))finish
+-(NSURLSessionDataTask * _Nullable)downloadFile:(NSString *)path progress:(void(^)(CGFloat progress))progress targetPath:(NSURL *)destinationPath finish:(void (^)(NSURLSessionDataTask *sessionDataTask, NSString *path , NSError *error))finish
 {
     
     NSProgress *progressbar = nil;
-    NSURLSessionDataTask *task = [[TKNetworkManager sharedInstance]download:path progress:&progressbar destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+    NSURLSessionDataTask *_Nullable task = [[TKNetworkManager sharedInstance]download:path progress:&progressbar destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return destinationPath;
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
-        finish(task , filePath , error );
+        finish(task , [filePath absoluteString] , error );
         
     }];
     return task;

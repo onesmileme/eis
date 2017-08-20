@@ -17,14 +17,14 @@ DEF_SINGLETON;
 /**
  *  应用主的host
  *
- *  @return
+ *  @return host
  */
 +(NSString *)appHost;
 
 /**
  *  设备cuid
  *
- *  @return
+ *  @return cuid
  */
 -(NSString *)cuid;
 

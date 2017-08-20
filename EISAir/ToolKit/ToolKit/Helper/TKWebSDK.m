@@ -15,7 +15,7 @@
 
 typedef id (^handle)(id param);
 
-@interface TKWebSDK()
+@interface TKWebSDK()<WKScriptMessageHandler>
 
 @property(nonatomic , strong) JSContext *jsContext;
 @property(nonatomic , weak) UIViewController *controller;

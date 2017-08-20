@@ -12,8 +12,14 @@
 
 + (JSONKeyMapper*)keyMapper
 {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{ @"errno": @"dErrno",
-                                                        }];
+    /*
+     NSDictionary *dict = @{
+     @"followNum" : @"follow_num",
+     @"fansNum" : @"fans_num",
+     @"followType" : @"follow_type",
+     @"verifyStatus":@"verify_status"};
+     */
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"dErrno":@"errno"}];
 }
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName

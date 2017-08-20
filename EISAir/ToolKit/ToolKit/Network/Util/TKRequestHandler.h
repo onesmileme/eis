@@ -54,9 +54,15 @@ extern NSString *_Nonnull kRequestFailedTip;
  */
 -(void)loadAllDefaultCers;
 
-- (NSString *)requestUrlForPath:(NSString *)path;
+- (NSString *_Nullable)requestUrlForPath:(NSString *_Nullable)path;
 
--(NSDictionary *)addExterParam:(NSDictionary *)param;
+-(NSDictionary *_Nullable)addExterParam:(NSDictionary *_Nonnull)param;
+
+#pragma mark header
+- (void)setAuthorizationHeaderFieldWithUsername:(NSString * _Nonnull )username
+                                       password:(NSString * _Nonnull)password;
+
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString * _Nonnull)field;
 
 
 /**

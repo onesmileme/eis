@@ -173,7 +173,7 @@ NSString *const TKDateFormatEnglishMedium2      = @"MM/dd/YYYY";
     if (!date) {
         return nil;
     }
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | kCFCalendarUnitWeekday;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | kCFCalendarUnitWeekday;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
     NSInteger weekday = comps.weekday;

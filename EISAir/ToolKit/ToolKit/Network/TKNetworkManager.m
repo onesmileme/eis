@@ -51,6 +51,8 @@
         
         _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
+
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanageNotification:) name:kReachabilityChangedNotification object:nil];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -119,6 +121,17 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
+- (void)setAuthorizationHeaderFieldWithUsername:(NSString * _Nonnull )username
+                                       password:(NSString * _Nonnull)password
+{
+    [self.sessionManager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+}
+
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString * _Nonnull)field
+{
+    [self.sessionManager.requestSerializer setValue:value forHTTPHeaderField:field];
+}
+
 -(void)loadCerWithPath:(NSString *_Nonnull)cerPath
 {
     if (cerPath.length == 0) {
@@ -139,7 +152,7 @@
     }
     if (cers.count > 0) {
         AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-        policy.pinnedCertificates = [cers allObjects];
+        policy.pinnedCertificates = cers;
         policy.validatesDomainName = false;
         policy.allowInvalidCertificates = true;
         self.sessionManager.securityPolicy = policy;
@@ -265,7 +278,9 @@
                                failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     
-    return [_sessionManager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [_sessionManager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         responseObject = [self chageResponseToDict:responseObject];
         [self handleResponse:responseObject forRequest:task.currentRequest];
         if (success) {
@@ -285,7 +300,9 @@
                                   failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     
-    return [_sessionManager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [_sessionManager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if (success) {
             success(task,responseObject);
         }
@@ -303,7 +320,9 @@
                                 success:(nullable void (^)(NSURLSessionDataTask *task, id responseObject))success
                                 failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    return [_sessionManager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [_sessionManager POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         responseObject = [self chageResponseToDict:responseObject];
         [self handleResponse:responseObject forRequest:task.currentRequest];
         if (success) {
@@ -322,11 +341,11 @@
                                 success:(nullable void (^)(NSURLSessionDataTask *task, id responseObject))success
                                 failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    return [_sessionManager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    return [_sessionManager POST:URLString parameters:parameters  constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (block) {
             block(formData);
         }
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         responseObject = [self chageResponseToDict:responseObject];
         [self handleResponse:responseObject forRequest:task.currentRequest];
         if (success) {
@@ -339,7 +358,7 @@
     }];
 }
 
--(nullable NSURLSessionTask *)download:(NSString *)URLString
+-(nullable NSURLSessionDataTask *)download:(NSString *)URLString
                               progress:(NSProgress * __nullable __autoreleasing * __nullable)progress
                            destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                      completionHandler:(nullable void (^)(NSURLResponse *response, NSURL * __nullable filePath, NSError * __nullable error))completionHandler
@@ -349,7 +368,9 @@
         return  nil;
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLSessionDownloadTask *task = [_sessionManager downloadTaskWithRequest:request progress:nil destination:destination completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+    NSURLSessionDownloadTask *task = nil;
+    
+    task= [_sessionManager downloadTaskWithRequest:request progress:nil destination:destination completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (completionHandler) {
             completionHandler(response , filePath , error);
         }
