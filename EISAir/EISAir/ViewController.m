@@ -22,7 +22,6 @@
 #import "EANetworkManager.h"
 
 @interface ViewController ()<UITabBarControllerDelegate,UIGestureRecognizerDelegate>
-
 @end
 
 @implementation ViewController
