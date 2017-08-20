@@ -10,6 +10,7 @@
 #import "EAUIInitManager.h"
 #import "EANetworkManager.h"
 #import "ViewController.h"
+#import "EALoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,11 +33,12 @@
     
     self.mainController = (ViewController *)self.window.rootViewController;
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.mainController];
+    [navController setNavigationBarHidden:YES animated:true];
     self.rootNavController = navController;
     self.window.rootViewController = navController;
     
 //    [self checkShowGuide];
-    
+//    [self showLogin];
     
     return YES;
 }
@@ -66,6 +68,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)showLogin
+{
+    EALoginViewController *controller = [[EALoginViewController alloc]initWithNibName:@"EALoginViewController" bundle:nil];
+    
+    self.window.rootViewController = controller;
 }
 
 #if 0

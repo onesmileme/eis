@@ -17,12 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"我的消息";
+    self.tabBarItem.title = @"";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:true animated:true];
+//}
 
 /*
 #pragma mark - Navigation

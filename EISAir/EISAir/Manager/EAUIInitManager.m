@@ -29,24 +29,22 @@ IMP_SINGLETON
 
 -(void)initNavStyle
 {
-//    NSDictionary *uiDict = [[FAConfigManager sharedInstance]uiDict];
-//    
-//    NSString *hexTextColor = uiDict[@"nav_title_color"];
-//    UIColor *titleColor = [UIColor colorWithHexString:hexTextColor] ?: [UIColor whiteColor];
-//    UINavigationBar *bar = [UINavigationBar appearance];
-//    bar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18],NSForegroundColorAttributeName:titleColor};
-//    
+    UIColor *titleColor = [UIColor whiteColor];
+    UINavigationBar *bar = [UINavigationBar appearance];
+    bar.titleTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18],NSForegroundColorAttributeName:titleColor};
+//
 //    
 //    NSString *hexColor = uiDict[@"nav_color"];
 //    bar.barTintColor = [UIColor colorWithHexString:hexColor];//HexColor(0x0076d1);//HexColor(0xffd200);
 //    
-//    UIImage *backImage = [UIImage imageNamed:@"navi_back"];
-//    bar.backIndicatorImage = backImage;
-//    bar.backIndicatorTransitionMaskImage = backImage;
-//    bar.backItem.title = @"";
+    UIImage *backImage = [UIImage imageNamed:@"normal_back"];
+    bar.backIndicatorImage = backImage;
+    bar.backIndicatorTransitionMaskImage = backImage;
+    bar.backItem.title = @"";
 //    
 //    UIImage *bgImage = [ImageHelper imageWithColor:bar.barTintColor size:CGSizeMake(2, 2)];
-//    [bar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+    UIImage *bgImage = SYS_IMG(@"top_bg");
+    [bar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
 //    bar.shadowImage = bgImage;
     
 }

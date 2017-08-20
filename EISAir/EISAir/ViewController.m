@@ -17,7 +17,7 @@
 #import "EAReportViewController.h"
 #import "EARecordViewController.h"
 #import "EASubscribeViewController.h"
-
+#import "EAAddRecordView.h"
 
 @interface ViewController ()<UITabBarControllerDelegate,UIGestureRecognizerDelegate>
 
@@ -74,7 +74,8 @@
 
 -(void)showAddRecord
 {
-    
+    EAAddRecordView *recordView = [[EAAddRecordView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [recordView show];
 }
 
 #pragma mark -
