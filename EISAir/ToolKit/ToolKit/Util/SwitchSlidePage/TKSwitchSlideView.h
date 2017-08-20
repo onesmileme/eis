@@ -17,6 +17,8 @@
  */
 @property(nonatomic , strong)UIColor *slideBackgroundColor;
 
+@property(nonatomic , strong)UIColor *slideBottomLineColor;
+
 @property(nonatomic)UIEdgeInsets slideEdgeInsets;
 
 @property(nonatomic,assign) BOOL isAllowGradualChange;//是否允许渐变

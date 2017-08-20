@@ -60,7 +60,7 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     self.slideBackgroundColor = [UIColor whiteColor];
-    
+    self.slideBottomLineColor = HexColor(0xdddddd);
     
 }
 

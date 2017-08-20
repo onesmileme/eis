@@ -12,7 +12,9 @@
 
 @interface TKSwitchSlideView ()<UICollectionViewDelegate , UICollectionViewDataSource>
 
-@property(nonnull , strong) UICollectionView *scrollView;
+@property(nonatomic, nonnull , strong) UICollectionView *scrollView;
+@property(nonatomic, strong) UIView *bottomLine;
+
 @property(nonatomic , strong) NSMutableArray *titles;
 @property(nonatomic , strong) Class itemCellClass;
 @property(nonatomic) UIEdgeInsets edgeInsets;
@@ -71,6 +73,24 @@
 - (void)setSlideBackgroundColor:(UIColor *)slideBackgroundColor
 {
     _scrollView.backgroundColor = slideBackgroundColor;
+}
+
+-(void)setSlideBottomLineColor:(UIColor *)slideBottomLineColor
+{
+    if (slideBottomLineColor) {
+        self.bottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, self.height-0.5, self.width, 0.5)];
+        self.bottomLine.backgroundColor = slideBottomLineColor;
+        [self addSubview:self.bottomLine];
+        
+    }else{
+        [self.bottomLine removeFromSuperview];
+        self.bottomLine = nil;
+    }
+}
+
+-(UIColor *)slideBottomLineColor
+{
+    return _bottomLine.backgroundColor;
 }
 
 -(void)updateWithItems:(NSArray<NSString *> *)itemTitles

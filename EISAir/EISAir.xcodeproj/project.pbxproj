@@ -22,6 +22,8 @@
 		6E6386BC1F4927A800017FB8 /* EASlideCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386BB1F4927A800017FB8 /* EASlideCollectionViewCell.m */; };
 		6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */; };
 		6E6386C21F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */; };
+		6E6386C61F49CA1F00017FB8 /* EAMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */; };
+		6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -211,6 +213,9 @@
 		6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageSlideListViewController.m; sourceTree = "<group>"; };
 		6E6386C01F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageSlideCollectionViewCell.h; sourceTree = "<group>"; };
 		6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageSlideCollectionViewCell.m; sourceTree = "<group>"; };
+		6E6386C31F49CA1F00017FB8 /* EAMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageTableViewCell.h; sourceTree = "<group>"; };
+		6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageTableViewCell.m; sourceTree = "<group>"; };
+		6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageTableViewCell.xib; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1273,6 +1278,9 @@
 			children = (
 				6E6386C01F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.h */,
 				6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */,
+				6E6386C31F49CA1F00017FB8 /* EAMessageTableViewCell.h */,
+				6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */,
+				6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1570,6 +1578,7 @@
 				6E68867A1F43C71A009AD662 /* paizhao@2x.png in Resources */,
 				6E68853D1F433C49009AD662 /* Assets.xcassets in Resources */,
 				6E68853B1F433C49009AD662 /* Main.storyboard in Resources */,
+				6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
 				6E6887541F4817CC009AD662 /* EALoginViewController.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
@@ -1719,6 +1728,7 @@
 				6E6886481F43C71A009AD662 /* NSMutableIndexSet+BlocksKit.m in Sources */,
 				6E6886651F43C71A009AD662 /* CHPhotoChooseViewController.m in Sources */,
 				6E6886671F43C71A009AD662 /* CHPhotoGroupTableViewCell.m in Sources */,
+				6E6386C61F49CA1F00017FB8 /* EAMessageTableViewCell.m in Sources */,
 				6E6886541F43C71A009AD662 /* NSURLConnection+BlocksKit.m in Sources */,
 				6E6886631F43C71A009AD662 /* CHGalleryGroupViewController.m in Sources */,
 				6E6885381F433C49009AD662 /* ViewController.m in Sources */,

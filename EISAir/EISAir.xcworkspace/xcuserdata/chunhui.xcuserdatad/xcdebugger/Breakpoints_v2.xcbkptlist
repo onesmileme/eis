@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m"
-            timestampString = "524913286.362581"
+            timestampString = "524929267.139264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1245"
-            endingLineNumber = "1245"
+            startingLineNumber = "1243"
+            endingLineNumber = "1243"
             landmarkName = "-requestBySerializingRequest:withParameters:error:"
             landmarkType = "7">
          </BreakpointContent>

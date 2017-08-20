@@ -25,6 +25,8 @@
  */
 @property(nonatomic , strong)UIColor *slideBackgroundColor;
 
+@property(nonatomic , strong)UIColor *slideBottomLineColor;
+
 /**
  *  设置选中项
  *
@@ -55,7 +57,6 @@
 /**
  *  点击当前项
  *
- *  @param index
  */
 -(void)tapCurrentItem:(NSInteger)index controller:(UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *)controller;
 

@@ -97,6 +97,11 @@
     _slideView.slideBackgroundColor = slideBackgroundColor;
 }
 
+-(void)setSlideBottomLineColor:(UIColor *)slideBottomLineColor
+{
+    _slideView.slideBottomLineColor = slideBottomLineColor;
+}
+
 -(NSInteger)currentSelectIndex
 {
     return [_slideView currentSelectIndex];
