@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
+		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -185,6 +186,8 @@
 
 /* Begin PBXFileReference section */
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
+		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
+		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
@@ -1192,6 +1195,8 @@
 		6E6887111F451542009AD662 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */,
+				53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */,
 				6E6887121F451542009AD662 /* UIBarButtonItem+Navigation.h */,
 				6E6887131F451542009AD662 /* UIBarButtonItem+Navigation.m */,
 				6E6887141F451542009AD662 /* UIColor+Theme.h */,
@@ -1715,6 +1720,7 @@
 				6E6887201F451542009AD662 /* UIImageView+Custom.m in Sources */,
 				6E6886731F43C71A009AD662 /* UIView+ZLExtension.m in Sources */,
 				6E6386AE1F48208C00017FB8 /* EATaskViewController.m in Sources */,
+				53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */,
 				6E6887031F451261009AD662 /* TKWexinUserInfo.m in Sources */,
 				6E6886981F43C71A009AD662 /* ZLPhotoPickerImageView.m in Sources */,
 				6E6886461F43C71A009AD662 /* NSMutableArray+BlocksKit.m in Sources */,

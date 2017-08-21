@@ -80,8 +80,7 @@
 
 -(void)showAddRecord
 {
-    EAAddRecordView *recordView = [[EAAddRecordView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    [recordView show];
+    [EAAddRecordView show];
 }
 
 #pragma mark -

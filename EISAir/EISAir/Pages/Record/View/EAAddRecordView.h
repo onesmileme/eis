@@ -10,6 +10,7 @@
 
 @interface EAAddRecordView : UIView
 
--(void)show;
++ (void)show;
++ (void)close;
 
 @end
