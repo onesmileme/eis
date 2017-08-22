@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
+		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
+		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
+		53D7D3661F4B4F0F00CC4034 /* EABaseViewController+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3651F4B4F0F00CC4034 /* EABaseViewController+Stack.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -188,6 +191,11 @@
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
+		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
+		53D7D35F1F4B3AB800CC4034 /* EAInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAInputView.m; sourceTree = "<group>"; };
+		53D7D3611F4B484800CC4034 /* EAAddRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAddRecordVC.h; sourceTree = "<group>"; };
+		53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAddRecordVC.m; sourceTree = "<group>"; };
+		53D7D3651F4B4F0F00CC4034 /* EABaseViewController+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EABaseViewController+Stack.m"; sourceTree = "<group>"; };
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
@@ -1071,6 +1079,7 @@
 				6E6886A61F45124B009AD662 /* EABaseViewController.h */,
 				6E6886A71F45124B009AD662 /* EABaseViewController.m */,
 				6E6886A81F45124B009AD662 /* EAViewControllerRefresh.h */,
+				53D7D3651F4B4F0F00CC4034 /* EABaseViewController+Stack.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1305,6 +1314,8 @@
 			children = (
 				6E6386A01F481F0B00017FB8 /* EARecordViewController.h */,
 				6E6386A11F481F0B00017FB8 /* EARecordViewController.m */,
+				53D7D3611F4B484800CC4034 /* EAAddRecordVC.h */,
+				53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1321,6 +1332,8 @@
 			children = (
 				6E6386B71F4923DF00017FB8 /* EAAddRecordView.h */,
 				6E6386B81F4923DF00017FB8 /* EAAddRecordView.m */,
+				53D7D35E1F4B3AB800CC4034 /* EAInputView.h */,
+				53D7D35F1F4B3AB800CC4034 /* EAInputView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1703,6 +1716,7 @@
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				6E6886581F43C71A009AD662 /* MFMessageComposeViewController+BlocksKit.m in Sources */,
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
+				53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */,
 				6E68865E1F43C71A009AD662 /* UIImagePickerController+BlocksKit.m in Sources */,
 				6E6886611F43C71A009AD662 /* UIView+BlocksKit.m in Sources */,
 				6E6886511F43C71A009AD662 /* A2BlockInvocation.m in Sources */,
@@ -1723,6 +1737,7 @@
 				53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */,
 				6E6887031F451261009AD662 /* TKWexinUserInfo.m in Sources */,
 				6E6886981F43C71A009AD662 /* ZLPhotoPickerImageView.m in Sources */,
+				53D7D3661F4B4F0F00CC4034 /* EABaseViewController+Stack.m in Sources */,
 				6E6886461F43C71A009AD662 /* NSMutableArray+BlocksKit.m in Sources */,
 				6E6386B61F483DA000017FB8 /* EALoginCountdownView.m in Sources */,
 				6E6886691F43C71A009AD662 /* KILabel.m in Sources */,
@@ -1761,6 +1776,7 @@
 				6E6386B21F482CDF00017FB8 /* EAFindPassordViewController.m in Sources */,
 				6E6886CF1F45124B009AD662 /* EABaseViewController.m in Sources */,
 				6E68864E1F43C71A009AD662 /* NSOrderedSet+BlocksKit.m in Sources */,
+				53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */,
 				6E6886DD1F45124B009AD662 /* EASharePanelCell.m in Sources */,
 				6E6885351F433C49009AD662 /* AppDelegate.m in Sources */,
 				6E6886CE1F45124B009AD662 /* EABaseTableViewController.m in Sources */,

@@ -33,3 +33,10 @@
 //-(void)initNavbarTitle;
 - (void)addRightButtonWithTitle:(NSString *)title;
 @end
+
+@interface EABaseViewController (Stack)
+
++ (UINavigationController *)currentNavigationController;
++ (UINavigationController *)rootNavigationController;
+
+@end

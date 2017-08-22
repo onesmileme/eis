@@ -9,6 +9,7 @@
 #import "EAAddRecordView.h"
 #import "NSDate+Category.h"
 #import "UIButton+EdgeInsets.h"
+#import "EAAddRecordVC.h"
 
 static const int kTagOfRecord = 178939;
 
@@ -81,9 +82,9 @@ static const int kTagOfRecord = 178939;
 
 - (void)recordPressed:(UIButton *)btn {
     NSInteger index = btn.tag - 1000;
-    if (index == 0) {
-        
-    }
+    UIViewController *vc = [[EAAddRecordVC alloc] initWithType:index];
+    [[EABaseViewController currentNavigationController] pushViewController:vc animated:YES];
+    [self close];
 }
 
 - (void)close {

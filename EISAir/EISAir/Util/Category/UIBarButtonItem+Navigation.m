@@ -13,7 +13,7 @@
 +(UIBarButtonItem *)defaultLeftItemWithTarget:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [UIImage imageNamed:@"navi_back"];
+    UIImage *image = [UIImage imageNamed:@"normal_back"];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
