@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     [self updateTitle];
-    _submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(18, SCREEN_HEIGHT - 60, SCREEN_WIDTH - 36, 45)];
+    _submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(18, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - 60, SCREEN_WIDTH - 36, 45)];
     _submitBtn.backgroundColor = HexColor(0x28cfc1);
     _submitBtn.layer.cornerRadius = 5;
     _submitBtn.clipsToBounds = YES;
@@ -41,7 +41,7 @@
     [_submitBtn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_submitBtn];
     
-    _contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, _submitBtn.top - 10 - NAVIGATION_BAR_HEIGHT)];
+    _contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, _submitBtn.top - 10)];
     _contentView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_contentView];
 }

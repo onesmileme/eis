@@ -83,6 +83,7 @@ static const int kTagOfRecord = 178939;
 - (void)recordPressed:(UIButton *)btn {
     NSInteger index = btn.tag - 1000;
     UIViewController *vc = [[EAAddRecordVC alloc] initWithType:index];
+    vc.hidesBottomBarWhenPushed = YES;
     [[EABaseViewController currentNavigationController] pushViewController:vc animated:YES];
     [self close];
 }
