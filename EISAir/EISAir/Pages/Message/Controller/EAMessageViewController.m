@@ -9,6 +9,8 @@
 #import "EAMessageViewController.h"
 #import "EAMessageSlideCollectionViewCell.h"
 #import "EAMessageSlideListViewController.h"
+#import "EAMessageFilterResultViewController.h"
+#import "EAMessageFilterView.h"
 
 #define kSlideSwitchHeight 38
 
@@ -40,13 +42,24 @@
 {    
     // 设置右边的搜索按钮
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *img = [UIImage imageNamed:@"icon_search"];
+    searchButton.frame = CGRectMake(0, 0, 40, 40);
+    UIImage *img = [UIImage imageNamed:@"common_filter"];
     [searchButton setImage:img forState:UIControlStateNormal];
-    [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
+    [searchButton addTarget:self action:@selector(filterAction) forControlEvents:UIControlEventTouchUpInside];
     [searchButton sizeToFit];
     
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc]initWithCustomView:searchButton];
     self.navigationItem.rightBarButtonItem = searchItem;
+    
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButton.frame = CGRectMake(0, 0, 40, 40);
+    img = SYS_IMG(@"common_menu");
+    [menuButton setImage:img forState:UIControlStateNormal];
+    [menuButton sizeToFit];
+    [menuButton addTarget:self action:@selector(menuAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:menuButton];
+    self.navigationItem.leftBarButtonItem = menuItem;
+    
 }
 
 
@@ -61,6 +74,10 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.slideBackgroundColor = [UIColor whiteColor];
     self.slideBottomLineColor = HexColor(0xdddddd);
+ 
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self showFilterResult];
+//    });
     
 }
 
@@ -131,13 +148,26 @@
 //    [self reload];
 }
 
-- (void)searchAction {
-//    FASearchViewController *controller = [[FASearchViewController alloc]init];
-//    controller.searchBlock = ^(FASearchFilterType type){
-//    };
-//    
-//    controller.hidesBottomBarWhenPushed = true;
-//    [self.navigationController pushViewController:controller animated:true];
+
+-(void)menuAction
+{
+    
+}
+
+-(void)filterAction
+{
+    EAMessageFilterView *v = [[EAMessageFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    
+    [self.view.window addSubview:v];
+}
+
+
+-(void)showFilterResult
+{
+    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithNibName:nil bundle:nil];
+    controller.hidesBottomBarWhenPushed = true;
+    
+    [self.navigationController pushViewController:controller animated:true];
 }
 
 

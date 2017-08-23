@@ -28,6 +28,10 @@
 		6E6386C21F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386C11F499A5E00017FB8 /* EAMessageSlideCollectionViewCell.m */; };
 		6E6386C61F49CA1F00017FB8 /* EAMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */; };
 		6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */; };
+		6E6386CB1F4CFD5300017FB8 /* EAMessageFilterResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386CA1F4CFD5300017FB8 /* EAMessageFilterResultViewController.m */; };
+		6E6386D01F4D017E00017FB8 /* EAMessageFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386CF1F4D017E00017FB8 /* EAMessageFilterView.m */; };
+		6E6386D41F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */; };
+		6E6386D51F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -227,6 +231,13 @@
 		6E6386C31F49CA1F00017FB8 /* EAMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageTableViewCell.h; sourceTree = "<group>"; };
 		6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageTableViewCell.m; sourceTree = "<group>"; };
 		6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageTableViewCell.xib; sourceTree = "<group>"; };
+		6E6386C91F4CFD5300017FB8 /* EAMessageFilterResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterResultViewController.h; sourceTree = "<group>"; };
+		6E6386CA1F4CFD5300017FB8 /* EAMessageFilterResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterResultViewController.m; sourceTree = "<group>"; };
+		6E6386CE1F4D017E00017FB8 /* EAMessageFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterView.h; sourceTree = "<group>"; };
+		6E6386CF1F4D017E00017FB8 /* EAMessageFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterView.m; sourceTree = "<group>"; };
+		6E6386D11F4D033500017FB8 /* EAMessageFilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterCollectionViewCell.h; sourceTree = "<group>"; };
+		6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterCollectionViewCell.m; sourceTree = "<group>"; };
+		6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageFilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1276,6 +1287,8 @@
 				6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */,
 				6E6386BD1F49993600017FB8 /* EAMessageSlideListViewController.h */,
 				6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */,
+				6E6386C91F4CFD5300017FB8 /* EAMessageFilterResultViewController.h */,
+				6E6386CA1F4CFD5300017FB8 /* EAMessageFilterResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1295,6 +1308,11 @@
 				6E6386C31F49CA1F00017FB8 /* EAMessageTableViewCell.h */,
 				6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */,
 				6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */,
+				6E6386CE1F4D017E00017FB8 /* EAMessageFilterView.h */,
+				6E6386CF1F4D017E00017FB8 /* EAMessageFilterView.m */,
+				6E6386D11F4D033500017FB8 /* EAMessageFilterCollectionViewCell.h */,
+				6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */,
+				6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1598,6 +1616,7 @@
 				6E68853B1F433C49009AD662 /* Main.storyboard in Resources */,
 				6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
+				6E6386D51F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib in Resources */,
 				6E6887541F4817CC009AD662 /* EALoginViewController.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
@@ -1717,6 +1736,7 @@
 				6E6886581F43C71A009AD662 /* MFMessageComposeViewController+BlocksKit.m in Sources */,
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
 				53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */,
+				6E6386D01F4D017E00017FB8 /* EAMessageFilterView.m in Sources */,
 				6E68865E1F43C71A009AD662 /* UIImagePickerController+BlocksKit.m in Sources */,
 				6E6886611F43C71A009AD662 /* UIView+BlocksKit.m in Sources */,
 				6E6886511F43C71A009AD662 /* A2BlockInvocation.m in Sources */,
@@ -1816,11 +1836,13 @@
 				6E68868C1F43C71A009AD662 /* ZLPhotoAssets.m in Sources */,
 				6E6886901F43C71A009AD662 /* ZLPhotoPickerAssetsViewController.m in Sources */,
 				6E6386A81F481FF400017FB8 /* EASettingViewController.m in Sources */,
+				6E6386CB1F4CFD5300017FB8 /* EAMessageFilterResultViewController.m in Sources */,
 				6E6886441F43C71A009AD662 /* NSIndexSet+BlocksKit.m in Sources */,
 				6E6886451F43C71A009AD662 /* NSInvocation+BlocksKit.m in Sources */,
 				6E6887061F451261009AD662 /* EACrashManager.m in Sources */,
 				6E68868E1F43C71A009AD662 /* ZLPhotoPickerDatas.m in Sources */,
 				6E6887041F451261009AD662 /* FAPayInfoModel.m in Sources */,
+				6E6386D41F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m in Sources */,
 				6E68864C1F43C71A009AD662 /* NSObject+BKBlockExecution.m in Sources */,
 				6E6886811F43C71A009AD662 /* ZLCamera.m in Sources */,
 				6E6887001F451261009AD662 /* TKUserInfo.m in Sources */,
