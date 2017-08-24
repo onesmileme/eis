@@ -22,8 +22,7 @@ typedef enum : NSUInteger {
 - (instancetype)initWithFrame:(CGRect)frame
                          type:(EAInputType)type
                         title:(NSString *)title
-                  placeHolder:(NSString *)placeHolder
-                hasBottomLine:(BOOL)hasBottomLine;
+                  placeHolder:(NSString *)placeHolder;
 
 - (void)setInputKeyboardType:(UIKeyboardType)inputKeyboardType;
 

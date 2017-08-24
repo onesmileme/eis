@@ -36,6 +36,7 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 // line height
 #define LINE_HEIGHT (1.0 / [UIScreen mainScreen].scale)
+#define LINE_COLOR  HexColor(0xececec)
 
 //判断屏幕
 #define Is480Screen (SCREEN_HEIGHT == 480.0)     // iPhone4,4s

@@ -8,6 +8,9 @@
 
 #import "EAInputView.h"
 
+@interface EAInputView () <UITextFieldDelegate, UITextViewDelegate>
+@end
+
 @implementation EAInputView {
     UITextField *_textField;
     UITextView *_textView;
@@ -21,12 +24,12 @@
 - (instancetype)initWithFrame:(CGRect)frame
                          type:(EAInputType)type
                         title:(NSString *)title
-                  placeHolder:(NSString *)placeHolder
-                hasBottomLine:(BOOL)hasBottomLine {
+                  placeHolder:(NSString *)placeHolder {
     self = [super initWithFrame:frame];
     if (self) {
         _type = type;
         
+        self.backgroundColor = [UIColor whiteColor];
         UILabel *titleLabel = TKTemplateLabel2([UIFont systemFontOfSize:15], HexColor(0x666666), title);
         titleLabel.left = 12;
         titleLabel.centerY = self.height * .5;
@@ -35,7 +38,6 @@
         _placeHolderLabel = TKTemplateLabel2(titleLabel.font, HexColor(0xb0b0b0), placeHolder);
         _placeHolderLabel.left = 118;
         _placeHolderLabel.centerY = self.height * .5;
-        [self addSubview:_placeHolderLabel];
         
         if (EAInputTypeChoose == _type) {
             UIImage *image = [UIImage imageNamed:@"add_arrow"];
@@ -48,20 +50,20 @@
             [self addGestureRecognizer:tapGesture];
         }
         
-        if (hasBottomLine) {
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, LINE_HEIGHT)];
-            line.backgroundColor = HexColor(0xececec);
-            [self addSubview:line];
-        }
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - LINE_HEIGHT, self.width, LINE_HEIGHT)];
+        line.backgroundColor = LINE_COLOR;
+        [self addSubview:line];
         
         if (EAInputTypeOneLineInput == _type) {
             [self createField];
         } else if (EAInputTypeMultiLinesInput == _type) {
-            titleLabel.top = 12;
+            titleLabel.top = _placeHolderLabel.top = 12;
             [self createTextView];
         } else {
             [self createValueLabel];
         }
+        
+        [self addSubview:_placeHolderLabel];
     }
     return self;
 }
@@ -70,17 +72,20 @@
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(_placeHolderLabel.left, 0, 0, 18)];
     _textField.textColor = HexColor(0x666666);
     _textField.font = [UIFont systemFontOfSize:15];
-    _textView.width = self.width - _textField.left - 14;
+    _textField.width = self.width - _placeHolderLabel.left - 14;
     _textField.centerY = self.height * .5;
+    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.delegate = self;
     [self addSubview:_textField];
 }
 
 - (void)createTextView {
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(_placeHolderLabel.left, 12, 0, 0)];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(_placeHolderLabel.left, 4, 0, 0)];
     _textView.textColor = HexColor(0x666666);
     _textView.font = [UIFont systemFontOfSize:15];
     _textView.width = self.width - _textView.left - 14;
-    _textView.height = self.height - 24;
+    _textView.height = self.height - 8;
+    _textView.delegate = self;
     [self addSubview:_textView];
 }
 
@@ -113,6 +118,24 @@
         return _textView.text;
     }
     return _valueLabel.text;
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    _placeHolderLabel.hidden = YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    _placeHolderLabel.hidden = textField.text.length > 0;
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    _placeHolderLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    _placeHolderLabel.hidden = textView.text.length > 0;
 }
 
 #pragma mark - Actions
