@@ -141,7 +141,7 @@
 #pragma mark - Actions
 - (void)choose:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateEnded) {
-        !self.chooseBlock ?: self.chooseBlock();
+        !self.chooseBlock ?: self.chooseBlock(self);
     }
 }
 

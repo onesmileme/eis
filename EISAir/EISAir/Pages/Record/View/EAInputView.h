@@ -14,10 +14,13 @@ typedef enum : NSUInteger {
     EAInputTypeChoose,
 } EAInputType;
 
+@class EAInputView;
+typedef void(^EAInputChooseBlock)(EAInputView *view);
+
 @interface EAInputView : UIView
 
 @property (nonatomic, copy) NSString *inputText;
-@property (nonatomic, copy) void (^chooseBlock)(void);
+@property (nonatomic, copy) EAInputChooseBlock chooseBlock;
 
 - (instancetype)initWithFrame:(CGRect)frame
                          type:(EAInputType)type

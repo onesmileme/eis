@@ -25,7 +25,7 @@
     if (self.length != 11) {
         return NO;
     }
-    NSString *phoneRegex = @"^[0-9]{11}$";
+    NSString *phoneRegex = @"^1[0-9]{10}$";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
     return [phoneTest evaluateWithObject:self];
 }

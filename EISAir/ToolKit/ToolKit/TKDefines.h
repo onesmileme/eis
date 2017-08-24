@@ -74,5 +74,21 @@ dispatch_once( &once, ^{ __singleton__ = [[self alloc] init]; } ); \
 return __singleton__; \
 }
 
+// 强弱引用转换，用于解决代码块（block）与强引用对象之间的循环引用问题
+#ifndef weakify
+#if __has_feature(objc_arc)
+#define weakify(object) __weak __typeof__(object) weak##object = object;
+#else
+#define weakify(object) __block __typeof__(object) block##object = object;
+#endif
+#endif
+
+#ifndef strongify
+#if __has_feature(objc_arc)
+#define strongify(object) __typeof__(object) object = weak##object;
+#else
+#define strongify(object) __typeof__(object) object = block##object;
+#endif
+#endif
 
 #endif /* TKDefines_h */
