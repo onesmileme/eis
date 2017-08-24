@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
+		5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8A11F4EC3D000F8E07E /* EAVCView.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -194,6 +195,8 @@
 
 /* Begin PBXFileReference section */
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
+		5330A8A01F4EC3D000F8E07E /* EAVCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVCView.h; sourceTree = "<group>"; };
+		5330A8A11F4EC3D000F8E07E /* EAVCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAVCView.m; sourceTree = "<group>"; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -1094,6 +1097,8 @@
 				6E6886A71F45124B009AD662 /* EABaseViewController.m */,
 				6E6886A81F45124B009AD662 /* EAViewControllerRefresh.h */,
 				53D7D3651F4B4F0F00CC4034 /* EABaseViewController+Stack.m */,
+				5330A8A01F4EC3D000F8E07E /* EAVCView.h */,
+				5330A8A11F4EC3D000F8E07E /* EAVCView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1829,6 +1834,7 @@
 				6E6886D01F45124B009AD662 /* EABaseImageModel.m in Sources */,
 				6E68871F1F451542009AD662 /* UIColor+Theme.m in Sources */,
 				6E6886571F43C71A009AD662 /* MFMailComposeViewController+BlocksKit.m in Sources */,
+				5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */,
 				6E6887531F4817CC009AD662 /* EALoginViewController.m in Sources */,
 				6E6886491F43C71A009AD662 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
 				6E6886711F43C71A009AD662 /* TTTAttributedLabel.m in Sources */,

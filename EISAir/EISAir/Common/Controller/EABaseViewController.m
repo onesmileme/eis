@@ -10,6 +10,7 @@
 #import "UIBarButtonItem+Navigation.h"
 #import "MJRefresh.h"
 //#import "FALogStatistiFAManager.h"
+#import "EAVCView.h"
 
 @interface EABaseViewController ()<UIGestureRecognizerDelegate>
 
@@ -31,6 +32,10 @@
     return self;
 }
 
+- (void)loadView {
+    self.view = [[EAVCView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+}
+
 -(void)awakeFromNib
 {
     [super awakeFromNib];
@@ -50,8 +55,7 @@
     }
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
