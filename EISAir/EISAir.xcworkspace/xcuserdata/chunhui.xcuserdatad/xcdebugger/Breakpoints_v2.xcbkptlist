@@ -17,38 +17,6 @@
             endingLineNumber = "119"
             landmarkName = "-test"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController test]"
-                  moduleName = "EISAir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/ViewController.m"
-                  timestampString = "524917614.086837"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "156">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__22-[ViewController test]_block_invoke"
-                  moduleName = "EISAir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/ViewController.m"
-                  timestampString = "524917614.089282"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "100">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,7 +42,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m"
-                  timestampString = "524917614.09431"
+                  timestampString = "525192319.339455"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "362"
@@ -89,7 +57,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m"
-                  timestampString = "524917614.09602"
+                  timestampString = "525192319.341693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "362"

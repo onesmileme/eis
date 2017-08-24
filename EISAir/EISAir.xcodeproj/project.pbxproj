@@ -32,6 +32,7 @@
 		6E6386D01F4D017E00017FB8 /* EAMessageFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386CF1F4D017E00017FB8 /* EAMessageFilterView.m */; };
 		6E6386D41F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */; };
 		6E6386D51F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */; };
+		6E6386E01F4E532E00017FB8 /* EAMessageFilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -238,6 +239,8 @@
 		6E6386D11F4D033500017FB8 /* EAMessageFilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterCollectionViewCell.h; sourceTree = "<group>"; };
 		6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterCollectionViewCell.m; sourceTree = "<group>"; };
 		6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageFilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		6E6386DE1F4E532E00017FB8 /* EAMessageFilterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterHeaderView.h; sourceTree = "<group>"; };
+		6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterHeaderView.m; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1313,6 +1316,8 @@
 				6E6386D11F4D033500017FB8 /* EAMessageFilterCollectionViewCell.h */,
 				6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */,
 				6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */,
+				6E6386DE1F4E532E00017FB8 /* EAMessageFilterHeaderView.h */,
+				6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1807,6 +1812,7 @@
 				6E6887221F451542009AD662 /* EATools.m in Sources */,
 				6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */,
 				6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */,
+				6E6386E01F4E532E00017FB8 /* EAMessageFilterHeaderView.m in Sources */,
 				6E68871C1F451542009AD662 /* EABrowserTranistion.m in Sources */,
 				6E6886891F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				6E6886DE1F45124B009AD662 /* EASharePanelView.m in Sources */,

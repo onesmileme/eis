@@ -10,4 +10,9 @@
 
 @interface EAMessageFilterView : UIView
 
+@property(nonatomic , copy) void (^confirmBlock)();
+
+-(void)showInView:(UIView *)view ;
+-(void)hide;
+
 @end
