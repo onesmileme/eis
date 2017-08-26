@@ -256,6 +256,13 @@
 		6E415EB41F5171D10078436F /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415DCB1F5171D10078436F /* LBXScanViewController.m */; };
 		6E415EB51F5171D10078436F /* LBXScanViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415DCD1F5171D10078436F /* LBXScanViewStyle.m */; };
 		6E415EBB1F51AF490078436F /* EAMsgSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415EBA1F51AF490078436F /* EAMsgSearchResultViewController.m */; };
+		6E415EC01F51B2980078436F /* EAMsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415EBF1F51B2980078436F /* EAMsgDetailViewController.m */; };
+		6E415EC61F51B2D70078436F /* EAMsgDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415EC41F51B2D70078436F /* EAMsgDetailInfoCell.m */; };
+		6E415EC71F51B2D70078436F /* EAMsgDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415EC51F51B2D70078436F /* EAMsgDetailInfoCell.xib */; };
+		6E415ECB1F51B4F10078436F /* EAMsgStateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415EC91F51B4F10078436F /* EAMsgStateInfoCell.m */; };
+		6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415ECA1F51B4F10078436F /* EAMsgStateInfoCell.xib */; };
+		6E415ECF1F51BB4A0078436F /* EAMsgDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415ECE1F51BB4A0078436F /* EAMsgDetailHeader.m */; };
+		6E415ED21F51BCE70078436F /* EAMessageFilterChooseDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415ED11F51BCE70078436F /* EAMessageFilterChooseDateView.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -949,6 +956,18 @@
 		6E415DCD1F5171D10078436F /* LBXScanViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXScanViewStyle.m; sourceTree = "<group>"; };
 		6E415EB91F51AF490078436F /* EAMsgSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchResultViewController.h; sourceTree = "<group>"; };
 		6E415EBA1F51AF490078436F /* EAMsgSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchResultViewController.m; sourceTree = "<group>"; };
+		6E415EBE1F51B2980078436F /* EAMsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgDetailViewController.h; sourceTree = "<group>"; };
+		6E415EBF1F51B2980078436F /* EAMsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgDetailViewController.m; sourceTree = "<group>"; };
+		6E415EC31F51B2D70078436F /* EAMsgDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgDetailInfoCell.h; sourceTree = "<group>"; };
+		6E415EC41F51B2D70078436F /* EAMsgDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgDetailInfoCell.m; sourceTree = "<group>"; };
+		6E415EC51F51B2D70078436F /* EAMsgDetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMsgDetailInfoCell.xib; sourceTree = "<group>"; };
+		6E415EC81F51B4F10078436F /* EAMsgStateInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgStateInfoCell.h; sourceTree = "<group>"; };
+		6E415EC91F51B4F10078436F /* EAMsgStateInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgStateInfoCell.m; sourceTree = "<group>"; };
+		6E415ECA1F51B4F10078436F /* EAMsgStateInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMsgStateInfoCell.xib; sourceTree = "<group>"; };
+		6E415ECD1F51BB4A0078436F /* EAMsgDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgDetailHeader.h; sourceTree = "<group>"; };
+		6E415ECE1F51BB4A0078436F /* EAMsgDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgDetailHeader.m; sourceTree = "<group>"; };
+		6E415ED01F51BCE70078436F /* EAMessageFilterChooseDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterChooseDateView.h; sourceTree = "<group>"; };
+		6E415ED11F51BCE70078436F /* EAMessageFilterChooseDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterChooseDateView.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2170,6 +2189,47 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		6E415EBC1F51B2890078436F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6E415EC11F51B2AC0078436F /* Model */,
+				6E415EC21F51B2AC0078436F /* View */,
+				6E415EBD1F51B2890078436F /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		6E415EBD1F51B2890078436F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E415EBE1F51B2980078436F /* EAMsgDetailViewController.h */,
+				6E415EBF1F51B2980078436F /* EAMsgDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E415EC11F51B2AC0078436F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E415EC21F51B2AC0078436F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E415EC31F51B2D70078436F /* EAMsgDetailInfoCell.h */,
+				6E415EC41F51B2D70078436F /* EAMsgDetailInfoCell.m */,
+				6E415EC51F51B2D70078436F /* EAMsgDetailInfoCell.xib */,
+				6E415EC81F51B4F10078436F /* EAMsgStateInfoCell.h */,
+				6E415EC91F51B4F10078436F /* EAMsgStateInfoCell.m */,
+				6E415ECA1F51B4F10078436F /* EAMsgStateInfoCell.xib */,
+				6E415ECD1F51BB4A0078436F /* EAMsgDetailHeader.h */,
+				6E415ECE1F51BB4A0078436F /* EAMsgDetailHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E6885241F433C49009AD662 = {
 			isa = PBXGroup;
 			children = (
@@ -2907,6 +2967,7 @@
 		6E6887381F481772009AD662 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				6E415EBC1F51B2890078436F /* Detail */,
 				6E415BC01F51653B0078436F /* Scan */,
 				6E415BA81F514D150078436F /* Search */,
 				6E6887391F481772009AD662 /* Controller */,
@@ -2951,6 +3012,8 @@
 				6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */,
 				6E6386DE1F4E532E00017FB8 /* EAMessageFilterHeaderView.h */,
 				6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */,
+				6E415ED01F51BCE70078436F /* EAMessageFilterChooseDateView.h */,
+				6E415ED11F51BCE70078436F /* EAMessageFilterChooseDateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3244,6 +3307,7 @@
 				6E6886791F43C71A009AD662 /* paizhao.png in Resources */,
 				6E68867C1F43C71A009AD662 /* shanguangdeng@2x.png in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
+				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
 				6E6886751F43C71A009AD662 /* AssetsPickerChecked.png in Resources */,
 				6E6885401F433C49009AD662 /* LaunchScreen.storyboard in Resources */,
@@ -3257,6 +3321,7 @@
 				6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
 				6E6386D51F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib in Resources */,
+				6E415EC71F51B2D70078436F /* EAMsgDetailInfoCell.xib in Resources */,
 				6E415BBC1F5159730078436F /* EAMsgSearchFilterTableViewCell.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
@@ -3377,6 +3442,7 @@
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
 				6E415E2B1F5171D10078436F /* ZXDataMatrixDecoder.m in Sources */,
+				6E415ED21F51BCE70078436F /* EAMessageFilterChooseDateView.m in Sources */,
 				6E6886581F43C71A009AD662 /* MFMessageComposeViewController+BlocksKit.m in Sources */,
 				6E415E231F5171D10078436F /* ZXLuminanceSource.m in Sources */,
 				6E6386E51F506B2200017FB8 /* EAOauthModel.m in Sources */,
@@ -3391,6 +3457,7 @@
 				6E415E0C1F5171D10078436F /* ZXBitArray.m in Sources */,
 				6E6386D01F4D017E00017FB8 /* EAMessageFilterView.m in Sources */,
 				6E415E661F5171D10078436F /* ZXEAN13Reader.m in Sources */,
+				6E415ECF1F51BB4A0078436F /* EAMsgDetailHeader.m in Sources */,
 				6E415E061F5171D10078436F /* ZXMonochromeRectangleDetector.m in Sources */,
 				6E68865E1F43C71A009AD662 /* UIImagePickerController+BlocksKit.m in Sources */,
 				6E6886611F43C71A009AD662 /* UIView+BlocksKit.m in Sources */,
@@ -3408,6 +3475,7 @@
 				6E415E7E1F5171D10078436F /* ZXPDF417BoundingBox.m in Sources */,
 				6E415DE91F5171D10078436F /* ZXExpandedProductResultParser.m in Sources */,
 				6E6887211F451542009AD662 /* UIViewController+InputLimit.m in Sources */,
+				6E415EC61F51B2D70078436F /* EAMsgDetailInfoCell.m in Sources */,
 				6E415E3C1F5171D10078436F /* ZXMaxiCodeBitMatrixParser.m in Sources */,
 				6E68871D1F451542009AD662 /* EABrowserTransitionDelegate.m in Sources */,
 				6E415E741F5171D10078436F /* ZXUPCEANExtension5Support.m in Sources */,
@@ -3589,6 +3657,7 @@
 				6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */,
 				6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */,
 				6E415E821F5171D10078436F /* ZXPDF417DetectionResult.m in Sources */,
+				6E415EC01F51B2980078436F /* EAMsgDetailViewController.m in Sources */,
 				6E415E391F5171D10078436F /* ZXDataMatrixX12Encoder.m in Sources */,
 				6E6386E01F4E532E00017FB8 /* EAMessageFilterHeaderView.m in Sources */,
 				6E415E561F5171D10078436F /* ZXRSSExpandedPair.m in Sources */,
@@ -3729,6 +3798,7 @@
 				6E415E2C1F5171D10078436F /* ZXDataMatrixVersion.m in Sources */,
 				6E415E5F1F5171D10078436F /* ZXCodaBarReader.m in Sources */,
 				6E415E221F5171D10078436F /* ZXInvertedLuminanceSource.m in Sources */,
+				6E415ECB1F51B4F10078436F /* EAMsgStateInfoCell.m in Sources */,
 				6E6886561F43C71A009AD662 /* NSObject+A2DynamicDelegate.m in Sources */,
 				6E415E381F5171D10078436F /* ZXDataMatrixTextEncoder.m in Sources */,
 				6E415E201F5171D10078436F /* ZXEncodeHints.m in Sources */,
