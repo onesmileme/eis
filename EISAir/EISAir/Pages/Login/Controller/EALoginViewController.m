@@ -32,6 +32,12 @@
     self.passwordField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"密码" attributes:attr];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:true animated:true];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,9 +93,8 @@
 -(IBAction)forgetPasswordAction:(id)sender
 {
     EAFindPassordViewController *controller = [[EAFindPassordViewController alloc]initWithNibName:@"EAFindPassordViewController" bundle:nil];
-    [self presentViewController:controller animated:true completion:^{
-        
-    }];
+//    [self.navigationController pushViewController:controller animated:true];
+    [self presentViewController:controller animated:true completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

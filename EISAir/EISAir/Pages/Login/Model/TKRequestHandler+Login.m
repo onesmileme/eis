@@ -13,7 +13,7 @@
 
 -(NSURLSessionDataTask *)loginWithUserName:(NSString *)username password:(NSString *)password completion:(void(^)(NSURLSessionDataTask *task , EAOauthModel *model , NSError * error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",[EANetworkManager loginAppHost]];
     NSDictionary *param = @{@"username":username,@"password":password,@"grant_type":@"password",@"prod":@"EIS"};
     return [[TKRequestHandler sharedInstance]postRequestForPath:path param:param jsonName:@"EAOauthModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (error) {

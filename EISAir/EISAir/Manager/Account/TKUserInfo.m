@@ -10,6 +10,11 @@
 
 @implementation TKUserInfo
 
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
 //-(NSString *)avatar
 //{
 //    if (_avatar) {

@@ -23,10 +23,6 @@
 //@property(nonatomic , strong) NSString *role;
 @property (nonatomic, assign) BOOL needBind;
 
-//@property(nonatomic , strong) NSNumber *followNum;
-//@property(nonatomic , strong) NSNumber *fansNum;
-//@property(nonatomic , strong) NSNumber *followType;
-
 @property (nonatomic, copy , nullable) NSString *accessToken;
 @property (nonatomic, copy , nullable) NSString *tokenType;
 @property (nonatomic, copy , nullable) NSString *expiresIn;

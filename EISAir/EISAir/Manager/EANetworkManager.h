@@ -21,6 +21,9 @@ DEF_SINGLETON;
  */
 +(NSString *)appHost;
 
+
++(NSString *)loginAppHost;
+
 /**
  *  设备cuid
  *

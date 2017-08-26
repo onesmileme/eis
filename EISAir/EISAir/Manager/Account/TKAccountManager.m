@@ -15,7 +15,7 @@
 
 @interface TKAccountManager ()
 
-@property(nonatomic , strong) TKWexinUserAuthoInfo *authInfo;
+//@property(nonatomic , strong) TKWexinUserAuthoInfo *authInfo;
 
 
 @end
@@ -60,14 +60,6 @@
         self.userInfo = [[TKUserInfo alloc]init];
     }
     
-    path = [self authPath];
-    if ([fm fileExistsAtPath:path]) {
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        
-//        NSString *content = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        
-        self.authInfo = [[TKWexinUserAuthoInfo alloc]initWithData:data error:nil];
-    }
 }
 
 - (BOOL)isLogin {
@@ -99,12 +91,14 @@
 
 - (void)save {
     
-    if (self.authInfo) {
-        NSData *data = [self.authInfo toJSONData];
-        [data writeToFile:[self authPath] atomically:YES];
-    }
+//    if (self.authInfo) {
+//        NSData *data = [self.authInfo toJSONData];
+//        [data writeToFile:[self authPath] atomically:YES];
+//    }
     
     if (self.userInfo) {
+        NSLog(@"user info is: \n%@\n\n",[self.userInfo toJSONString]);
+        
         NSData *data = [self.userInfo toJSONData];
         [data writeToFile:[self userinfoPath] atomically:YES];
 
@@ -119,7 +113,7 @@
     [fm removeItemAtPath:path error:nil];
     [fm removeItemAtPath:[self userinfoPath] error:nil];
     
-    self.authInfo = nil;
+//    self.authInfo = nil;
     //clear user info
     self.userInfo = [[TKUserInfo alloc]init];
     

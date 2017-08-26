@@ -118,15 +118,15 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/uas/open/users/getInfo",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
-    NSDictionary *param = @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
+    NSDictionary *param = nil;//@{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
     
 //    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
 //    [handler setAuthorizationHeaderFieldWithUsername:@"lisi" password:@"123456"];
         
     
-    [[TKRequestHandler sharedInstance]postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {        
+    [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
         }

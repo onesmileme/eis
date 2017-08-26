@@ -63,8 +63,13 @@ IMP_SINGLETON
 
         
         if ([[TKAccountManager sharedInstance] isLogin]) {
+            
             TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
-            [handler setValue:[NSString stringWithFormat:@"%@ %@",userinfo.tokenType,userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+            
+//                NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
+            
+            
+            [handler setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
         }else{
             [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
         }
@@ -87,11 +92,15 @@ IMP_SINGLETON
 
 +(NSString *)appHost
 {
-    return @"http://218.247.171.92:9002";
-//    return @"http://218.247.171.92:8090";
+    
+    return @"http://218.247.171.92:8090";
 //    return [[FAConfigManager sharedInstance]host];
 }
 
++(NSString *)loginAppHost
+{
+  return @"http://218.247.171.92:9002";
+}
 
 -(NSDictionary *)baseParam
 {
