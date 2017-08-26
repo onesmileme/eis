@@ -8,6 +8,7 @@
 #import "TKCommonTools.h"
 #import "EATools.h"
 //#import "EAConfigManager.h"
+#import "EANetworkManager.h"
 
 #import <Masonry/Masonry.h>
 

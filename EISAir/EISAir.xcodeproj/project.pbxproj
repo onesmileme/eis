@@ -36,6 +36,8 @@
 		6E6386D41F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386D21F4D033500017FB8 /* EAMessageFilterCollectionViewCell.m */; };
 		6E6386D51F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */; };
 		6E6386E01F4E532E00017FB8 /* EAMessageFilterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */; };
+		6E6386E51F506B2200017FB8 /* EAOauthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386E41F506B2200017FB8 /* EAOauthModel.m */; };
+		6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386E71F506C0500017FB8 /* TKRequestHandler+Login.m */; };
 		6E6885321F433C49009AD662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885311F433C49009AD662 /* main.m */; };
 		6E6885351F433C49009AD662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885341F433C49009AD662 /* AppDelegate.m */; };
 		6E6885381F433C49009AD662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6885371F433C49009AD662 /* ViewController.m */; };
@@ -250,6 +252,10 @@
 		6E6386D31F4D033500017FB8 /* EAMessageFilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageFilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		6E6386DE1F4E532E00017FB8 /* EAMessageFilterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageFilterHeaderView.h; sourceTree = "<group>"; };
 		6E6386DF1F4E532E00017FB8 /* EAMessageFilterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageFilterHeaderView.m; sourceTree = "<group>"; };
+		6E6386E31F506B2200017FB8 /* EAOauthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAOauthModel.h; sourceTree = "<group>"; };
+		6E6386E41F506B2200017FB8 /* EAOauthModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAOauthModel.m; sourceTree = "<group>"; };
+		6E6386E61F506C0500017FB8 /* TKRequestHandler+Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Login.h"; sourceTree = "<group>"; };
+		6E6386E71F506C0500017FB8 /* TKRequestHandler+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Login.m"; sourceTree = "<group>"; };
 		6E68852D1F433C49009AD662 /* EISAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EISAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6885311F433C49009AD662 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E6885331F433C49009AD662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1289,6 +1295,10 @@
 		6E6887361F481772009AD662 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E6386E31F506B2200017FB8 /* EAOauthModel.h */,
+				6E6386E41F506B2200017FB8 /* EAOauthModel.m */,
+				6E6386E61F506C0500017FB8 /* TKRequestHandler+Login.h */,
+				6E6386E71F506C0500017FB8 /* TKRequestHandler+Login.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1769,7 +1779,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
+				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
 				6E6886581F43C71A009AD662 /* MFMessageComposeViewController+BlocksKit.m in Sources */,
+				6E6386E51F506B2200017FB8 /* EAOauthModel.m in Sources */,
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
 				53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */,
 				6E6386D01F4D017E00017FB8 /* EAMessageFilterView.m in Sources */,

@@ -11,6 +11,7 @@
 #import "EANetworkManager.h"
 #import "ViewController.h"
 #import "EALoginViewController.h"
+#import "TKAccountManager.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +39,12 @@
     self.window.rootViewController = navController;
     
 //    [self checkShowGuide];
-//    [self showLogin];
+    if (![[TKAccountManager sharedInstance] isLogin]) {
+        [self showLogin];
+    }
+    
+    [NotificationCenter addObserver:self selector:@selector(loginDoneNotification:) name:kLoginDoneNotification object:nil];
+    [NotificationCenter addObserver:self selector:@selector(logoutNotification:) name:kLogoutNotification object:nil];
     
     return YES;
 }
@@ -75,6 +81,17 @@
     EALoginViewController *controller = [[EALoginViewController alloc]initWithNibName:@"EALoginViewController" bundle:nil];
     
     self.window.rootViewController = controller;
+}
+
+-(void)loginDoneNotification:(NSNotification *)notification
+{
+    self.window.rootViewController = self.mainController;
+    [self.mainController reloadAll];
+}
+
+-(void)logoutNotification:(NSNotification *)notification
+{
+    [self showLogin];
 }
 
 #if 0

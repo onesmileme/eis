@@ -72,7 +72,7 @@
 
 - (BOOL)isLogin {
     
-    return self.userInfo.username.length > 0 && self.userInfo.password.length > 0;
+    return self.userInfo.accessToken.length > 0 && self.userInfo.tokenType.length > 0;
 }
 
 - (NSString *)uid

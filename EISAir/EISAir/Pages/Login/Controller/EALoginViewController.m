@@ -8,6 +8,8 @@
 
 #import "EALoginViewController.h"
 #import "EAFindPassordViewController.h"
+#import "TKRequestHandler+Login.h"
+#import "TKAccountManager.h"
 
 @interface  EALoginViewController ()<UITextFieldDelegate>
 
@@ -43,6 +45,43 @@
 
 -(IBAction)loginAction:(id)sender
 {
+    if (_nameField.text.length == 0) {
+        [EATools showToast:@"请输入用户名"];
+        return;
+    }
+    if (_passwordField.text.length == 0) {
+        [EATools showToast:@"请输入密码"];
+        return;
+    }
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    NSString *name = _nameField.text;
+    [[TKRequestHandler sharedInstance]loginWithUserName:name password:_passwordField.text completion:^(NSURLSessionDataTask *task, EAOauthModel *model, NSError *error) {
+        if (error || model == nil) {
+            hud.label.text = @"请求失败";
+            [hud hideAnimated:true afterDelay:0.7];
+            return ;
+        }
+        
+        if (model.errorDescription.length > 0) {
+            hud.label.text = model.errorDescription;
+            [hud hideAnimated:true afterDelay:0.7];
+            return;
+        }
+        
+        TKUserInfo *userInfo = [TKAccountManager sharedInstance].userInfo;
+        userInfo.username = name;
+        
+        userInfo.accessToken = model.accessToken;
+        userInfo.tokenType = model.tokenType;
+        userInfo.expiresIn = model.expiresIn;
+        userInfo.refreshToken = model.refreshToken;
+        
+        [[TKAccountManager sharedInstance] save];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil];
+        
+        [hud hideAnimated:true];
+    }];
     
 }
 

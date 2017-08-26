@@ -22,6 +22,8 @@
 #import "EANetworkManager.h"
 
 @interface ViewController ()<UITabBarControllerDelegate,UIGestureRecognizerDelegate>
+
+
 @end
 
 @implementation ViewController
@@ -78,6 +80,11 @@
     [self.navigationController setNavigationBarHidden:true animated:true];
 }
 
+-(void)reloadAll
+{
+    
+}
+
 -(void)showAddRecord
 {
     [EAAddRecordView show];
@@ -111,10 +118,15 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/eis/open/constants/findHomeConfTypeList",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
+    NSDictionary *param = @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
     
-    [[TKRequestHandler sharedInstance] getRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+//    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
+//    [handler setAuthorizationHeaderFieldWithUsername:@"lisi" password:@"123456"];
+        
+    
+    [[TKRequestHandler sharedInstance]postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {        
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
         }

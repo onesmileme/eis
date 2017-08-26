@@ -64,7 +64,9 @@ IMP_SINGLETON
         
         if ([[TKAccountManager sharedInstance] isLogin]) {
             TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
-            [handler setValue:[NSString stringWithFormat:@"Bearer %@",userinfo.token] forHTTPHeaderField:@"Authorization"];
+            [handler setValue:[NSString stringWithFormat:@"%@ %@",userinfo.tokenType,userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+        }else{
+            [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
         }
         
 //        [self fetchUUID];
@@ -75,6 +77,8 @@ IMP_SINGLETON
         
         NSString *notificatioName = kTKNetworkChangeNotification;
         [NotificationCenter addObserver:self selector:@selector(networkChangeNotification:) name:notificatioName object:nil];
+        [NotificationCenter addObserver:self selector:@selector(loginDoneNotification:) name:kLoginDoneNotification object:nil];
+        [NotificationCenter addObserver:self selector:@selector(logoutNotification:) name:kLogoutNotification object:nil];
         
     }
     return self;
@@ -83,7 +87,8 @@ IMP_SINGLETON
 
 +(NSString *)appHost
 {
-    return @"http://218.247.171.92:8090";
+    return @"http://218.247.171.92:9002";
+//    return @"http://218.247.171.92:8090";
 //    return [[FAConfigManager sharedInstance]host];
 }
 
@@ -117,6 +122,20 @@ IMP_SINGLETON
         param[@"token"] = token;
     }
     return param;
+}
+
+#pragma mark - login
+-(void)loginDoneNotification:(NSNotification *)notification
+{
+    TKUserInfo *userinfo = [[TKAccountManager sharedInstance]userInfo];
+    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
+    [handler setValue:[NSString stringWithFormat:@"%@ %@",userinfo.tokenType,userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+}
+
+-(void)logoutNotification:(NSNotification *)notification
+{
+    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
+    [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
 }
 
 #pragma mark - request handler

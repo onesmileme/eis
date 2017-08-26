@@ -14,18 +14,25 @@
 
 @interface TKUserInfo : JSONModel
 
-@property(nonatomic , strong) NSString *username;
-@property(nonatomic , strong) NSString *password;
-@property(nonatomic , strong) NSString *uid;   //系统分配用户uid
-@property(nonatomic , strong) NSString *token;   //系统分配用户token
-@property(nonatomic , strong) NSString *avatar; //自定义头像
-@property(nonatomic , strong) NSString *userNickName; //自定义的昵称
-@property(nonatomic , strong) NSString *role;
+@property(nonatomic , strong,nullable) NSString * username;
+@property(nonatomic , strong,nullable) NSString *password;
+@property(nonatomic , strong,nullable) NSString *uid;   //系统分配用户uid
+//@property(nonatomic , strong) NSString *token;   //系统分配用户token
+@property(nonatomic , strong,nullable) NSString *avatar; //自定义头像
+//@property(nonatomic , strong) NSString *userNickName; //自定义的昵称
+//@property(nonatomic , strong) NSString *role;
 @property (nonatomic, assign) BOOL needBind;
 
-@property(nonatomic , strong) NSNumber *followNum;
-@property(nonatomic , strong) NSNumber *fansNum;
-@property(nonatomic , strong) NSNumber *followType;
+//@property(nonatomic , strong) NSNumber *followNum;
+//@property(nonatomic , strong) NSNumber *fansNum;
+//@property(nonatomic , strong) NSNumber *followType;
+
+@property (nonatomic, copy , nullable) NSString *accessToken;
+@property (nonatomic, copy , nullable) NSString *tokenType;
+@property (nonatomic, copy , nullable) NSString *expiresIn;
+@property (nonatomic, copy , nullable) NSString *refreshToken;
+@property (nonatomic, copy , nullable) NSString *scope;
+
 
 
 @end
