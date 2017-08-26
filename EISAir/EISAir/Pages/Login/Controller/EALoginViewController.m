@@ -30,7 +30,6 @@
     NSDictionary *attr = @{NSFontAttributeName:SYS_FONT(16),NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.nameField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"用户名" attributes:attr];
     self.passwordField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"密码" attributes:attr];
-    
 }
 
 - (void)didReceiveMemoryWarning {

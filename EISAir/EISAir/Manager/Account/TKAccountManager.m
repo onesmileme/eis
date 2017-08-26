@@ -82,7 +82,7 @@
 
 - (NSString *)myName
 {
-    return self.userInfo.userNickName;
+    return self.userInfo.username;
 
 }
 

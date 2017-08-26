@@ -108,19 +108,19 @@ IMP_SINGLETON
 -(NSDictionary *)extraParam
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-    [param addEntriesFromDictionary:_extraInfo];
-    TKUserInfo *userinfo = [[TKAccountManager sharedInstance]userInfo];
-    NSString *uid = userinfo.uid;
-    if (uid && ![uid isKindOfClass:[NSString class]]) {
-        uid = [NSString stringWithFormat:@"%@",uid];
-    }
-    if (uid.length > 0) {
-        param[@"uid"] = uid;
-    }
-    NSString *token = userinfo.token;
-    if (token.length > 0) {
-        param[@"token"] = token;
-    }
+//    [param addEntriesFromDictionary:_extraInfo];
+//    TKUserInfo *userinfo = [[TKAccountManager sharedInstance]userInfo];
+//    NSString *uid = userinfo.uid;
+//    if (uid && ![uid isKindOfClass:[NSString class]]) {
+//        uid = [NSString stringWithFormat:@"%@",uid];
+//    }
+//    if (uid.length > 0) {
+//        param[@"uid"] = uid;
+//    }
+//    NSString *token = userinfo.accessToken;
+//    if (token.length > 0) {
+//        param[@"token"] = token;
+//    }
     return param;
 }
 

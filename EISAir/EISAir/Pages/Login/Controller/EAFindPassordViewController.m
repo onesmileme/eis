@@ -8,6 +8,7 @@
 
 #import "EAFindPassordViewController.h"
 #import "EALoginCountdownView.h"
+#import "TKRequestHandler+Login.h"
 
 @interface EAFindPassordViewController ()<UITextFieldDelegate>
 
@@ -87,6 +88,11 @@
 -(IBAction)sendAction:(id)sender
 {
     [self startCountDown];
+    
+    [[TKRequestHandler sharedInstance]sendMessageCompletion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
+        
+    }];
+    
 }
 
 -(IBAction)confirmAction:(id)sender

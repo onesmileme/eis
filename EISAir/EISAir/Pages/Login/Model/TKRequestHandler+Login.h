@@ -13,4 +13,6 @@
 
 -(NSURLSessionDataTask *)loginWithUserName:(NSString *)username password:(NSString *)password completion:(void(^)(NSURLSessionDataTask *task , EAOauthModel *model , NSError * error))completion;
 
+-(NSURLSessionDataTask *)sendMessageCompletion:(void(^)(NSURLSessionDataTask *task , NSDictionary *model , NSError * error))completion;
+
 @end
