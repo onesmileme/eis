@@ -33,7 +33,12 @@
 }
 
 - (void)loadView {
-    self.view = [[EAVCView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    if (self.nibName.length == 0) {
+        self.view = [[EAVCView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    }else{
+        [super loadView];
+    }
+
 }
 
 -(void)awakeFromNib
