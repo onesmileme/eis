@@ -120,11 +120,22 @@
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
     
+    BOOL showIndicator = true;
+    
     EAMessageFilterHeaderView *headView = (EAMessageFilterHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                             withReuseIdentifier:@"UICollectionViewHeader"
                                                                                    forIndexPath:indexPath];
     headView.backgroundColor = [UIColor whiteColor];
-    [headView updateTitle:@"通知标签" showTopLine:indexPath.section != 0];
+    [headView updateTitle:@"通知标签" showTopLine:indexPath.section != 0 showIndicator:showIndicator];
+    if (showIndicator) {
+        __weak typeof(self) wself = self;
+        NSInteger section = indexPath.section;
+        headView.tapBlock = ^(EAMessageFilterHeaderView *header) {
+            if (wself.tapHeadBlock) {
+                wself.tapHeadBlock(self, section);
+            }
+        };
+    }
     
     return headView;
 }

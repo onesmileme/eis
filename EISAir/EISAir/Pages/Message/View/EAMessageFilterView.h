@@ -11,6 +11,7 @@
 @interface EAMessageFilterView : UIView
 
 @property(nonatomic , copy) void (^confirmBlock)();
+@property(nonatomic , copy) void (^tapHeadBlock)(EAMessageFilterView *filterView ,NSInteger section);
 
 -(void)showInView:(UIView *)view ;
 -(void)hide;

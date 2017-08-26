@@ -25,6 +25,8 @@
 //是否进行页面时长统计
 @property (nonatomic, assign) BOOL pagedurationLog;
 
++(instancetype)nibController;
+
 /**
  *  点击导航栏返回是调用的方法
 */

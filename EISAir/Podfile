@@ -19,6 +19,7 @@ target 'EISAir' do
   pod 'Masonry'
   #pod 'Realm'
   pod 'Bugly'
+  pod 'ZBarSDK'
   target 'EISAirTests' do
     inherit! :search_paths
     # Pods for testing

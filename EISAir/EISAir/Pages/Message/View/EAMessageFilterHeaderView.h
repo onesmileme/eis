@@ -10,7 +10,9 @@
 
 @interface EAMessageFilterHeaderView : UICollectionReusableView
 
--(void)updateTitle:(NSString *)title showTopLine:(BOOL)showTopline;
+@property(nonatomic , copy) void (^tapBlock)(EAMessageFilterHeaderView *header);
+
+-(void)updateTitle:(NSString *)title showTopLine:(BOOL)showTopline showIndicator:(BOOL)showIndicator;
 
 
 @end

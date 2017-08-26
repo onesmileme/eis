@@ -13,6 +13,9 @@
 @property(nonatomic , strong) UIView *topLine;
 @property(nonatomic , strong) UILabel *titleLabel;
 
+@property(nonatomic , strong) UIImageView *indicatorImageView;
+@property(nonatomic , strong) UITapGestureRecognizer *gestureRecognizer;
+
 @end
 
 @implementation EAMessageFilterHeaderView
@@ -38,11 +41,48 @@
     return _topLine;
 }
 
--(void)updateTitle:(NSString *)title showTopLine:(BOOL)showTopline
+-(UIImageView *)indicatorImageView
+{
+    if (!_indicatorImageView) {
+        _indicatorImageView = [[UIImageView alloc]initWithImage:SYS_IMG(@"icon_arrow_r")];
+        [self addSubview:_indicatorImageView];
+    }
+    return _indicatorImageView;
+}
+
+-(UITapGestureRecognizer *)gestureRecognizer
+{
+    if (!_gestureRecognizer) {
+        _gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapAction:)];
+        [self addGestureRecognizer:_gestureRecognizer];
+    }
+    return _gestureRecognizer;
+}
+
+-(void)onTapAction:(UITapGestureRecognizer *)gesture
+{
+    if (_tapBlock) {
+        CGPoint location = [gesture locationInView:self];
+        CGRect bound = CGRectMake(_titleLabel.left, _titleLabel.top, self.width, _titleLabel.height);
+        if (CGRectContainsPoint(bound, location)) {
+            _tapBlock(self);
+        }
+    }
+}
+
+-(void)updateTitle:(NSString *)title showTopLine:(BOOL)showTopline showIndicator:(BOOL)showIndicator
 {
     self.titleLabel.text = title;
     [_titleLabel sizeToFit];
     self.topLine.hidden = !showTopline;
+    
+    if (showIndicator) {
+        self.indicatorImageView.hidden = false;
+        self.gestureRecognizer.enabled = true;
+    }else{
+        self.indicatorImageView.hidden = true;
+        _gestureRecognizer.enabled = false;
+    }
 }
 
 -(void)layoutSubviews
@@ -51,6 +91,8 @@
     _titleLabel.left = 16;
     _titleLabel.bottom = self.height - 2;
     _topLine.width = self.width;
+    _indicatorImageView.right = self.width - 8;
+    _indicatorImageView.centerY = _titleLabel.centerY;
 }
 
 @end

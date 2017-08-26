@@ -15,11 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bugly (2.4.8)
-  - CocoaLumberjack (3.2.0):
-    - CocoaLumberjack/Default (= 3.2.0)
-    - CocoaLumberjack/Extensions (= 3.2.0)
-  - CocoaLumberjack/Default (3.2.0)
-  - CocoaLumberjack/Extensions (3.2.0):
+  - CocoaLumberjack (3.2.1):
+    - CocoaLumberjack/Default (= 3.2.1)
+    - CocoaLumberjack/Extensions (= 3.2.1)
+  - CocoaLumberjack/Default (3.2.1)
+  - CocoaLumberjack/Extensions (3.2.1):
     - CocoaLumberjack/Default
   - JSONModel (1.7.0)
   - Masonry (1.0.2)
@@ -35,6 +35,7 @@ PODS:
   - SZTextView (1.3.0)
   - TPKeyboardAvoiding (1.3.1)
   - WebViewJavascriptBridge (6.0.2)
+  - ZBarSDK (1.3.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -48,11 +49,12 @@ DEPENDENCIES:
   - SZTextView
   - TPKeyboardAvoiding
   - WebViewJavascriptBridge
+  - ZBarSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: da3c02408c14838d498429320545a8e439392978
-  CocoaLumberjack: 9b4aed7073d242f29cc2f62068d995faf67f703a
+  CocoaLumberjack: 2800c03334042fe80589423c8d80e582dcaec482
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -61,7 +63,8 @@ SPEC CHECKSUMS:
   SZTextView: 094dc6acc9beec537685c545d6e3e0d4975174e1
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 2fc7676f876f59b49434694a6142776a66046c07
+PODFILE CHECKSUM: 487fb359e037ed177f29647af0ee3b7c3fd36056
 
 COCOAPODS: 1.2.0

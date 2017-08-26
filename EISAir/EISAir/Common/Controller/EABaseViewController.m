@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 //#import "FALogStatistiFAManager.h"
 #import "EAVCView.h"
+#import "UINavigationItem+margin.h"
 
 @interface EABaseViewController ()<UIGestureRecognizerDelegate>
 
@@ -19,6 +20,12 @@
 @end
 
 @implementation EABaseViewController
+
++(instancetype)nibController
+{
+    NSString *name = NSStringFromClass(self);
+    return  [[self alloc]initWithNibName:name bundle:nil];
+}
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,7 +76,7 @@
 {
     UIBarButtonItem *backItem = [UIBarButtonItem defaultLeftItemWithTarget:self action:@selector(backAction)];
     
-    self.navigationItem.leftBarButtonItem = backItem;
+    [self.navigationItem setMarginLeftBarButtonItem:backItem];
 }
 - (void)addRightButtonWithTitle:(NSString *)title {
     UIFont *font = [UIFont systemFontOfSize:15];

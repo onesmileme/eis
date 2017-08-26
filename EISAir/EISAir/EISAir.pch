@@ -12,4 +12,9 @@
 
 #import <Masonry/Masonry.h>
 
+#define LBXScan_Define_UI
+#define LBXScan_Define_Native
+#define LBXScan_Define_ZBar
+
+
 #endif
