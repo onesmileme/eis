@@ -1,5 +1,5 @@
 //
-//  EAMessageSearchViewController.h
+//  EASearchViewController.h
 //  EISAir
 //
 //  Created by chunhui on 2017/8/26.
@@ -8,6 +8,6 @@
 
 #import "EABaseTableViewController.h"
 
-@interface EAMessageSearchViewController : EABaseTableViewController
+@interface EASearchViewController : EABaseTableViewController
 
 @end

@@ -1,14 +1,14 @@
 //
-//  EAMessageFilterHeaderView.m
+//  EAFilterHeaderView.m
 //  EISAir
 //
 //  Created by chunhui on 2017/8/23.
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EAMessageFilterHeaderView.h"
+#import "EAFilterHeaderView.h"
 
-@interface EAMessageFilterHeaderView()
+@interface EAFilterHeaderView()
 
 @property(nonatomic , strong) UIView *topLine;
 @property(nonatomic , strong) UILabel *titleLabel;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation EAMessageFilterHeaderView
+@implementation EAFilterHeaderView
 
 -(UILabel *)titleLabel
 {

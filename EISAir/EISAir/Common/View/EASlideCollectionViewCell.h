@@ -10,4 +10,8 @@
 
 @interface EASlideCollectionViewCell : TKSwitchSlideItemCollectionViewCell
 
+@property(nonatomic ,strong,readonly) UIView *bottomBar;
+
+-(void)customItem;
+
 @end

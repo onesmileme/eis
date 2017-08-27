@@ -1,23 +1,23 @@
 //
-//  EAMessageSearchViewController.m
+//  EASearchViewController.m
 //  EISAir
 //
 //  Created by chunhui on 2017/8/26.
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EAMessageSearchViewController.h"
+#import "EASearchViewController.h"
 #import "EAMessageSearchFilterView.h"
 #import "EAScanViewController.h"
 
-@interface EAMessageSearchViewController ()
+@interface EASearchViewController ()
 
 @property(nonatomic , strong) UITextField *searchBar;
 @property(nonatomic , strong) EAMessageSearchFilterView *filterView;
 
 @end
 
-@implementation EAMessageSearchViewController
+@implementation EASearchViewController
 
 
 -(void)initNavbar

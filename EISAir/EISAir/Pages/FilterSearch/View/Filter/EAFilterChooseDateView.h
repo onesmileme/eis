@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EAMessageFilterChooseDateView : UIView
+@interface EAFilterChooseDateView : UIView
 
 @property(nonatomic , strong) UITextField *fromDateField;
 @property(nonatomic , strong) UITextField *toDateField;

@@ -6,16 +6,16 @@
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EAMessageFilterChooseDateView.h"
+#import "EAFilterChooseDateView.h"
 #import "TKCommonTools.h"
 
-@interface EAMessageFilterChooseDateView ()
+@interface EAFilterChooseDateView ()
 
 @property(nonatomic , strong)UIView *splitLine;
 
 @end
 
-@implementation EAMessageFilterChooseDateView
+@implementation EAFilterChooseDateView
 
 -(instancetype)initWithFrame:(CGRect)frame
 {

@@ -1,22 +1,22 @@
 //
-//  EAMessageFilterView.m
+//  EAFilterView.m
 //  EISAir
 //
 //  Created by chunhui on 2017/8/23.
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EAMessageFilterView.h"
-#import "EAMessageFilterCollectionViewCell.h"
-#import "EAMessageFilterHeaderView.h"
+#import "EAFilterView.h"
+#import "EAFilterCollectionViewCell.h"
+#import "EAFilterHeaderView.h"
 
-@interface EAMessageFilterView ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface EAFilterView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic , strong) UICollectionView *collectionView;
 
 @end
 
-@implementation EAMessageFilterView
+@implementation EAFilterView
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -37,10 +37,10 @@
         _collectionView = [[UICollectionView alloc]initWithFrame:f collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        UINib *nib = [UINib nibWithNibName:@"EAMessageFilterCollectionViewCell" bundle:nil];
+        UINib *nib = [UINib nibWithNibName:@"EAFilterCollectionViewCell" bundle:nil];
         [_collectionView registerNib:nib forCellWithReuseIdentifier:@"cellid"];
         
-        [self.collectionView registerClass:[EAMessageFilterHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionViewHeader"];
+        [self.collectionView registerClass:[EAFilterHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionViewHeader"];
         
         _collectionView.allowsMultipleSelection = true;
         [self addSubview:_collectionView];
@@ -105,7 +105,7 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    EAMessageFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
+    EAFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
     cell.titleLabel.text = @"标签标签";
     
     return cell;
@@ -122,7 +122,7 @@
     
     BOOL showIndicator = true;
     
-    EAMessageFilterHeaderView *headView = (EAMessageFilterHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    EAFilterHeaderView *headView = (EAFilterHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                             withReuseIdentifier:@"UICollectionViewHeader"
                                                                                    forIndexPath:indexPath];
     headView.backgroundColor = [UIColor whiteColor];
@@ -130,7 +130,7 @@
     if (showIndicator) {
         __weak typeof(self) wself = self;
         NSInteger section = indexPath.section;
-        headView.tapBlock = ^(EAMessageFilterHeaderView *header) {
+        headView.tapBlock = ^(EAFilterHeaderView *header) {
             if (wself.tapHeadBlock) {
                 wself.tapHeadBlock(self, section);
             }

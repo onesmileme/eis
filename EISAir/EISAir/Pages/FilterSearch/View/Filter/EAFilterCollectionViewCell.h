@@ -1,5 +1,5 @@
 //
-//  EAMessageFilterCollectionViewCell.h
+//  EAFilterCollectionViewCell.h
 //  EISAir
 //
 //  Created by chunhui on 2017/8/23.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EAMessageFilterCollectionViewCell : UICollectionViewCell
+@interface EAFilterCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic , strong) IBOutlet UIImageView *bgImageView;
 @property(nonatomic , strong) IBOutlet UILabel *titleLabel;

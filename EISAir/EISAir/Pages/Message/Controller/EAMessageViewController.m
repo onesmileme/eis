@@ -10,8 +10,8 @@
 #import "EAMessageSlideCollectionViewCell.h"
 #import "EAMessageSlideListViewController.h"
 #import "EAMessageFilterResultViewController.h"
-#import "EAMessageFilterView.h"
-#import "EAMessageSearchViewController.h"
+#import "EAFilterView.h"
+#import "EASearchViewController.h"
 
 #define kSlideSwitchHeight 38
 
@@ -157,9 +157,9 @@
 
 -(void)filterAction
 {
-    EAMessageFilterView *v = [[EAMessageFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     __weak typeof(self) wself = self;
-    v.tapHeadBlock = ^(EAMessageFilterView *fv , NSInteger section) {
+    v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
         [fv hide];
         [wself showSearchPage];
     };
@@ -177,7 +177,7 @@
 
 -(void)showSearchPage
 {
-    EAMessageSearchViewController *controller = [[EAMessageSearchViewController alloc]initWithNibName:nil bundle:nil];
+    EASearchViewController *controller = [[EASearchViewController alloc]initWithNibName:nil bundle:nil];
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }

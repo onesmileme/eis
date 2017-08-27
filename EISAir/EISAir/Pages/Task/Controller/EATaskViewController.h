@@ -6,8 +6,8 @@
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EABaseViewController.h"
+#import "TKSwitchSlidePageViewController.h"
 
-@interface EATaskViewController : EABaseViewController
+@interface EATaskViewController : TKSwitchSlidePageViewController
 
 @end

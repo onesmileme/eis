@@ -1,14 +1,14 @@
 //
-//  EAMessageFilterCollectionViewCell.m
+//  EAFilterCollectionViewCell.m
 //  EISAir
 //
 //  Created by chunhui on 2017/8/23.
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EAMessageFilterCollectionViewCell.h"
+#import "EAFilterCollectionViewCell.h"
 
-@implementation EAMessageFilterCollectionViewCell
+@implementation EAFilterCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

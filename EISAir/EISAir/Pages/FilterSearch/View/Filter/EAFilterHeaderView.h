@@ -1,5 +1,5 @@
 //
-//  EAMessageFilterHeaderView.h
+//  EAFilterHeaderView.h
 //  EISAir
 //
 //  Created by chunhui on 2017/8/23.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EAMessageFilterHeaderView : UICollectionReusableView
+@interface EAFilterHeaderView : UICollectionReusableView
 
-@property(nonatomic , copy) void (^tapBlock)(EAMessageFilterHeaderView *header);
+@property(nonatomic , copy) void (^tapBlock)(EAFilterHeaderView *header);
 
 -(void)updateTitle:(NSString *)title showTopLine:(BOOL)showTopline showIndicator:(BOOL)showIndicator;
 
