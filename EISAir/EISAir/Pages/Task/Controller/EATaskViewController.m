@@ -14,6 +14,7 @@
 #import "EASearchViewController.h"
 #import "EATaskSlideListViewController.h"
 #import "EATaskDetailEditViewController.h"
+#import "EAUserSearchViewController.h"
 
 #define kSlideSwitchHeight 38
 
@@ -190,7 +191,8 @@
 
 -(void)test
 {
-    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+//    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+    EAUserSearchViewController *controller = [[EAUserSearchViewController alloc]init];
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }

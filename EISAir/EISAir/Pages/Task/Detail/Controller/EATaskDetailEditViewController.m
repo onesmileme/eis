@@ -11,6 +11,7 @@
 @interface EATaskDetailEditViewController ()
 
 @property(nonatomic , strong) IBOutlet SAMTextView *textView;
+@property(nonatomic , strong) IBOutlet UIView *assingBgView;
 
 @end
 

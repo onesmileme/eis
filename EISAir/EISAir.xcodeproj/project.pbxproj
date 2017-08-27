@@ -286,6 +286,8 @@
 		6E415F2E1F52AC6D0078436F /* EATaskActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F2D1F52AC6D0078436F /* EATaskActionSheet.m */; };
 		6E415F321F52B0620078436F /* EATaskDetailEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F301F52B0620078436F /* EATaskDetailEditViewController.m */; };
 		6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */; };
+		6E415F3D1F52B7E40078436F /* EAUserSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F3C1F52B7E40078436F /* EAUserSearchViewController.m */; };
+		6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1025,6 +1027,10 @@
 		6E415F2F1F52B0620078436F /* EATaskDetailEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskDetailEditViewController.h; sourceTree = "<group>"; };
 		6E415F301F52B0620078436F /* EATaskDetailEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskDetailEditViewController.m; sourceTree = "<group>"; };
 		6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskDetailEditViewController.xib; sourceTree = "<group>"; };
+		6E415F3B1F52B7E40078436F /* EAUserSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserSearchViewController.h; sourceTree = "<group>"; };
+		6E415F3C1F52B7E40078436F /* EAUserSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserSearchViewController.m; sourceTree = "<group>"; };
+		6E415F3E1F52B8140078436F /* EAUserSearchHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserSearchHeader.h; sourceTree = "<group>"; };
+		6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserSearchHeader.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2214,6 +2220,7 @@
 		6E415ED61F5267B70078436F /* FilterSearch */ = {
 			isa = PBXGroup;
 			children = (
+				6E415F371F52B7880078436F /* UserSearch */,
 				6E415ED71F5267B70078436F /* Controller */,
 				6E415EDE1F5267B70078436F /* Model */,
 				6E415EDF1F5267B70078436F /* View */,
@@ -2343,6 +2350,41 @@
 				6E415F271F52A6970078436F /* EATaskHandleTableViewCell.h */,
 				6E415F281F52A6970078436F /* EATaskHandleTableViewCell.m */,
 				6E415F291F52A6970078436F /* EATaskHandleTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E415F371F52B7880078436F /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				6E415F381F52B7880078436F /* Controller */,
+				6E415F391F52B7880078436F /* Model */,
+				6E415F3A1F52B7880078436F /* View */,
+			);
+			path = UserSearch;
+			sourceTree = "<group>";
+		};
+		6E415F381F52B7880078436F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E415F3B1F52B7E40078436F /* EAUserSearchViewController.h */,
+				6E415F3C1F52B7E40078436F /* EAUserSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E415F391F52B7880078436F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E415F3A1F52B7880078436F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E415F3E1F52B8140078436F /* EAUserSearchHeader.h */,
+				6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3736,6 +3778,7 @@
 				6E415E241F5171D10078436F /* ZXPlanarYUVLuminanceSource.m in Sources */,
 				6E6887021F451261009AD662 /* TKWexinUserAuthoInfo.m in Sources */,
 				6E415E271F5171D10078436F /* ZXRGBLuminanceSource.m in Sources */,
+				6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */,
 				6E415E8B1F5171D10078436F /* ZXPDF417Dimensions.m in Sources */,
 				6E68865D1F43C71A009AD662 /* UIGestureRecognizer+BlocksKit.m in Sources */,
 				6E415E371F5171D10078436F /* ZXDataMatrixSymbolInfo144.m in Sources */,
@@ -3940,6 +3983,7 @@
 				6E415E381F5171D10078436F /* ZXDataMatrixTextEncoder.m in Sources */,
 				6E415E201F5171D10078436F /* ZXEncodeHints.m in Sources */,
 				6E6886431F43C71A009AD662 /* NSDictionary+BlocksKit.m in Sources */,
+				6E415F3D1F52B7E40078436F /* EAUserSearchViewController.m in Sources */,
 				6E415E0F1F5171D10078436F /* ZXBoolArray.m in Sources */,
 				6E415DF41F5171D10078436F /* ZXSMSTOMMSTOResultParser.m in Sources */,
 				6E415E8D1F5171D10078436F /* ZXPDF417HighLevelEncoder.m in Sources */,
