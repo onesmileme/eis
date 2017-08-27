@@ -7,6 +7,8 @@
 //
 
 #import "EATaskDetailViewController.h"
+#import "EATaskStateInfoTableViewCell.h"
+#import "EATaskStateDoingTableViewCell.h"
 
 @interface EATaskDetailViewController ()
 
@@ -25,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UINib *nib = [UINib nibWithNibName:@"EATaskStateDoingTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"doing_cell"];
+    
+    nib = [UINib nibWithNibName:@"EATaskStateInfoTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"state_cell"];
 }
 
 - (void)didReceiveMemoryWarning {

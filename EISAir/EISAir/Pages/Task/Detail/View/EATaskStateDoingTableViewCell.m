@@ -1,22 +1,22 @@
 //
-//  EATaskStateTableViewCell.m
+//  EATaskStateDoingTableViewCell.m
 //  EISAir
 //
 //  Created by chunhui on 2017/8/27.
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EATaskStateTableViewCell.h"
+#import "EATaskStateDoingTableViewCell.h"
 
-@interface EATaskStateTableViewCell()
+@interface EATaskStateDoingTableViewCell()
 
-@property(nonatomic , strong) IBOutlet UILabel *mainLabel;
-@property(nonatomic , strong) IBOutlet UILabel *subLabel;
+@property(nonatomic , strong) IBOutlet UILabel *titleLabel;
+@property(nonatomic , strong) IBOutlet UILabel *taskLabel;
+@property(nonatomic , strong) IBOutlet UILabel *dateLabel;
 @property(nonatomic , strong) IBOutlet UIView *bottomLine;
-
 @end
 
-@implementation EATaskStateTableViewCell
+@implementation EATaskStateDoingTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -38,10 +38,10 @@
     CGFloat left = 20.5;
     
     BOOL isFirst = true;
-    BOOL isDoing = true;
-    CGSize circelSize = isDoing ? CGSizeMake(11, 11) : CGSizeMake(9, 9);
+    
+    CGSize circelSize = CGSizeMake(11, 11) ;
     UIColor *lineColor = HexColor(0xd8d8d8);
-    UIColor *circleColor = isDoing ? HexColor(0x00b0ce) : lineColor;
+    UIColor *circleColor =  HexColor(0x00b0ce);
     
     //draw line
     if (isFirst) {
@@ -57,22 +57,11 @@
     CGContextStrokePath(context);
     
     //draw circle
-    
-    if (isFirst && !isDoing) {
-        circelSize = CGSizeMake(9, 9);
-    }
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(left-circelSize.width/2, self.mainLabel.centerY-circelSize.height/2, circelSize.width, circelSize.height)];
-    if (isFirst && !isDoing) {
-        
-        CGContextSetStrokeColorWithColor(context, [circleColor CGColor]);
-        path.lineWidth = 1;
-        [path stroke];
-        
-    }else{
-        CGContextSetFillColorWithColor(context, [circleColor CGColor]);
-        [path fill];
-    }
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(left-circelSize.width/2, self.titleLabel.centerY-circelSize.height/2, circelSize.width, circelSize.height)];
+
+    CGContextSetFillColorWithColor(context, [circleColor CGColor]);
+    [path fill];
+
     
 }
 

@@ -1,19 +1,66 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EATaskStateTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-fU-JTA" userLabel="main Label">
+                        <rect key="frame" x="39" y="13" width="35.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="sE4-j7-nLv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUw-wz-ry4" userLabel="sub Label">
+                        <rect key="frame" x="39" y="37" width="31" height="16.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16.5" id="yIm-Ch-9FF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SA7-04-z7A" userLabel="bottomLine">
+                        <rect key="frame" x="39" y="63.5" width="281" height="1"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="Uhz-tD-OFu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6y3-fU-JTA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="CXV-7Y-Xe2"/>
+                    <constraint firstAttribute="bottom" secondItem="SA7-04-z7A" secondAttribute="bottom" id="Edb-PL-Unk"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vUw-wz-ry4" secondAttribute="trailing" constant="10" id="MWt-wf-9kQ"/>
+                    <constraint firstItem="vUw-wz-ry4" firstAttribute="top" secondItem="6y3-fU-JTA" secondAttribute="bottom" constant="6" id="NHb-pF-G2u"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6y3-fU-JTA" secondAttribute="trailing" constant="10" id="ZLU-qQ-iKN"/>
+                    <constraint firstAttribute="trailing" secondItem="SA7-04-z7A" secondAttribute="trailing" id="dU2-xj-zoe"/>
+                    <constraint firstItem="6y3-fU-JTA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="39" id="jEY-FC-B5Y"/>
+                    <constraint firstItem="6y3-fU-JTA" firstAttribute="leading" secondItem="SA7-04-z7A" secondAttribute="leading" id="tAk-VT-BVi"/>
+                    <constraint firstItem="vUw-wz-ry4" firstAttribute="leading" secondItem="6y3-fU-JTA" secondAttribute="leading" id="vd3-tb-Rll"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomLine" destination="SA7-04-z7A" id="sPT-L3-dEA"/>
+                <outlet property="mainLabel" destination="6y3-fU-JTA" id="Xxo-vR-CLO"/>
+                <outlet property="subLabel" destination="vUw-wz-ry4" id="22g-F7-CxX"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

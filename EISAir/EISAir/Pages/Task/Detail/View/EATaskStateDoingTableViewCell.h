@@ -1,5 +1,5 @@
 //
-//  EATaskStateTableViewCell.h
+//  EATaskStateDoingTableViewCell.h
 //  EISAir
 //
 //  Created by chunhui on 2017/8/27.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/*
- * 任务详情 任务状态
- */
-@interface EATaskStateTableViewCell : UITableViewCell
+@interface EATaskStateDoingTableViewCell : UITableViewCell
 
 @end

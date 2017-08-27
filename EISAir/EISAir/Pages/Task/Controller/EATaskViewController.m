@@ -13,6 +13,7 @@
 #import "EAMessageFilterResultViewController.h"
 #import "EASearchViewController.h"
 #import "EATaskSlideListViewController.h"
+#import "EATaskDetailEditViewController.h"
 
 #define kSlideSwitchHeight 38
 
@@ -76,9 +77,12 @@
     self.slideBackgroundColor = [UIColor whiteColor];
     self.slideBottomLineColor = HexColor(0xdddddd);
     
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        [self showFilterResult];
-    //    });
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////            [self showFilterResult];
+//            [self test];
+//        });
+    
+    
     
 }
 
@@ -183,5 +187,12 @@
     //    [self reload];
 }
 
+
+-(void)test
+{
+    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+    controller.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:controller animated:true];
+}
 
 @end

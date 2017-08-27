@@ -279,6 +279,13 @@
 		6E415F1C1F527A630078436F /* EATaskStateInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F1A1F527A630078436F /* EATaskStateInfoTableViewCell.xib */; };
 		6E415F201F527A770078436F /* EATaskStateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F1E1F527A770078436F /* EATaskStateTableViewCell.m */; };
 		6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F1F1F527A770078436F /* EATaskStateTableViewCell.xib */; };
+		6E415F251F52A2C40078436F /* EATaskStateDoingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F231F52A2C40078436F /* EATaskStateDoingTableViewCell.m */; };
+		6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F241F52A2C40078436F /* EATaskStateDoingTableViewCell.xib */; };
+		6E415F2A1F52A6970078436F /* EATaskHandleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F281F52A6970078436F /* EATaskHandleTableViewCell.m */; };
+		6E415F2B1F52A6970078436F /* EATaskHandleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F291F52A6970078436F /* EATaskHandleTableViewCell.xib */; };
+		6E415F2E1F52AC6D0078436F /* EATaskActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F2D1F52AC6D0078436F /* EATaskActionSheet.m */; };
+		6E415F321F52B0620078436F /* EATaskDetailEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F301F52B0620078436F /* EATaskDetailEditViewController.m */; };
+		6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1007,6 +1014,17 @@
 		6E415F1D1F527A770078436F /* EATaskStateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskStateTableViewCell.h; sourceTree = "<group>"; };
 		6E415F1E1F527A770078436F /* EATaskStateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskStateTableViewCell.m; sourceTree = "<group>"; };
 		6E415F1F1F527A770078436F /* EATaskStateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskStateTableViewCell.xib; sourceTree = "<group>"; };
+		6E415F221F52A2C40078436F /* EATaskStateDoingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskStateDoingTableViewCell.h; sourceTree = "<group>"; };
+		6E415F231F52A2C40078436F /* EATaskStateDoingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskStateDoingTableViewCell.m; sourceTree = "<group>"; };
+		6E415F241F52A2C40078436F /* EATaskStateDoingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskStateDoingTableViewCell.xib; sourceTree = "<group>"; };
+		6E415F271F52A6970078436F /* EATaskHandleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskHandleTableViewCell.h; sourceTree = "<group>"; };
+		6E415F281F52A6970078436F /* EATaskHandleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskHandleTableViewCell.m; sourceTree = "<group>"; };
+		6E415F291F52A6970078436F /* EATaskHandleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskHandleTableViewCell.xib; sourceTree = "<group>"; };
+		6E415F2C1F52AC6D0078436F /* EATaskActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskActionSheet.h; sourceTree = "<group>"; };
+		6E415F2D1F52AC6D0078436F /* EATaskActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskActionSheet.m; sourceTree = "<group>"; };
+		6E415F2F1F52B0620078436F /* EATaskDetailEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskDetailEditViewController.h; sourceTree = "<group>"; };
+		6E415F301F52B0620078436F /* EATaskDetailEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskDetailEditViewController.m; sourceTree = "<group>"; };
+		6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskDetailEditViewController.xib; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2294,6 +2312,9 @@
 			children = (
 				6E415F121F5272220078436F /* EATaskDetailViewController.h */,
 				6E415F131F5272220078436F /* EATaskDetailViewController.m */,
+				6E415F2F1F52B0620078436F /* EATaskDetailEditViewController.h */,
+				6E415F301F52B0620078436F /* EATaskDetailEditViewController.m */,
+				6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2316,6 +2337,12 @@
 				6E415F1D1F527A770078436F /* EATaskStateTableViewCell.h */,
 				6E415F1E1F527A770078436F /* EATaskStateTableViewCell.m */,
 				6E415F1F1F527A770078436F /* EATaskStateTableViewCell.xib */,
+				6E415F221F52A2C40078436F /* EATaskStateDoingTableViewCell.h */,
+				6E415F231F52A2C40078436F /* EATaskStateDoingTableViewCell.m */,
+				6E415F241F52A2C40078436F /* EATaskStateDoingTableViewCell.xib */,
+				6E415F271F52A6970078436F /* EATaskHandleTableViewCell.h */,
+				6E415F281F52A6970078436F /* EATaskHandleTableViewCell.m */,
+				6E415F291F52A6970078436F /* EATaskHandleTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3274,6 +3301,8 @@
 				6E415F091F526C740078436F /* EATaskInfoTableViewCell.h */,
 				6E415F0A1F526C740078436F /* EATaskInfoTableViewCell.m */,
 				6E415F0B1F526C740078436F /* EATaskInfoTableViewCell.xib */,
+				6E415F2C1F52AC6D0078436F /* EATaskActionSheet.h */,
+				6E415F2D1F52AC6D0078436F /* EATaskActionSheet.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3398,6 +3427,7 @@
 				6E68867C1F43C71A009AD662 /* shanguangdeng@2x.png in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
+				6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */,
 				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
 				6E6886751F43C71A009AD662 /* AssetsPickerChecked.png in Resources */,
@@ -3411,11 +3441,13 @@
 				6E68853D1F433C49009AD662 /* Assets.xcassets in Resources */,
 				6E68853B1F433C49009AD662 /* Main.storyboard in Resources */,
 				6E415EAF1F5171D10078436F /* CodeScan.bundle in Resources */,
+				6E415F2B1F52A6970078436F /* EATaskHandleTableViewCell.xib in Resources */,
 				6E415EFB1F5267B70078436F /* EAFilterCollectionViewCell.xib in Resources */,
 				6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
 				6E415EC71F51B2D70078436F /* EAMsgDetailInfoCell.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
+				6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
@@ -3531,6 +3563,7 @@
 			files = (
 				6E415DFD1F5171D10078436F /* ZXVEventResultParser.m in Sources */,
 				6E415E721F5171D10078436F /* ZXUPCAWriter.m in Sources */,
+				6E415F2A1F52A6970078436F /* EATaskHandleTableViewCell.m in Sources */,
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
 				6E415E2B1F5171D10078436F /* ZXDataMatrixDecoder.m in Sources */,
@@ -3557,6 +3590,7 @@
 				6E6886511F43C71A009AD662 /* A2BlockInvocation.m in Sources */,
 				6E68864D1F43C71A009AD662 /* NSObject+BKBlockObservation.m in Sources */,
 				6E415DDB1F5171D10078436F /* ZXAztecDetectorResult.m in Sources */,
+				6E415F251F52A2C40078436F /* EATaskStateDoingTableViewCell.m in Sources */,
 				6E6887081F451261009AD662 /* EAPushManager.m in Sources */,
 				6E415DD81F5171D10078436F /* ZXAztecSimpleToken.m in Sources */,
 				6E415E521F5171D10078436F /* ZXRSSExpandedDecodedObject.m in Sources */,
@@ -3708,8 +3742,10 @@
 				6E415E131F5171D10078436F /* ZXDefaultGridSampler.m in Sources */,
 				6E68864B1F43C71A009AD662 /* NSObject+BKAssociatedObjects.m in Sources */,
 				6E415E421F5171D10078436F /* ZXAbstractExpandedDecoder.m in Sources */,
+				6E415F2E1F52AC6D0078436F /* EATaskActionSheet.m in Sources */,
 				6E6887071F451261009AD662 /* EANetworkManager.m in Sources */,
 				6E415E161F5171D10078436F /* ZXGridSampler.m in Sources */,
+				6E415F321F52B0620078436F /* EATaskDetailEditViewController.m in Sources */,
 				6E6386B21F482CDF00017FB8 /* EAFindPassordViewController.m in Sources */,
 				6E415E681F5171D10078436F /* ZXEAN8Reader.m in Sources */,
 				6E6886CF1F45124B009AD662 /* EABaseViewController.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ * 任务详情 任务介绍
+ */
 @interface EATaskStateInfoTableViewCell : UITableViewCell
 
 +(CGFloat)heightForModel:(id)model;
