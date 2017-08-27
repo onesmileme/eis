@@ -11,6 +11,11 @@
 		5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8A11F4EC3D000F8E07E /* EAVCView.m */; };
 		5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8AD1F4ED2B300F8E07E /* WMContactUtil.m */; };
 		5330A8B21F4ED3F500F8E07E /* UIAlertController+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8B11F4ED3F500F8E07E /* UIAlertController+Simple.m */; };
+		5330A8C81F53036600F8E07E /* EAChooseObjVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8C71F53036600F8E07E /* EAChooseObjVC.m */; };
+		5330A8CD1F5303B800F8E07E /* EASearchConditionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8CC1F5303B800F8E07E /* EASearchConditionView.m */; };
+		5330A8D01F53045A00F8E07E /* EASearchConditionSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8CF1F53045A00F8E07E /* EASearchConditionSwitchControl.m */; };
+		5330A8D31F5307FA00F8E07E /* EASearchCondintionSelectControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8D21F5307FA00F8E07E /* EASearchCondintionSelectControl.m */; };
+		5330A8D61F530BE800F8E07E /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8D51F530BE800F8E07E /* UIImage+Additions.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -472,6 +477,16 @@
 		5330A8AD1F4ED2B300F8E07E /* WMContactUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMContactUtil.m; sourceTree = "<group>"; };
 		5330A8B01F4ED3F500F8E07E /* UIAlertController+Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Simple.h"; sourceTree = "<group>"; };
 		5330A8B11F4ED3F500F8E07E /* UIAlertController+Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Simple.m"; sourceTree = "<group>"; };
+		5330A8C61F53036600F8E07E /* EAChooseObjVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAChooseObjVC.h; sourceTree = "<group>"; };
+		5330A8C71F53036600F8E07E /* EAChooseObjVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAChooseObjVC.m; sourceTree = "<group>"; };
+		5330A8CB1F5303B800F8E07E /* EASearchConditionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASearchConditionView.h; sourceTree = "<group>"; };
+		5330A8CC1F5303B800F8E07E /* EASearchConditionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASearchConditionView.m; sourceTree = "<group>"; };
+		5330A8CE1F53045A00F8E07E /* EASearchConditionSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASearchConditionSwitchControl.h; sourceTree = "<group>"; };
+		5330A8CF1F53045A00F8E07E /* EASearchConditionSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASearchConditionSwitchControl.m; sourceTree = "<group>"; };
+		5330A8D11F5307FA00F8E07E /* EASearchCondintionSelectControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASearchCondintionSelectControl.h; sourceTree = "<group>"; };
+		5330A8D21F5307FA00F8E07E /* EASearchCondintionSelectControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASearchCondintionSelectControl.m; sourceTree = "<group>"; };
+		5330A8D41F530BE800F8E07E /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		5330A8D51F530BE800F8E07E /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -3064,6 +3079,8 @@
 		6E6887111F451542009AD662 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5330A8D41F530BE800F8E07E /* UIImage+Additions.h */,
+				5330A8D51F530BE800F8E07E /* UIImage+Additions.m */,
 				53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */,
 				53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */,
 				6E6887121F451542009AD662 /* UIBarButtonItem+Navigation.h */,
@@ -3183,6 +3200,8 @@
 				6E6386A11F481F0B00017FB8 /* EARecordViewController.m */,
 				53D7D3611F4B484800CC4034 /* EAAddRecordVC.h */,
 				53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */,
+				5330A8C61F53036600F8E07E /* EAChooseObjVC.h */,
+				5330A8C71F53036600F8E07E /* EAChooseObjVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3201,6 +3220,12 @@
 				6E6386B81F4923DF00017FB8 /* EAAddRecordView.m */,
 				53D7D35E1F4B3AB800CC4034 /* EAInputView.h */,
 				53D7D35F1F4B3AB800CC4034 /* EAInputView.m */,
+				5330A8CB1F5303B800F8E07E /* EASearchConditionView.h */,
+				5330A8CC1F5303B800F8E07E /* EASearchConditionView.m */,
+				5330A8CE1F53045A00F8E07E /* EASearchConditionSwitchControl.h */,
+				5330A8CF1F53045A00F8E07E /* EASearchConditionSwitchControl.m */,
+				5330A8D11F5307FA00F8E07E /* EASearchCondintionSelectControl.h */,
+				5330A8D21F5307FA00F8E07E /* EASearchCondintionSelectControl.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3673,6 +3698,7 @@
 				6E415E4E1F5171D10078436F /* ZXRSSExpandedCurrentParsingState.m in Sources */,
 				6E415EA01F5171D10078436F /* ZXQRCodeFinderPatternFinder.m in Sources */,
 				6E415E871F5171D10078436F /* ZXPDF417DetectorResult.m in Sources */,
+				5330A8C81F53036600F8E07E /* EAChooseObjVC.m in Sources */,
 				6E415E001F5171D10078436F /* ZXWifiParsedResult.m in Sources */,
 				6E415DF61F5171D10078436F /* ZXTelParsedResult.m in Sources */,
 				6E415E781F5171D10078436F /* ZXUPCEReader.m in Sources */,
@@ -3710,6 +3736,8 @@
 				6E415E911F5171D10078436F /* ZXPDF417Writer.m in Sources */,
 				6E415E411F5171D10078436F /* ZXGenericMultipleBarcodeReader.m in Sources */,
 				6E6886651F43C71A009AD662 /* CHPhotoChooseViewController.m in Sources */,
+				5330A8D61F530BE800F8E07E /* UIImage+Additions.m in Sources */,
+				5330A8D31F5307FA00F8E07E /* EASearchCondintionSelectControl.m in Sources */,
 				6E6886671F43C71A009AD662 /* CHPhotoGroupTableViewCell.m in Sources */,
 				6E415E5A1F5171D10078436F /* ZXRSS14Reader.m in Sources */,
 				6E415DEA1F5171D10078436F /* ZXGeoParsedResult.m in Sources */,
@@ -3792,6 +3820,7 @@
 				6E6386B21F482CDF00017FB8 /* EAFindPassordViewController.m in Sources */,
 				6E415E681F5171D10078436F /* ZXEAN8Reader.m in Sources */,
 				6E6886CF1F45124B009AD662 /* EABaseViewController.m in Sources */,
+				5330A8D01F53045A00F8E07E /* EASearchConditionSwitchControl.m in Sources */,
 				6E415DF81F5171D10078436F /* ZXTextParsedResult.m in Sources */,
 				6E68864E1F43C71A009AD662 /* NSOrderedSet+BlocksKit.m in Sources */,
 				6E415EB41F5171D10078436F /* LBXScanViewController.m in Sources */,
@@ -3810,6 +3839,7 @@
 				6E415E851F5171D10078436F /* ZXPDF417ScanningDecoder.m in Sources */,
 				6E415E7D1F5171D10078436F /* ZXPDF417BarcodeValue.m in Sources */,
 				6E415EA91F5171D10078436F /* ZXQRCodeMultiReader.m in Sources */,
+				5330A8CD1F5303B800F8E07E /* EASearchConditionView.m in Sources */,
 				6E415E8F1F5171D10078436F /* ZXPDF417Reader.m in Sources */,
 				6E6886851F43C71A009AD662 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				6E415E4D1F5171D10078436F /* ZXRSSExpandedBlockParsedResult.m in Sources */,
