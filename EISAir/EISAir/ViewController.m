@@ -62,9 +62,9 @@
     self.delegate = self;
     
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self test];
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self test];
+    });
     
 }
 
@@ -118,7 +118,7 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/uas/open/users/getInfo",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/constants/findDateTypeList",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
     NSDictionary *param = nil;//@{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
     

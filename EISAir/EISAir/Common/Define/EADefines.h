@@ -65,4 +65,10 @@
 //引导页提醒
 #define kUserDefaultsFirstOpenTheApp              @"UserDefaultsFirstOpenTheApp"
 
+
+#define EIS_MSG_TYPE_NOTICE @"EIS_MSG_TYPE_NOTICE" //"通知"
+#define EIS_MSG_TYPE_ALARM @"EIS_MSG_TYPE_ALARM" //"报警"
+#define EIS_MSG_TYPE_RECORD @"EIS_MSG_TYPE_RECORD" // "人工记录",
+#define EIS_MSG_TYPE_EXCEPTION @"EIS_MSG_TYPE_EXCEPTION"// "异常"
+
 #endif /* FADefines_h */

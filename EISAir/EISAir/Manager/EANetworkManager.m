@@ -66,7 +66,7 @@ IMP_SINGLETON
             
             TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
             
-//                NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
+            NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
             
             
             [handler setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];

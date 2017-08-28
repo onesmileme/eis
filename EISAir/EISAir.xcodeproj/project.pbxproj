@@ -293,6 +293,7 @@
 		6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E415F311F52B0620078436F /* EATaskDetailEditViewController.xib */; };
 		6E415F3D1F52B7E40078436F /* EAUserSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F3C1F52B7E40078436F /* EAUserSearchViewController.m */; };
 		6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */; };
+		6E415F461F544FEE0078436F /* TKRequestHandler+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1046,6 +1047,8 @@
 		6E415F3C1F52B7E40078436F /* EAUserSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserSearchViewController.m; sourceTree = "<group>"; };
 		6E415F3E1F52B8140078436F /* EAUserSearchHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserSearchHeader.h; sourceTree = "<group>"; };
 		6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserSearchHeader.m; sourceTree = "<group>"; };
+		6E415F441F544FEE0078436F /* TKRequestHandler+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Config.h"; sourceTree = "<group>"; };
+		6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Config.m"; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2997,6 +3000,8 @@
 				6E6886C21F45124B009AD662 /* TKRequestHandler+RedDot.m */,
 				6E6886C31F45124B009AD662 /* TKRequestHandler+Util.h */,
 				6E6886C41F45124B009AD662 /* TKRequestHandler+Util.m */,
+				6E415F441F544FEE0078436F /* TKRequestHandler+Config.h */,
+				6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -3999,6 +4004,7 @@
 				6E6886D11F45124B009AD662 /* EAConfigModel.m in Sources */,
 				6E68868B1F43C71A009AD662 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				6E415E171F5171D10078436F /* ZXHybridBinarizer.m in Sources */,
+				6E415F461F544FEE0078436F /* TKRequestHandler+Config.m in Sources */,
 				6E415E531F5171D10078436F /* ZXRSSExpandedFieldParser.m in Sources */,
 				6E415EF71F5267B70078436F /* EASearchViewController.m in Sources */,
 				6E68865A1F43C71A009AD662 /* UIAlertView+BlocksKit.m in Sources */,
