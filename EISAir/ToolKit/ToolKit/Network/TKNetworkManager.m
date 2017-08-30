@@ -287,6 +287,7 @@
             success(task,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self handleError:error forRequest: task.currentRequest];
         if (failure) {
             failure(task , error);
         }
@@ -329,6 +330,7 @@
             success(task,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self handleError:error forRequest: task.currentRequest];
         if (failure) {
             failure(task , error);
         }
@@ -352,13 +354,14 @@
             success(task,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self handleError:error forRequest: task.currentRequest];
         if (failure) {
             failure(task,error);
         }
     }];
 }
 
--(nullable NSURLSessionDataTask *)download:(NSString *)URLString
+-(nullable NSURLSessionTask *)download:(NSString *)URLString
                               progress:(NSProgress * __nullable __autoreleasing * __nullable)progress
                            destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                      completionHandler:(nullable void (^)(NSURLResponse *response, NSURL * __nullable filePath, NSError * __nullable error))completionHandler
@@ -387,13 +390,29 @@
 {
     NSInteger errNum = 0;
     if ([response isKindOfClass:[NSDictionary class]]) {
-        errNum = [[response objectForKey:@"errno"] integerValue];
-        if (errNum != 0 && [_delegate respondsToSelector:@selector(checkError:responseData:forRequest:)]) {
+        errNum = [[response objectForKey:@"success"] integerValue];
+        if (!errNum && [_delegate respondsToSelector:@selector(checkError:responseData:forRequest:)]) {
             [_delegate checkError:errNum responseData:response forRequest:request];
         }
     }
     
     return errNum == 0;
+}
+
+-(BOOL)handleError:(NSError *)error forRequest:(NSURLRequest *)request
+{
+    NSData * data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+//    NSString *info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSDictionary *dict = nil;
+    if (data) {
+        dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    }
+    NSHTTPURLResponse *response = error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+    if ([self.delegate respondsToSelector:@selector(handleError:responseDict:response:forRequest:)]) {
+        [self.delegate handleError:error responseDict:dict response:response forRequest:request];
+    }
+    
+    return true;
 }
 
 #if TEST

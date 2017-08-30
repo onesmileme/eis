@@ -155,4 +155,6 @@ extern NSString *_Nonnull kTKNetworkChangeNotification;
 
 -(void)checkError:(NSInteger)errNo responseData:(NSDictionary *_Nonnull)response forRequest:(NSURLRequest *_Nonnull)request;
 
+-(void)handleError:(NSError *_Nonnull)error responseDict:(NSDictionary *_Nullable)responseDict response:(NSHTTPURLResponse *_Nonnull)response forRequest:(NSURLRequest *_Nonnull)request;
+
 @end

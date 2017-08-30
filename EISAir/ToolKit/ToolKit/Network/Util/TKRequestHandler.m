@@ -440,6 +440,13 @@
     }
 }
 
+-(void)handleError:(NSError *_Nonnull)error responseDict:(NSDictionary *_Nullable)responseDict response:(NSHTTPURLResponse *_Nonnull)response forRequest:(NSURLRequest *_Nonnull)request
+{
+    if ([_delegate respondsToSelector:@selector(handleError:responseDict:response:forRequest:)]) {
+        [self.delegate handleError:error responseDict:responseDict response:response forRequest:request];
+    }
+}
+
 
 -(NSError *)convertError:(NSError *)error
 {

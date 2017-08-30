@@ -21,17 +21,13 @@
 #import "TKAccountManager.h"
 #import "TKRequestHandler+Push.h"
 #import "EANetworkManager.h"
-//#import "FAPrivateMsgTalkViewController.h"
-//#import "FANewLoginViewController.h"
-//#import "FALoginTipViewController.h"
-//#import "FAGroupHomeViewController.h"
-//#import "FAUserHomeViewController.h"
+#import "EALoginViewController.h"
 
 @import UserNotifications;
 
 #define kUserJPush  0
 
-#define kScheme @"appfac"
+#define kScheme @"eis"
 
 @interface EAPushManager ()<UNUserNotificationCenterDelegate>
 
@@ -79,7 +75,7 @@ IMP_SINGLETON
 #endif
     
         
-//        [self registerHandles];
+        [self registerHandles];
     }
     return self;
 }
@@ -147,58 +143,60 @@ IMP_SINGLETON
     [self pushBind:true completion:nil];
 }
 
-#if 0
+
     
 - (void)registerHandles
 {
     _handlesDic = [NSMutableDictionary dictionary];
     __weak typeof(self) weakSelf = self;
     
-    _handlesDic[@"h5"] = ^(NSDictionary *param){
-        [weakSelf handleWeb:param];
-    };
-    _handlesDic[@"tweet"] = ^(NSDictionary *param){
-        [weakSelf handleTweet:param];
-    };
-    
-    _handlesDic[@"topic"] = ^(NSDictionary *param){
-        [weakSelf handleTopic:param];
-    };
-    
-    _handlesDic[@"moments"] = ^(NSDictionary *param){
-        [weakSelf handleMoments:param];
-    };
-    _handlesDic[@"live_play"] = ^(NSDictionary *param){
-        [weakSelf handleLive:param];
-    };
-    
-    _handlesDic[@"sys_msg"] = ^(NSDictionary *param){
-        [weakSelf handleSystemMsg:param];
-    };
-    
-    _handlesDic[@"my_fans"] = ^(NSDictionary *param){
-        [weakSelf handleFans:param];
-    };
-    
-    _handlesDic[@"private_msg"] = ^(NSDictionary *param){
-        [weakSelf handlePrivateMsg:param];
-    };
-    
-    _handlesDic[@"user_verify"] = ^(NSDictionary *param){
-        [weakSelf handleShowMyTab:param];
-    };
-    
     _handlesDic[@"show_login"] = ^(NSDictionary *param){
         [weakSelf handleShowLogin:param];
     };
+
     
-    _handlesDic[@"group_detail"] = ^(NSDictionary *param){
-        [weakSelf handleShowGroup:param];
-    };
-    
-    _handlesDic[@"user_home"] = ^(NSDictionary *param){
-        [weakSelf handleUserHome:param];
-    };
+//    _handlesDic[@"h5"] = ^(NSDictionary *param){
+//        [weakSelf handleWeb:param];
+//    };
+//    _handlesDic[@"tweet"] = ^(NSDictionary *param){
+//        [weakSelf handleTweet:param];
+//    };
+//    
+//    _handlesDic[@"topic"] = ^(NSDictionary *param){
+//        [weakSelf handleTopic:param];
+//    };
+//    
+//    _handlesDic[@"moments"] = ^(NSDictionary *param){
+//        [weakSelf handleMoments:param];
+//    };
+//    _handlesDic[@"live_play"] = ^(NSDictionary *param){
+//        [weakSelf handleLive:param];
+//    };
+//    
+//    _handlesDic[@"sys_msg"] = ^(NSDictionary *param){
+//        [weakSelf handleSystemMsg:param];
+//    };
+//    
+//    _handlesDic[@"my_fans"] = ^(NSDictionary *param){
+//        [weakSelf handleFans:param];
+//    };
+//    
+//    _handlesDic[@"private_msg"] = ^(NSDictionary *param){
+//        [weakSelf handlePrivateMsg:param];
+//    };
+//    
+//    _handlesDic[@"user_verify"] = ^(NSDictionary *param){
+//        [weakSelf handleShowMyTab:param];
+//    };
+//    
+//
+//    _handlesDic[@"group_detail"] = ^(NSDictionary *param){
+//        [weakSelf handleShowGroup:param];
+//    };
+//    
+//    _handlesDic[@"user_home"] = ^(NSDictionary *param){
+//        [weakSelf handleUserHome:param];
+//    };
     
 }
 
@@ -446,6 +444,18 @@ IMP_SINGLETON
 
 }
 
+- (void)handleShowLogin:(NSDictionary *)param
+{
+    UIViewController *controller = nil;
+
+    EALoginViewController *loginVC = [[EALoginViewController alloc] initWithNibName:@"EALoginViewController" bundle:nil];
+    controller = loginVC;
+        
+    [self pushViewController:controller];
+}
+
+#if 0
+
 -(void)handleTweet:(NSDictionary *)param
 {
     NSString *tid = param[@"id"];
@@ -539,21 +549,7 @@ IMP_SINGLETON
     [[NSNotificationCenter defaultCenter]postNotificationName:@"VerifyUpdateNotification" object:nil];
 }
 
-- (void)handleShowLogin:(NSDictionary *)param
-{
-    UIViewController *controller = nil;
-    if([[[FAConfigManager sharedInstance] loginType] isEqualToString:@"old"]) {
-        FALoginTipViewController *loginVC = [[FALoginTipViewController alloc]initWithNibName:@"FALoginTipViewController" bundle:nil];
-        loginVC.showNavbar = true;
-        controller = loginVC;
-    } else {
-        FANewLoginViewController *loginVC = [[FANewLoginViewController alloc] initWithNibName:@"FANewLoginViewController" bundle:nil];
-        loginVC.showNavbar = true;
-        controller = loginVC;
-    }
-    
-    [self pushViewController:controller];
-}
+
 
 -(void)handleShowGroup:(NSDictionary *)param
 {
@@ -581,14 +577,14 @@ IMP_SINGLETON
     [self pushViewController:controller];
 }
 
+#endif
+
 -(void)pushViewController:(UIViewController *)controller
 {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     UINavigationController *rootController = delegate.mainController.navigationController;
     [rootController pushViewController:controller animated:true];
 }
-
-#endif
 
 
 /**

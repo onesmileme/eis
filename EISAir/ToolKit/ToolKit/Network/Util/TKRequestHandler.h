@@ -166,6 +166,9 @@ extern NSString *_Nonnull kRequestFailedTip;
 -(void)checkError:(NSInteger)errNo responseData:(NSDictionary *_Nullable)response;
 
 -(void)checkError:(NSInteger)errNo responseData:(NSDictionary *_Nullable)response forRequest:(NSURLRequest *_Nonnull)request;
+
+-(void)handleError:(NSError *_Nonnull)error responseDict:(NSDictionary *_Nullable)responseDict response:(NSHTTPURLResponse *_Nonnull)response forRequest:(NSURLRequest *_Nonnull)request;
+
 /**
  *  转换系统的error为将系统可提示的
  *

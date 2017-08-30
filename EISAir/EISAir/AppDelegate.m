@@ -87,8 +87,12 @@
 
 -(void)loginDoneNotification:(NSNotification *)notification
 {
-    self.window.rootViewController = self.mainController;
-    [self.mainController reloadAll];
+    if([notification.userInfo[@"refresh"] boolValue]){
+        
+    }else{
+        self.window.rootViewController = self.mainController;
+        [self.mainController reloadAll];
+    }
 }
 
 -(void)logoutNotification:(NSNotification *)notification

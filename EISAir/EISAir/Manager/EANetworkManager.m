@@ -157,7 +157,7 @@ IMP_SINGLETON
             case 20002:
             case 20003:
             {
-                [[EAPushManager sharedInstance]handleOpenUrl:@"appfac://show_login"];
+                [[EAPushManager sharedInstance]handleOpenUrl:@"eis://show_login"];
             }
                 break;
                 
@@ -166,6 +166,20 @@ IMP_SINGLETON
         }
     }
     
+}
+
+-(void)handleError:(NSError *_Nonnull)error responseDict:(NSDictionary *_Nullable)responseDict response:(NSHTTPURLResponse *_Nonnull)response forRequest:(NSURLRequest *_Nonnull)request
+{
+    if (responseDict) {
+        
+        NSString *e = responseDict[@"error"];
+        if ([[e lowercaseString] isEqualToString:@"invalid_token"]) {
+            [[EAPushManager sharedInstance]handleOpenUrl:@"eis://show_login"];
+        }
+        
+    }else{
+        
+    }
 }
 
 -(NSError *)convertError:(NSError *)error

@@ -75,6 +75,8 @@
         }
         
         TKUserInfo *userInfo = [TKAccountManager sharedInstance].userInfo;
+        BOOL refresh = userInfo.username.length > 0;
+        
         userInfo.username = name;
         
         userInfo.accessToken = model.accessToken;
@@ -83,7 +85,11 @@
         userInfo.refreshToken = model.refreshToken;
         
         [[TKAccountManager sharedInstance] save];
-        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil userInfo:@{@"refresh":@(refresh)}];
+        
+        if (refresh) {
+            [self.navigationController popViewControllerAnimated:true];
+        }
         
         [hud hideAnimated:true];
     }];
@@ -93,8 +99,11 @@
 -(IBAction)forgetPasswordAction:(id)sender
 {
     EAFindPassordViewController *controller = [[EAFindPassordViewController alloc]initWithNibName:@"EAFindPassordViewController" bundle:nil];
-//    [self.navigationController pushViewController:controller animated:true];
-    [self presentViewController:controller animated:true completion:nil];
+    if (self.navigationController) {
+        [self.navigationController pushViewController:controller animated:true];
+    }else{
+        [self presentViewController:controller animated:true completion:nil];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
