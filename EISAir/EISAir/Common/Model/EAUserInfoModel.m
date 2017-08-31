@@ -10,15 +10,15 @@
 
 @implementation EAUserInfoModel
 
-+ (JSONKeyMapper*)keyMapper
-{
-    NSDictionary *dict = @{
-                           @"followNum" : @"follow_num",
-                           @"fansNum" : @"fans_num",
-                           @"followType" : @"follow_type",
-                           @"verifyStatus":@"verify_status"};
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:dict];
-}
+//+ (JSONKeyMapper*)keyMapper
+//{
+//    NSDictionary *dict = @{
+//                           @"followNum" : @"follow_num",
+//                           @"fansNum" : @"fans_num",
+//                           @"followType" : @"follow_type",
+//                           @"verifyStatus":@"verify_status"};
+//    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:dict];
+//}
 
 +(BOOL)propertyIsOptional:(NSString *)propertyName
 {

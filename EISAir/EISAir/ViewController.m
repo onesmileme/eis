@@ -62,9 +62,9 @@
     self.delegate = self;
     
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self test];
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self test];
+    });
     
 }
 
@@ -118,10 +118,10 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageByPerson",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
-    NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"1"};
+    NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0"};
 //    @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
     //@"personId":udata.personId?:@"",
     
@@ -143,6 +143,9 @@
         
         if (response) {
             NSLog(@"response is:\n%@\n\n",response);
+            NSData *data = [NSJSONSerialization dataWithJSONObject:response options:kNilOptions error:nil];
+            NSString *json = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"json is:\n\n%@\n\n",json);
         }
     }];
 }
