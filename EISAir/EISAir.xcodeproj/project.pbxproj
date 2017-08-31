@@ -295,6 +295,7 @@
 		6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F3F1F52B8140078436F /* EAUserSearchHeader.m */; };
 		6E415F461F544FEE0078436F /* TKRequestHandler+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */; };
 		6E415F4A1F54E5550078436F /* EAAddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F491F54E5550078436F /* EAAddressBookManager.m */; };
+		6E415F4F1F5707750078436F /* EALoginUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1052,6 +1053,8 @@
 		6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Config.m"; sourceTree = "<group>"; };
 		6E415F481F54E5550078436F /* EAAddressBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAddressBookManager.h; sourceTree = "<group>"; };
 		6E415F491F54E5550078436F /* EAAddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAddressBookManager.m; sourceTree = "<group>"; };
+		6E415F4D1F5707750078436F /* EALoginUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginUserInfoModel.h; sourceTree = "<group>"; };
+		6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginUserInfoModel.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -3036,6 +3039,8 @@
 				6E6886E51F451261009AD662 /* TKAccountManager.m */,
 				6E6886E61F451261009AD662 /* TKUserInfo.h */,
 				6E6886E71F451261009AD662 /* TKUserInfo.m */,
+				6E415F4D1F5707750078436F /* EALoginUserInfoModel.h */,
+				6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */,
 				6E6886E81F451261009AD662 /* WechatLogin */,
 				6E6886EF1F451261009AD662 /* WechatPay */,
 			);
@@ -3660,6 +3665,7 @@
 				6E415ECF1F51BB4A0078436F /* EAMsgDetailHeader.m in Sources */,
 				6E415F081F526A510078436F /* EATaskSlideListViewController.m in Sources */,
 				6E415E061F5171D10078436F /* ZXMonochromeRectangleDetector.m in Sources */,
+				6E415F4F1F5707750078436F /* EALoginUserInfoModel.m in Sources */,
 				6E68865E1F43C71A009AD662 /* UIImagePickerController+BlocksKit.m in Sources */,
 				6E6886611F43C71A009AD662 /* UIView+BlocksKit.m in Sources */,
 				6E415DF11F5171D10078436F /* ZXResultParser.m in Sources */,

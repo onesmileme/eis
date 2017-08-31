@@ -10,6 +10,7 @@
 #import "EAFindPassordViewController.h"
 #import "TKRequestHandler+Login.h"
 #import "TKAccountManager.h"
+#import "TKRequestHandler+Account.h"
 
 @interface  EALoginViewController ()<UITextFieldDelegate>
 
@@ -48,6 +49,32 @@
     [self.view endEditing:true];
 }
 
+-(void)loadLoinUserInfo:(MBProgressHUD *)hud userInfo:(TKUserInfo *)userinfo refresh:(BOOL)refresh
+{
+    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
+    [handler setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+    
+    [handler loadLoginUserInfo:^(NSURLSessionDataTask *task, EALoginUserInfoModel *model, NSError *error) {
+        if (error || model == nil || !model.success) {
+            hud.label.text = @"请求失败";
+            [hud hideAnimated:true afterDelay:0.7];
+            return ;
+        }
+        
+        [TKAccountManager sharedInstance].loginUserInfo = model.data;
+        
+        [[TKAccountManager sharedInstance] save];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil userInfo:@{@"refresh":@(refresh)}];
+        
+        if (self.navigationController.viewControllers.count > 1) {
+            [self.navigationController popViewControllerAnimated:true];
+        }
+        
+        [hud hideAnimated:true];
+        
+    }];
+}
+
 -(IBAction)loginAction:(id)sender
 {
     if (_nameField.text.length == 0) {
@@ -84,14 +111,7 @@
         userInfo.expiresIn = model.expiresIn;
         userInfo.refreshToken = model.refreshToken;
         
-        [[TKAccountManager sharedInstance] save];
-        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil userInfo:@{@"refresh":@(refresh)}];
-        
-        if (refresh) {
-            [self.navigationController popViewControllerAnimated:true];
-        }
-        
-        [hud hideAnimated:true];
+        [self loadLoinUserInfo:hud userInfo:userInfo refresh:refresh];
     }];
     
 }

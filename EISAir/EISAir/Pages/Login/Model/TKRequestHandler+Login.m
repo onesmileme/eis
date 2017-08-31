@@ -15,11 +15,13 @@
 {
     NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",[EANetworkManager loginAppHost]];
     NSDictionary *param = @{@"username":username,@"password":password,@"grant_type":@"password",@"prod":@"EIS"};
+    [[EANetworkManager sharedInstance] setRequestSerializer:false];
     return [[TKRequestHandler sharedInstance]postRequestForPath:path param:param jsonName:@"EAOauthModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
         }
         if (completion) {
+            [[EANetworkManager sharedInstance] setRequestSerializer:true];
             completion(sessionDataTask,(EAOauthModel *)model,error);
         }
 

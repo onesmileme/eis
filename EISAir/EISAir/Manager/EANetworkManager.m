@@ -51,30 +51,19 @@ IMP_SINGLETON
     if (self) {
         _extraInfo = [[NSMutableDictionary alloc]init];
         
+//        [[TKNetworkManager sharedInstance] setRequestSerializer:[AFJSONRequestSerializer serializer]];        
         //TODO 获取网络状态
         _extraInfo[@"net"] = @"1";
         __weak typeof(self) wself = self;
         TKRequestHandler *handler = [TKRequestHandler sharedInstance];
         handler.delegate = self;
-        handler.baseParam = [self baseParam];
+        handler.baseParam = @{};//[self baseParam];
         handler.extraInfoBlock = ^(){
             return [wself extraParam];
         };
 
+        [self setRequestSerializer:true];
         
-        if ([[TKAccountManager sharedInstance] isLogin]) {
-            
-            TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
-            
-            NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
-            
-            
-            [handler setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
-        }else{
-            [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
-        }
-        
-//        [self fetchUUID];
         handler.codeSignBlock = ^(NSDictionary *dic){
             //no code sign
             return @"";
@@ -102,13 +91,35 @@ IMP_SINGLETON
   return @"http://218.247.171.92:9002";
 }
 
+-(void)setRequestSerializer:(BOOL)isJson
+{
+    AFHTTPRequestSerializer *serializer =  isJson ? [AFJSONRequestSerializer serializer]:[AFHTTPRequestSerializer serializer];
+    [[TKNetworkManager sharedInstance] setRequestSerializer: serializer];
+    [self updateAuthorization];
+}
+
+-(void)updateAuthorization
+{
+    if ([[TKAccountManager sharedInstance] isLogin]) {
+        
+        TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
+        
+        NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
+        
+        
+        [[TKNetworkManager sharedInstance] setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+    }else{
+        [[TKNetworkManager sharedInstance] setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
+    }
+}
+
 -(NSDictionary *)baseParam
 {
     NSString *mb = [[UIDevice currentDevice]hwMachineName];
     NSString *osv = [[UIDevice currentDevice]systemVersion];
     NSString *appVersion = [TKAppInfo appVersion];
 //    NSString *appKey = [[FAConfigManager sharedInstance]appKey];
-    
+
     return @{@"mb" : mb, @"ov":osv, @"os":@"ios" ,
             @"sv":appVersion ,
              };    
@@ -131,6 +142,12 @@ IMP_SINGLETON
 //        param[@"token"] = token;
 //    }
     return param;
+}
+
+-(void)resetToken
+{
+    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
+    [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
 }
 
 #pragma mark - login
@@ -174,6 +191,7 @@ IMP_SINGLETON
         
         NSString *e = responseDict[@"error"];
         if ([[e lowercaseString] isEqualToString:@"invalid_token"]) {
+            [self resetToken];
             [[EAPushManager sharedInstance]handleOpenUrl:@"eis://show_login"];
         }
         

@@ -31,4 +31,8 @@ DEF_SINGLETON;
  */
 -(NSString *)cuid;
 
+-(void)resetToken;
+
+-(void)setRequestSerializer:(BOOL)isJson;
+
 @end

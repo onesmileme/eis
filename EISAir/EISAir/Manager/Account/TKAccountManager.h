@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TKUserInfo.h"
 #import "TKUserInfo+QQ.h"
+#import "EALoginUserInfoModel.h"
 
 #define MYUID  [[TKAccountManager sharedInstance] uid]
 
@@ -18,6 +19,7 @@ extern NSString *const kLoginDoneNotification ;
 @interface TKAccountManager : NSObject
 
 @property(nonatomic , strong) TKUserInfo *userInfo;
+@property(nonatomic , strong) EALoginUserInfoDataModel *loginUserInfo;
 
 + (TKAccountManager *)sharedInstance;
 

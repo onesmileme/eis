@@ -60,6 +60,11 @@
         self.userInfo = [[TKUserInfo alloc]init];
     }
     
+    path = [self loginUserPath];
+    if ([fm fileExistsAtPath:path]) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        self.loginUserInfo = [[EALoginUserInfoDataModel alloc]initWithData:data error:nil];
+    }
 }
 
 - (BOOL)isLogin {
@@ -91,14 +96,12 @@
 
 - (void)save {
     
-//    if (self.authInfo) {
-//        NSData *data = [self.authInfo toJSONData];
-//        [data writeToFile:[self authPath] atomically:YES];
-//    }
+    if (self.loginUserInfo) {
+        NSData *data = [self.loginUserInfo toJSONData];
+        [data writeToFile:[self loginUserPath] atomically:YES];
+    }
     
     if (self.userInfo) {
-        NSLog(@"user info is: \n%@\n\n",[self.userInfo toJSONString]);
-        
         NSData *data = [self.userInfo toJSONData];
         [data writeToFile:[self userinfoPath] atomically:YES];
 
@@ -109,11 +112,11 @@
 - (void)logout {
     
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *path = [self authPath];
+    NSString *path = [self loginUserPath];
     [fm removeItemAtPath:path error:nil];
     [fm removeItemAtPath:[self userinfoPath] error:nil];
     
-//    self.authInfo = nil;
+    self.loginUserInfo = [[EALoginUserInfoDataModel alloc]init];
     //clear user info
     self.userInfo = [[TKUserInfo alloc]init];
     
@@ -121,9 +124,9 @@
 }
 
 
--(NSString *)authPath
+-(NSString *)loginUserPath
 {
-    return [[TKFileUtil docPath] stringByAppendingPathComponent:@"wxauth"];
+    return [[TKFileUtil docPath] stringByAppendingPathComponent:@"loginuser"];
 }
 
 -(NSString *)userinfoPath

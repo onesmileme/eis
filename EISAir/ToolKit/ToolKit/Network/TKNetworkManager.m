@@ -51,8 +51,6 @@
         
         _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
-
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanageNotification:) name:kReachabilityChangedNotification object:nil];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -130,6 +128,11 @@
 - (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString * _Nonnull)field
 {
     [self.sessionManager.requestSerializer setValue:value forHTTPHeaderField:field];
+}
+
+- (void)setRequestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> *)requestSerializer
+{
+    _sessionManager.requestSerializer = requestSerializer;
 }
 
 -(void)loadCerWithPath:(NSString *_Nonnull)cerPath

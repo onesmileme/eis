@@ -118,17 +118,27 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/eis/open/constants/findDateTypeList",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageByPerson",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
-    NSDictionary *param = nil;//@{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
+    EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
+    NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"1"};
+//    @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
+    //@"personId":udata.personId?:@"",
     
 //    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
 //    [handler setAuthorizationHeaderFieldWithUsername:@"lisi" password:@"123456"];
-        
     
-    [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+    //siteId=4028e6eb5bec80c2015bec871ee30012&pageSize=20&pageNum=1&orgId=4028e6eb5bec6d12015bec6e38bd0021
+    
+//    NSLog(@"param is: %@\n\n",param);
+    
+    
+    [[TKRequestHandler sharedInstance]postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
+            NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+            NSString *info = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
+            NSLog(@"info is: \n%@\n",info);
         }
         
         if (response) {

@@ -111,6 +111,7 @@ extern NSString *_Nonnull kTKNetworkChangeNotification;
 //当前网络状态
 -(NetworkStatus)networkStatus;
 
+- (void)setRequestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> * _Nonnull )requestSerializer;
 
 #pragma mark - https cers
 /*
