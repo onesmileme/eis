@@ -26,19 +26,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.mainController = [[ViewController alloc] init];
+    self.rootNavController = [[UINavigationController alloc] initWithRootViewController:self.mainController];
+    [self.rootNavController setNavigationBarHidden:YES animated:true];
+    self.window.rootViewController = self.rootNavController;
+    [self.window makeKeyAndVisible];
+    
     application.statusBarStyle = UIStatusBarStyleLightContent;
     application.statusBarHidden = false;
-    
-    //[NSThread sleepForTimeInterval:duration];
-    
     [EAUIInitManager sharedInstance];
     [EANetworkManager sharedInstance];
-    
-    self.mainController = (ViewController *)self.window.rootViewController;
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.mainController];
-    [navController setNavigationBarHidden:YES animated:true];
-    self.rootNavController = navController;
-    self.window.rootViewController = navController;
     
 //    [self checkShowGuide];
     if (![[TKAccountManager sharedInstance] isLogin]) {
@@ -90,7 +90,7 @@
     if([notification.userInfo[@"refresh"] boolValue]){
         
     }else{
-        self.window.rootViewController = self.mainController;
+        self.window.rootViewController = self.rootNavController;
         [self.mainController reloadAll];
     }
 }
