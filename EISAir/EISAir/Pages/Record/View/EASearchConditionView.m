@@ -7,7 +7,6 @@
 //
 
 #import "EASearchConditionView.h"
-#import "EASearchConditionSwitchControl.h"
 
 @implementation EASearchConditionView
 

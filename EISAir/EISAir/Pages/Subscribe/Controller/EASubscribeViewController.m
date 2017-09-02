@@ -7,8 +7,15 @@
 //
 
 #import "EASubscribeViewController.h"
+#import "EATabSwitchControl.h"
+#import "EASubscribeCell.h"
 
-@interface EASubscribeViewController ()
+@interface EASubscribeViewController () <UITableViewDelegate, UITableViewDataSource> {
+    EATabSwitchControl *_tabSwitchControl;
+    UITableView *_tableView;
+    
+    NSArray *_dataArray;
+}
 
 @end
 
@@ -16,22 +23,78 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"订阅";
+    self.tabBarItem.title = @"";
+    self.view.backgroundColor = [UIColor themeGrayColor];
+    [self initNavbar];
+    
+    _dataArray = @[@1, @2, @3];
+    
+    // tab
+    _tabSwitchControl = [[EATabSwitchControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)
+                                                        itemArray:@[@"我的", @"全部"]
+                                                        titleFont:[UIFont systemFontOfSize:15]
+                                                        lineWidth:FlexibleWithTo6(115)
+                                                        lineColor:HexColor(0x058497)];
+    [_tabSwitchControl addTarget:self action:@selector(tabSwitched:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_tabSwitchControl];
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _tabSwitchControl.bottom, self.view.width, self.view.height - _tabSwitchControl.bottom)];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_tableView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)initNavbar {
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButton.frame = CGRectMake(0, 0, 40, 40);
+    [menuButton setImage:SYS_IMG(@"common_menu") forState:UIControlStateNormal];
+    [menuButton sizeToFit];
+    [menuButton addTarget:self action:@selector(menuAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:menuButton];
+    self.navigationItem.leftBarButtonItems = @[menuItem];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Actions
+- (void)menuAction {
+    
 }
-*/
+
+- (void)tabSwitched:(EATabSwitchControl *)control {
+    
+}
+
+#pragma mark - TableView Delegate/DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _dataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [EASubscribeCell cellHeightWithModel:nil];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"identifier";
+    EASubscribeCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    if(!cell){
+        cell = [[EASubscribeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        weakify(self);
+        cell.subscribeClickBlock = ^ {
+            strongify(self);
+        };
+    }
+    [cell setModel:_dataArray[indexPath.row]];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 @end

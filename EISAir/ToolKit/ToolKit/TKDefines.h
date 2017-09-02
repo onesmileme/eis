@@ -37,6 +37,8 @@
 // line height
 #define LINE_HEIGHT (1.0 / [UIScreen mainScreen].scale)
 #define LINE_COLOR  HexColor(0xececec)
+// 根据iPhone6屏幕自动适配其他屏幕的宽度
+#define FlexibleWithTo6(width) fabs(SCREEN_WIDTH * width / 375.0)
 
 //判断屏幕
 #define Is480Screen (SCREEN_HEIGHT == 480.0)     // iPhone4,4s
