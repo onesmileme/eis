@@ -7,7 +7,9 @@
 //
 
 #import "EABaseTableViewController.h"
-
+@class EAMessageDataListModel;
 @interface EAMsgDetailViewController : EABaseTableViewController
+
+@property(nonatomic , strong) EAMessageDataListModel *msgModel;
 
 @end

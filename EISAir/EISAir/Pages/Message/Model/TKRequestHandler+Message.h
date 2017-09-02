@@ -11,7 +11,9 @@
 
 @interface TKRequestHandler (Message)
 
--(NSURLSessionDataTask *)loadMessageByPerson:(NSString *)personId filterParam:(NSDictionary *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)loadMyMessageFilterParam:(NSDictionary *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+
+-(NSURLSessionDataTask *)loadMessageByPerson:(NSString *)personId filterParam:(NSDictionary *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
 
 -(NSURLSessionDataTask *)findMessageDataFilterParam:(NSDictionary *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
 

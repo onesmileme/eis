@@ -32,4 +32,11 @@
     // Configure the view for the selected state
 }
 
+-(void)updateWithModel:(EAMessageDataListModel *)model
+{
+    _titleLabel.text = model.msgTitle;
+    _infoLabel.text = model.msgContent;
+}
+
+
 @end

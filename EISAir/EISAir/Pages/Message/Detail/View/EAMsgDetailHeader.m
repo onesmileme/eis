@@ -23,6 +23,8 @@
         _infoLabel.left = 15;
         _infoLabel.bottom = self.height;
         
+        [self addSubview:_infoLabel];
+        
     }
     return self;
 }

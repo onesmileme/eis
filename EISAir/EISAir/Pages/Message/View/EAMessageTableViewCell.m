@@ -7,6 +7,7 @@
 //
 
 #import "EAMessageTableViewCell.h"
+#import "EAMessageModel.h"
 
 @interface EAMessageTableViewCell ()
 
@@ -21,15 +22,38 @@
 
 @implementation EAMessageTableViewCell
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _avatar.layer.cornerRadius = _avatar.width/2;
+    _avatar.layer.masksToBounds = true;
+    _reddot.layer.cornerRadius = _reddot.width/2;
+    _reddot.layer.masksToBounds = true;
+    
+    _reddot.backgroundColor = [UIColor orangeColor];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)updateWithModel:(EAMessageDataListModel *)model
+{    
+    _titleLabel.text = model.msgTitle;
+    _contentLabel.text = model.msgContent;
+    _dateLabel.text = model.createDate;
 }
 
 @end

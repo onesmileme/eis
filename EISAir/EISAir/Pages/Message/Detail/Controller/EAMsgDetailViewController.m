@@ -29,7 +29,8 @@
     nib = [UINib nibWithNibName:@"EAMsgStateInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"state_cell"];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 0);
     self.tableView.allowsSelection = false;
 }
 
@@ -57,7 +58,7 @@
     if (indexPath.section == 0) {
         
         EAMsgDetailInfoCell *icell = [tableView dequeueReusableCellWithIdentifier:@"info_cell"];
-        
+        [icell updateWithModel:self.msgModel];
         cell = icell;
         
     }else{

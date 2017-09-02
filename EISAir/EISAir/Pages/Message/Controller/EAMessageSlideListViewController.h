@@ -9,6 +9,14 @@
 #import "EABaseViewController.h"
 #import "TKSwitchSlidePageItemViewControllerProtocol.h"
 
+@class EAMessageDataListModel;
 @interface EAMessageSlideListViewController : EABaseViewController<TKSwitchSlidePageItemViewControllerProtocol>
+
+@property(nonatomic , strong) void (^showMessageBlock)(EAMessageDataListModel * model);
+
+-(void)updateCustomConfig:(NSDictionary *)dict;
+
+-(void)updateWithType:(NSArray *)types reload:(BOOL)reload;
+
 
 @end

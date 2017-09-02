@@ -7,8 +7,22 @@
 //
 
 #import "EAMessageSlideListViewController.h"
+#import "TMCache.h"
+#import "EAMessageTableViewCell.h"
+#import "EAMessageModel.h"
+#import "TKRequestHandler+Message.h"
+#import "TKAccountManager.h"
+#import <MJRefresh.h>
 
-@interface EAMessageSlideListViewController ()
+@interface EAMessageSlideListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *msgListTableView;
+@property(nonatomic , strong) NSMutableArray *msgList;
+@property(nonatomic , strong) NSArray *types;
+
+@property(nonatomic , strong) EAMessageDataModel *dataModel;
+@property(nonatomic , strong) NSMutableDictionary *filterDict;
+@property(nonatomic , assign) NSInteger pageNum;
 
 @end
 
@@ -17,11 +31,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _msgListTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    _msgListTableView.delegate = self;
+    _msgListTableView.dataSource = self;
+    _msgListTableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+    
+    _msgListTableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
+    
+    UINib *nib = [UINib nibWithNibName:@"EAMessageTableViewCell" bundle:nil];
+    [_msgListTableView registerNib:nib forCellReuseIdentifier:@"msg_cell"];
+    
+    [self.view addSubview:_msgListTableView];
+    
+    [self addHeaderRefreshView:_msgListTableView];
+    
+    _msgList = [[NSMutableArray alloc]init];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (_types && self.msgList.count == 0 && ![self.msgListTableView.header isRefreshing]) {
+        [self startHeadRefresh:self.msgListTableView];
+    }
+    
 }
 
 -(void)pageWillPurge
@@ -44,14 +84,184 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)updateCustomConfig:(NSDictionary *)dict
+{
+    
 }
-*/
+
+-(void)updateWithType:(NSArray *)types reload:(BOOL)reload
+{
+    if (![_types isEqual:types]) {
+        _pageNum = 0;
+        _types = types;
+    }
+    if (reload && _msgList.count == 0) {
+        [self loadMessage:_pageNum];
+    }
+}
+
+-(void)headRefreshAction
+{
+    [self loadMessage:0];
+}
+
+-(void)footRefreshAction
+{
+    [self loadMessage:_pageNum+1];
+}
+
+-(void)loadMessage:(NSInteger)pageNum
+{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    if (_filterDict) {
+        [param addEntriesFromDictionary:_filterDict];
+    }
+    if (_types) {
+        param[@"msgTypes"] = _types;
+    }
+    
+    param[@"pageNum"] = @(pageNum);
+    param[@"pageSize"] = @"20";
+    
+    EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
+    param[@"orgId"] = udata.orgId;
+    param[@"siteId"] = udata.siteId;
+    
+//    NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0"};
+    
+    
+    [[TKRequestHandler sharedInstance] loadMyMessageFilterParam:param completion:^(NSURLSessionDataTask *task, EAMessageModel *model, NSError *error) {
+        
+        [self stopRefresh:self.msgListTableView];
+        
+        if (error || !model.success) {
+            
+#if DEBUG
+            NSLog(@"error is: %@",error);
+            NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+            NSString *c = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"info is: \n%@\n",c);
+         
+#endif
+            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+            hud.label.text = @"请求失败";
+            [hud hideAnimated:true afterDelay:0.7];
+        }else{
+            self.dataModel = model.data;
+            
+            if (pageNum == 0) {
+                self.msgList = [[NSMutableArray alloc]initWithArray:model.data.list];
+            }else{
+                [self.msgList addObjectsFromArray:model.data.list];
+            }
+            
+            if (model.data.list.count > 0) {
+                self.pageNum = [model.data.pageNum integerValue];
+                if (!self.msgListTableView.footer) {
+                    [self addFooterRefreshView:self.msgListTableView];
+                }
+            }
+            
+            [self.msgListTableView reloadData];
+            
+            NSLog(@"type is: %@ \n model is: \n%@\n",self.types,model);
+            
+        }        
+    }];
+}
+
+
+#pragma mark - tableview delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _msgList.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EAMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"msg_cell"];
+
+    EAMessageDataListModel *model = _msgList[indexPath.row];
+    
+    [cell updateWithModel:model];    
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 81;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    if (_showMessageBlock) {
+        EAMessageDataListModel *model = _msgList[indexPath.row];
+        _showMessageBlock(model);
+    }
+}
+
+#pragma mark - cache
+-(NSString *)cacheKey
+{
+    NSString *key = [_types componentsJoinedByString:@"_"];
+    return [NSString stringWithFormat:@"my_message_%@",key];
+}
+
+-(void)saveCurrentNews
+{
+    if ([_msgList count] > 0) {
+        
+        TMCache *cacher = [TMCache sharedCache];
+        NSString *key = [self cacheKey];
+        if (key) {
+            NSArray *list = [NSArray arrayWithArray:_msgList];
+            
+            [cacher setObject:list forKey:key block:^(TMCache *cache, NSString *key, id object) {
+                
+            }];
+        }
+    }
+}
+
+-(void)loadCache
+{
+    TMCache *cacher = [TMCache sharedCache];
+    NSString *key = [self cacheKey];
+    if (key) {
+        __weak typeof(self) wself = self;
+        [cacher objectForKey:key block:^(TMCache *cache, NSString *key, id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (wself && [[wself cacheKey]isEqualToString:key]){
+                    //是当前要加载的缓存
+                    [wself.msgList removeAllObjects];
+                    
+                    if ([object isKindOfClass:[NSArray class]]) {
+                        [wself.msgList addObjectsFromArray:object];
+                    }
+                    
+                    [wself.msgListTableView reloadData];
+                }
+            });
+        }];
+    }
+}
+
+-(void)removeCache
+{
+    NSString *key = [self cacheKey];
+    if (key) {
+        TMCache *cacher = [TMCache sharedCache];
+        [cacher removeObjectForKey:key];
+    }
+}
 
 @end

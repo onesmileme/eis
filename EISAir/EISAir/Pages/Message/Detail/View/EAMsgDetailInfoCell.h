@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EAMessageModel.h"
 @interface EAMsgDetailInfoCell : UITableViewCell
+
+-(void)updateWithModel:(EAMessageDataListModel *)model;
 
 @end

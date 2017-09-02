@@ -27,8 +27,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    application.statusBarHidden = false;
+    
     [EAUIInitManager sharedInstance];
-    [EANetworkManager sharedInstance];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -38,8 +40,8 @@
     self.window.rootViewController = self.rootNavController;
     [self.window makeKeyAndVisible];
     
-    application.statusBarStyle = UIStatusBarStyleLightContent;
-    application.statusBarHidden = false;
+
+    [EANetworkManager sharedInstance];
     
 
 //    [self checkShowGuide];

@@ -12,13 +12,15 @@
 #import "EAMessageFilterResultViewController.h"
 #import "EAFilterView.h"
 #import "EASearchViewController.h"
+#import "EAMsgDetailViewController.h"
+
 
 #define kSlideSwitchHeight 38
 
 @interface EAMessageViewController ()<TKSwitchSlidePageViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *titleArray;       //标题
-
+@property (nonatomic, strong) NSArray *typeArray;
 @end
 
 
@@ -34,6 +36,14 @@
         self.slideBackgroundColor = [UIColor themeGrayColor];
         
         self.titleArray = @[@"全部",@"报警",@"异常",@"人工记录",@"通知"];
+        self.typeArray = @[@"EIS_MSG_TYPE_ALARM", @"EIS_MSG_TYPE_EXCEPTION", @"EIS_MSG_TYPE_RECORD" , @"EIS_MSG_TYPE_NOTICE"];
+        
+        /*
+         *  "EIS_MSG_TYPE_NOTICE": "通知",
+         *  "EIS_MSG_TYPE_ALARM": "报警",
+         *  "EIS_MSG_TYPE_RECORD": "人工记录",
+         *  "EIS_MSG_TYPE_EXCEPTION": "异常"
+         */
         
     }
     return self;
@@ -94,14 +104,27 @@
 
 -(UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *)controllerForIndex:(NSInteger)index
 {
-//    FASlideConfigDataCategoryListModel *model = self.configModel.categoryList[index];
-//    FASlidePageListViewController *controller = [[FASlidePageListViewController alloc]initWithNewsModel:model];
-//    __weak typeof (self) weakself = self;
-//    controller.pushAction = ^(UIViewController *viewController,BOOL animated){
-//        [weakself.navigationController pushViewController:viewController animated:YES];
-//    };
-//    return  controller;
+    __weak typeof (self) weakself = self;
     EAMessageSlideListViewController *controller = [[EAMessageSlideListViewController alloc]init];
+    controller.showMessageBlock = ^(EAMessageDataListModel *model) {
+        EAMsgDetailViewController *controller = [[EAMsgDetailViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        controller.hidesBottomBarWhenPushed = true;
+        controller.msgModel = model;
+        [weakself.navigationController pushViewController:controller animated:true];
+    };
+    
+    NSArray *types = nil;
+    BOOL reload = false;
+    if (index == 0) {
+        types = nil;//self.typeArray;
+    }else{
+        NSString *type = _typeArray[index-1];
+        types = @[type];
+    }
+    if (index == 0) {
+        reload = true;
+    }
+    [controller updateWithType:types reload:reload];
     
     return controller;
     
@@ -115,15 +138,36 @@
 -(void)willReuseController:(UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *) controller forIndex:(NSInteger)index
 {
     EAMessageSlideListViewController *listController = (EAMessageSlideListViewController*)controller;
-//    FASlideConfigDataCategoryListModel *model = self.configModel.categoryList[index];
-//    [listController refreshWithModel:model];
+
+    NSArray *types = nil;
+    if (index != 0) {
+        NSString *type = _typeArray[index-1];
+        types = @[type];
+    }
+    [listController updateWithType:types reload:true];
     
 }
 
 -(void)tapCurrentItem:(NSInteger)index controller:(UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *)controller
 {
     EAMessageSlideListViewController *listController = (EAMessageSlideListViewController *)controller;
-//    [listController reload:true];
+    NSArray *types = nil;
+    if (index != 0) {
+        NSString *type = _typeArray[index-1];
+        types = @[type];
+    }
+    [listController updateWithType:types reload:true];
+    
+}
+
+-(void)selectedAtIndex:(NSInteger)index
+{
+    [super selectedAtIndex:index];
+    if (index > 0) {
+        
+        
+        
+    }
 }
 
 - (void)slideConfigChangedNotification

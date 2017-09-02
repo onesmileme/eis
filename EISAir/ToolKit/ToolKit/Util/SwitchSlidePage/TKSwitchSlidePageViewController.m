@@ -147,10 +147,16 @@
 -(void)initCaches
 {
     UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *controller = nil;
-    
-    for (int i = 0 ; i < MIN(3, [_delegate numberofPages]); ++i) {
+
+    NSInteger cacheCount = [_delegate numberofPages];
+    if (cacheCount == 0) {
+        cacheCount = 3;
+    }
+    for (int i = 0 ; i < cacheCount; ++i) {
+//    for (int i = 0 ; i < MIN(3, [_delegate numberofPages]); ++i) {
         controller = [_delegate controllerForIndex:i];
         _cacheControllerDict[@(i)] = controller;
+        [self addChildViewController:controller];
     }
 }
 
