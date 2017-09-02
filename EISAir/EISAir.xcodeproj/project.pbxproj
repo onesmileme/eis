@@ -22,6 +22,7 @@
 		5330A9041F595B6500F8E07E /* WMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9031F595B6500F8E07E /* WMPageControl.m */; };
 		5330A9191F5A3CD700F8E07E /* EABaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */; };
 		5330A91C1F5A3D4800F8E07E /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */; };
+		5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -509,6 +510,8 @@
 		5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABaseTableViewCell.m; sourceTree = "<group>"; };
 		5330A91A1F5A3D4800F8E07E /* EASubscribeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EASubscribeCell.h; path = EISAir/Common/Controller/EASubscribeCell.h; sourceTree = SOURCE_ROOT; };
 		5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EASubscribeCell.m; path = EISAir/Common/Controller/EASubscribeCell.m; sourceTree = SOURCE_ROOT; };
+		5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueRenVC.h; sourceTree = "<group>"; };
+		5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueRenVC.m; sourceTree = "<group>"; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -3361,6 +3364,8 @@
 			children = (
 				6E6386A91F48200100017FB8 /* EASubscribeViewController.h */,
 				6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */,
+				5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */,
+				5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4042,6 +4047,7 @@
 				6E415E791F5171D10078436F /* ZXModulusGF.m in Sources */,
 				6E6886D71F45124B009AD662 /* TKRequestHandler+Account.m in Sources */,
 				6E415DE01F5171D10078436F /* ZXAddressBookDoCoMoResultParser.m in Sources */,
+				5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */,
 				6E415DDA1F5171D10078436F /* ZXAztecToken.m in Sources */,
 				6E415E5B1F5171D10078436F /* ZXRSSDataCharacter.m in Sources */,
 				6E415E8A1F5171D10078436F /* ZXPDF417BarcodeRow.m in Sources */,

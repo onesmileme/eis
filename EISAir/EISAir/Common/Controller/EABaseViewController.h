@@ -8,6 +8,7 @@
 
 #import "TKViewController.h"
 #import "UIViewController+Refresh.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface EABaseViewController : TKViewController
 

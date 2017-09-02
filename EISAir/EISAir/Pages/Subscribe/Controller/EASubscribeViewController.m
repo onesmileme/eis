@@ -9,6 +9,7 @@
 #import "EASubscribeViewController.h"
 #import "EATabSwitchControl.h"
 #import "EASubscribeCell.h"
+#import "EADingYueRenVC.h"
 
 @interface EASubscribeViewController () <UITableViewDelegate, UITableViewDataSource> {
     EATabSwitchControl *_tabSwitchControl;
@@ -94,7 +95,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    EADingYueRenVC *vc = [[EADingYueRenVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
