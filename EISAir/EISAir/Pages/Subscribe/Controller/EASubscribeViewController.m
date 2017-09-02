@@ -95,7 +95,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EADingYueRenVC *vc = [[EADingYueRenVC alloc] init];
+    Class cls = NSClassFromString(@"EAKongJianVC");
+    EABaseViewController *vc = [[cls alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

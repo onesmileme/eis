@@ -66,10 +66,14 @@ static const int kTagItem = 1000;
 }
 
 - (void)itemClicked:(UIButton *)button {
-    self.selectedIndex = (int)button.tag - kTagItem;
+    [self setSelectedIndex:((int)button.tag - kTagItem) shouldNotify:YES];
 }
 
-- (void)setSelectedIndex:(NSUInteger)index {
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+    [self setSelectedIndex:selectedIndex shouldNotify:NO];
+}
+
+- (void)setSelectedIndex:(NSUInteger)index shouldNotify:(BOOL)shouldNotify {
     if (index > _itemArray.count - 1 || _selectedIndex == index) {
         return;
     }
@@ -84,7 +88,9 @@ static const int kTagItem = 1000;
             }];
         }
     }
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    if (shouldNotify) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
 }
 
 @end

@@ -23,6 +23,10 @@
 		5330A9191F5A3CD700F8E07E /* EABaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */; };
 		5330A91C1F5A3D4800F8E07E /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */; };
 		5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */; };
+		5330A9221F5A643000F8E07E /* EADianFeiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9211F5A643000F8E07E /* EADianFeiVC.m */; };
+		5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9241F5A644E00F8E07E /* EAKongJianVC.m */; };
+		5330A9281F5A64AF00F8E07E /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */; };
+		5330A92B1F5A707200F8E07E /* EADingYueGridContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -512,6 +516,14 @@
 		5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EASubscribeCell.m; path = EISAir/Common/Controller/EASubscribeCell.m; sourceTree = SOURCE_ROOT; };
 		5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueRenVC.h; sourceTree = "<group>"; };
 		5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueRenVC.m; sourceTree = "<group>"; };
+		5330A9201F5A643000F8E07E /* EADianFeiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADianFeiVC.h; sourceTree = "<group>"; };
+		5330A9211F5A643000F8E07E /* EADianFeiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADianFeiVC.m; sourceTree = "<group>"; };
+		5330A9231F5A644E00F8E07E /* EAKongJianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAKongJianVC.h; sourceTree = "<group>"; };
+		5330A9241F5A644E00F8E07E /* EAKongJianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAKongJianVC.m; sourceTree = "<group>"; };
+		5330A9261F5A64AF00F8E07E /* EADingYueGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EADingYueGridView.h; path = EISAir/Pages/Subscribe/Controller/EADingYueGridView.h; sourceTree = SOURCE_ROOT; };
+		5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridView.m; sourceTree = SOURCE_ROOT; };
+		5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EADingYueGridContentView.h; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.h; sourceTree = SOURCE_ROOT; };
+		5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridContentView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.m; sourceTree = SOURCE_ROOT; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -3366,6 +3378,10 @@
 				6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */,
 				5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */,
 				5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */,
+				5330A9201F5A643000F8E07E /* EADianFeiVC.h */,
+				5330A9211F5A643000F8E07E /* EADianFeiVC.m */,
+				5330A9231F5A644E00F8E07E /* EAKongJianVC.h */,
+				5330A9241F5A644E00F8E07E /* EAKongJianVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3382,6 +3398,10 @@
 			children = (
 				5330A91A1F5A3D4800F8E07E /* EASubscribeCell.h */,
 				5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */,
+				5330A9261F5A64AF00F8E07E /* EADingYueGridView.h */,
+				5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */,
+				5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */,
+				5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3760,6 +3780,7 @@
 				6E415E001F5171D10078436F /* ZXWifiParsedResult.m in Sources */,
 				6E415DF61F5171D10078436F /* ZXTelParsedResult.m in Sources */,
 				6E415E781F5171D10078436F /* ZXUPCEReader.m in Sources */,
+				5330A9281F5A64AF00F8E07E /* EADingYueGridView.m in Sources */,
 				53D7D3661F4B4F0F00CC4034 /* EABaseViewController+Stack.m in Sources */,
 				6E415E481F5171D10078436F /* ZXAI013x0xDecoder.m in Sources */,
 				6E415EFC1F5267B70078436F /* EAFilterHeaderView.m in Sources */,
@@ -3779,6 +3800,7 @@
 				6E415E301F5171D10078436F /* ZXDataMatrixC40Encoder.m in Sources */,
 				6E415F001F5267B70078436F /* EAMsgSearchFilterTableViewCell.m in Sources */,
 				6E415E4B1F5171D10078436F /* ZXAI01weightDecoder.m in Sources */,
+				5330A9221F5A643000F8E07E /* EADianFeiVC.m in Sources */,
 				6E415E101F5171D10078436F /* ZXByteArray.m in Sources */,
 				6E6886881F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				6E415E461F5171D10078436F /* ZXAI01393xDecoder.m in Sources */,
@@ -3837,6 +3859,7 @@
 				6E415E4F1F5171D10078436F /* ZXRSSExpandedDecodedChar.m in Sources */,
 				6E68865B1F43C71A009AD662 /* UIBarButtonItem+BlocksKit.m in Sources */,
 				6E415DCF1F5171D10078436F /* LBXScanTypes.m in Sources */,
+				5330A92B1F5A707200F8E07E /* EADingYueGridContentView.m in Sources */,
 				6E415E8E1F5171D10078436F /* ZXPDF417Common.m in Sources */,
 				6E415E551F5171D10078436F /* ZXBitArrayBuilder.m in Sources */,
 				6E415E631F5171D10078436F /* ZXCode39Reader.m in Sources */,
@@ -3974,6 +3997,7 @@
 				6E6886921F43C71A009AD662 /* ZLPhotoPickerViewController.m in Sources */,
 				6E415E5C1F5171D10078436F /* ZXRSSFinderPattern.m in Sources */,
 				6E415F4A1F54E5550078436F /* EAAddressBookManager.m in Sources */,
+				5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */,
 				6E415F1B1F527A630078436F /* EATaskStateInfoTableViewCell.m in Sources */,
 				6E415E2E1F5171D10078436F /* ZXDataMatrixASCIIEncoder.m in Sources */,
 				6E415E941F5171D10078436F /* ZXQRCodeDataMask.m in Sources */,

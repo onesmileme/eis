@@ -35,6 +35,7 @@
         _customBackItem = YES;
         self.pageName = @"";
         _pagedurationLog = YES;
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }

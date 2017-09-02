@@ -9,7 +9,7 @@
 #import "EATabSwitchContainer.h"
 #import "EATabSwitchControl.h"
 
-static const int kTabSwtichControlHeight = 40;
+const int kTabSwtichControlHeight = 40;
 
 @interface EATabSwitchContainer () <UIScrollViewDelegate>
 
@@ -31,7 +31,7 @@ static const int kTabSwtichControlHeight = 40;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -43,6 +43,8 @@ static const int kTabSwtichControlHeight = 40;
     _containerDelegate.tabSwitchContainerHeaderConfig = [self.delegate respondsToSelector:@selector(tabSwitchContainerHeaderConfig:)];
     _containerDelegate.viewForIndex = [self.delegate respondsToSelector:@selector(tabSwitchContainer:viewForIndex:)];
     _containerDelegate.selectedIndex = [self.delegate respondsToSelector:@selector(tabSwitchContainer:selectedIndex:)];
+    
+    [self initViews];
 }
 
 - (void)initViews {
@@ -60,6 +62,7 @@ static const int kTabSwtichControlHeight = 40;
                                                         titleFont:titleFont
                                                         lineWidth:lineWidth
                                                         lineColor:lineColor];
+    [_tabSwtichControl addTarget:self action:@selector(tabSwitched) forControlEvents:UIControlEventValueChanged];
     [self addSubview:_tabSwtichControl];
     
     _contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _tabSwtichControl.bottom, self.width, self.height - _tabSwtichControl.bottom)];
@@ -69,10 +72,30 @@ static const int kTabSwtichControlHeight = 40;
     _contentView.contentSize = CGSizeMake(_contentView.width * titles.count, _contentView.height);
     _contentView.scrollsToTop = NO;
     [self addSubview:_contentView];
+    
+    [self updateContentView];
+}
+
+- (void)updateContentView {
+    if (!_containerDelegate.viewForIndex) {
+        return;
+    }
+    NSArray *titles = [self.delegate tabSwitchContainerHeaderTitles:self];
+    float left = 0;
+    for (int i = 0; i < titles.count; ++i) {
+        UIView *view = [self.delegate tabSwitchContainer:self viewForIndex:i];
+        view.left = left;
+        [_contentView addSubview:view];
+        left = view.right;
+    }
 }
 
 - (void)updatePage {
     _tabSwtichControl.selectedIndex = MAX(0, _contentView.contentOffset.x / _contentView.width);
+}
+
+- (void)tabSwitched {
+    [_contentView setContentOffset:CGPointMake(_tabSwtichControl.selectedIndex * _contentView.width, 0) animated:YES];
 }
 
 #pragma mark - mark
