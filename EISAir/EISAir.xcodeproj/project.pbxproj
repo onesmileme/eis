@@ -309,6 +309,7 @@
 		6E415F4F1F5707750078436F /* EALoginUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */; };
 		6E415F521F585C400078436F /* EAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F511F585C400078436F /* EAMessageModel.m */; };
 		6E415F551F585E8D0078436F /* TKRequestHandler+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F541F585E8D0078436F /* TKRequestHandler+Message.m */; };
+		6E415F561F5AB0320078436F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6885391F433C49009AD662 /* Main.storyboard */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -3506,7 +3507,8 @@
 				TargetAttributes = {
 					6E68852C1F433C49009AD662 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 3V66S7MLJB;
+						ProvisioningStyle = Manual;
 					};
 					6E6885451F433C49009AD662 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -3562,6 +3564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E415F561F5AB0320078436F /* Main.storyboard in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
 				6E68867B1F43C71A009AD662 /* shanguangdeng.png in Resources */,
@@ -4243,6 +4246,7 @@
 			baseConfigurationReference = C5213142B48C8276E4B76135 /* Pods-EISAir.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3V66S7MLJB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToolKit/ToolKit/ThirdParty/TencentSDK",
@@ -4268,8 +4272,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToolKit/ToolKit/ThirdParty/WXSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onesmile.EISAir;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insky.kankan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cca5e3c7-cb1d-49ad-9c53-2609c2a9f718";
+				PROVISIONING_PROFILE_SPECIFIER = kankan_store_dev;
 			};
 			name = Debug;
 		};
@@ -4278,6 +4284,7 @@
 			baseConfigurationReference = D677BF13055C157E3A660E7F /* Pods-EISAir.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToolKit/ToolKit/ThirdParty/TencentSDK",
@@ -4303,8 +4310,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToolKit/ToolKit/ThirdParty/WXSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onesmile.EISAir;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insky.kankan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

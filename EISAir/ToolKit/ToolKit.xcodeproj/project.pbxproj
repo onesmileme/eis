@@ -71,7 +71,6 @@
 		6E4998A71C86D1B700311D2B /* TKPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4998A61C86D1B700311D2B /* TKPageControl.m */; };
 		6E5B03481CC0F15700BDD2AE /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B03471CC0F15700BDD2AE /* RSA.m */; };
 		6E6FD2CD1C86CED900611CC9 /* UIViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FD2CC1C86CED900611CC9 /* UIViewController+Refresh.m */; };
-		6E83DB301DC98CAD008D400F /* libjpush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF7A89C1CE35FEE0024F263 /* libjpush.a */; };
 		6E9CC4DB1B7F47D300A980F0 /* SAMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CC4DA1B7F47D300A980F0 /* SAMTextView.m */; };
 		6EA15C571CBCAB8C0031DDBC /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA15C561CBCAB8C0031DDBC /* NSData+GZIP.m */; };
 		6EA20BA51BC76DE900AF0954 /* ISDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA20B9C1BC76DE900AF0954 /* ISDiskCache.m */; };
@@ -355,8 +354,6 @@
 		6EEEE6421C16AD870095F6A8 /* TKBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TKBannerView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EEF9AE71BBBE45200FA17A6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		6EEF9AE81BBBE45200FA17A6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		6EF7A89B1CE35FEE0024F263 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
-		6EF7A89C1CE35FEE0024F263 /* libjpush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjpush.a; sourceTree = "<group>"; };
 		6EFC59F81C93FB8F0009D695 /* TKGuidePageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGuidePageControl.h; sourceTree = "<group>"; };
 		6EFC59F91C93FB8F0009D695 /* TKGuidePageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGuidePageControl.m; sourceTree = "<group>"; };
 		6EFC59FA1C93FB8F0009D695 /* TKGuideTranistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGuideTranistion.h; sourceTree = "<group>"; };
@@ -413,7 +410,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E83DB301DC98CAD008D400F /* libjpush.a in Frameworks */,
 				F5D94EEA1DC8958C001C8B4E /* UMMobClick.framework in Frameworks */,
 				25F7442F1DC1B5CA00850F50 /* libWeiboSDK.a in Frameworks */,
 				6E1D71B61DC213F100179926 /* libWeChatSDK.a in Frameworks */,
@@ -622,7 +618,6 @@
 				25F744081DC0E13100850F50 /* libWeiboSDK */,
 				25F744161DC0E13100850F50 /* TencentSDK */,
 				25F744191DC0E13100850F50 /* WXSDK */,
-				6EF7A89A1CE35FEE0024F263 /* JPush */,
 				6EE6F6591CDC7CBD00740D41 /* HPGrowingTextView */,
 				6E5B03451CC0F15700BDD2AE /* RSA */,
 				6EA15C531CBCAB8C0031DDBC /* GZIP */,
@@ -997,15 +992,6 @@
 				6EEEE6421C16AD870095F6A8 /* TKBannerView.m */,
 			);
 			path = AdBanner;
-			sourceTree = "<group>";
-		};
-		6EF7A89A1CE35FEE0024F263 /* JPush */ = {
-			isa = PBXGroup;
-			children = (
-				6EF7A89B1CE35FEE0024F263 /* JPUSHService.h */,
-				6EF7A89C1CE35FEE0024F263 /* libjpush.a */,
-			);
-			path = JPush;
 			sourceTree = "<group>";
 		};
 		6EFC59F71C93FB8F0009D695 /* Guide */ = {

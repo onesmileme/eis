@@ -62,9 +62,9 @@
     self.delegate = self;
     
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self test];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self test];
+//    });
     
 }
 
@@ -118,7 +118,7 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessage",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
     NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0"};
