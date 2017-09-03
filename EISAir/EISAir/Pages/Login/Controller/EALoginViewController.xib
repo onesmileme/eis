@@ -24,15 +24,15 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="E2b-xf-8UB">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start_Index_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-Z3-Gat">
-                    <rect key="frame" x="128" y="139" width="118" height="74"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-Z3-Gat">
+                    <rect key="frame" x="88.5" y="139" width="197" height="98"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="118" id="9Kn-64-RHA"/>
-                        <constraint firstAttribute="height" constant="74" id="Ahc-4U-6Lz"/>
+                        <constraint firstAttribute="height" constant="98" id="9Kn-64-RHA"/>
+                        <constraint firstAttribute="width" constant="197" id="Ahc-4U-6Lz"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="用户名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NT7-W5-zLg" userLabel="name Text Field" customClass="EALoginTextField">
-                    <rect key="frame" x="14" y="268" width="347" height="46"/>
+                    <rect key="frame" x="14" y="292" width="347" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="Ynx-lp-yrU"/>
                     </constraints>
@@ -44,7 +44,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xpw-9c-7wi" userLabel="password Text Field" customClass="EALoginTextField">
-                    <rect key="frame" x="14" y="329" width="347" height="46"/>
+                    <rect key="frame" x="14" y="353" width="347" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="Vaq-IZ-klB"/>
                     </constraints>
@@ -56,7 +56,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL3-zp-ZhG">
-                    <rect key="frame" x="14" y="407.5" width="347" height="45"/>
+                    <rect key="frame" x="14" y="431.5" width="347" height="45"/>
                     <color key="backgroundColor" red="1" green="0.70980392156862748" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Qgx-0y-r1S"/>
@@ -68,17 +68,8 @@
                         <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="lwa-a5-W03"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="翼虎能源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqs-oi-1R7">
-                    <rect key="frame" x="0.0" y="630" width="375" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="uwX-Jc-oyd"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBW-9P-gyK">
-                    <rect key="frame" x="305" y="450.5" width="56" height="29"/>
+                    <rect key="frame" x="305" y="474.5" width="56" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="56" id="6cX-Tx-ujT"/>
                         <constraint firstAttribute="height" constant="29" id="YHe-Lb-OOa"/>
@@ -91,10 +82,18 @@
                         <action selector="forgetPasswordAction:" destination="-1" eventType="touchUpInside" id="gw7-2e-ZQH"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-xo-BWs">
+                    <rect key="frame" x="113" y="623" width="149" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="149" id="he0-i8-NQC"/>
+                        <constraint firstAttribute="height" constant="31" id="sJJ-mz-4ua"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xpw-9c-7wi" firstAttribute="leading" secondItem="NT7-W5-zLg" secondAttribute="leading" id="1Gh-NG-sQZ"/>
+                <constraint firstAttribute="bottom" secondItem="0s0-xo-BWs" secondAttribute="bottom" constant="13" id="5xW-L8-k66"/>
                 <constraint firstItem="xpw-9c-7wi" firstAttribute="trailing" secondItem="NT7-W5-zLg" secondAttribute="trailing" id="6ux-pp-aGS"/>
                 <constraint firstAttribute="bottom" secondItem="E2b-xf-8UB" secondAttribute="bottom" id="AfR-iR-6v6"/>
                 <constraint firstItem="xpw-9c-7wi" firstAttribute="top" secondItem="NT7-W5-zLg" secondAttribute="bottom" constant="15" id="IQ3-le-JhX"/>
@@ -107,20 +106,19 @@
                 <constraint firstItem="NT7-W5-zLg" firstAttribute="top" secondItem="ahB-Z3-Gat" secondAttribute="bottom" constant="55" id="azq-VN-OZG"/>
                 <constraint firstItem="E2b-xf-8UB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bSF-RS-OjD"/>
                 <constraint firstAttribute="trailing" secondItem="NT7-W5-zLg" secondAttribute="trailing" constant="14" id="oBe-Yx-c2r"/>
-                <constraint firstAttribute="trailing" secondItem="Eqs-oi-1R7" secondAttribute="trailing" id="oaU-kG-l3y"/>
                 <constraint firstAttribute="trailing" secondItem="E2b-xf-8UB" secondAttribute="trailing" id="p1d-0r-ioV"/>
-                <constraint firstItem="Eqs-oi-1R7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ryd-d2-AxR"/>
                 <constraint firstItem="EBW-9P-gyK" firstAttribute="top" secondItem="YL3-zp-ZhG" secondAttribute="bottom" constant="-2" id="uHL-YK-Fh0"/>
-                <constraint firstAttribute="bottom" secondItem="Eqs-oi-1R7" secondAttribute="bottom" constant="16" id="vtf-4I-jRD"/>
                 <constraint firstItem="NT7-W5-zLg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="wyy-8c-3Fn"/>
                 <constraint firstItem="EBW-9P-gyK" firstAttribute="trailing" secondItem="YL3-zp-ZhG" secondAttribute="trailing" id="xcv-2y-mbe"/>
+                <constraint firstItem="0s0-xo-BWs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yeB-1l-o6p"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
     <resources>
-        <image name="Start_Index_logo" width="168" height="97"/>
         <image name="login_bg" width="750" height="1334"/>
         <image name="login_btn" width="340" height="45"/>
+        <image name="login_logo" width="385" height="197"/>
+        <image name="login_logo_bottom" width="149" height="31"/>
     </resources>
 </document>

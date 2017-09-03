@@ -318,6 +318,12 @@
 		6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D93101F5BAD7600026B53 /* EAMessageNoDataView.xib */; };
 		6E4D93141F5BAE2900026B53 /* EAMessageNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93131F5BAE2900026B53 /* EAMessageNoDataView.m */; };
 		6E4D93171F5BD94C00026B53 /* RequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93161F5BD94C00026B53 /* RequestTest.m */; };
+		6E4D93221F5BDD6100026B53 /* EAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93201F5BDD6100026B53 /* EAHomeViewController.m */; };
+		6E4D93261F5BDD8500026B53 /* EAHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93251F5BDD8500026B53 /* EAHomeHeaderView.m */; };
+		6E4D93281F5BDD9000026B53 /* EAHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D93271F5BDD9000026B53 /* EAHomeHeaderView.xib */; };
+		6E4D932B1F5BE88300026B53 /* EAHomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D932A1F5BE88300026B53 /* EAHomeFooterView.m */; };
+		6E4D932F1F5BED7600026B53 /* EAHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */; };
+		6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1117,6 +1123,16 @@
 		6E4D93131F5BAE2900026B53 /* EAMessageNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageNoDataView.m; sourceTree = "<group>"; };
 		6E4D93151F5BD94C00026B53 /* RequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTest.h; sourceTree = "<group>"; };
 		6E4D93161F5BD94C00026B53 /* RequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTest.m; sourceTree = "<group>"; };
+		6E4D931F1F5BDD6100026B53 /* EAHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHomeViewController.h; sourceTree = "<group>"; };
+		6E4D93201F5BDD6100026B53 /* EAHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHomeViewController.m; sourceTree = "<group>"; };
+		6E4D93241F5BDD8500026B53 /* EAHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHomeHeaderView.h; sourceTree = "<group>"; };
+		6E4D93251F5BDD8500026B53 /* EAHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHomeHeaderView.m; sourceTree = "<group>"; };
+		6E4D93271F5BDD9000026B53 /* EAHomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAHomeHeaderView.xib; sourceTree = "<group>"; };
+		6E4D93291F5BE88300026B53 /* EAHomeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHomeFooterView.h; sourceTree = "<group>"; };
+		6E4D932A1F5BE88300026B53 /* EAHomeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHomeFooterView.m; sourceTree = "<group>"; };
+		6E4D932C1F5BED7600026B53 /* EAHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHomeTableViewCell.h; sourceTree = "<group>"; };
+		6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHomeTableViewCell.m; sourceTree = "<group>"; };
+		6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAHomeTableViewCell.xib; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2483,6 +2499,47 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E4D93191F5BDD3400026B53 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6E4D931A1F5BDD3400026B53 /* Controller */,
+				6E4D931B1F5BDD3400026B53 /* Model */,
+				6E4D931C1F5BDD3400026B53 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6E4D931A1F5BDD3400026B53 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E4D931F1F5BDD6100026B53 /* EAHomeViewController.h */,
+				6E4D93201F5BDD6100026B53 /* EAHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E4D931B1F5BDD3400026B53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E4D931C1F5BDD3400026B53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E4D93241F5BDD8500026B53 /* EAHomeHeaderView.h */,
+				6E4D93251F5BDD8500026B53 /* EAHomeHeaderView.m */,
+				6E4D93271F5BDD9000026B53 /* EAHomeHeaderView.xib */,
+				6E4D93291F5BE88300026B53 /* EAHomeFooterView.h */,
+				6E4D932A1F5BE88300026B53 /* EAHomeFooterView.m */,
+				6E4D932C1F5BED7600026B53 /* EAHomeTableViewCell.h */,
+				6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */,
+				6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E6885241F433C49009AD662 = {
 			isa = PBXGroup;
 			children = (
@@ -2589,6 +2646,7 @@
 		6E6885611F43C71A009AD662 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				6E4D93191F5BDD3400026B53 /* Home */,
 				6E415ED61F5267B70078436F /* FilterSearch */,
 				6E415EF21F5267B70078436F /* Scan */,
 				6E6887341F481772009AD662 /* Login */,
@@ -3602,6 +3660,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4D93281F5BDD9000026B53 /* EAHomeHeaderView.xib in Resources */,
 				6E415F561F5AB0320078436F /* (null) in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
@@ -3611,6 +3670,7 @@
 				6E6886791F43C71A009AD662 /* paizhao.png in Resources */,
 				6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */,
 				6E68867C1F43C71A009AD662 /* shanguangdeng@2x.png in Resources */,
+				6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
 				6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */,
@@ -3772,6 +3832,7 @@
 				6E415E061F5171D10078436F /* ZXMonochromeRectangleDetector.m in Sources */,
 				6E415F4F1F5707750078436F /* EALoginUserInfoModel.m in Sources */,
 				6E68865E1F43C71A009AD662 /* UIImagePickerController+BlocksKit.m in Sources */,
+				6E4D932F1F5BED7600026B53 /* EAHomeTableViewCell.m in Sources */,
 				6E6886611F43C71A009AD662 /* UIView+BlocksKit.m in Sources */,
 				6E415DF11F5171D10078436F /* ZXResultParser.m in Sources */,
 				6E415DDC1F5171D10078436F /* ZXAztecReader.m in Sources */,
@@ -3798,6 +3859,7 @@
 				6E6886DA1F45124B009AD662 /* TKRequestHandler+RedDot.m in Sources */,
 				6E6886501F43C71A009AD662 /* NSTimer+BlocksKit.m in Sources */,
 				6E6886FF1F451261009AD662 /* TKAccountManager.m in Sources */,
+				6E4D93221F5BDD6100026B53 /* EAHomeViewController.m in Sources */,
 				6E415E571F5171D10078436F /* ZXRSSExpandedReader.m in Sources */,
 				6E6886D31F45124B009AD662 /* EARedDotModel.m in Sources */,
 				6E6886DB1F45124B009AD662 /* TKRequestHandler+Util.m in Sources */,
@@ -3853,6 +3915,7 @@
 				6E68865F1F43C71A009AD662 /* UIPopoverController+BlocksKit.m in Sources */,
 				6E415DD11F5171D10078436F /* LBXZXCapture.m in Sources */,
 				6E415EFF1F5267B70078436F /* EAMsgSearchFilterHeaderView.m in Sources */,
+				6E4D93261F5BDD8500026B53 /* EAHomeHeaderView.m in Sources */,
 				6E415E611F5171D10078436F /* ZXCode128Reader.m in Sources */,
 				6E415E861F5171D10078436F /* ZXPDF417Detector.m in Sources */,
 				6E415E3A1F5171D10078436F /* ZXDataMatrixReader.m in Sources */,
@@ -4030,6 +4093,7 @@
 				6E6886491F43C71A009AD662 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
 				6E415DFE1F5171D10078436F /* ZXVINParsedResult.m in Sources */,
 				6E6886711F43C71A009AD662 /* TTTAttributedLabel.m in Sources */,
+				6E4D932B1F5BE88300026B53 /* EAHomeFooterView.m in Sources */,
 				6E415E9F1F5171D10078436F /* ZXQRCodeFinderPattern.m in Sources */,
 				6E415E3D1F5171D10078436F /* ZXMaxiCodeDecodedBitStreamParser.m in Sources */,
 				6E415DD21F5171D10078436F /* ZXAztecDecoder.m in Sources */,

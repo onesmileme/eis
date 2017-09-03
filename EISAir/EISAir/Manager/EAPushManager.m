@@ -22,6 +22,8 @@
 #import "TKRequestHandler+Push.h"
 #import "EANetworkManager.h"
 #import "EALoginViewController.h"
+#import "EASettingViewController.h"
+
 
 @import UserNotifications;
 
@@ -154,6 +156,9 @@ IMP_SINGLETON
         [weakSelf handleShowLogin:param];
     };
 
+    _handlesDic[@"show_setting"] = ^(NSDictionary *param){
+        [weakSelf showSetting:param];
+    };
     
 //    _handlesDic[@"h5"] = ^(NSDictionary *param){
 //        [weakSelf handleWeb:param];
@@ -454,6 +459,13 @@ IMP_SINGLETON
     [self pushViewController:controller];
 }
 
+-(void)showSetting:(NSDictionary *)param
+{
+    EASettingViewController *controller = [[EASettingViewController alloc]init];
+    
+    [self pushViewController:controller];
+}
+
 #if 0
 
 -(void)handleTweet:(NSDictionary *)param
@@ -581,8 +593,10 @@ IMP_SINGLETON
 
 -(void)pushViewController:(UIViewController *)controller
 {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    UINavigationController *rootController = delegate.mainController.navigationController;
+    UINavigationController *rootController = [EABaseViewController rootNavigationController];
+    
+//    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    UINavigationController *rootController = delegate.mainController.navigationController;
     [rootController pushViewController:controller animated:true];
 }
 
