@@ -8,13 +8,19 @@
 
 #import "TKRequestHandler.h"
 #import "EAMessageModel.h"
+#import "EAMsgFilterModel.h"
 
 @interface TKRequestHandler (Message)
 
--(NSURLSessionDataTask *)loadMyMessageFilterParam:(NSDictionary *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)loadMyMessageFilterParam:(EAMsgFilterModel *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
 
--(NSURLSessionDataTask *)loadMessageByPerson:(NSString *)personId filterParam:(NSDictionary *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)loadMessageByPerson:(NSString *)personId filterParam:(EAMsgFilterModel *)param completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
 
--(NSURLSessionDataTask *)findMessageDataFilterParam:(NSDictionary *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)findMessageDataFilterParam:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion;
+
+/*
+ * 加载筛选数据
+ */
+-(NSURLSessionDataTask *)loadMsgFilterData:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , JSONModel *model , NSError *error))completion;
 
 @end

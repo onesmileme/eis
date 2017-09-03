@@ -90,6 +90,14 @@
     NSString *name = _nameField.text;
     [[TKRequestHandler sharedInstance]loginWithUserName:name password:_passwordField.text completion:^(NSURLSessionDataTask *task, EAOauthModel *model, NSError *error) {
         if (error || model == nil) {
+#if DEBUG
+      
+            NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+            NSString *c = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
+            NSLog(@"error is: \n%@\n",c);
+            
+#endif
+            
             hud.label.text = @"请求失败";
             [hud hideAnimated:true afterDelay:0.7];
             return ;

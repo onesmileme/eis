@@ -118,10 +118,16 @@
 #pragma network request test
 -(void)test
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageByPerson",AppHost];
+    //GET /eis/open/task/findTaskResultByTaskId
+    //POST /eis/open/msg/findMsgTitleList
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findMsgTitleList",AppHost];
     NSLog(@"path is: \n%@\n\n",path);
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
     NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0"};
+    
+    //@{@"msgId":@"AV48ho8x0f-qWHUcq9_2"};//
+    
+    //@{@"id":@""};//
 //    @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
     //@"personId":udata.personId?:@"",
     

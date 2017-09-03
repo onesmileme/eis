@@ -311,6 +311,13 @@
 		6E415F521F585C400078436F /* EAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F511F585C400078436F /* EAMessageModel.m */; };
 		6E415F551F585E8D0078436F /* TKRequestHandler+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F541F585E8D0078436F /* TKRequestHandler+Message.m */; };
 		6E415F561F5AB0320078436F /* (null) in Resources */ = {isa = PBXBuildFile; };
+		6E4D67C91F5B908E00A8D69A /* EATaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D67C81F5B908E00A8D69A /* EATaskModel.m */; };
+		6E4D67CE1F5B91A400A8D69A /* TKRequestHandler+Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D67CD1F5B91A400A8D69A /* TKRequestHandler+Task.m */; };
+		6E4D930A1F5BA4C600026B53 /* EATaskFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93091F5BA4C600026B53 /* EATaskFilterModel.m */; };
+		6E4D930F1F5BA69800026B53 /* EAMsgFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D930E1F5BA69800026B53 /* EAMsgFilterModel.m */; };
+		6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D93101F5BAD7600026B53 /* EAMessageNoDataView.xib */; };
+		6E4D93141F5BAE2900026B53 /* EAMessageNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93131F5BAE2900026B53 /* EAMessageNoDataView.m */; };
+		6E4D93171F5BD94C00026B53 /* RequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93161F5BD94C00026B53 /* RequestTest.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1097,6 +1104,19 @@
 		6E415F511F585C400078436F /* EAMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageModel.m; sourceTree = "<group>"; };
 		6E415F531F585E8D0078436F /* TKRequestHandler+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Message.h"; sourceTree = "<group>"; };
 		6E415F541F585E8D0078436F /* TKRequestHandler+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Message.m"; sourceTree = "<group>"; };
+		6E4D67C71F5B908E00A8D69A /* EATaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskModel.h; sourceTree = "<group>"; };
+		6E4D67C81F5B908E00A8D69A /* EATaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskModel.m; sourceTree = "<group>"; };
+		6E4D67CC1F5B91A400A8D69A /* TKRequestHandler+Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Task.h"; sourceTree = "<group>"; };
+		6E4D67CD1F5B91A400A8D69A /* TKRequestHandler+Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Task.m"; sourceTree = "<group>"; };
+		6E4D93081F5BA4C600026B53 /* EATaskFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskFilterModel.h; sourceTree = "<group>"; };
+		6E4D93091F5BA4C600026B53 /* EATaskFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskFilterModel.m; sourceTree = "<group>"; };
+		6E4D930D1F5BA69800026B53 /* EAMsgFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgFilterModel.h; sourceTree = "<group>"; };
+		6E4D930E1F5BA69800026B53 /* EAMsgFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgFilterModel.m; sourceTree = "<group>"; };
+		6E4D93101F5BAD7600026B53 /* EAMessageNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAMessageNoDataView.xib; sourceTree = "<group>"; };
+		6E4D93121F5BAE2900026B53 /* EAMessageNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageNoDataView.h; sourceTree = "<group>"; };
+		6E4D93131F5BAE2900026B53 /* EAMessageNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMessageNoDataView.m; sourceTree = "<group>"; };
+		6E4D93151F5BD94C00026B53 /* RequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTest.h; sourceTree = "<group>"; };
+		6E4D93161F5BD94C00026B53 /* RequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTest.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2497,6 +2517,8 @@
 				6E6885341F433C49009AD662 /* AppDelegate.m */,
 				6E6885361F433C49009AD662 /* ViewController.h */,
 				6E6885371F433C49009AD662 /* ViewController.m */,
+				6E4D93151F5BD94C00026B53 /* RequestTest.h */,
+				6E4D93161F5BD94C00026B53 /* RequestTest.m */,
 				6E68853C1F433C49009AD662 /* Assets.xcassets */,
 				6E68853E1F433C49009AD662 /* LaunchScreen.storyboard */,
 				6E6885411F433C49009AD662 /* Info.plist */,
@@ -3044,6 +3066,10 @@
 				6E6886B71F45124B009AD662 /* EAUploadPicModel.m */,
 				6E6886B81F45124B009AD662 /* EAUserInfoModel.h */,
 				6E6886B91F45124B009AD662 /* EAUserInfoModel.m */,
+				6E4D93081F5BA4C600026B53 /* EATaskFilterModel.h */,
+				6E4D93091F5BA4C600026B53 /* EATaskFilterModel.m */,
+				6E4D930D1F5BA69800026B53 /* EAMsgFilterModel.h */,
+				6E4D930E1F5BA69800026B53 /* EAMsgFilterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3249,6 +3275,9 @@
 				6E6386C31F49CA1F00017FB8 /* EAMessageTableViewCell.h */,
 				6E6386C41F49CA1F00017FB8 /* EAMessageTableViewCell.m */,
 				6E6386C51F49CA1F00017FB8 /* EAMessageTableViewCell.xib */,
+				6E4D93121F5BAE2900026B53 /* EAMessageNoDataView.h */,
+				6E4D93131F5BAE2900026B53 /* EAMessageNoDataView.m */,
+				6E4D93101F5BAD7600026B53 /* EAMessageNoDataView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3439,6 +3468,10 @@
 		6E68874E1F481772009AD662 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E4D67C71F5B908E00A8D69A /* EATaskModel.h */,
+				6E4D67C81F5B908E00A8D69A /* EATaskModel.m */,
+				6E4D67CC1F5B91A400A8D69A /* TKRequestHandler+Task.h */,
+				6E4D67CD1F5B91A400A8D69A /* TKRequestHandler+Task.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3576,6 +3609,7 @@
 				6E415F1C1F527A630078436F /* EATaskStateInfoTableViewCell.xib in Resources */,
 				6E68867D1F43C71A009AD662 /* shanguangdeng2.png in Resources */,
 				6E6886791F43C71A009AD662 /* paizhao.png in Resources */,
+				6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */,
 				6E68867C1F43C71A009AD662 /* shanguangdeng@2x.png in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
@@ -3731,6 +3765,7 @@
 				6E415E181F5171D10078436F /* ZXIntArray.m in Sources */,
 				6E415E3E1F5171D10078436F /* ZXMaxiCodeDecoder.m in Sources */,
 				6E415E0C1F5171D10078436F /* ZXBitArray.m in Sources */,
+				6E4D93171F5BD94C00026B53 /* RequestTest.m in Sources */,
 				6E415E661F5171D10078436F /* ZXEAN13Reader.m in Sources */,
 				6E415ECF1F51BB4A0078436F /* EAMsgDetailHeader.m in Sources */,
 				6E415F081F526A510078436F /* EATaskSlideListViewController.m in Sources */,
@@ -3748,6 +3783,7 @@
 				6E415DD81F5171D10078436F /* ZXAztecSimpleToken.m in Sources */,
 				6E415E521F5171D10078436F /* ZXRSSExpandedDecodedObject.m in Sources */,
 				6E415E3B1F5171D10078436F /* ZXDataMatrixWriter.m in Sources */,
+				6E4D930F1F5BA69800026B53 /* EAMsgFilterModel.m in Sources */,
 				6E6887051F451261009AD662 /* TKRequestHandler+WechatPay.m in Sources */,
 				6E6886961F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
 				6E415E7E1F5171D10078436F /* ZXPDF417BoundingBox.m in Sources */,
@@ -3802,6 +3838,7 @@
 				6E415E981F5171D10078436F /* ZXQRCodeErrorCorrectionLevel.m in Sources */,
 				6E415E121F5171D10078436F /* ZXDecoderResult.m in Sources */,
 				6E415E331F5171D10078436F /* ZXDataMatrixEncoderContext.m in Sources */,
+				6E4D67CE1F5B91A400A8D69A /* TKRequestHandler+Task.m in Sources */,
 				6E6886951F43C71A009AD662 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
 				6E415E401F5171D10078436F /* ZXByQuadrantReader.m in Sources */,
 				6E6886741F43C71A009AD662 /* DACircularProgressView.m in Sources */,
@@ -4012,6 +4049,7 @@
 				6E415E941F5171D10078436F /* ZXQRCodeDataMask.m in Sources */,
 				6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */,
 				6E415E041F5171D10078436F /* ZXImage.m in Sources */,
+				6E4D93141F5BAE2900026B53 /* EAMessageNoDataView.m in Sources */,
 				6E415EF81F5267B70078436F /* EAMsgSearchResultViewController.m in Sources */,
 				6E415E2A1F5171D10078436F /* ZXDataMatrixDecodedBitStreamParser.m in Sources */,
 				6E415DF71F5171D10078436F /* ZXTelResultParser.m in Sources */,
@@ -4075,6 +4113,8 @@
 				6E415DF51F5171D10078436F /* ZXSMTPResultParser.m in Sources */,
 				6E415E021F5171D10078436F /* ZXCapture.m in Sources */,
 				6E415F201F527A770078436F /* EATaskStateTableViewCell.m in Sources */,
+				6E4D67C91F5B908E00A8D69A /* EATaskModel.m in Sources */,
+				6E4D930A1F5BA4C600026B53 /* EATaskFilterModel.m in Sources */,
 				6E415E5D1F5171D10078436F /* ZXRSSPair.m in Sources */,
 				6E415E6F1F5171D10078436F /* ZXOneDimensionalCodeWriter.m in Sources */,
 				6E415E791F5171D10078436F /* ZXModulusGF.m in Sources */,

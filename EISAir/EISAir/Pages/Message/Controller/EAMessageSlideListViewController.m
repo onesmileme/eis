@@ -13,6 +13,7 @@
 #import "TKRequestHandler+Message.h"
 #import "TKAccountManager.h"
 #import <MJRefresh.h>
+#import "EAMessageNoDataView.h"
 
 @interface EAMessageSlideListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -20,8 +21,11 @@
 @property(nonatomic , strong) NSMutableArray *msgList;
 @property(nonatomic , strong) NSArray *types;
 
+@property(nonatomic , strong) EAMessageNoDataView *noDataView;
+
 @property(nonatomic , strong) EAMessageDataModel *dataModel;
 @property(nonatomic , strong) NSMutableDictionary *filterDict;
+@property(nonatomic , strong) EAMsgFilterModel *filterModel;
 @property(nonatomic , assign) NSInteger pageNum;
 
 @end
@@ -64,6 +68,20 @@
     
 }
 
+-(EAMessageNoDataView *)noDataView
+{
+    if (!_noDataView) {
+        _noDataView = [EAMessageNoDataView view];
+        __weak typeof(self) wself = self;
+        _noDataView.tapBlock = ^{
+//            [wself loadMessage:0];
+            [wself startHeadRefresh:wself.msgListTableView];
+            [wself.noDataView removeFromSuperview];
+        };
+    }
+    return _noDataView;
+}
+
 -(void)pageWillPurge
 {
     
@@ -84,7 +102,7 @@
     return YES;
 }
 
--(void)updateCustomConfig:(NSDictionary *)dict
+-(void)updateCustomConfig:(EAMsgFilterModel *)filterModel
 {
     
 }
@@ -98,6 +116,11 @@
     if (reload && _msgList.count == 0) {
         [self loadMessage:_pageNum];
     }
+}
+
+-(void)loadMessageIfNotRequest
+{
+    
 }
 
 -(void)headRefreshAction
@@ -116,21 +139,23 @@
     if (_filterDict) {
         [param addEntriesFromDictionary:_filterDict];
     }
-    if (_types) {
-        param[@"msgTypes"] = _types;
-    }
-    
-    param[@"pageNum"] = @(pageNum);
-    param[@"pageSize"] = @"20";
     
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
-    param[@"orgId"] = udata.orgId;
-    param[@"siteId"] = udata.siteId;
     
-//    NSDictionary *param = @{@"personId":udata.personId?:@"",@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0"};
+    if (!_filterModel) {
+        _filterModel = [[EAMsgFilterModel alloc]init];
+    }
+    
+    _filterModel.pageNum = @(pageNum).description;
+    _filterModel.pageSize = @"20";
+    _filterModel.orgId = udata.orgId;
+    _filterModel.siteId = udata.siteId;
+    if (_types) {
+        _filterModel.msgTypes = _types;
+    }
     
     
-    [[TKRequestHandler sharedInstance] loadMyMessageFilterParam:param completion:^(NSURLSessionDataTask *task, EAMessageModel *model, NSError *error) {
+    [[TKRequestHandler sharedInstance] loadMyMessageFilterParam:_filterModel completion:^(NSURLSessionDataTask *task, EAMessageModel *model, NSError *error) {
         
         [self stopRefresh:self.msgListTableView];
         
@@ -161,6 +186,10 @@
                 if (!self.msgListTableView.footer) {
                     [self addFooterRefreshView:self.msgListTableView];
                 }
+            }else if (_pageNum == 0 ){
+                //没有数据
+                self.noDataView.frame = self.view.bounds;
+                [self.view addSubview:self.noDataView];
             }
             
             [self.msgListTableView reloadData];

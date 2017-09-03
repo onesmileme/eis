@@ -146,6 +146,8 @@ IMP_SINGLETON
 
 -(void)resetToken
 {
+    AFHTTPRequestSerializer *serializer =  [AFHTTPRequestSerializer serializer];
+    [[TKNetworkManager sharedInstance] setRequestSerializer: serializer];
     TKRequestHandler *handler = [TKRequestHandler sharedInstance];
     [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
 }
