@@ -27,6 +27,7 @@
 		5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9241F5A644E00F8E07E /* EAKongJianVC.m */; };
 		5330A9281F5A64AF00F8E07E /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */; };
 		5330A92B1F5A707200F8E07E /* EADingYueGridContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */; };
+		5330A92F1F5AE64300F8E07E /* EASubscribeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -309,7 +310,7 @@
 		6E415F4F1F5707750078436F /* EALoginUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */; };
 		6E415F521F585C400078436F /* EAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F511F585C400078436F /* EAMessageModel.m */; };
 		6E415F551F585E8D0078436F /* TKRequestHandler+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415F541F585E8D0078436F /* TKRequestHandler+Message.m */; };
-		6E415F561F5AB0320078436F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6885391F433C49009AD662 /* Main.storyboard */; };
+		6E415F561F5AB0320078436F /* (null) in Resources */ = {isa = PBXBuildFile; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -525,6 +526,8 @@
 		5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridView.m; sourceTree = SOURCE_ROOT; };
 		5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EADingYueGridContentView.h; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.h; sourceTree = SOURCE_ROOT; };
 		5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridContentView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.m; sourceTree = SOURCE_ROOT; };
+		5330A92D1F5AE64300F8E07E /* EASubscribeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EASubscribeHeaderView.h; path = EISAir/Pages/Subscribe/Controller/EASubscribeHeaderView.h; sourceTree = SOURCE_ROOT; };
+		5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EASubscribeHeaderView.m; path = EISAir/Pages/Subscribe/Controller/EASubscribeHeaderView.m; sourceTree = SOURCE_ROOT; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -3403,6 +3406,8 @@
 				5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */,
 				5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */,
 				5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */,
+				5330A92D1F5AE64300F8E07E /* EASubscribeHeaderView.h */,
+				5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3564,7 +3569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E415F561F5AB0320078436F /* Main.storyboard in Resources */,
+				6E415F561F5AB0320078436F /* (null) in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
 				6E68867B1F43C71A009AD662 /* shanguangdeng.png in Resources */,
@@ -3969,6 +3974,7 @@
 				6E6886D61F45124B009AD662 /* EAUserInfoModel.m in Sources */,
 				6E415F021F5267B70078436F /* EAScanViewController.m in Sources */,
 				6E6886621F43C71A009AD662 /* UIWebView+BlocksKit.m in Sources */,
+				5330A92F1F5AE64300F8E07E /* EASubscribeHeaderView.m in Sources */,
 				6E415EFD1F5267B70078436F /* EAFilterView.m in Sources */,
 				6E6886DF1F45124B009AD662 /* EAShareView.m in Sources */,
 				6E68864F1F43C71A009AD662 /* NSSet+BlocksKit.m in Sources */,

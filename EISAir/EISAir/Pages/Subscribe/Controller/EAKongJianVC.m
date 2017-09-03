@@ -9,12 +9,14 @@
 #import "EAKongJianVC.h"
 #import "EATabSwitchContainer.h"
 #import "EADingYueGridContentView.h"
+#import "EASubscribeHeaderView.h"
 
 @interface EAKongJianVC () <EATabSwitchContainerProtocol>
 
 @end
 
 @implementation EAKongJianVC {
+    EASubscribeHeaderView *_headerView;
     EATabSwitchContainer *_tabSwitchContainer;
     
     NSArray *_datas;
@@ -110,15 +112,25 @@
 }
 
 - (void)createSubviews {
+    _headerView = [[EASubscribeHeaderView alloc] initWithIcon:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504329930636&di=31c2f68226b75ce1f5db43f3ecfd6659&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F41%2F79%2F19300001290790131174792213082.jpg" subscribeCount:20 subscribed:YES];
+    weakify(self);
+    _headerView.subscribeClickBlock = ^{
+        strongify(self);
+    };
+    _headerView.subscriberClickBlock = ^{
+        strongify(self);
+    };
+    [self.view addSubview:_headerView];
+    
     NSMutableArray *views = [NSMutableArray array];
-    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - kTabSwtichControlHeight - NAVIGATION_BAR_HEIGHT);
+    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - kTabSwtichControlHeight - NAVIGATION_BAR_HEIGHT - _headerView.bottom);
     for (int i = 0; i < _datas.count; ++i) {
         EADingYueGridContentView *container = [[EADingYueGridContentView alloc] initWithFrame:frame datas:_datas[i]];
         [views addObject:container];
     }
     _contents = views;
     
-    _tabSwitchContainer = [[EATabSwitchContainer alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT)];
+    _tabSwitchContainer = [[EATabSwitchContainer alloc] initWithFrame:CGRectMake(0, _headerView.bottom, SCREEN_WIDTH, frame.size.height + kTabSwtichControlHeight)];
     _tabSwitchContainer.delegate = self;
     [self.view addSubview:_tabSwitchContainer];
 }

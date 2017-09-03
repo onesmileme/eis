@@ -14,6 +14,7 @@
 - (instancetype)initWithFrame:(CGRect)frame datas:(NSArray *)datas {
     self = [super initWithFrame:frame];
     if (self) {
+        self.scrollsToTop = NO;
         self.backgroundColor = [UIColor whiteColor];
         float top = 12;
         for (int i = 0; i < datas.count; ++i) {
@@ -29,6 +30,11 @@
         self.contentSize = CGSizeMake(self.width, MAX(self.height, top));
     }
     return self;
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    self.contentSize = CGSizeMake(self.width, MAX(self.height, self.contentSize.height));
 }
 
 @end

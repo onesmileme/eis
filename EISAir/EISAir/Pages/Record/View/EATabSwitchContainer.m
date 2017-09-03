@@ -76,6 +76,14 @@ const int kTabSwtichControlHeight = 40;
     [self updateContentView];
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    _contentView.frame = CGRectMake(0, _tabSwtichControl.bottom, self.width, self.height - _tabSwtichControl.bottom);
+    for (UIView *view in _contentView.subviews) {
+        view.height = _contentView.height;
+    }
+}
+
 - (void)updateContentView {
     if (!_containerDelegate.viewForIndex) {
         return;
