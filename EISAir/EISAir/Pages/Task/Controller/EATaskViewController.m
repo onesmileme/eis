@@ -95,7 +95,7 @@
 
 -(void)menuAction
 {
-    
+    [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
 }
 
 -(void)filterAction

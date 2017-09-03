@@ -44,6 +44,7 @@ IMP_SINGLETON
 //    
 //    UIImage *bgImage = [ImageHelper imageWithColor:bar.barTintColor size:CGSizeMake(2, 2)];
     UIImage *bgImage = SYS_IMG(@"top_bg");
+    bgImage = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
     [bar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
 //    bar.shadowImage = bgImage;
     

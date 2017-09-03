@@ -23,7 +23,7 @@
 #import "EANetworkManager.h"
 #import "EALoginViewController.h"
 #import "EASettingViewController.h"
-
+#import "EAHomeViewController.h"
 
 @import UserNotifications;
 
@@ -158,6 +158,11 @@ IMP_SINGLETON
 
     _handlesDic[@"show_setting"] = ^(NSDictionary *param){
         [weakSelf showSetting:param];
+    };
+    
+    _handlesDic[@"show_home"] = ^(NSDictionary *param)
+    {
+        [weakSelf showHome:param];
     };
     
 //    _handlesDic[@"h5"] = ^(NSDictionary *param){
@@ -466,6 +471,12 @@ IMP_SINGLETON
     [self pushViewController:controller];
 }
 
+-(void)showHome:(NSDictionary *)param
+{
+    EAHomeViewController *controller = [EAHomeViewController controller];
+    [self pushViewController:controller];
+}
+
 #if 0
 
 -(void)handleTweet:(NSDictionary *)param
@@ -593,10 +604,12 @@ IMP_SINGLETON
 
 -(void)pushViewController:(UIViewController *)controller
 {
-    UINavigationController *rootController = [EABaseViewController rootNavigationController];
-    
-//    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    UINavigationController *rootController = delegate.mainController.navigationController;
+    UINavigationController *rootController = [EABaseViewController currentNavigationController];
+    if (![rootController isKindOfClass:[UINavigationController class]]) {
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        rootController = delegate.mainController.navigationController;        
+    }
+    controller.hidesBottomBarWhenPushed = true;
     [rootController pushViewController:controller animated:true];
 }
 

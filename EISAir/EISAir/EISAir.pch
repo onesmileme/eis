@@ -9,7 +9,7 @@
 #import "EATools.h"
 //#import "EAConfigManager.h"
 #import "EANetworkManager.h"
-
+#import "EAPushManager.h"
 #import <Masonry/Masonry.h>
 
 #define LBXScan_Define_UI

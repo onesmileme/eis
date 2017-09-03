@@ -62,7 +62,7 @@ IMP_SINGLETON
             return [wself extraParam];
         };
 
-        [self setRequestSerializer:true];
+        [self setRequestSerializer:true resetAuthorization:false];
         
         handler.codeSignBlock = ^(NSDictionary *dic){
             //no code sign
@@ -91,11 +91,15 @@ IMP_SINGLETON
   return @"http://218.247.171.92:9002";
 }
 
--(void)setRequestSerializer:(BOOL)isJson
+-(void)setRequestSerializer:(BOOL)isJson resetAuthorization:(BOOL)resetAuth
 {
     AFHTTPRequestSerializer *serializer =  isJson ? [AFJSONRequestSerializer serializer]:[AFHTTPRequestSerializer serializer];
     [[TKNetworkManager sharedInstance] setRequestSerializer: serializer];
-    [self updateAuthorization];
+    if (resetAuth) {
+        [serializer setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
+    }else{
+        [self updateAuthorization];
+    }
 }
 
 -(void)updateAuthorization
@@ -105,7 +109,6 @@ IMP_SINGLETON
         TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
         
         NSLog(@"authorization is: %@",[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken]);
-        
         
         [[TKNetworkManager sharedInstance] setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
     }else{
@@ -148,8 +151,7 @@ IMP_SINGLETON
 {
     AFHTTPRequestSerializer *serializer =  [AFHTTPRequestSerializer serializer];
     [[TKNetworkManager sharedInstance] setRequestSerializer: serializer];
-    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
-    [handler setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
+    [serializer setAuthorizationHeaderFieldWithUsername:@"ecclient" password:@"ecclientsecret"];
 }
 
 #pragma mark - login
@@ -193,6 +195,7 @@ IMP_SINGLETON
         
         NSString *e = responseDict[@"error"];
         if ([[e lowercaseString] isEqualToString:@"invalid_token"]) {
+//            [[TKAccountManager sharedInstance] logout];
             [self resetToken];
             [[EAPushManager sharedInstance]handleOpenUrl:@"eis://show_login"];
         }

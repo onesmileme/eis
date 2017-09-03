@@ -119,7 +119,7 @@
     
     LBXScanResult *scanResult = array[0];
     
-    NSString*strResult = scanResult.strScanned;
+    NSString* strResult = scanResult.strScanned;
     
     self.scanImage = scanResult.imgScanned;
     
@@ -158,6 +158,8 @@
 {
 
     //TODO : add action
+    
+    
 }
 
 

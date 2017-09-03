@@ -198,9 +198,10 @@
 
 -(void)menuAction
 {
-    EAHomeViewController *controller = [EAHomeViewController controller];
-    
-    [self.navigationController pushViewController:controller animated:true];
+//    EAHomeViewController *controller = [EAHomeViewController controller];
+//    
+//    [self.navigationController pushViewController:controller animated:true];
+    [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
 }
 
 -(void)filterAction

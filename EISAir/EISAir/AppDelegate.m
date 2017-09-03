@@ -85,8 +85,8 @@
 -(void)showLogin
 {
     EALoginViewController *controller = [[EALoginViewController alloc]initWithNibName:@"EALoginViewController" bundle:nil];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    self.window.rootViewController = controller;
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
+    self.window.rootViewController = nav;
 }
 
 -(void)loginDoneNotification:(NSNotification *)notification

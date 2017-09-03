@@ -60,7 +60,7 @@
 
 #pragma mark - Actions
 - (void)menuAction {
-    
+    [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
 }
 
 - (void)tabSwitched:(EATabSwitchControl *)control {
