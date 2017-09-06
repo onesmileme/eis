@@ -64,7 +64,7 @@ IMP_SINGLETON;
     
     phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"-" withString:@""];
     
-//    NSLog(@"%@", phoneNO);
+    NSLog(@"%@", phoneNO);
 //    if (phone && [ZXValidateHelper checkTel:phoneNO]) {
 //        phoneNum = phoneNO;
 //        [self.tableView reloadData];
@@ -78,6 +78,18 @@ IMP_SINGLETON;
     ABPersonViewController *personViewController = [[ABPersonViewController alloc] init];
     personViewController.displayedPerson = person;
     [peoplePicker pushViewController:personViewController animated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    
+    
+    return false;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return false;
 }
 
 

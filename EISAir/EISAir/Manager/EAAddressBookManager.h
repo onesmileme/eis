@@ -12,4 +12,6 @@
 
 DEF_SINGLETON;
 
+-(void)chooseContact:(UIViewController *)controller completion:(void(^)(NSString *name , NSString *phone))completion;
+
 @end
