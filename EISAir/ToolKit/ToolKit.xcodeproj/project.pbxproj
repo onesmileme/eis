@@ -16,7 +16,6 @@
 		25F744201DC0E13100850F50 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F744171DC0E13100850F50 /* TencentOpenAPI.framework */; };
 		25F7442F1DC1B5CA00850F50 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F744091DC0E13100850F50 /* libWeiboSDK.a */; };
 		533055741BD9DA5F0091915B /* TKCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 533055731BD9DA5F0091915B /* TKCommonTools.m */; };
-		533055771BD9DB100091915B /* TKCommonTools+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 533055761BD9DB100091915B /* TKCommonTools+Date.m */; };
 		6E0941341CBA6B1500B72917 /* TKStatisticsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0941331CBA6B1500B72917 /* TKStatisticsHandler.m */; };
 		6E0941371CBA6B2300B72917 /* TKStatisticsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0941361CBA6B2300B72917 /* TKStatisticsItem.m */; };
 		6E09413A1CBA6BED00B72917 /* TKStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0941391CBA6BED00B72917 /* TKStatistics.m */; };
@@ -176,7 +175,6 @@
 		25F744171DC0E13100850F50 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		533055721BD9DA5F0091915B /* TKCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCommonTools.h; sourceTree = "<group>"; };
 		533055731BD9DA5F0091915B /* TKCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCommonTools.m; sourceTree = "<group>"; };
-		533055761BD9DB100091915B /* TKCommonTools+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKCommonTools+Date.m"; sourceTree = "<group>"; };
 		53DDE58B1BD3511E00EF2E0F /* TKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDefines.h; sourceTree = "<group>"; };
 		6E0941321CBA6B1500B72917 /* TKStatisticsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStatisticsHandler.h; sourceTree = "<group>"; };
 		6E0941331CBA6B1500B72917 /* TKStatisticsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKStatisticsHandler.m; sourceTree = "<group>"; };
@@ -651,7 +649,6 @@
 				6E203EB11BA31D1600451DE0 /* TKAppInfo.m */,
 				533055721BD9DA5F0091915B /* TKCommonTools.h */,
 				533055731BD9DA5F0091915B /* TKCommonTools.m */,
-				533055761BD9DB100091915B /* TKCommonTools+Date.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1316,7 +1313,6 @@
 				6EA15C571CBCAB8C0031DDBC /* NSData+GZIP.m in Sources */,
 				6E1CD5641B3FC324003E56FF /* TKUploader.m in Sources */,
 				6E24FF9A1C045F7A005E6D57 /* SGSheetMenu.m in Sources */,
-				533055771BD9DB100091915B /* TKCommonTools+Date.m in Sources */,
 				6E1CD4E51B3FA351003E56FF /* UIDevice+Hardware.m in Sources */,
 				F50D254A1C3D0C49004741BF /* TKEmailLoginViewController.m in Sources */,
 				F50F98EC1CB76D9D00F2E82A /* NSNotificationCenter+adapter.m in Sources */,

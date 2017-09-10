@@ -45,7 +45,6 @@
     }else{
         [super loadView];
     }
-
 }
 
 -(void)awakeFromNib

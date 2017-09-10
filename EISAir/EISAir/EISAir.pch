@@ -7,9 +7,9 @@
 #import "UIColor+Theme.h"
 #import "TKCommonTools.h"
 #import "EATools.h"
-//#import "EAConfigManager.h"
 #import "EANetworkManager.h"
 #import "EAPushManager.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 
 #define LBXScan_Define_UI
