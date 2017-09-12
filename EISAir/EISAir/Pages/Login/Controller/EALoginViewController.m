@@ -90,15 +90,24 @@
     NSString *name = _nameField.text;
     [[TKRequestHandler sharedInstance]loginWithUserName:name password:_passwordField.text completion:^(NSURLSessionDataTask *task, EAOauthModel *model, NSError *error) {
         if (error || model == nil) {
-#if DEBUG
+
       
             NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
-            NSString *c = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
-            NSLog(@"error is: \n%@\n",c);
             
+            NSDictionary *info = nil;
+            @try {
+                    info = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:nil];
+            } @catch (NSException *exception) {
+                
+            } @finally {
+                
+            }
+            
+#if DEBUG
+            NSLog(@"error is: \n%@\n",info);
 #endif
             
-            hud.label.text = @"请求失败";
+            hud.label.text = info[@"error_description"]?info[@"error_description"]:@"请求失败";
             [hud hideAnimated:true afterDelay:0.7];
             return ;
         }
