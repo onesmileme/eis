@@ -10,9 +10,11 @@
 #import "TKAccountManager.h"
 @implementation TKRequestHandler (Message)
 
+#if 0
+
 +(void)load
 {
-    return;
+    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
@@ -58,6 +60,8 @@
     });
 }
 
+#endif
+
 -(NSURLSessionDataTask *)loadMyMessageFilterParam:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion
 {
     NSString *personId = [TKAccountManager sharedInstance].loginUserInfo.personId;
@@ -87,13 +91,7 @@
 -(NSURLSessionDataTask *)findMessageDataFilterParam:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion
 {
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
-    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    if (fparam) {
-        NSString *filter = [fparam toJSONString];
-        if (filter.length > 0) {
-            param[@"filter"] = filter;
-        }
-    }
+    NSDictionary *param = [fparam toDictionary];
     
     return [self getRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
