@@ -10,9 +10,13 @@
 #import "EAFilterCollectionViewCell.h"
 #import "EAFilterHeaderView.h"
 
+
 @interface EAFilterView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic , strong) UICollectionView *collectionView;
+@property(nonatomic , strong) NSArray *tags;
+@property(nonatomic , assign) BOOL showDate;
+@property(nonatomic , strong) NSArray *dates;
 
 @end
 
@@ -70,8 +74,23 @@
         [button addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
         button.frame = CGRectMake(_collectionView.centerX, _collectionView.bottom, _collectionView.width/2, self.height - _collectionView.bottom);
         [self addSubview:button];
+        
+        _dates = @[@"昨天",@"最近三天",@"本周",@"自定义日期"];
     }
     return self;
+}
+
+-(void)setType:(NSString *)type
+{
+    _type = type;
+    
+}
+
+-(void)updateWithTags:(NSArray *)tags hasDate:(BOOL)showDate
+{
+    _tags = tags;
+    _showDate = showDate;
+    [self.collectionView reloadData];
 }
 
 -(void)resetAction
@@ -99,6 +118,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return _tags.count;
+    }
     return 4;
 }
 
@@ -106,14 +128,24 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     EAFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
-    cell.titleLabel.text = @"标签标签";
+    NSString *title = nil;
+    if (indexPath.section == 0) {
+        title = _tags[indexPath.item];
+    }else{
+        title = _dates[indexPath.item];
+    }
+    cell.titleLabel.text = title;
     
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    NSInteger count = 1;
+    if (_showDate) {
+        count++;
+    }
+    return count;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -158,6 +190,25 @@ referenceSizeForHeaderInSection:(NSInteger)section
  - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 12;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray<NSIndexPath *>* selectedItems = collectionView.indexPathsForSelectedItems;
+    for (NSIndexPath *path in selectedItems) {
+        if (path.section == indexPath.section) {
+            [collectionView deselectItemAtIndexPath:path animated:false];
+        }
+    }
+    
+    return true;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    
 }
 
 /*

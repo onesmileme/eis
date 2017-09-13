@@ -324,6 +324,7 @@
 		6E4D932B1F5BE88300026B53 /* EAHomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D932A1F5BE88300026B53 /* EAHomeFooterView.m */; };
 		6E4D932F1F5BED7600026B53 /* EAHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */; };
 		6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */; };
+		6E4D93341F68312B00026B53 /* EAMsgFilterTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93331F68312B00026B53 /* EAMsgFilterTagModel.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1133,6 +1134,8 @@
 		6E4D932C1F5BED7600026B53 /* EAHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHomeTableViewCell.h; sourceTree = "<group>"; };
 		6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHomeTableViewCell.m; sourceTree = "<group>"; };
 		6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAHomeTableViewCell.xib; sourceTree = "<group>"; };
+		6E4D93321F68312B00026B53 /* EAMsgFilterTagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgFilterTagModel.h; sourceTree = "<group>"; };
+		6E4D93331F68312B00026B53 /* EAMsgFilterTagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgFilterTagModel.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -3319,6 +3322,8 @@
 			children = (
 				6E415F501F585C400078436F /* EAMessageModel.h */,
 				6E415F511F585C400078436F /* EAMessageModel.m */,
+				6E4D93321F68312B00026B53 /* EAMsgFilterTagModel.h */,
+				6E4D93331F68312B00026B53 /* EAMsgFilterTagModel.m */,
 				6E415F531F585E8D0078436F /* TKRequestHandler+Message.h */,
 				6E415F541F585E8D0078436F /* TKRequestHandler+Message.m */,
 			);
@@ -4162,6 +4167,7 @@
 				6E415E651F5171D10078436F /* ZXCode93Reader.m in Sources */,
 				6E415E011F5171D10078436F /* ZXWifiResultParser.m in Sources */,
 				6E415E3F1F5171D10078436F /* ZXMaxiCodeReader.m in Sources */,
+				6E4D93341F68312B00026B53 /* EAMsgFilterTagModel.m in Sources */,
 				6E415EA71F5171D10078436F /* ZXMultiDetector.m in Sources */,
 				6E415DD91F5171D10078436F /* ZXAztecState.m in Sources */,
 				6E415DE11F5171D10078436F /* ZXAddressBookParsedResult.m in Sources */,

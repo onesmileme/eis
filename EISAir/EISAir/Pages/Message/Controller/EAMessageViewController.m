@@ -14,6 +14,8 @@
 #import "EASearchViewController.h"
 #import "EAMsgDetailViewController.h"
 #import "EAHomeViewController.h"
+#import "TKRequestHandler+Message.h"
+#import "TKAccountManager.h"
 
 #define kSlideSwitchHeight 38
 
@@ -21,6 +23,15 @@
 
 @property (nonatomic, strong) NSArray *titleArray;       //标题
 @property (nonatomic, strong) NSArray *typeArray;
+@property (nonatomic, strong) NSMutableDictionary *tagsDict;
+
+@property (nonatomic, strong) NSArray *allTags;
+@property (nonatomic, strong) NSArray *alarmTags;
+@property (nonatomic, strong) NSArray *exceptionTags;
+@property (nonatomic, strong) NSArray *recordTags;
+@property (nonatomic, strong) NSArray *noticeTags;
+@property (nonatomic, strong) EAMsgFilterModel *filterModel;
+
 @end
 
 
@@ -36,8 +47,9 @@
         self.slideBackgroundColor = [UIColor themeGrayColor];
         
         self.titleArray = @[@"全部",@"报警",@"异常",@"人工记录",@"通知"];
-        self.typeArray = @[@"EIS_MSG_TYPE_ALARM", @"EIS_MSG_TYPE_EXCEPTION", @"EIS_MSG_TYPE_RECORD" , @"EIS_MSG_TYPE_NOTICE"];
+        self.typeArray = @[@"EIS_MSG_TYPE_ALL",@"EIS_MSG_TYPE_ALARM", @"EIS_MSG_TYPE_EXCEPTION", @"EIS_MSG_TYPE_RECORD" , @"EIS_MSG_TYPE_NOTICE"];
         
+        self.tagsDict = [[NSMutableDictionary alloc]init];
         /*
          *  "EIS_MSG_TYPE_NOTICE": "通知",
          *  "EIS_MSG_TYPE_ALARM": "报警",
@@ -206,15 +218,27 @@
 
 -(void)filterAction
 {
+    NSString *key = self.typeArray[self.currentIndex];
+    NSArray *tags = self.tagsDict[key];
+    if (tags) {
+        [self showFilterView:tags];
+    }else{
+        [self loadFilterTags];
+    }
+
+}
+
+-(void)showFilterView:(NSArray *)tags
+{
     EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     __weak typeof(self) wself = self;
     v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
         [fv hide];
         [wself showSearchPage];
     };
+    [v updateWithTags:tags hasDate:true];
     [self.view.window addSubview:v];
 }
-
 
 -(void)showFilterResult
 {
@@ -229,6 +253,35 @@
     EASearchViewController *controller = [[EASearchViewController alloc]initWithNibName:nil bundle:nil];
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
+}
+
+-(void)loadFilterTags
+{
+    EAMsgFilterModel *model = nil;
+    model = [[EAMsgFilterModel alloc]init];
+    EALoginUserInfoDataModel *linfo = [TKAccountManager sharedInstance].loginUserInfo;
+    model.orgId = linfo.orgId;
+    model.siteId = linfo.siteId;
+    model.isAdmin = linfo.isAdmin;
+    
+    NSString *key = self.typeArray[self.currentIndex];
+    if (self.currentIndex != 0) {
+        model.msgTypes = @[key];
+    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    [[TKRequestHandler sharedInstance] loadMsgFilterTag:model completion:^(NSURLSessionDataTask *task, EAMsgFilterTagModel *tagModel, NSError *error) {
+        
+        if (error || !tagModel.success) {
+            hud.label.text = tagModel.msg?:@"拉取筛选数据失败";
+            [hud hideAnimated:true afterDelay:0.7];
+        }else if (tagModel.data.count == 0){
+            hud.label.text = @"暂无数据";
+            [hud hideAnimated:true afterDelay:0.7];
+        }else{
+            self.tagsDict[key] = tagModel.data;
+            [self showFilterView:tagModel.data];
+        }
+    }];
 }
 
 

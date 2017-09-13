@@ -12,6 +12,9 @@
 
 @property(nonatomic , copy) void (^confirmBlock)();
 @property(nonatomic , copy) void (^tapHeadBlock)(EAFilterView *filterView ,NSInteger section);
+@property(nonatomic , copy) NSString *type;
+
+-(void)updateWithTags:(NSArray *)tags hasDate:(BOOL)showDate;
 
 -(void)showInView:(UIView *)view ;
 -(void)hide;

@@ -36,10 +36,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _msgListTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    CGRect frame = self.view.bounds;
+    frame.size.height -= 49+25;
+    
+    _msgListTableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStyleGrouped];
     _msgListTableView.delegate = self;
     _msgListTableView.dataSource = self;
-    _msgListTableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+//    _msgListTableView.contentInset = UIEdgeInsetsMake(0, 0, 51, 0);
+    _msgListTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
     _msgListTableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
     
