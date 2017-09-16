@@ -8,6 +8,9 @@
 
 #import "EABaseTableViewController.h"
 
+@class EAMsgFilterModel;
 @interface EAMessageFilterResultViewController : EABaseTableViewController
+
+@property(nonatomic , strong) EAMsgFilterModel *filterModel;
 
 @end

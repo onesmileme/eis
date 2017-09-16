@@ -328,6 +328,7 @@
 		6E4D932F1F5BED7600026B53 /* EAHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */; };
 		6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */; };
 		6E4D93341F68312B00026B53 /* EAMsgFilterTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93331F68312B00026B53 /* EAMsgFilterTagModel.m */; };
+		6E4D93391F697CB200026B53 /* EAFilterDateChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D93381F697CB200026B53 /* EAFilterDateChooseView.m */; };
 		6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386991F481BFE00017FB8 /* EALoginTextField.m */; };
 		6E63869F1F481EFF00017FB8 /* EAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */; };
 		6E6386A21F481F0B00017FB8 /* EARecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6386A11F481F0B00017FB8 /* EARecordViewController.m */; };
@@ -1145,6 +1146,8 @@
 		6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAHomeTableViewCell.xib; sourceTree = "<group>"; };
 		6E4D93321F68312B00026B53 /* EAMsgFilterTagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgFilterTagModel.h; sourceTree = "<group>"; };
 		6E4D93331F68312B00026B53 /* EAMsgFilterTagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgFilterTagModel.m; sourceTree = "<group>"; };
+		6E4D93371F697CB200026B53 /* EAFilterDateChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAFilterDateChooseView.h; sourceTree = "<group>"; };
+		6E4D93381F697CB200026B53 /* EAFilterDateChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAFilterDateChooseView.m; sourceTree = "<group>"; };
 		6E6386981F481BFE00017FB8 /* EALoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginTextField.h; sourceTree = "<group>"; };
 		6E6386991F481BFE00017FB8 /* EALoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginTextField.m; sourceTree = "<group>"; };
 		6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMessageViewController.h; sourceTree = "<group>"; };
@@ -2422,6 +2425,8 @@
 				6E415EE51F5267B70078436F /* EAFilterCollectionViewCell.xib */,
 				6E415EE61F5267B70078436F /* EAFilterHeaderView.h */,
 				6E415EE71F5267B70078436F /* EAFilterHeaderView.m */,
+				6E4D93371F697CB200026B53 /* EAFilterDateChooseView.h */,
+				6E4D93381F697CB200026B53 /* EAFilterDateChooseView.m */,
 				6E415EE81F5267B70078436F /* EAFilterView.h */,
 				6E415EE91F5267B70078436F /* EAFilterView.m */,
 			);
@@ -3951,6 +3956,7 @@
 				6E415E611F5171D10078436F /* ZXCode128Reader.m in Sources */,
 				6E415E861F5171D10078436F /* ZXPDF417Detector.m in Sources */,
 				6E415E3A1F5171D10078436F /* ZXDataMatrixReader.m in Sources */,
+				6E4D93391F697CB200026B53 /* EAFilterDateChooseView.m in Sources */,
 				6E415E151F5171D10078436F /* ZXGlobalHistogramBinarizer.m in Sources */,
 				6E6886481F43C71A009AD662 /* NSMutableIndexSet+BlocksKit.m in Sources */,
 				6E415E911F5171D10078436F /* ZXPDF417Writer.m in Sources */,
@@ -4334,7 +4340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -4376,7 +4382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

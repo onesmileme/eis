@@ -19,6 +19,7 @@
 @property(nonatomic , strong) Class slideItemClass;
 @property(nonatomic , weak) id<TKSwitchSlidePageViewControllerDelegate> delegate;
 @property(nonatomic,assign) BOOL isAllowGradualChange;//是否允许渐变
+@property(nonatomic , assign) CGFloat bottomInsets;
 
 /**
  *  滑动标题栏背景颜色

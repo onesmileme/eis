@@ -50,12 +50,8 @@
         self.typeArray = @[@"EIS_MSG_TYPE_ALL",@"EIS_MSG_TYPE_ALARM", @"EIS_MSG_TYPE_EXCEPTION", @"EIS_MSG_TYPE_RECORD" , @"EIS_MSG_TYPE_NOTICE"];
         
         self.tagsDict = [[NSMutableDictionary alloc]init];
-        /*
-         *  "EIS_MSG_TYPE_NOTICE": "通知",
-         *  "EIS_MSG_TYPE_ALARM": "报警",
-         *  "EIS_MSG_TYPE_RECORD": "人工记录",
-         *  "EIS_MSG_TYPE_EXCEPTION": "异常"
-         */
+        
+        self.bottomInsets = 49;
         
     }
     return self;
@@ -97,7 +93,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.slideBackgroundColor = [UIColor whiteColor];
     self.slideBottomLineColor = HexColor(0xdddddd);
- 
+        
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -231,20 +227,35 @@
 -(void)showFilterView:(NSArray *)tags
 {
     EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    v.type = [NSString stringWithFormat:@"%@标签",self.titleArray[self.currentIndex]?:@""];
     __weak typeof(self) wself = self;
     v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
         [fv hide];
         [wself showSearchPage];
     };
-    [v updateWithTags:tags hasDate:true];
+    v.confirmBlock = ^(NSString *item, NSDate *startDate, NSDate *endDate) {
+        if (!(item || (startDate && endDate))) {
+            return ;
+        }
+                
+        EAMsgFilterModel *model = [[EAMsgFilterModel alloc]init];
+        model.objName = item;
+        if (startDate && endDate) {
+            model.startDate = [NSString stringWithFormat:@"%.0f",[startDate timeIntervalSince1970]];
+            model.endDate = [NSString stringWithFormat:@"%.0f",[endDate timeIntervalSince1970]];
+        }
+        [wself showFilterResult:model];
+    };
+    BOOL showIndicator = self.currentIndex == 0;
+    [v updateWithTags:tags hasDate:true showIndicator:showIndicator];
     [self.view.window addSubview:v];
 }
 
--(void)showFilterResult
+-(void)showFilterResult:(EAMsgFilterModel *)filterModel
 {
-    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithNibName:nil bundle:nil];
+    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithStyle:UITableViewStyleGrouped];
     controller.hidesBottomBarWhenPushed = true;
-    
+    controller.filterModel = filterModel;
     [self.navigationController pushViewController:controller animated:true];
 }
 
@@ -278,6 +289,7 @@
             hud.label.text = @"暂无数据";
             [hud hideAnimated:true afterDelay:0.7];
         }else{
+            [hud hideAnimated:true];
             self.tagsDict[key] = tagModel.data;
             [self showFilterView:tagModel.data];
         }

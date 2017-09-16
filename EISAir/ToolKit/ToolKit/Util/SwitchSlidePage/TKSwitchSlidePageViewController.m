@@ -56,8 +56,8 @@
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     
-    _contentView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, _slideView.bottom, SCREEN_WIDTH, self.view.height - _slideView.bottom) collectionViewLayout:layout];
-//    _contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    _contentView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, _slideView.bottom, SCREEN_WIDTH, self.view.height - _slideView.bottom - _bottomInsets) collectionViewLayout:layout];
+    _contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _contentView.delegate = self;
     _contentView.dataSource = self;
     _contentView.contentInset = UIEdgeInsetsZero;

@@ -195,7 +195,7 @@ NSString *const TKDateFormatEnglishMedium2      = @"MM/dd/YYYY";
 
 + (NSString *) getLastMonthFirstTimeInterval:(NSDate *)date
 {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents* adcomps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:date];
     adcomps.month -= 1;
     adcomps.day = 0;
@@ -206,11 +206,11 @@ NSString *const TKDateFormatEnglishMedium2      = @"MM/dd/YYYY";
 
 + (NSString *) getNextMonthLastTimeInterval:(NSDate *)date
 {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents* adcomps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:date];
     adcomps.month += 1;
     NSDate *newDate = [calendar dateFromComponents:adcomps];
-    NSRange daysRange = [calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:newDate];
+    NSRange daysRange = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:newDate];
     adcomps.day = daysRange.length;
     newDate = [calendar dateFromComponents:adcomps];
     NSTimeInterval timeInterval = [newDate timeIntervalSince1970];

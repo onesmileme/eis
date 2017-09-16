@@ -15,7 +15,7 @@
 
 @property(nonatomic , strong) void (^showMessageBlock)(EAMessageDataListModel * model);
 
--(void)updateCustomConfig:(EAMsgFilterModel *)filterModel;
+-(void)updateCustomConfig:(EAMsgFilterModel *)filterModel reload:(BOOL)reload;
 
 -(void)updateWithType:(NSArray *)types reload:(BOOL)reload;
 

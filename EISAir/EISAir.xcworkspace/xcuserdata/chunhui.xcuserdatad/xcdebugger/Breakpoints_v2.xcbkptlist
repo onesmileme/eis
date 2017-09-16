@@ -73,22 +73,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EISAir/Pages/Login/Controller/EALoginViewController.m"
-            timestampString = "526093193.377895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "-loginAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EISAir/Manager/EAPushManager.m"
             timestampString = "526123682.3515"
             startingColumnNumber = "9223372036854775807"
@@ -112,22 +96,6 @@
             startingLineNumber = "140"
             endingLineNumber = "140"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EISAir/Pages/Login/Controller/EALoginViewController.m"
-            timestampString = "526122183.841334"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-loginAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -225,6 +193,59 @@
             endingLineNumber = "342"
             landmarkName = "-setQueryStringSerializationWithBlock:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EISAir/Pages/Message/Controller/EAMessageSlideListViewController.m"
+            timestampString = "527246267.274284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-tableView:heightForHeaderInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EISAir/Pages/Message/Controller/EAMessageSlideListViewController.m"
+            timestampString = "527246267.274364"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-updateCustomConfig:reload:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "UICollectionViewFlowLayoutBreakForInvalidSizes"
+            moduleName = "">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UICollectionViewFlowLayoutBreakForInvalidSizes"
+                  moduleName = "UIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

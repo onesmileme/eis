@@ -36,12 +36,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGRect frame = self.view.bounds;
-    frame.size.height -= 49+25;
+    CGRect frame = self.view.bounds;//CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+//    frame.size.height -= (49+38);
     
-    _msgListTableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStyleGrouped];
+    _msgListTableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
     _msgListTableView.delegate = self;
     _msgListTableView.dataSource = self;
+    self.automaticallyAdjustsScrollViewInsets = false;
 //    _msgListTableView.contentInset = UIEdgeInsetsMake(0, 0, 51, 0);
     _msgListTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
@@ -106,9 +107,10 @@
     return YES;
 }
 
--(void)updateCustomConfig:(EAMsgFilterModel *)filterModel
+-(void)updateCustomConfig:(EAMsgFilterModel *)filterModel reload:(BOOL)reload
 {
-    
+    self.filterModel = [filterModel copy];
+    [self headRefreshAction];
 }
 
 -(void)updateWithType:(NSArray *)types reload:(BOOL)reload
@@ -198,8 +200,6 @@
             
             [self.msgListTableView reloadData];
             
-            NSLog(@"type is: %@ \n model is: \n%@\n",self.types,model);
-            
         }        
     }];
 }
@@ -229,7 +229,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    return 1;//CGFLOAT_MIN;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

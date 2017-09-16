@@ -13,7 +13,7 @@
 - (void)setMarginLeftBarButtonItem:(UIBarButtonItem *)_leftBarButtonItem
 {    
     UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSeperator.width = -16;//此处修改到边界的距离，请自行测试
+    negativeSeperator.width = -12;//此处修改到边界的距离，请自行测试
     
     if (_leftBarButtonItem)
     {
@@ -33,7 +33,7 @@
     
     if (_rightBarButtonItem)
     {
-        [self setRightBarButtonItems:@[negativeSeperator, _rightBarButtonItem]];
+        [self setRightBarButtonItems:@[_rightBarButtonItem , negativeSeperator]];
     }
     else
     {

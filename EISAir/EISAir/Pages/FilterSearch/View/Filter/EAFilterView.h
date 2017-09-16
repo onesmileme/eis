@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EAFilterView : UIView
+@interface EAFilterView : UIControl
 
-@property(nonatomic , copy) void (^confirmBlock)();
-@property(nonatomic , copy) void (^tapHeadBlock)(EAFilterView *filterView ,NSInteger section);
+@property(nonatomic , copy) void (^confirmBlock)(NSString *item , NSDate *startDate , NSDate *endDate);
+@property(nonatomic , copy) void (^tapHeadBlock)(EAFilterView *filterView ,NSInteger index);
 @property(nonatomic , copy) NSString *type;
 
--(void)updateWithTags:(NSArray *)tags hasDate:(BOOL)showDate;
+-(void)updateWithTags:(NSArray *)tags hasDate:(BOOL)showDate showIndicator:(BOOL)showIndicator;
 
 -(void)showInView:(UIView *)view ;
 -(void)hide;
