@@ -10,11 +10,6 @@
 
 @implementation  EATaskDataListModel
 
-+ (BOOL)propertyIsOptional:(NSString *)propertyName
-{
-    return YES;
-}
-
 +(JSONKeyMapper *)keyMapper
 {
     NSDictionary *dict = @{@"id":@"tid"};
@@ -25,22 +20,10 @@
 
 
 @implementation  EATaskModel
-
-+ (BOOL)propertyIsOptional:(NSString *)propertyName
-{
-    return YES;
-}
-
 @end
 
 
 @implementation  EATaskDataModel
-
-+ (BOOL)propertyIsOptional:(NSString *)propertyName
-{
-    return YES;
-}
-
 @end
 
 

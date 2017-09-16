@@ -1325,7 +1325,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
 
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
-    return NO;
+    return YES;
 }
 
 +(BOOL)propertyIsIgnored:(NSString *)propertyName

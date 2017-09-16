@@ -10,6 +10,7 @@
 #import "EATabSwitchControl.h"
 #import "EASubscribeCell.h"
 #import "EADingYueRenVC.h"
+#import "TKRequestHandler+Subscribe.h"
 
 @interface EASubscribeViewController () <UITableViewDelegate, UITableViewDataSource> {
     EATabSwitchControl *_tabSwitchControl;
@@ -58,6 +59,13 @@
     self.navigationItem.leftBarButtonItems = @[menuItem];
 }
 
+#pragma mark - Request
+- (void)fetchAllSubscribes {
+    [[TKRequestHandler sharedInstance] fetchAllSubscribesCompletion:^(NSURLSessionDataTask *task, id model, NSError *error) {
+        
+    }];
+}
+
 #pragma mark - Actions
 - (void)menuAction {
     [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
@@ -95,6 +103,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self fetchAllSubscribes];
+    return;
     Class cls = NSClassFromString(@"EAKongJianVC");
     EABaseViewController *vc = [[cls alloc] init];
     vc.hidesBottomBarWhenPushed = YES;

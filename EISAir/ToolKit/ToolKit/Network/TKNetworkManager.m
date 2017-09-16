@@ -259,8 +259,10 @@
     if ([response isKindOfClass:[NSData class]]) {
         
         @try {
+#if DEBUG
+            NSLog(@"jsonString:\n%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+#endif
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:nil];
-            
             return dict;
         }
         @catch (NSException *exception) {

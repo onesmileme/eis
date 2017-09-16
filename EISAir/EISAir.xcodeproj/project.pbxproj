@@ -21,13 +21,16 @@
 		5330A8FB1F595B2600F8E07E /* DDPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8FA1F595B2600F8E07E /* DDPageScrollView.m */; };
 		5330A9041F595B6500F8E07E /* WMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9031F595B6500F8E07E /* WMPageControl.m */; };
 		5330A9191F5A3CD700F8E07E /* EABaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */; };
-		5330A91C1F5A3D4800F8E07E /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */; };
 		5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */; };
 		5330A9221F5A643000F8E07E /* EADianFeiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9211F5A643000F8E07E /* EADianFeiVC.m */; };
 		5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9241F5A644E00F8E07E /* EAKongJianVC.m */; };
-		5330A9281F5A64AF00F8E07E /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */; };
-		5330A92B1F5A707200F8E07E /* EADingYueGridContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */; };
-		5330A92F1F5AE64300F8E07E /* EASubscribeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */; };
+		53AD6EBD1F695A42005025BD /* EADingYueGridContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EB61F695A42005025BD /* EADingYueGridContentView.m */; };
+		53AD6EBE1F695A42005025BD /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EB81F695A42005025BD /* EADingYueGridView.m */; };
+		53AD6EBF1F695A42005025BD /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EBA1F695A42005025BD /* EASubscribeCell.m */; };
+		53AD6EC01F695A42005025BD /* EASubscribeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EBC1F695A42005025BD /* EASubscribeHeaderView.m */; };
+		53AD6EC31F695AF2005025BD /* TKRequestHandler+Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */; };
+		53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */; };
+		53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */; };
 		53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */; };
 		53D7D3601F4B3AB800CC4034 /* EAInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D35F1F4B3AB800CC4034 /* EAInputView.m */; };
 		53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */; };
@@ -528,20 +531,26 @@
 		5330A9031F595B6500F8E07E /* WMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageControl.m; sourceTree = "<group>"; };
 		5330A9171F5A3CD700F8E07E /* EABaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABaseTableViewCell.h; sourceTree = "<group>"; };
 		5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABaseTableViewCell.m; sourceTree = "<group>"; };
-		5330A91A1F5A3D4800F8E07E /* EASubscribeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EASubscribeCell.h; path = EISAir/Common/Controller/EASubscribeCell.h; sourceTree = SOURCE_ROOT; };
-		5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EASubscribeCell.m; path = EISAir/Common/Controller/EASubscribeCell.m; sourceTree = SOURCE_ROOT; };
 		5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueRenVC.h; sourceTree = "<group>"; };
 		5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueRenVC.m; sourceTree = "<group>"; };
 		5330A9201F5A643000F8E07E /* EADianFeiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADianFeiVC.h; sourceTree = "<group>"; };
 		5330A9211F5A643000F8E07E /* EADianFeiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADianFeiVC.m; sourceTree = "<group>"; };
 		5330A9231F5A644E00F8E07E /* EAKongJianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAKongJianVC.h; sourceTree = "<group>"; };
 		5330A9241F5A644E00F8E07E /* EAKongJianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAKongJianVC.m; sourceTree = "<group>"; };
-		5330A9261F5A64AF00F8E07E /* EADingYueGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EADingYueGridView.h; path = EISAir/Pages/Subscribe/Controller/EADingYueGridView.h; sourceTree = SOURCE_ROOT; };
-		5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridView.m; sourceTree = SOURCE_ROOT; };
-		5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EADingYueGridContentView.h; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.h; sourceTree = SOURCE_ROOT; };
-		5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EADingYueGridContentView.m; path = EISAir/Pages/Subscribe/Controller/EADingYueGridContentView.m; sourceTree = SOURCE_ROOT; };
-		5330A92D1F5AE64300F8E07E /* EASubscribeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EASubscribeHeaderView.h; path = EISAir/Pages/Subscribe/Controller/EASubscribeHeaderView.h; sourceTree = SOURCE_ROOT; };
-		5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EASubscribeHeaderView.m; path = EISAir/Pages/Subscribe/Controller/EASubscribeHeaderView.m; sourceTree = SOURCE_ROOT; };
+		53AD6EB51F695A42005025BD /* EADingYueGridContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueGridContentView.h; sourceTree = "<group>"; };
+		53AD6EB61F695A42005025BD /* EADingYueGridContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueGridContentView.m; sourceTree = "<group>"; };
+		53AD6EB71F695A42005025BD /* EADingYueGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueGridView.h; sourceTree = "<group>"; };
+		53AD6EB81F695A42005025BD /* EADingYueGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueGridView.m; sourceTree = "<group>"; };
+		53AD6EB91F695A42005025BD /* EASubscribeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASubscribeCell.h; sourceTree = "<group>"; };
+		53AD6EBA1F695A42005025BD /* EASubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASubscribeCell.m; sourceTree = "<group>"; };
+		53AD6EBB1F695A42005025BD /* EASubscribeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASubscribeHeaderView.h; sourceTree = "<group>"; };
+		53AD6EBC1F695A42005025BD /* EASubscribeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASubscribeHeaderView.m; sourceTree = "<group>"; };
+		53AD6EC11F695AF2005025BD /* TKRequestHandler+Subscribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Subscribe.h"; sourceTree = "<group>"; };
+		53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Subscribe.m"; sourceTree = "<group>"; };
+		53AD6EC41F695CC9005025BD /* EAAllSubscribeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAllSubscribeModel.h; sourceTree = "<group>"; };
+		53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAllSubscribeModel.m; sourceTree = "<group>"; };
+		53AD6EC71F697805005025BD /* EADingYueEnergyChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyChartVC.h; sourceTree = "<group>"; };
+		53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyChartVC.m; sourceTree = "<group>"; };
 		53D7D3561F4B2F4800CC4034 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
 		53D7D3571F4B2F4800CC4034 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		53D7D35E1F4B3AB800CC4034 /* EAInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAInputView.h; sourceTree = "<group>"; };
@@ -1489,6 +1498,39 @@
 				5330A8E81F59037F00F8E07E /* TKRequestHandler+Record.m */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		53AD6EB21F695A42005025BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53AD6EC41F695CC9005025BD /* EAAllSubscribeModel.h */,
+				53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53AD6EB31F695A42005025BD /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				53AD6EC11F695AF2005025BD /* TKRequestHandler+Subscribe.h */,
+				53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		53AD6EB41F695A42005025BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53AD6EB51F695A42005025BD /* EADingYueGridContentView.h */,
+				53AD6EB61F695A42005025BD /* EADingYueGridContentView.m */,
+				53AD6EB71F695A42005025BD /* EADingYueGridView.h */,
+				53AD6EB81F695A42005025BD /* EADingYueGridView.m */,
+				53AD6EB91F695A42005025BD /* EASubscribeCell.h */,
+				53AD6EBA1F695A42005025BD /* EASubscribeCell.m */,
+				53AD6EBB1F695A42005025BD /* EASubscribeHeaderView.h */,
+				53AD6EBC1F695A42005025BD /* EASubscribeHeaderView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5E0369442AE5613BC41B6162 /* Frameworks */ = {
@@ -3460,9 +3502,10 @@
 		6E6887481F481772009AD662 /* Subscribe */ = {
 			isa = PBXGroup;
 			children = (
+				53AD6EB21F695A42005025BD /* Model */,
+				53AD6EB31F695A42005025BD /* Request */,
+				53AD6EB41F695A42005025BD /* View */,
 				6E6887491F481772009AD662 /* Controller */,
-				6E68874A1F481772009AD662 /* Model */,
-				6E68874B1F481772009AD662 /* View */,
 			);
 			path = Subscribe;
 			sourceTree = "<group>";
@@ -3478,30 +3521,10 @@
 				5330A9211F5A643000F8E07E /* EADianFeiVC.m */,
 				5330A9231F5A644E00F8E07E /* EAKongJianVC.h */,
 				5330A9241F5A644E00F8E07E /* EAKongJianVC.m */,
+				53AD6EC71F697805005025BD /* EADingYueEnergyChartVC.h */,
+				53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6E68874A1F481772009AD662 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6E68874B1F481772009AD662 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5330A91A1F5A3D4800F8E07E /* EASubscribeCell.h */,
-				5330A91B1F5A3D4800F8E07E /* EASubscribeCell.m */,
-				5330A9261F5A64AF00F8E07E /* EADingYueGridView.h */,
-				5330A9271F5A64AF00F8E07E /* EADingYueGridView.m */,
-				5330A9291F5A707200F8E07E /* EADingYueGridContentView.h */,
-				5330A92A1F5A707200F8E07E /* EADingYueGridContentView.m */,
-				5330A92D1F5AE64300F8E07E /* EASubscribeHeaderView.h */,
-				5330A92E1F5AE64300F8E07E /* EASubscribeHeaderView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6E68874C1F481772009AD662 /* Task */ = {
@@ -3815,6 +3838,7 @@
 				6E415E721F5171D10078436F /* ZXUPCAWriter.m in Sources */,
 				6E415F2A1F52A6970078436F /* EATaskHandleTableViewCell.m in Sources */,
 				5330A8F21F5958E500F8E07E /* EATabSwitchContainer.m in Sources */,
+				53AD6EC01F695A42005025BD /* EASubscribeHeaderView.m in Sources */,
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
 				6E415E2B1F5171D10078436F /* ZXDataMatrixDecoder.m in Sources */,
@@ -3866,6 +3890,7 @@
 				6E6886FF1F451261009AD662 /* TKAccountManager.m in Sources */,
 				6E4D93221F5BDD6100026B53 /* EAHomeViewController.m in Sources */,
 				6E415E571F5171D10078436F /* ZXRSSExpandedReader.m in Sources */,
+				53AD6EBE1F695A42005025BD /* EADingYueGridView.m in Sources */,
 				6E6886D31F45124B009AD662 /* EARedDotModel.m in Sources */,
 				6E6886DB1F45124B009AD662 /* TKRequestHandler+Util.m in Sources */,
 				6E415E351F5171D10078436F /* ZXDataMatrixHighLevelEncoder.m in Sources */,
@@ -3890,8 +3915,9 @@
 				5330A8C81F53036600F8E07E /* EAChooseObjVC.m in Sources */,
 				6E415E001F5171D10078436F /* ZXWifiParsedResult.m in Sources */,
 				6E415DF61F5171D10078436F /* ZXTelParsedResult.m in Sources */,
+				53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */,
+				53AD6EBF1F695A42005025BD /* EASubscribeCell.m in Sources */,
 				6E415E781F5171D10078436F /* ZXUPCEReader.m in Sources */,
-				5330A9281F5A64AF00F8E07E /* EADingYueGridView.m in Sources */,
 				53D7D3661F4B4F0F00CC4034 /* EABaseViewController+Stack.m in Sources */,
 				6E415E481F5171D10078436F /* ZXAI013x0xDecoder.m in Sources */,
 				6E415EFC1F5267B70078436F /* EAFilterHeaderView.m in Sources */,
@@ -3921,6 +3947,7 @@
 				6E415DD11F5171D10078436F /* LBXZXCapture.m in Sources */,
 				6E415EFF1F5267B70078436F /* EAMsgSearchFilterHeaderView.m in Sources */,
 				6E4D93261F5BDD8500026B53 /* EAHomeHeaderView.m in Sources */,
+				53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */,
 				6E415E611F5171D10078436F /* ZXCode128Reader.m in Sources */,
 				6E415E861F5171D10078436F /* ZXPDF417Detector.m in Sources */,
 				6E415E3A1F5171D10078436F /* ZXDataMatrixReader.m in Sources */,
@@ -3941,7 +3968,6 @@
 				6E415E321F5171D10078436F /* ZXDataMatrixEdifactEncoder.m in Sources */,
 				6E415E811F5171D10078436F /* ZXPDF417DecodedBitStreamParser.m in Sources */,
 				6E415DDE1F5171D10078436F /* ZXAbstractDoCoMoResultParser.m in Sources */,
-				5330A91C1F5A3D4800F8E07E /* EASubscribeCell.m in Sources */,
 				6E415EA51F5171D10078436F /* ZXQRCodeMaskUtil.m in Sources */,
 				6E6886541F43C71A009AD662 /* NSURLConnection+BlocksKit.m in Sources */,
 				6E6886631F43C71A009AD662 /* CHGalleryGroupViewController.m in Sources */,
@@ -3965,6 +3991,7 @@
 				6E6886831F43C71A009AD662 /* ZLCameraView.m in Sources */,
 				6E6886D91F45124B009AD662 /* TKRequestHandler+Push.m in Sources */,
 				6E415E9C1F5171D10078436F /* ZXQRCodeAlignmentPattern.m in Sources */,
+				53AD6EBD1F695A42005025BD /* EADingYueGridContentView.m in Sources */,
 				6E415E4A1F5171D10078436F /* ZXAI01decoder.m in Sources */,
 				6E415E1F1F5171D10078436F /* ZXDimension.m in Sources */,
 				6E415E471F5171D10078436F /* ZXAI013x0x1xDecoder.m in Sources */,
@@ -3972,7 +3999,6 @@
 				6E415E4F1F5171D10078436F /* ZXRSSExpandedDecodedChar.m in Sources */,
 				6E68865B1F43C71A009AD662 /* UIBarButtonItem+BlocksKit.m in Sources */,
 				6E415DCF1F5171D10078436F /* LBXScanTypes.m in Sources */,
-				5330A92B1F5A707200F8E07E /* EADingYueGridContentView.m in Sources */,
 				6E415E8E1F5171D10078436F /* ZXPDF417Common.m in Sources */,
 				6E415E551F5171D10078436F /* ZXBitArrayBuilder.m in Sources */,
 				6E415E631F5171D10078436F /* ZXCode39Reader.m in Sources */,
@@ -4079,7 +4105,6 @@
 				6E6886D61F45124B009AD662 /* EAUserInfoModel.m in Sources */,
 				6E415F021F5267B70078436F /* EAScanViewController.m in Sources */,
 				6E6886621F43C71A009AD662 /* UIWebView+BlocksKit.m in Sources */,
-				5330A92F1F5AE64300F8E07E /* EASubscribeHeaderView.m in Sources */,
 				6E415EFD1F5267B70078436F /* EAFilterView.m in Sources */,
 				6E6886DF1F45124B009AD662 /* EAShareView.m in Sources */,
 				6E68864F1F43C71A009AD662 /* NSSet+BlocksKit.m in Sources */,
@@ -4133,6 +4158,7 @@
 				6E6886591F43C71A009AD662 /* UIActionSheet+BlocksKit.m in Sources */,
 				6E415EA81F5171D10078436F /* ZXMultiFinderPatternFinder.m in Sources */,
 				6E415DD01F5171D10078436F /* LBXZBarWrapper.m in Sources */,
+				53AD6EC31F695AF2005025BD /* TKRequestHandler+Subscribe.m in Sources */,
 				6E68864A1F43C71A009AD662 /* NSMutableSet+BlocksKit.m in Sources */,
 				6E415E641F5171D10078436F /* ZXCode39Writer.m in Sources */,
 				6E68868A1F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
