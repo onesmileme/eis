@@ -34,6 +34,7 @@
 
 -(void)updateWithModel:(EAMessageDataListModel *)model
 {
+    _tagLabel.text = [model.msgTitle substringToIndex:4]?:@"标签";
     _titleLabel.text = model.msgTitle;
     _infoLabel.text = model.msgContent;
 }

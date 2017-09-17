@@ -7,10 +7,13 @@
 //
 
 #import "EAMsgStateInfoCell.h"
-
+#import "EATaskModel.h"
+#import "TKCommonTools.h"
 @interface EAMsgStateInfoCell ()
 
 @property(nonatomic , strong) UIView *bottomLine;
+@property(nonatomic , strong) EATaskDataListModel *model;
+@property(nonatomic , assign) BOOL isFirst;
 
 @end
 
@@ -39,8 +42,11 @@
 }
 
 
--(void)updateWithModel:(id)model isFirst:(BOOL)isFirst
+-(void)updateWithModel:(EATaskDataListModel *)model isFirst:(BOOL)isFirst
 {
+    self.model = model;
+    self.isFirst = isFirst;
+    
     self.textLabel.text = @"王磊执行该任务";
     self.textLabel.textColor = isFirst ? HexColor(0x00B0CE) : HexColor(0x858585);
     self.textLabel.font = SYS_FONT(17);
@@ -73,7 +79,7 @@
     
     CGFloat left = 21.5;
     
-    BOOL isFirst = false;
+    BOOL isFirst = _isFirst;
     BOOL isDoing = false;
     CGSize circelSize = isDoing ? CGSizeMake(11, 11) : CGSizeMake(9, 9);
     UIColor *lineColor = HexColor(0xd8d8d8);

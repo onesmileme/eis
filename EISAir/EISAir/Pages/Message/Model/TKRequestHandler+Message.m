@@ -80,7 +80,7 @@
         NSDictionary *dict = [fparam toDictionary];
         [param addEntriesFromDictionary:dict];
     }
-        
+    
     return [self postRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
             completion(sessionDataTask,(EAMessageModel *)model , error);
@@ -107,7 +107,6 @@
 {
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithDictionary:[fparam toDictionary]];
-    
     return [self postRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
             completion(sessionDataTask,(EAMessageModel *)model , error);

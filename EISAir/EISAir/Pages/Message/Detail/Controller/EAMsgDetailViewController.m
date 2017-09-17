@@ -10,10 +10,11 @@
 #import "EAMsgDetailInfoCell.h"
 #import "EAMsgStateInfoCell.h"
 #import "EAMsgDetailHeader.h"
+#import "TKRequestHandler+Task.h"
 
 @interface EAMsgDetailViewController ()
 
-
+@property(nonatomic , strong) EATaskDataModel *taskDateModel;
 
 @end
 
@@ -32,11 +33,28 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 0);
     self.tableView.allowsSelection = false;
+    
+    [self loadTaskInfo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loadTaskInfo
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    [[TKRequestHandler sharedInstance] findEisTaskById:self.msgModel.businessId completion:^(NSURLSessionDataTask *task, EATaskModel *model, NSError *error) {
+        if (error || model.data == nil) {
+            hud.label.text = @"获取动态信息失败";
+            [hud hideAnimated:true afterDelay:0.7];
+            [self.navigationController popViewControllerAnimated:true];
+            return ;
+        }
+        self.taskDateModel = model.data;
+        [self.tableView reloadData];
+    }];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -64,6 +82,9 @@
     }else{
         EAMsgStateInfoCell *scell = [tableView dequeueReusableCellWithIdentifier:@"state_cell"];
         
+        EATaskDataListModel *task = _taskDateModel.list[indexPath.row];
+        
+        [scell updateWithModel:task isFirst:indexPath.row == 0];
         
         cell = scell;
     }

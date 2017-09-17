@@ -48,6 +48,8 @@
     
     self.tableView.backgroundColor = HexColor(0xf7f7f7);
     
+    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    
     [self.headerView updateModel:nil];
 }
 

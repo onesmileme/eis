@@ -477,6 +477,10 @@
 		6E68872F1F451BA4009AD662 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E68872E1F451BA4009AD662 /* TencentOpenAPI.framework */; };
 		6E6887311F451BC0009AD662 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6887301F451BC0009AD662 /* UMMobClick.framework */; };
 		6E6887531F4817CC009AD662 /* EALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6887511F4817CC009AD662 /* EALoginViewController.m */; };
+		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
+		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
+		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
+		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
 /* End PBXBuildFile section */
 
@@ -1434,6 +1438,14 @@
 		6E6887501F4817CC009AD662 /* EALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoginViewController.h; sourceTree = "<group>"; };
 		6E6887511F4817CC009AD662 /* EALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoginViewController.m; sourceTree = "<group>"; };
 		6E6887521F4817CC009AD662 /* EALoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EALoginViewController.xib; sourceTree = "<group>"; };
+		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
+		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
+		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
+		6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryHeaderView.m; sourceTree = "<group>"; };
+		6EF345C31F6D750D0002479D /* TKRequestHandler+Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Search.h"; sourceTree = "<group>"; };
+		6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Search.m"; sourceTree = "<group>"; };
+		6EF345C81F6D797E0002479D /* EAMsgSearchTipModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchTipModel.h; sourceTree = "<group>"; };
+		6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchTipModel.m; sourceTree = "<group>"; };
 		96388FFD4F742D805950B839 /* libPods-EISAir.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAir.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5213142B48C8276E4B76135 /* Pods-EISAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.debug.xcconfig"; sourceTree = "<group>"; };
 		D677BF13055C157E3A660E7F /* Pods-EISAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.release.xcconfig"; sourceTree = "<group>"; };
@@ -2402,6 +2414,10 @@
 		6E415EDE1F5267B70078436F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6EF345C31F6D750D0002479D /* TKRequestHandler+Search.h */,
+				6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */,
+				6EF345C81F6D797E0002479D /* EAMsgSearchTipModel.h */,
+				6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2443,6 +2459,10 @@
 				6E415EEF1F5267B70078436F /* EAMsgSearchFilterTableViewCell.h */,
 				6E415EF01F5267B70078436F /* EAMsgSearchFilterTableViewCell.m */,
 				6E415EF11F5267B70078436F /* EAMsgSearchFilterTableViewCell.xib */,
+				6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */,
+				6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */,
+				6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */,
+				6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -3840,6 +3860,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E415DFD1F5171D10078436F /* ZXVEventResultParser.m in Sources */,
+				6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */,
 				6E415E721F5171D10078436F /* ZXUPCAWriter.m in Sources */,
 				6E415F2A1F52A6970078436F /* EATaskHandleTableViewCell.m in Sources */,
 				5330A8F21F5958E500F8E07E /* EATabSwitchContainer.m in Sources */,
@@ -4037,6 +4058,7 @@
 				6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */,
 				6E415E8B1F5171D10078436F /* ZXPDF417Dimensions.m in Sources */,
 				6E68865D1F43C71A009AD662 /* UIGestureRecognizer+BlocksKit.m in Sources */,
+				6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */,
 				6E415E371F5171D10078436F /* ZXDataMatrixSymbolInfo144.m in Sources */,
 				6E415E131F5171D10078436F /* ZXDefaultGridSampler.m in Sources */,
 				6E68864B1F43C71A009AD662 /* NSObject+BKAssociatedObjects.m in Sources */,
@@ -4054,6 +4076,7 @@
 				6E415EB41F5171D10078436F /* LBXScanViewController.m in Sources */,
 				53D7D3631F4B484800CC4034 /* EAAddRecordVC.m in Sources */,
 				6E6886DD1F45124B009AD662 /* EASharePanelCell.m in Sources */,
+				6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */,
 				6E6885351F433C49009AD662 /* AppDelegate.m in Sources */,
 				6E415E9A1F5171D10078436F /* ZXQRCodeMode.m in Sources */,
 				6E6886CE1F45124B009AD662 /* EABaseTableViewController.m in Sources */,
@@ -4092,6 +4115,7 @@
 				5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */,
 				6E415F551F585E8D0078436F /* TKRequestHandler+Message.m in Sources */,
 				5330A8E91F59037F00F8E07E /* TKRequestHandler+Record.m in Sources */,
+				6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */,
 				6E415E951F5171D10078436F /* ZXQRCodeDecodedBitStreamParser.m in Sources */,
 				6E68871C1F451542009AD662 /* EABrowserTranistion.m in Sources */,
 				6E415E7A1F5171D10078436F /* ZXModulusPoly.m in Sources */,

@@ -458,9 +458,22 @@ IMP_SINGLETON
 {
     UIViewController *controller = nil;
 
+    UINavigationController *rootController = [EABaseViewController currentNavigationController];
+    if (![rootController isKindOfClass:[UINavigationController class]]) {
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        rootController = delegate.mainController.navigationController;
+    }
+    for (UIViewController *con in [rootController viewControllers]) {
+        if ([con isKindOfClass:[EALoginViewController class]]) {
+            return;
+        }
+    }
+    
     EALoginViewController *loginVC = [[EALoginViewController alloc] initWithNibName:@"EALoginViewController" bundle:nil];
     controller = loginVC;
-        
+    
+    
+    
     [self pushViewController:controller];
 }
 

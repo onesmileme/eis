@@ -28,7 +28,7 @@
 
 +(instancetype)controller
 {
-    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithStyle:UITableViewStylePlain];
     return controller;
 }
 
@@ -41,6 +41,13 @@
     
     [self addHeaderRefreshView:self.tableView];
     _msgList = [[NSMutableArray alloc]init];
+    
+    UIView *header = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, CGFLOAT_MIN) ];
+    header.backgroundColor = [UIColor clearColor];
+    self.tableView.tableHeaderView = header;
+    UIView *footer = [[UIView alloc]initWithFrame:header.frame];
+    footer.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = footer;
     
     [self startHeadRefresh:self.tableView];
 }
@@ -132,6 +139,10 @@
 
 
 #pragma mark - tableview delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _msgList.count;
@@ -153,10 +164,25 @@
     return 81;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;//CGFLOAT_MIN;
+    return CGFLOAT_MIN;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
