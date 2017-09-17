@@ -11,6 +11,8 @@
 #import "EASubscribeCell.h"
 #import "EADingYueRenVC.h"
 #import "TKRequestHandler+Subscribe.h"
+#import "EADingYueEnergyMainVC.h"
+#import "EAKongJianVC.h"
 
 @interface EASubscribeViewController () <UITableViewDelegate, UITableViewDataSource> {
     EATabSwitchControl *_tabSwitchControl;
@@ -103,10 +105,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self fetchAllSubscribes];
-    return;
-    Class cls = NSClassFromString(@"EAKongJianVC");
-    EABaseViewController *vc = [[cls alloc] init];
+    EABaseViewController *vc = nil;
+    if (indexPath.row == 2) {
+        vc = [[EADingYueEnergyMainVC alloc] init];
+    } else {
+        EAKongJianVC *kjVC = [[EAKongJianVC alloc] init];
+        kjVC.type = indexPath.row == 0 ? EAKongJianVCTypeKongJian : EAKongJianVCTypeSheBei;
+        vc = kjVC;
+    }
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

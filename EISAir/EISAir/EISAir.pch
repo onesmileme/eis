@@ -12,6 +12,10 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 
+
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "iOS-Echarts.h"
+
 #define LBXScan_Define_UI
 #define LBXScan_Define_Native
 #define LBXScan_Define_ZBar

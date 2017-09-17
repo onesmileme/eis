@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"空间追踪";
+    self.title = self.type == EAKongJianVCTypeSheBei ? @"设置追踪" : @"空间追踪";
     
     _datas =
     @[

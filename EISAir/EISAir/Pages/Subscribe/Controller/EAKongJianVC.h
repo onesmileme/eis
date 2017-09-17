@@ -8,6 +8,13 @@
 
 #import "EABaseViewController.h"
 
+typedef enum : int {
+    EAKongJianVCTypeKongJian,
+    EAKongJianVCTypeSheBei,
+} EAKongJianVCType;
+
 @interface EAKongJianVC : EABaseViewController
+
+@property (nonatomic, assign) EAKongJianVCType type;
 
 @end

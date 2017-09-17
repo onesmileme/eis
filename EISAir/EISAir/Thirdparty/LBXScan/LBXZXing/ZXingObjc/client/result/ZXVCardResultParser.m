@@ -108,7 +108,7 @@ static NSCharacterSet *ZX_SEMICOLON_OR_COMMA = nil;
     if (i > 0) {
       i--; // Find from i-1 not i since looking at the preceding character
     }
-    NSArray *regexMatches = [regex matchesInString:rawText options:0 range:NSMakeRange(i, rawText.length - i)];
+    NSArray<NSTextCheckingResult *> *regexMatches = [regex matchesInString:rawText options:0 range:NSMakeRange(i, rawText.length - i)];
     if (regexMatches.count == 0) {
       break;
     }
