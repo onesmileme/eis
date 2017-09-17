@@ -9,6 +9,10 @@
 #import "EABaseTableViewController.h"
 #import "TKSwitchSlidePageItemViewControllerProtocol.h"
 
+@class EATaskDataListModel;
 @interface EATaskSlideListViewController : EABaseTableViewController<TKSwitchSlidePageItemViewControllerProtocol>
+
+@property(nonatomic , strong) NSString *taskType;
+@property(nonatomic , copy) void (^showTaskBlock)(EATaskDataListModel *task);
 
 @end

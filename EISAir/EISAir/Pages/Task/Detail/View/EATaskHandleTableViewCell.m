@@ -38,17 +38,23 @@
 
 -(IBAction)executeAction:(id)sender
 {
-    
+    if (_handleBlock) {
+        _handleBlock(EATashHandlerAccept);
+    }
 }
 
 -(IBAction)rejectAction:(id)sender
 {
-    
+    if (_handleBlock) {
+        _handleBlock(EATashHandlerReject);
+    }
 }
 
 -(IBAction)assiginAction:(id)sender
 {
-    
+    if (_handleBlock) {
+        _handleBlock(EATashHandlerToOther);
+    }
 }
 
 @end

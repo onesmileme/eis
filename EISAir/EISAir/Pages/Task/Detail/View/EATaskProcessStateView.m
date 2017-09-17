@@ -11,6 +11,7 @@
 #define kNormColor HexColor(0xb0b0b0)
 #define kNowColor  HexColor(0x00b0ce)
 #define kHorPadding 22
+#define kCircelWidth 16
 
 @interface EATaskProcessStateView()
 
@@ -26,23 +27,37 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _beginLabel = [self label];
-        _waitLabel  = [self label];
-        _doingLabel = [self label];
-        _doneLabel  = [self label];
-        
-        _beginLabel.text = @"发出";
-        _waitLabel.text = @"待执行";
-        _doingLabel.text = @"执行中";
-        _doneLabel.text = @"已执行";
-        
-        NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel,_doneLabel];
-        for (UILabel *l in labels) {
-            [l sizeToFit];
-            [self addSubview:l];
-        }
+        [self setupItems];
     }
     return self;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupItems];
+    }
+    return self;
+}
+
+-(void)setupItems
+{
+    _beginLabel = [self label];
+    _waitLabel  = [self label];
+    _doingLabel = [self label];
+    _doneLabel  = [self label];
+    
+    _beginLabel.text = @"发出";
+    _waitLabel.text = @"待执行";
+    _doingLabel.text = @"执行中";
+    _doneLabel.text = @"已执行";
+    
+    NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel,_doneLabel];
+    for (UILabel *l in labels) {
+        [l sizeToFit];
+        [self addSubview:l];
+    }
 }
 
 -(UILabel *)label
@@ -59,12 +74,13 @@
     [super layoutSubviews];
     
     NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel,_doneLabel];
-    CGFloat perlength = (self.width - 2*kHorPadding)/4;
+    CGFloat perlength = (self.width - 2*kHorPadding-kCircelWidth)/3;
     for (int i = 0 ; i < labels.count; i++) {
         UILabel *l = labels[i];
         
         l.bottom = self.height;
-        l.centerX = kHorPadding+i*perlength - l.width/2;
+        CGFloat centerX = kHorPadding+i*perlength+kCircelWidth/2;
+        l.centerX = centerX;
     }
     
 }
@@ -82,7 +98,7 @@
     
     CGContextSetLineWidth(context, 0.5);
     CGFloat centerY = CGRectGetHeight(rect) - 40;
-    CGFloat perlength = (CGRectGetWidth(rect) - 2*kHorPadding)/4;
+    CGFloat perlength = (CGRectGetWidth(rect) - 2*kHorPadding - kCircelWidth)/3;
     CGContextMoveToPoint(context, kHorPadding, centerY);
     if (_state > EATaskProcessStateBegin) {
         CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
@@ -91,7 +107,7 @@
         CGContextStrokePath(context);
         CGContextMoveToPoint(context, now, centerY);
     }
-    CGContextAddLineToPoint(context, CGRectGetWidth(rect), centerY);
+    CGContextAddLineToPoint(context, CGRectGetWidth(rect)-kHorPadding, centerY);
     CGContextSetStrokeColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
     CGContextStrokePath(context);
     
@@ -101,21 +117,21 @@
     if (_state > EATaskProcessStateBegin) {
         CGContextSetFillColorWithColor(context, [lineColor CGColor]);
         for (int i = 0 ; i < _state; i++) {
-            path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
+            path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
             [path fill];
         }
     }
     //now
     CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
     CGContextSetFillColorWithColor(context, [HexColor(0x00b0ce) CGColor]);
-    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+_state*perlength, centerY-12.5, 25, 25)];
+    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+_state*perlength-(25-kCircelWidth)/2, centerY-12.5, 25, 25)];
     [path fill];
     path.lineWidth = 1;
     [path stroke];
     
     //future
     if (_state < EATaskProcessStateDone) {
-        CGContextSetStrokeColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
+        CGContextSetFillColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
         for (int i = _state+1 ; i <= EATaskProcessStateDone; i++) {
             path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
             [path fill];

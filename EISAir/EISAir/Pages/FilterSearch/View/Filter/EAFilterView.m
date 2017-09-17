@@ -85,12 +85,12 @@
     return self;
 }
 
--(void)tapAction:(UITapGestureRecognizer *)gesture
+-(void)tapAction:(id )sender
 {
-    CGPoint location = [gesture locationInView:self];
-    if (!CGRectContainsPoint(self.collectionView.frame, location)) {
+//    CGPoint location = [gesture locationInView:self];
+//    if (!CGRectContainsPoint(self.collectionView.frame, location)) {
         [self hide];
-    }
+//    }
 }
 
 -(void)setType:(NSString *)type

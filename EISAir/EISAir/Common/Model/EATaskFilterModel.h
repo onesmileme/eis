@@ -15,6 +15,7 @@
 @property (nonatomic, copy , nullable) NSString *pageSize;
 @property (nonatomic, copy , nullable) NSString *keyword;
 @property (nonatomic, strong , nullable) NSArray *taskTypes;
+@property (nonatomic, strong , nullable) NSString *taskType;
 @property (nonatomic, copy , nullable) NSString *personId;
 @property (nonatomic, strong , nullable) NSArray *authObjList;
 @property (nonatomic, strong , nullable) NSArray *objList;

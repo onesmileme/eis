@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class EATaskDataListModel;
 @interface EATaskInfoTableViewCell : UITableViewCell
 
--(void)updateWithModel:(id)model;
++(CGFloat)heightForModel:(EATaskDataListModel *)model;
+
+-(void)updateWithModel:(EATaskDataListModel *)model;
 
 @end

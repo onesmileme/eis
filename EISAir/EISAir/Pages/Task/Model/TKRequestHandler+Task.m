@@ -12,29 +12,44 @@
 
 @implementation TKRequestHandler (Task)
 
-+(void)load
-{
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskById",AppHost];
-        NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-        param[@"id"] = @"fccae9b4770347ab858709ca7efb55f0";
-        [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
-            
-            if (error) {
-                NSLog(@"error is: \n%@",error);
-            }
-            if (response) {
-                NSData *d = [NSJSONSerialization dataWithJSONObject:response options:kNilOptions error:nil];
-                NSString *json = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
-                NSLog(@"json is: \n%@\n\n",json);
-            }
-            
-        }];
-        
-    });
-}
+//+(void)load
+//{
+//    return ;
+//    //GET /eis/open/task/findTaskResultByTaskId
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findTaskResultByTaskId",AppHost];
+//        EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
+//        
+//        EATaskFilterModel *filter = [[EATaskFilterModel alloc]init];
+//        filter.orgId = dinfo.orgId;
+//        filter.siteId = dinfo.siteId;
+//        filter.pageNum = 0;
+//        filter.pageSize = @"20";
+//        filter.dateType = @"check";
+//        
+//        
+////        NSDictionary *param = [filter toDictionary ];
+//        
+//        NSDictionary *param = @{@"taskId":@"402881455e50c691015e50c7a66c0000",@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
+//        [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+//            
+//            if (error) {
+//                NSLog(@"error is: \n%@",error);
+//                NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+//                NSString *info = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
+//                NSLog(@"info is: \n%@\n",info);
+//            }
+//            if (response) {
+//                NSData *d = [NSJSONSerialization dataWithJSONObject:response options:kNilOptions error:nil];
+//                NSString *json = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
+//                NSLog(@"json is:+++++ \n%@\n\n",json);
+//            }
+//            
+//        }];
+//        
+//    });
+//}
 
 -(NSURLSessionDataTask *)findEisTask:(NSString *)tid filterParam:(EATaskFilterModel *)filterParam completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion
 {
@@ -121,7 +136,6 @@
 {
     ///eis/open/task/findEisTaskByUser
     
-
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskByUser",AppHost];
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     if (filterParam) {
@@ -134,6 +148,19 @@
     return [self postRequestForPath:path param:param jsonName:@"EATaskModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
             completion(sessionDataTask,(EATaskModel *)model,error);
+        }
+    }];
+}
+
+-(NSURLSessionDataTask *)findTaskResultByTaskId:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskStatusModel *model , NSError *error))completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findTaskResultByTaskId",AppHost];
+    EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
+    NSDictionary *param = @{@"taskId":taskId?:@"",@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
+
+    return [self getRequestForPath:path param:param jsonName:@"EATaskStatusModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
+        if (completion) {
+            completion(sessionDataTask,(EATaskStatusModel *)model , error);
         }
     }];
 }

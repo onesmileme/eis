@@ -71,4 +71,7 @@
 #define EIS_MSG_TYPE_RECORD @"EIS_MSG_TYPE_RECORD" // "人工记录",
 #define EIS_MSG_TYPE_EXCEPTION @"EIS_MSG_TYPE_EXCEPTION"// "异常"
 
+#define kTaskTypeCheck @"check" //临时任务
+#define kTaskTypePlain @"plain" //计划任务
+
 #endif /* FADefines_h */

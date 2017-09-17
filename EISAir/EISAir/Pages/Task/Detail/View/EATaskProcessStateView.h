@@ -10,9 +10,10 @@
 
 typedef NS_ENUM(NSInteger, EATaskProcessState){
     EATaskProcessStateBegin = 0 ,
-    EATaskProcessStateWating = 1,
-    EATaskProcessStateDoing = 2,
-    EATaskProcessStateDone = 3
+    EATaskProcessStateWating ,
+    EATaskProcessStateDoing ,
+    EATaskProcessStateDone ,
+    EATaskProcessStateInvalid ,
 };
 
 @interface EATaskProcessStateView : UIView

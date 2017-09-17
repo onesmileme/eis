@@ -11,6 +11,9 @@
 /*
  * 任务详情 任务状态
  */
+@class EATaskStatusDataModel;
 @interface EATaskStateTableViewCell : UITableViewCell
+
+-(void)updateWithModel:(EATaskStatusDataModel *)model isStart:(BOOL)isStart isLast:(BOOL)isLast;
 
 @end

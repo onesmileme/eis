@@ -70,7 +70,6 @@
     if (_types && self.msgList.count == 0 && ![self.msgListTableView.header isRefreshing]) {
         [self startHeadRefresh:self.msgListTableView];
     }
-    
 }
 
 -(EAMessageNoDataView *)noDataView

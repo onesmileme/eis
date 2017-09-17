@@ -7,7 +7,6 @@
 //
 
 #import "EABaseViewController.h"
-
 @interface EATaskDetailEditViewController : EABaseViewController
 
 @end

@@ -16,12 +16,15 @@
 #import "EATaskDetailEditViewController.h"
 #import "EAUserSearchViewController.h"
 #import "EAAddressBookManager.h"
+#import "EATaskDetailViewController.h"
+
 
 #define kSlideSwitchHeight 38
 
 @interface EATaskViewController ()<TKSwitchSlidePageViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *titleArray;       //标题
+@property (nonatomic, strong) NSArray *typeArray;
 
 @end
 
@@ -37,7 +40,7 @@
         self.slideBackgroundColor = [UIColor themeGrayColor];
         
         self.titleArray = @[@"临时任务",@"计划任务"];
-        
+        self.typeArray = @[kTaskTypeCheck,kTaskTypePlain];
     }
     return self;
 }
@@ -132,19 +135,13 @@
 
 -(UIViewController<TKSwitchSlidePageItemViewControllerProtocol> *)controllerForIndex:(NSInteger)index
 {
-    //    FASlideConfigDataCategoryListModel *model = self.configModel.categoryList[index];
-    //    FASlidePageListViewController *controller = [[FASlidePageListViewController alloc]initWithNewsModel:model];
-    //    __weak typeof (self) weakself = self;
-    //    controller.pushAction = ^(UIViewController *viewController,BOOL animated){
-    //        [weakself.navigationController pushViewController:viewController animated:YES];
-    //    };
-    //    return  controller;
     EATaskSlideListViewController *controller = [[EATaskSlideListViewController alloc]init];
-    
-    controller.view.backgroundColor = index == 0 ? [UIColor redColor] : [UIColor greenColor];
-    
+    __weak typeof(self) wself = self;
+    controller.showTaskBlock = ^(EATaskDataListModel *task) {
+        [wself showTaskDetail:task];
+    };
+    controller.taskType = self.typeArray[index];
     return controller;
-    
 }
 
 -(NSArray *)pageTitles
@@ -189,10 +186,16 @@
     //    [self reload];
 }
 
+-(void)showTaskDetail:(EATaskDataListModel *)task
+{
+    EATaskDetailViewController *controller = [EATaskDetailViewController controller];
+    controller.task = task;
+    [self.navigationController pushViewController:controller animated:true];
+}
 
 -(void)test
 {
-//    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+//
     EAUserSearchViewController *controller = [[EAUserSearchViewController alloc]init];
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];

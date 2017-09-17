@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class EATaskDataListModel;
 /*
  * 任务详情 任务介绍
  */
 @interface EATaskStateInfoTableViewCell : UITableViewCell
 
-+(CGFloat)heightForModel:(id)model;
--(void)updteWithModel:(id)model;
++(CGFloat)heightForModel:(EATaskDataListModel *)model;
+-(void)updteWithModel:(EATaskDataListModel *)model;
 
 @end

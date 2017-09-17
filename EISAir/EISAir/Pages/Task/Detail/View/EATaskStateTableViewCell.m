@@ -7,13 +7,15 @@
 //
 
 #import "EATaskStateTableViewCell.h"
+#import "EATaskStatusModel.h"
 
 @interface EATaskStateTableViewCell()
 
 @property(nonatomic , strong) IBOutlet UILabel *mainLabel;
 @property(nonatomic , strong) IBOutlet UILabel *subLabel;
 @property(nonatomic , strong) IBOutlet UIView *bottomLine;
-
+@property(nonatomic , assign) BOOL isFirst;
+@property(nonatomic , assign) BOOL isLast;
 @end
 
 @implementation EATaskStateTableViewCell
@@ -29,6 +31,19 @@
     // Configure the view for the selected state
 }
 
+-(void)updateWithModel:(EATaskStatusDataModel *)model isStart:(BOOL)isStart isLast:(BOOL)isLast
+{
+    self.isFirst = isStart;
+    self.isLast = isLast;
+    if (isStart) {
+        self.mainLabel.text = model.createDate?:model.deliveryTime;
+        self.subLabel.text = model.taskExecuteDesc;
+    }else{
+        self.mainLabel.text = model.taskExecuteDesc;
+        self.subLabel.text = model.deliveryTime;
+    }
+}
+
 -(void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
@@ -37,21 +52,23 @@
     
     CGFloat left = 20.5;
     
-    BOOL isFirst = true;
-    BOOL isDoing = true;
+    BOOL isFirst = _isFirst;
+    BOOL isDoing = false;
     CGSize circelSize = isDoing ? CGSizeMake(11, 11) : CGSizeMake(9, 9);
     UIColor *lineColor = HexColor(0xd8d8d8);
     UIColor *circleColor = isDoing ? HexColor(0x00b0ce) : lineColor;
     
     //draw line
     if (isFirst) {
-        CGContextAddLineToPoint(context,left ,self.textLabel.centerY);
+        CGContextMoveToPoint(context,left ,self.mainLabel.centerY);
     }else {
         CGContextMoveToPoint(context, left, 0);
     }
-    
-    CGContextAddLineToPoint(context, left, self.height);
-    
+    if (_isLast) {
+        CGContextAddLineToPoint(context, left, self.mainLabel.centerY);
+    }else{
+        CGContextAddLineToPoint(context, left, self.height);
+    }
     CGContextSetLineWidth(context, 0.5);
     CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
     CGContextStrokePath(context);

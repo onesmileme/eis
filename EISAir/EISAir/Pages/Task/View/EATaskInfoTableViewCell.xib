@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,8 +25,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhJ-xR-YId" userLabel="stateLabel">
-                        <rect key="frame" x="62.5" y="17" width="31" height="14.5"/>
+                        <rect key="frame" x="62.5" y="15" width="50" height="19"/>
                         <color key="backgroundColor" red="1" green="0.70980392160000005" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="vlE-PE-JNW"/>
+                            <constraint firstAttribute="width" constant="50" id="wjg-I8-uO1"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -70,6 +74,13 @@
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hAo-6k-7fE" secondAttribute="trailing" constant="14" id="x6H-Ll-0uW"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="6Dl-90-Sbk" id="8Mp-uw-UNx"/>
+                <outlet property="infoLabel" destination="hAo-6k-7fE" id="1CF-AS-esa"/>
+                <outlet property="stateLabel" destination="mhJ-xR-YId" id="pu2-vU-7ua"/>
+                <outlet property="titleLabel" destination="hly-xM-u1d" id="onf-s7-ozJ"/>
+                <outlet property="typeLabel" destination="zmy-4Q-hFy" id="Iu8-co-rKe"/>
+            </connections>
             <point key="canvasLocation" x="34" y="71.5"/>
         </tableViewCell>
     </objects>

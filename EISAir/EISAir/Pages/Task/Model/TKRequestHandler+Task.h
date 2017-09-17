@@ -9,6 +9,7 @@
 #import "TKRequestHandler.h"
 #import "EATaskModel.h"
 #import "EATaskFilterModel.h"
+#import "EATaskStatusModel.h"
 
 @interface TKRequestHandler (Task)
 
@@ -23,5 +24,10 @@
  * 查询我的任务
  */
 -(NSURLSessionDataTask *)findMyTask:(EATaskFilterModel *)filterParam completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion;
+
+/*
+ * 查询task 状态流转
+ */
+-(NSURLSessionDataTask *)findTaskResultByTaskId:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskStatusModel *model , NSError *error))completion;
 
 @end

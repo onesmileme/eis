@@ -8,6 +8,8 @@
 
 #import "EATaskInfoTableViewCell.h"
 #import "NSString+TKSize.h"
+#import "EATaskModel.h"
+#import "TKCommonTools.h"
 
 @interface EATaskInfoTableViewCell ()
 
@@ -21,12 +23,24 @@
 
 @implementation EATaskInfoTableViewCell
 
-+(CGFloat)heightForModel:(id)model
++(UIColor *)colorForStatus:(NSString *)status
+{
+    static NSDictionary *dict = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dict = @{@"wait":HexColor(0xffb549) ,@"execute":HexColor(0x058497) ,@"finish":HexColor(0x28CFC1) , @"invalid":HexColor(0xECECEC)};
+    });
+    return dict[status];
+}
+
++(CGFloat)heightForModel:(EATaskDataListModel *)model
 {
     CGFloat height = 78;
     
-    height += [@"" sizeWithMaxWidth:(SCREEN_WIDTH - 29) font:SYS_FONT(14)].height;
-    
+    if (model.taskDescription.length > 0) {
+        height += [model.taskDescription sizeWithMaxWidth:(SCREEN_WIDTH - 29) font:SYS_FONT(14)].height;
+    }
+
     return height;
     
 }
@@ -45,9 +59,17 @@
     // Configure the view for the selected state
 }
 
--(void)updateWithModel:(id)model
+-(void)updateWithModel:(EATaskDataListModel *)model
 {
+    self.titleLabel.text = model.taskName;
+    self.stateLabel.text = [[EATaskHelper sharedInstance] valueForStatus:model.taskStatus];
+    self.typeLabel.text = model.taskType;
+    self.infoLabel.text = model.taskDescription;
     
+    NSString *dateStr = model.updateDate?:model.createDate;
+    NSDate *date = [TKCommonTools dateWithFormat:TKDateFormatChineseLongYMD dateString:dateStr];
+    
+    self.dateLabel.text = [TKCommonTools dateDescForDate:date];        
 }
 
 @end
