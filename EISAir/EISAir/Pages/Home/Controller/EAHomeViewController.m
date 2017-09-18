@@ -12,6 +12,7 @@
 #import "EAHomeTableViewCell.h"
 #import "TKAccountManager.h"
 #import "EAPushManager.h"
+#import "TKRequestHandler+User.h"
 
 @interface EAHomeViewController ()
 
@@ -50,7 +51,10 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
-    [self.headerView updateModel:nil];
+    EALoginUserInfoDataModel *model = [TKAccountManager sharedInstance].loginUserInfo;
+    [self.headerView updateModel:model];
+    
+    [self loadUserInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +66,17 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:true animated:true];
+}
+
+-(void)loadUserInfo
+{
+    [[TKRequestHandler sharedInstance] findLoginUserCompletion:^(NSURLSessionDataTask *task, EALoginUserInfoModel *model, NSError *error) {
+        if (model.success) {
+            [self.headerView updateModel:model.data];
+            [TKAccountManager sharedInstance].loginUserInfo = model.data;
+            [[TKAccountManager sharedInstance] save];
+        }
+    }];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

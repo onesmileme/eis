@@ -55,4 +55,20 @@
     }];
 }
 
+/*
+ * 获取登录用户信息
+ */
+-(NSURLSessionDataTask *)findLoginUserCompletion:(void(^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findLoginUser",AppHost];
+    
+    return [self getRequestForPath:path param:nil jsonName:@"EALoginUserInfoModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
+        
+        if (completion) {
+            completion(sessionDataTask,(EALoginUserInfoModel *)model,error);
+        }
+        
+    }];
+}
+
 @end

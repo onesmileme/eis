@@ -8,6 +8,7 @@
 
 #import "TKRequestHandler.h"
 #import "EAUserModel.h"
+#import "EALoginUserInfoModel.h"
 
 @interface TKRequestHandler (User)
 
@@ -15,5 +16,10 @@
  * 获取@用户的列表
  */
 -(NSURLSessionDataTask *)findUsersCompletion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion;
+
+/*
+ * 获取登录用户信息
+ */
+-(NSURLSessionDataTask *)findLoginUserCompletion:(void(^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion;
 
 @end

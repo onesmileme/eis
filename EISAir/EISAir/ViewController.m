@@ -120,14 +120,15 @@
 {
     //GET /eis/open/task/findTaskResultByTaskId
     //POST /eis/open/msg/findMsgTitleList
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/object/findObjects",AppHost];
+    //GET /eis/open/user/findLoginUser
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findLoginUser",AppHost];
     //@"personId":udata.personId?:@"",
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
     NSLog(@"product array is: %@",udata.productArray);
     NSMutableArray *productArray = [NSMutableArray new];
     [productArray addObjectsFromArray:udata.productArray];
     
-    NSDictionary *param = @{@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0",@"objName":@"B",@"productArray":productArray};
+    NSDictionary *param = nil;// @{@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0",@"objName":@"B",@"productArray":productArray};
     
     //@{@"msgId":@"AV48ho8x0f-qWHUcq9_2"};//
     
@@ -143,7 +144,7 @@
 //    NSLog(@"param is: %@\n\n",param);
     
     
-    [[TKRequestHandler sharedInstance]postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+    [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
             NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class EALoginUserInfoDataModel;
 @interface EAHomeHeaderView : UIView
 
 @property(nonatomic , strong) IBOutlet UIImageView *bgImageView;
@@ -21,6 +22,6 @@
 
 @property(nonatomic , strong) IBOutlet NSLayoutConstraint *tipWidthConstraint;
 
--(void)updateModel:(id)model;
+-(void)updateModel:(EALoginUserInfoDataModel *)model;
 
 @end

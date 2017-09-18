@@ -7,6 +7,7 @@
 //
 
 #import "EAHomeHeaderView.h"
+#import "EALoginUserInfoModel.h"
 
 @implementation EAHomeHeaderView
 
@@ -19,8 +20,26 @@
     self.avatarImageView.layer.masksToBounds = true;
 }
 
--(void)updateModel:(id)model
+-(void)updateModel:(EALoginUserInfoDataModel *)model
 {
+    /*
+     @property(nonatomic , strong) IBOutlet UIImageView *bgImageView;
+     @property(nonatomic , strong) IBOutlet UIImageView *avatarImageView;
+     @property(nonatomic , strong) IBOutlet UILabel *nameLabel;
+     @property(nonatomic , strong) IBOutlet UILabel *jobLabel;
+     
+     @property(nonatomic , strong) IBOutlet UILabel *doneCountLabel;
+     @property(nonatomic , strong) IBOutlet UILabel *recordCountLabel;
+     @property(nonatomic , strong) IBOutlet UILabel *reportCountLabel;
+     */
+    
+//    NSURL *avatar = [NSURL URLWithString:model];
+//    [self.avatarImageView sd_setImageWithURL:avatar];
+
+    _nameLabel.text = model.personName;
+    _jobLabel.text = model.roleName;
+    
+    
     self.doneCountLabel.attributedText = [self countStr:25];
     self.recordCountLabel.attributedText = [self countStr:10];
     self.reportCountLabel.attributedText = [self countStr:8];
