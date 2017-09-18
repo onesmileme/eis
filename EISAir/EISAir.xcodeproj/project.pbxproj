@@ -549,6 +549,7 @@
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
 		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
+		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1649,6 +1650,8 @@
 		C5213142B48C8276E4B76135 /* Pods-EISAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.debug.xcconfig"; sourceTree = "<group>"; };
 		D677BF13055C157E3A660E7F /* Pods-EISAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.release.xcconfig"; sourceTree = "<group>"; };
 		E57558C003FAC9E8341CEA24 /* Pods-EISAirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyHistoryVC.h; sourceTree = "<group>"; };
+		FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyHistoryVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3934,6 +3937,8 @@
 				53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */,
 				53D62B731F6E2E1200E4E43F /* EADingYueEnergyMainVC.h */,
 				53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */,
+				FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */,
+				FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4631,6 +4636,7 @@
 				6E415E641F5171D10078436F /* ZXCode39Writer.m in Sources */,
 				6E68868A1F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				6E415E731F5171D10078436F /* ZXUPCEANExtension2Support.m in Sources */,
+				FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */,
 				6E415EB51F5171D10078436F /* LBXScanViewStyle.m in Sources */,
 				53DB28A41F6E51E600FB2B0F /* PYRadarSeries.m in Sources */,
 				6E415E031F5171D10078436F /* ZXCGImageLuminanceSource.m in Sources */,
