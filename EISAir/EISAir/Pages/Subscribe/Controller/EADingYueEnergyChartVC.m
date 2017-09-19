@@ -8,6 +8,7 @@
 
 #import "EADingYueEnergyChartVC.h"
 #import "EAEnergyCountControl.h"
+#import "EADingYueEnergyHistoryVC.h"
 
 @interface EADingYueEnergyChartVC () {
     UIScrollView *_contentView;
@@ -156,7 +157,8 @@
 }
 
 - (void)detailClick {
-    
+    EADingYueEnergyHistoryVC *vc = [[EADingYueEnergyHistoryVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

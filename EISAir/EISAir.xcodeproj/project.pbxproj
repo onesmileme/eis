@@ -557,6 +557,8 @@
 		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
 		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
+		FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */; };
+		FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1670,6 +1672,10 @@
 		E57558C003FAC9E8341CEA24 /* Pods-EISAirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyHistoryVC.h; sourceTree = "<group>"; };
 		FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyHistoryVC.m; sourceTree = "<group>"; };
+		FA34212D1F70280F001D9FDC /* EAHorColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHorColumnChartView.h; sourceTree = "<group>"; };
+		FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHorColumnChartView.m; sourceTree = "<group>"; };
+		FA3421321F70284F001D9FDC /* EAGridBackgroudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGridBackgroudView.h; sourceTree = "<group>"; };
+		FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGridBackgroudView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1771,6 +1777,10 @@
 				53D62B7C1F6E310100E4E43F /* EAEnergyCell.m */,
 				53DB28C11F6E5CDF00FB2B0F /* EAEnergyCountControl.h */,
 				53DB28C21F6E5CDF00FB2B0F /* EAEnergyCountControl.m */,
+				FA34212D1F70280F001D9FDC /* EAHorColumnChartView.h */,
+				FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */,
+				FA3421321F70284F001D9FDC /* EAGridBackgroudView.h */,
+				FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4465,6 +4475,7 @@
 				6E415E5A1F5171D10078436F /* ZXRSS14Reader.m in Sources */,
 				6E415DEA1F5171D10078436F /* ZXGeoParsedResult.m in Sources */,
 				6E415E831F5171D10078436F /* ZXPDF417DetectionResultColumn.m in Sources */,
+				FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */,
 				6E415DE21F5171D10078436F /* ZXBizcardResultParser.m in Sources */,
 				6E6386C61F49CA1F00017FB8 /* EAMessageTableViewCell.m in Sources */,
 				6E415E901F5171D10078436F /* ZXPDF417ResultMetadata.m in Sources */,
@@ -4709,6 +4720,7 @@
 				6E6886901F43C71A009AD662 /* ZLPhotoPickerAssetsViewController.m in Sources */,
 				6E6386A81F481FF400017FB8 /* EASettingViewController.m in Sources */,
 				53DB288D1F6E51E600FB2B0F /* PYNodes.m in Sources */,
+				FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */,
 				53DB28901F6E51E600FB2B0F /* PYPolar.m in Sources */,
 				53DB28A01F6E51E600FB2B0F /* PYMapSeries.m in Sources */,
 				6E415DF31F5171D10078436F /* ZXSMSParsedResult.m in Sources */,
