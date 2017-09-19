@@ -77,7 +77,7 @@
 
 -(void)updateWithModel:(EAMessageDataListModel *)model
 {
-    _avatarLabel.text = [model.msgTitle substringToIndex:4];    
+    _avatarLabel.text = [model.msgTitle substringToIndex:model.msgTitle.length > 4?3:model.msgTitle.length-1];    
     NSNumber *num = [[self class] avatarBgDict][model.msgType];
     NSInteger hexColor =  [num integerValue];
     _avatarLabel.backgroundColor = HexColor(hexColor);

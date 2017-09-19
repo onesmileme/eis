@@ -544,6 +544,13 @@
 		6E70158B1F6EA61A0006C2E9 /* EATaskStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E70158A1F6EA61A0006C2E9 /* EATaskStatusModel.m */; };
 		6E7015901F6EAC320006C2E9 /* TKRequestHandler+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E70158F1F6EAC320006C2E9 /* TKRequestHandler+User.m */; };
 		6E7015931F6EAD460006C2E9 /* EAUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015921F6EAD460006C2E9 /* EAUserModel.m */; };
+		6E7015A01F7162A40006C2E9 /* EAProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E70159E1F7162A40006C2E9 /* EAProjectTableViewController.m */; };
+		6E7015A41F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015A21F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m */; };
+		6E7015A51F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015A31F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib */; };
+		6E7015A91F71657E0006C2E9 /* EAProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015A71F71657E0006C2E9 /* EAProjectTableViewCell.m */; };
+		6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */; };
+		6E7015AD1F7169C20006C2E9 /* EAProjectToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */; };
+		6E7015AF1F7169CC0006C2E9 /* EAProjectToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
@@ -1638,6 +1645,17 @@
 		6E70158F1F6EAC320006C2E9 /* TKRequestHandler+User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+User.m"; sourceTree = "<group>"; };
 		6E7015911F6EAD460006C2E9 /* EAUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAUserModel.h; sourceTree = "<group>"; };
 		6E7015921F6EAD460006C2E9 /* EAUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAUserModel.m; sourceTree = "<group>"; };
+		6E70159D1F7162A40006C2E9 /* EAProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectTableViewController.h; sourceTree = "<group>"; };
+		6E70159E1F7162A40006C2E9 /* EAProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectTableViewController.m; sourceTree = "<group>"; };
+		6E7015A11F7162BB0006C2E9 /* EAProjectInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAProjectInfoTableViewCell.h; sourceTree = "<group>"; };
+		6E7015A21F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectInfoTableViewCell.m; sourceTree = "<group>"; };
+		6E7015A31F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectInfoTableViewCell.xib; sourceTree = "<group>"; };
+		6E7015A61F71657E0006C2E9 /* EAProjectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAProjectTableViewCell.h; sourceTree = "<group>"; };
+		6E7015A71F71657E0006C2E9 /* EAProjectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectTableViewCell.m; sourceTree = "<group>"; };
+		6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectTableViewCell.xib; sourceTree = "<group>"; };
+		6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAProjectToolbar.h; sourceTree = "<group>"; };
+		6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectToolbar.m; sourceTree = "<group>"; };
+		6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectToolbar.xib; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
@@ -2952,6 +2970,7 @@
 		6E4D93191F5BDD3400026B53 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6E70159B1F7162A40006C2E9 /* Project */,
 				6E4D931A1F5BDD3400026B53 /* Controller */,
 				6E4D931B1F5BDD3400026B53 /* Model */,
 				6E4D931C1F5BDD3400026B53 /* View */,
@@ -3994,6 +4013,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E70159B1F7162A40006C2E9 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				6E70159C1F7162A40006C2E9 /* Controller */,
+				6E70159F1F7162A40006C2E9 /* View */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		6E70159C1F7162A40006C2E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E70159D1F7162A40006C2E9 /* EAProjectTableViewController.h */,
+				6E70159E1F7162A40006C2E9 /* EAProjectTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E70159F1F7162A40006C2E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E7015A11F7162BB0006C2E9 /* EAProjectInfoTableViewCell.h */,
+				6E7015A21F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m */,
+				6E7015A31F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib */,
+				6E7015A61F71657E0006C2E9 /* EAProjectTableViewCell.h */,
+				6E7015A71F71657E0006C2E9 /* EAProjectTableViewCell.m */,
+				6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */,
+				6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */,
+				6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */,
+				6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4119,6 +4172,7 @@
 				6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
+				6E7015AF1F7169CC0006C2E9 /* EAProjectToolbar.xib in Resources */,
 				6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */,
 				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
@@ -4133,6 +4187,7 @@
 				6E68867A1F43C71A009AD662 /* paizhao@2x.png in Resources */,
 				53DB28AA1F6E51E600FB2B0F /* echarts.html in Resources */,
 				6E68853D1F433C49009AD662 /* Assets.xcassets in Resources */,
+				6E7015A51F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib in Resources */,
 				6E415EAF1F5171D10078436F /* CodeScan.bundle in Resources */,
 				6E415F2B1F52A6970078436F /* EATaskHandleTableViewCell.xib in Resources */,
 				6E415EFB1F5267B70078436F /* EAFilterCollectionViewCell.xib in Resources */,
@@ -4142,6 +4197,7 @@
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
+				6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */,
 				53DB28BF1F6E520200FB2B0F /* js in Resources */,
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
@@ -4272,6 +4328,7 @@
 				6E6386E51F506B2200017FB8 /* EAOauthModel.m in Sources */,
 				53DB289F1F6E51E600FB2B0F /* PYHeatmapSeries.m in Sources */,
 				6E7015931F6EAD460006C2E9 /* EAUserModel.m in Sources */,
+				6E7015A91F71657E0006C2E9 /* EAProjectTableViewCell.m in Sources */,
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
 				6E415E841F5171D10078436F /* ZXPDF417DetectionResultRowIndicatorColumn.m in Sources */,
 				6E415DD51F5171D10078436F /* ZXAztecCode.m in Sources */,
@@ -4354,6 +4411,7 @@
 				5330A8C81F53036600F8E07E /* EAChooseObjVC.m in Sources */,
 				6E415E001F5171D10078436F /* ZXWifiParsedResult.m in Sources */,
 				6E415DF61F5171D10078436F /* ZXTelParsedResult.m in Sources */,
+				6E7015A01F7162A40006C2E9 /* EAProjectTableViewController.m in Sources */,
 				53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */,
 				53AD6EBF1F695A42005025BD /* EASubscribeCell.m in Sources */,
 				6E415E781F5171D10078436F /* ZXUPCEReader.m in Sources */,
@@ -4609,6 +4667,7 @@
 				6E415E5C1F5171D10078436F /* ZXRSSFinderPattern.m in Sources */,
 				6E415F4A1F54E5550078436F /* EAAddressBookManager.m in Sources */,
 				5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */,
+				6E7015A41F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m in Sources */,
 				6E415F1B1F527A630078436F /* EATaskStateInfoTableViewCell.m in Sources */,
 				6E415E2E1F5171D10078436F /* ZXDataMatrixASCIIEncoder.m in Sources */,
 				6E415E941F5171D10078436F /* ZXQRCodeDataMask.m in Sources */,
@@ -4664,6 +4723,7 @@
 				6E415E251F5171D10078436F /* ZXResult.m in Sources */,
 				6E415DE41F5171D10078436F /* ZXCalendarParsedResult.m in Sources */,
 				6E415EFA1F5267B70078436F /* EAFilterCollectionViewCell.m in Sources */,
+				6E7015AD1F7169C20006C2E9 /* EAProjectToolbar.m in Sources */,
 				6E415ED51F5264240078436F /* EATaskSlideCollectionVIewCell.m in Sources */,
 				6E415E921F5171D10078436F /* ZXQRCodeBitMatrixParser.m in Sources */,
 				6E415E191F5171D10078436F /* ZXPerspectiveTransform.m in Sources */,

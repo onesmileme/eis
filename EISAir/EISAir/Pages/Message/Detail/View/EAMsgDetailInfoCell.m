@@ -34,7 +34,8 @@
 
 -(void)updateWithModel:(EAMessageDataListModel *)model
 {
-    _tagLabel.text = [model.msgTitle substringToIndex:4]?:@"标签";
+    NSInteger index = model.msgTitle.length > 4?3:model.msgTitle.length-1;
+    _tagLabel.text = [model.msgTitle substringToIndex:index]?:@"标签";
     _titleLabel.text = model.msgTitle;
     _infoLabel.text = model.msgContent;
 }

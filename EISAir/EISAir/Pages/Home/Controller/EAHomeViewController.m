@@ -13,6 +13,7 @@
 #import "TKAccountManager.h"
 #import "EAPushManager.h"
 #import "TKRequestHandler+User.h"
+#import "EAProjectTableViewController.h"
 
 @interface EAHomeViewController ()
 
@@ -143,13 +144,30 @@
     return 42;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *h = [[UIView alloc]init];
+    h.backgroundColor = [UIColor clearColor];
+    return h;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *f = [[UIView alloc]init];
+    f.backgroundColor = [UIColor clearColor];
+    
+    return f;
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:false];
     switch (indexPath.section) {
         case 0:
         {
-            
+            EAProjectTableViewController *controller = [EAProjectTableViewController controller];
+            controller.userInfo = [TKAccountManager sharedInstance].loginUserInfo;
+            [self.navigationController pushViewController:controller animated:true];
         }
             break;
         case 1:
