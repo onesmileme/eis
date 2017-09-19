@@ -550,7 +550,6 @@
 		6E7015A91F71657E0006C2E9 /* EAProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015A71F71657E0006C2E9 /* EAProjectTableViewCell.m */; };
 		6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */; };
 		6E7015AD1F7169C20006C2E9 /* EAProjectToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */; };
-		6E7015AF1F7169CC0006C2E9 /* EAProjectToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
@@ -1662,7 +1661,6 @@
 		6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectTableViewCell.xib; sourceTree = "<group>"; };
 		6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAProjectToolbar.h; sourceTree = "<group>"; };
 		6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectToolbar.m; sourceTree = "<group>"; };
-		6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectToolbar.xib; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
@@ -4060,7 +4058,6 @@
 				6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */,
 				6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */,
 				6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */,
-				6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4215,7 +4212,6 @@
 				6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
-				6E7015AF1F7169CC0006C2E9 /* EAProjectToolbar.xib in Resources */,
 				6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */,
 				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
