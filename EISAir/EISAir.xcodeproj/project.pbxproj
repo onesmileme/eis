@@ -559,6 +559,11 @@
 		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
 		FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */; };
 		FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */; };
+		FA34213D1F716DC4001D9FDC /* EASingleKongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34213C1F716DC4001D9FDC /* EASingleKongJianVC.m */; };
+		FA3421431F7170CD001D9FDC /* EASheBeiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421421F7170CD001D9FDC /* EASheBeiHeader.m */; };
+		FA3421461F717515001D9FDC /* EAKongJianHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421451F717515001D9FDC /* EAKongJianHeader.m */; };
+		FA3421521F7176EF001D9FDC /* EAReportHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421511F7176EF001D9FDC /* EAReportHeader.m */; };
+		FA3421551F717B11001D9FDC /* EAReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421541F717B11001D9FDC /* EAReportCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1676,6 +1681,16 @@
 		FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAHorColumnChartView.m; sourceTree = "<group>"; };
 		FA3421321F70284F001D9FDC /* EAGridBackgroudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGridBackgroudView.h; sourceTree = "<group>"; };
 		FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGridBackgroudView.m; sourceTree = "<group>"; };
+		FA34213B1F716DC4001D9FDC /* EASingleKongJianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASingleKongJianVC.h; sourceTree = "<group>"; };
+		FA34213C1F716DC4001D9FDC /* EASingleKongJianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASingleKongJianVC.m; sourceTree = "<group>"; };
+		FA3421411F7170CD001D9FDC /* EASheBeiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASheBeiHeader.h; sourceTree = "<group>"; };
+		FA3421421F7170CD001D9FDC /* EASheBeiHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASheBeiHeader.m; sourceTree = "<group>"; };
+		FA3421441F717515001D9FDC /* EAKongJianHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAKongJianHeader.h; sourceTree = "<group>"; };
+		FA3421451F717515001D9FDC /* EAKongJianHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAKongJianHeader.m; sourceTree = "<group>"; };
+		FA3421501F7176EF001D9FDC /* EAReportHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportHeader.h; sourceTree = "<group>"; };
+		FA3421511F7176EF001D9FDC /* EAReportHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportHeader.m; sourceTree = "<group>"; };
+		FA3421531F717B11001D9FDC /* EAReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportCell.h; sourceTree = "<group>"; };
+		FA3421541F717B11001D9FDC /* EAReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1781,6 +1796,10 @@
 				FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */,
 				FA3421321F70284F001D9FDC /* EAGridBackgroudView.h */,
 				FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */,
+				FA3421411F7170CD001D9FDC /* EASheBeiHeader.h */,
+				FA3421421F7170CD001D9FDC /* EASheBeiHeader.m */,
+				FA3421441F717515001D9FDC /* EAKongJianHeader.h */,
+				FA3421451F717515001D9FDC /* EAKongJianHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3878,8 +3897,9 @@
 			isa = PBXGroup;
 			children = (
 				6E6887411F481772009AD662 /* Controller */,
-				6E6887421F481772009AD662 /* Model */,
-				6E6887431F481772009AD662 /* View */,
+				FA34214D1F7176BE001D9FDC /* Model */,
+				FA34214E1F7176BE001D9FDC /* Request */,
+				FA34214F1F7176BE001D9FDC /* View */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -3891,20 +3911,6 @@
 				6E6386A41F481F2600017FB8 /* EAReportViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6E6887421F481772009AD662 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6E6887431F481772009AD662 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6E6887441F481772009AD662 /* Setting */ = {
@@ -3968,6 +3974,8 @@
 				53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */,
 				FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */,
 				FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */,
+				FA34213B1F716DC4001D9FDC /* EASingleKongJianVC.h */,
+				FA34213C1F716DC4001D9FDC /* EASingleKongJianVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4053,6 +4061,31 @@
 				6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */,
 				6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */,
 				6E7015AE1F7169CC0006C2E9 /* EAProjectToolbar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA34214D1F7176BE001D9FDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA34214E1F7176BE001D9FDC /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FA34214F1F7176BE001D9FDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA3421501F7176EF001D9FDC /* EAReportHeader.h */,
+				FA3421511F7176EF001D9FDC /* EAReportHeader.m */,
+				FA3421531F717B11001D9FDC /* EAReportCell.h */,
+				FA3421541F717B11001D9FDC /* EAReportCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4486,6 +4519,7 @@
 				6E415EA51F5171D10078436F /* ZXQRCodeMaskUtil.m in Sources */,
 				53DB287A1F6E51E600FB2B0F /* PYAxisLabel.m in Sources */,
 				6E6886541F43C71A009AD662 /* NSURLConnection+BlocksKit.m in Sources */,
+				FA3421461F717515001D9FDC /* EAKongJianHeader.m in Sources */,
 				6E6886631F43C71A009AD662 /* CHGalleryGroupViewController.m in Sources */,
 				6E415F051F5269A50078436F /* EATaskSearchResultViewController.m in Sources */,
 				6E415E0A1F5171D10078436F /* ZXReedSolomonDecoder.m in Sources */,
@@ -4647,7 +4681,9 @@
 				6E6886DF1F45124B009AD662 /* EAShareView.m in Sources */,
 				6E68864F1F43C71A009AD662 /* NSSet+BlocksKit.m in Sources */,
 				6E6886601F43C71A009AD662 /* UITextField+BlocksKit.m in Sources */,
+				FA3421551F717B11001D9FDC /* EAReportCell.m in Sources */,
 				6E6885321F433C49009AD662 /* main.m in Sources */,
+				FA3421431F7170CD001D9FDC /* EASheBeiHeader.m in Sources */,
 				6E415F141F5272220078436F /* EATaskDetailViewController.m in Sources */,
 				6E6886D21F45124B009AD662 /* EAImageItemModel.m in Sources */,
 				6E6886D01F45124B009AD662 /* EABaseImageModel.m in Sources */,
@@ -4661,6 +4697,7 @@
 				6E6887531F4817CC009AD662 /* EALoginViewController.m in Sources */,
 				6E415DFC1F5171D10078436F /* ZXVCardResultParser.m in Sources */,
 				6E6886491F43C71A009AD662 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
+				FA34213D1F716DC4001D9FDC /* EASingleKongJianVC.m in Sources */,
 				6E415DFE1F5171D10078436F /* ZXVINParsedResult.m in Sources */,
 				6E6886711F43C71A009AD662 /* TTTAttributedLabel.m in Sources */,
 				6E4D932B1F5BE88300026B53 /* EAHomeFooterView.m in Sources */,
@@ -4770,6 +4807,7 @@
 				6E6886D71F45124B009AD662 /* TKRequestHandler+Account.m in Sources */,
 				6E415DE01F5171D10078436F /* ZXAddressBookDoCoMoResultParser.m in Sources */,
 				5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */,
+				FA3421521F7176EF001D9FDC /* EAReportHeader.m in Sources */,
 				6E415DDA1F5171D10078436F /* ZXAztecToken.m in Sources */,
 				6E415E5B1F5171D10078436F /* ZXRSSDataCharacter.m in Sources */,
 				6E415E8A1F5171D10078436F /* ZXPDF417BarcodeRow.m in Sources */,

@@ -84,18 +84,13 @@
     
 }
 
-- (void)initData
-{
-    
+- (void)initData {
 }
 
-- (void)initView
-{
+- (void)initView {
 }
 
-- (void)addNotifications
-{
-    
+- (void)addNotifications {
 }
 
 
