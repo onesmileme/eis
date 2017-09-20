@@ -1,5 +1,5 @@
 //
-//  EAReportHeader.h
+//  EAReportFilterBar.h
 //  EISAir
 //
 //  Created by iwm on 2017/9/20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EAReportHeader : UIControl
+@interface EAReportFilterBar : UIView
 
 @property (nonatomic, copy) void (^clickedBlock)(NSUInteger index);
 - (void)setModel:(NSArray *)model;

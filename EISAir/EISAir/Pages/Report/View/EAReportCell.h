@@ -8,6 +8,13 @@
 
 #import "EABaseTableViewCell.h"
 
+typedef NS_ENUM(NSUInteger, EAReportCellStyle) {
+    EAReportCellStyleSingle,
+    EAReportCellStyleFolder,
+};
+
 @interface EAReportCell : EABaseTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellStyle:(EAReportCellStyle)cellStyle;
 
 @end

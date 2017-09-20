@@ -9,6 +9,7 @@
 #import "EAReportViewController.h"
 #import "EAReportCell.h"
 #import "EAReportHeader.h"
+#import "EAReportListVC.h"
 
 @interface EAReportViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
@@ -20,9 +21,13 @@
 
 @implementation EAReportViewController
 
-- (void)initData {
-    [super initData];
-    
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initViews];
+    [self initDatas];
+}
+
+- (void)initDatas {
     _dataArray = @[
                    @{
                        @"title": @"C座VAV系统运行分析报告-5月",
@@ -72,14 +77,13 @@
                    ].mutableCopy;
 }
 
-- (void)initView {
-    [super initView];
-    self.title = @"订阅";
+- (void)initViews {
+    self.title = @"报告";
     self.tabBarItem.title = @"";
     self.view.backgroundColor = [UIColor whiteColor];
     [self initNavbar];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - TAB_BAR_HEIGHT)];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -87,6 +91,11 @@
     [self.view addSubview:_tableView];
     
     _reportHeader = [[EAReportHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];
+    weakify(self);
+    _reportHeader.clickedBlock = ^ (NSUInteger index) {
+        strongify(self);
+        [self clickedHeaderIndex:index];
+    };
     [_reportHeader setModel:@[
                               @{
                                   @"pic": @"report_icon1",
@@ -95,12 +104,12 @@
                                   },
                               @{
                                   @"pic": @"report_icon2",
-                                  @"title": @"日报",
+                                  @"title": @"周报",
                                   @"detail": @"6.20更新",
                                   },
                               @{
                                   @"pic": @"report_icon3",
-                                  @"title": @"日报",
+                                  @"title": @"专题报告",
                                   @"detail": @"6.20更新",
                                   },
                               ]];
@@ -122,6 +131,14 @@
     [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
 }
 
+- (void)clickedHeaderIndex:(NSUInteger)index {
+    EAReportListVC *vc = [[EAReportListVC alloc] init];
+    vc.showType = EAReportListVCTypeFolder;
+    vc.contentType = index;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - TableView Delegate/DataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 48;
@@ -130,7 +147,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 48)];
     view.backgroundColor = [UIColor themeGrayColor];
-    UILabel *label = TKTemplateLabel2([UIFont systemFontOfSize:18], [UIColor blackColor], @"报告动态");
+    UILabel *label = TKTemplateLabel2([UIFont systemFontOfSize:16], [UIColor blackColor], @"报告动态");
     label.left = 15;
     label.centerY = view.height * .5;
     [view addSubview:label];

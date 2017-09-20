@@ -41,7 +41,7 @@
 - (void)setModel:(NSDictionary *)model {
     _iconIV.image = [UIImage imageNamed:model[@"pic"]];
     _titleLb.text = model[@"title"];
-    _detailLb.text = model[@"title"];
+    _detailLb.text = model[@"detail"];
 }
 
 @end
@@ -66,6 +66,7 @@
         if (!item) {
             item = [[EAReportHeaderItem alloc] initWithFrame:CGRectMake(left, 0, interval, self.height)];
             item.tag = tag;
+            [item addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:item];
             if (i) {
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LINE_HEIGHT, self.height)];
@@ -75,6 +76,12 @@
         }
         [item setModel:model[i]];
         left = item.right;
+    }
+}
+
+- (void)itemClicked:(EAReportHeaderItem *)item {
+    if (self.clickedBlock) {
+        self.clickedBlock(item.tag - 1000);
     }
 }
 
