@@ -15,7 +15,7 @@
 /*
  * 获取@用户的列表
  */
--(NSURLSessionDataTask *)findUsersCompletion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)findUsers:(NSInteger)pageNum completion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion;
 
 /*
  * 获取登录用户信息

@@ -8,13 +8,16 @@
 
 #import "EAUserSearchViewController.h"
 #import "EAUserSearchHeader.h"
-
+#import "TKRequestHandler+User.h"
+#import "EAUserDataModel+Pinyin.h"
 
 @interface EAUserSearchViewController ()<UITextFieldDelegate>
 
 @property(nonatomic , strong) NSArray *pinyinArray;
 @property(nonatomic , strong) NSDictionary *nameDict;
 @property(nonatomic , strong) EAUserSearchHeader *searchHeader;
+@property(nonatomic , assign) NSInteger pageIndex;
+@property(nonatomic , strong) NSMutableArray *userList;
 
 @end
 
@@ -40,31 +43,52 @@
     _searchHeader.searchBar.delegate = self;
     self.tableView.tableHeaderView = _searchHeader;
     
+    [self loadUsers];
     
-//    [self test];
 }
 
--(void)test
+-(void)loadUsers
 {
-    NSMutableArray *py = [[NSMutableArray alloc] init];
-    for (int i = 'A' ; i <= 'Z'; i++) {
-        [py addObject:[NSString stringWithFormat:@"%c",i]];
-    }
-    self.pinyinArray = py;
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    NSArray *names = @[@"aaa",@"bbb",@"ccc",@"ddd",@"eee"];
-    for (NSString *n in py) {
-        dict[n] = names;
-    }
-    self.nameDict = dict;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    self.userList = [NSMutableArray new];
+    self.pageIndex = 0;
+    [self loadUserReqeust:hud];
+}
+
+-(void)loadUserReqeust:(MBProgressHUD *)hud
+{
+    [[TKRequestHandler sharedInstance] findUsers:_pageIndex completion:^(NSURLSessionDataTask *task, EAUserModel *model, NSError *error) {
+        if (error == nil && model.success) {
+            [self.userList addObjectsFromArray:model.data.list];
+            if (!model.data.lastPage && [model.data.pages integerValue] > self.pageIndex+1) {
+                self.pageIndex++;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self loadUserReqeust:hud];
+                });
+            }else{
+                self.nameDict = [EAUserDataModel userPinyinDictForList:self.userList];
+                self.pinyinArray = [[self.nameDict allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString *  _Nonnull obj2) {
+                    return [obj1 compare:obj2];
+                }];
+                [hud hideAnimated:true];
+                [self.tableView reloadData];
+            }
+        }
+    }];
 }
 
 -(void)finishAction:(id)sender
 {
-    
+    NSIndexPath *index = [self.tableView indexPathForSelectedRow];
+    if (index) {
+        NSString *key = _pinyinArray[index.section];
+        NSArray *users = _nameDict[key];
+        EAUserDataListModel *user = users[index.row];
+        if (_chooseUserBlock) {
+            _chooseUserBlock(user);
+        }
+    }
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -94,12 +118,13 @@
         cell.textLabel.textColor = [UIColor themeBlackColor];
         cell.textLabel.font =[UIFont systemFontOfSize:15];
         cell.selectedBackgroundView = [[UIView alloc] init];
-        cell.selectedBackgroundView.backgroundColor = [UIColor themeRedColor];
+        cell.selectedBackgroundView.backgroundColor = HexColor(0x28cfc1);
     }
     
     NSString *key = _pinyinArray[indexPath.section];
     NSArray *values = _nameDict[key];
-    cell.textLabel.text = values[indexPath.row];
+    EAUserDataListModel *model = values[indexPath.row];
+    cell.textLabel.text = model.name;
     
     
     return cell;

@@ -12,7 +12,7 @@
 #import "TKRequestHandler+Task.h"
 #import "EATaskHandleTableViewCell.h"
 #import "EATaskStateTableViewCell.h"
-
+#import "EAUserSearchViewController.h"
 
 @interface EATaskDetailViewController ()
 
@@ -194,6 +194,32 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return nil;
+}
+
+#pragma mark - task action
+-(void)rejectTask
+{
+    
+}
+
+-(void)assignToOther
+{
+    
+}
+
+-(void)choosePerson
+{
+    EAUserSearchViewController *controller = [[EAUserSearchViewController alloc]init];
+    controller.hidesBottomBarWhenPushed = true;
+    controller.chooseUserBlock = ^(EAUserDataListModel *ser) {
+        
+    };
+    [self.navigationController pushViewController:controller animated:true];
+}
+
+-(void)asignToOtherAction:(EAUserDataListModel *)other
+{
+    
 }
 
 /*

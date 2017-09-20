@@ -97,6 +97,8 @@
 		6EE6F6581CDC7C3F00740D41 /* TKSwitchSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6F6551CDC7C3F00740D41 /* TKSwitchSlideView.m */; };
 		6EE6F65E1CDC7CBD00740D41 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6F65B1CDC7CBD00740D41 /* HPGrowingTextView.m */; };
 		6EE6F65F1CDC7CBD00740D41 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6F65D1CDC7CBD00740D41 /* HPTextViewInternal.m */; };
+		6EE9C5121F72B5B9006C6CBC /* NSString+pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C50E1F72B5B9006C6CBC /* NSString+pinyin.m */; };
+		6EE9C5131F72B5B9006C6CBC /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C5101F72B5B9006C6CBC /* pinyin.c */; };
 		6EEEE6431C16AD870095F6A8 /* TKBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEEE6421C16AD870095F6A8 /* TKBannerView.m */; };
 		6EEF9AE91BBBE45200FA17A6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF9AE81BBBE45200FA17A6 /* Reachability.m */; };
 		6EFC5A011C93FB8F0009D695 /* TKGuidePageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFC59F91C93FB8F0009D695 /* TKGuidePageControl.m */; };
@@ -350,6 +352,10 @@
 		6EE6F65B1CDC7CBD00740D41 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HPGrowingTextView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EE6F65C1CDC7CBD00740D41 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
 		6EE6F65D1CDC7CBD00740D41 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		6EE9C50E1F72B5B9006C6CBC /* NSString+pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+pinyin.m"; sourceTree = "<group>"; };
+		6EE9C50F1F72B5B9006C6CBC /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		6EE9C5101F72B5B9006C6CBC /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		6EE9C5111F72B5B9006C6CBC /* NSString+pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+pinyin.h"; sourceTree = "<group>"; };
 		6EEEE6411C16AD870095F6A8 /* TKBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBannerView.h; sourceTree = "<group>"; };
 		6EEEE6421C16AD870095F6A8 /* TKBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TKBannerView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EEF9AE71BBBE45200FA17A6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -652,6 +658,10 @@
 				533055721BD9DA5F0091915B /* TKCommonTools.h */,
 				533055731BD9DA5F0091915B /* TKCommonTools.m */,
 				53AD6E761F64DCB5005025BD /* TKCommonTools+Date.m */,
+				6EE9C5111F72B5B9006C6CBC /* NSString+pinyin.h */,
+				6EE9C50E1F72B5B9006C6CBC /* NSString+pinyin.m */,
+				6EE9C5101F72B5B9006C6CBC /* pinyin.c */,
+				6EE9C50F1F72B5B9006C6CBC /* pinyin.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1249,6 +1259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE9C5131F72B5B9006C6CBC /* pinyin.c in Sources */,
 				6EB83EAE1CDC7AFD00F1B45A /* TKInputEmojiCollectionViewCell.m in Sources */,
 				6EFC5A111C940ED30009D695 /* TKWebJSHelper.m in Sources */,
 				6E1846051C8843FF00B38971 /* NSString+Encode.m in Sources */,
@@ -1342,6 +1353,7 @@
 				6E1CD4ED1B3FA351003E56FF /* MJRefreshAutoFooter.m in Sources */,
 				6E1846231C8848B300B38971 /* CHKeychain.m in Sources */,
 				6E0941371CBA6B2300B72917 /* TKStatisticsItem.m in Sources */,
+				6EE9C5121F72B5B9006C6CBC /* NSString+pinyin.m in Sources */,
 				6E1CD5051B3FA351003E56FF /* UIView+Utils.m in Sources */,
 				6EB83EB31CDC7AFD00F1B45A /* TKInputTextView.m in Sources */,
 				6E18461F1C8847C600B38971 /* TKImagePickerHelper.m in Sources */,

@@ -555,6 +555,7 @@
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
 		6EE9C5001F72AC50006C6CBC /* about.docx in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9C4FD1F72AC50006C6CBC /* about.docx */; };
 		6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */; };
+		6EE9C50D1F72B559006C6CBC /* EAUserDataModel+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */; };
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
 		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
@@ -1678,6 +1679,8 @@
 		6EE9C4FD1F72AC50006C6CBC /* about.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = about.docx; sourceTree = "<group>"; };
 		6EE9C5011F72AC65006C6CBC /* EAAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAboutViewController.h; sourceTree = "<group>"; };
 		6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAboutViewController.m; sourceTree = "<group>"; };
+		6EE9C50B1F72B559006C6CBC /* EAUserDataModel+Pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EAUserDataModel+Pinyin.h"; sourceTree = "<group>"; };
+		6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EAUserDataModel+Pinyin.m"; sourceTree = "<group>"; };
 		6EF345C31F6D750D0002479D /* TKRequestHandler+Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Search.h"; sourceTree = "<group>"; };
 		6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Search.m"; sourceTree = "<group>"; };
 		6EF345C81F6D797E0002479D /* EAMsgSearchTipModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchTipModel.h; sourceTree = "<group>"; };
@@ -3653,6 +3656,8 @@
 				6E4D930E1F5BA69800026B53 /* EAMsgFilterModel.m */,
 				6E7015911F6EAD460006C2E9 /* EAUserModel.h */,
 				6E7015921F6EAD460006C2E9 /* EAUserModel.m */,
+				6EE9C50B1F72B559006C6CBC /* EAUserDataModel+Pinyin.h */,
+				6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4852,6 +4857,7 @@
 				FA3421521F7176EF001D9FDC /* EAReportHeader.m in Sources */,
 				6E415DDA1F5171D10078436F /* ZXAztecToken.m in Sources */,
 				6E415E5B1F5171D10078436F /* ZXRSSDataCharacter.m in Sources */,
+				6EE9C50D1F72B559006C6CBC /* EAUserDataModel+Pinyin.m in Sources */,
 				6E415E8A1F5171D10078436F /* ZXPDF417BarcodeRow.m in Sources */,
 				6E415E071F5171D10078436F /* ZXWhiteRectangleDetector.m in Sources */,
 				6E415E1A1F5171D10078436F /* ZXStringUtils.m in Sources */,

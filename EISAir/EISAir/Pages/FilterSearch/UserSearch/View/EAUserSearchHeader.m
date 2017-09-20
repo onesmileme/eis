@@ -24,6 +24,8 @@
         _searchBar.leftView = leftImgView;
         _searchBar.leftViewMode = UITextFieldViewModeAlways;
         
+        leftImgView.backgroundColor = [UIColor orangeColor];
+        
         UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
         rightView.backgroundColor = [UIColor clearColor];
         _searchBar.rightView = rightView;

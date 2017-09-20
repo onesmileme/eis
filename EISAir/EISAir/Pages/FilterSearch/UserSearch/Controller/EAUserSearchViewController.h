@@ -8,6 +8,9 @@
 
 #import "EABaseTableViewController.h"
 
+@class EAUserDataListModel;
 @interface EAUserSearchViewController : EABaseTableViewController
+
+@property(nonatomic ,copy) void (^chooseUserBlock)(EAUserDataListModel *user);
 
 @end

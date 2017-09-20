@@ -18,7 +18,7 @@
 
 +(JSONKeyMapper *)keyMapper
 {
-    NSDictionary *dict = @{@"description":@"desc",@"id":@"pid"};
+    NSDictionary *dict = @{@"desc":@"description",@"pid":@"id"};
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
 }
 
@@ -55,7 +55,7 @@
 
 +(JSONKeyMapper *)keyMapper
 {
-    NSDictionary *dict = @{@"description":@"desc",@"id":@"oid"};
+    NSDictionary *dict = @{@"desc":@"description",@"oid":@"id"};
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
 }
 
@@ -71,7 +71,7 @@
 
 +(JSONKeyMapper *)keyMapper
 {
-    NSDictionary *dict = @{@"description":@"desc",@"id":@"sid"};
+    NSDictionary *dict = @{@"desc":@"description",@"sid":@"id"};
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
 }
 
@@ -87,7 +87,7 @@
 
 +(JSONKeyMapper *)keyMapper
 {
-    NSDictionary *dict = @{@"description":@"desc",@"id":@"pid"};
+    NSDictionary *dict = @{@"desc":@"description",@"pid":@"id"};
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
 }
 

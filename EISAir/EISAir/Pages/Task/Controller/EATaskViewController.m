@@ -82,10 +82,10 @@
     self.slideBackgroundColor = [UIColor whiteColor];
     self.slideBottomLineColor = HexColor(0xdddddd);
     
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self showFilterResult];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////            [self showFilterResult];
 //            [self test];
-        });
+//        });
     
     
     
@@ -200,9 +200,9 @@
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
     
-    [[EAAddressBookManager sharedInstance] chooseContact:self.navigationController completion:^(NSString *name, NSString *phone) {
-        
-    }];
+//    [[EAAddressBookManager sharedInstance] chooseContact:self.navigationController completion:^(NSString *name, NSString *phone) {
+//
+//    }];
     
 }
 

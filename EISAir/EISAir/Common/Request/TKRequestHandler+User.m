@@ -40,11 +40,11 @@
 
 #endif
 
--(NSURLSessionDataTask *)findUsersCompletion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion
+-(NSURLSessionDataTask *)findUsers:(NSInteger)pageNum completion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion
 {
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findUsers",AppHost];
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
-    NSDictionary *param = @{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
+    NSDictionary *param = @{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId,@"pageSize":@"300",@"pageNum":@(pageNum)};
     
     return [self getRequestForPath:path param:param jsonName:@"EAUserModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         
