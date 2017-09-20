@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="EAAddTaskDateCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge3-pY-dXC" userLabel="title Label">
+                        <rect key="frame" x="15" y="13.5" width="100" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="hdY-2h-taK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-3s-LnN" userLabel="content Field">
+                        <rect key="frame" x="274" y="13.5" width="8" height="17"/>
+                        <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ge3-pY-dXC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2dj-uj-7eV"/>
+                    <constraint firstItem="Ge3-pY-dXC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="62Q-fi-KOM"/>
+                    <constraint firstAttribute="trailing" secondItem="6Tk-3s-LnN" secondAttribute="trailing" constant="5" id="Wm7-eH-Rg3"/>
+                    <constraint firstItem="6Tk-3s-LnN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f28-D6-aSy"/>
+                    <constraint firstItem="6Tk-3s-LnN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ge3-pY-dXC" secondAttribute="trailing" constant="5" id="sgm-rh-03y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentField" destination="6Tk-3s-LnN" id="Bq1-r8-y6Q"/>
+                <outlet property="titleLabel" destination="Ge3-pY-dXC" id="5Ot-jC-pm3"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
