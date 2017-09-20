@@ -10,8 +10,8 @@
 
 @interface EAProjectToolbar : UIView
 
-@property(nonnull , copy) void (^upBlock)();
-@property(nonnull , copy) void (^downBlock)();
+@property(nonnull , copy) void (^preBlock)();
+@property(nonnull , copy) void (^nextBlock)();
 @property(nonnull , copy) void (^doneBlock)();
 
 @end

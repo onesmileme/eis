@@ -9,10 +9,12 @@
 #import "EAProjectTableViewController.h"
 #import "EAProjectInfoTableViewCell.h"
 #import "EAProjectTableViewCell.h"
+#import "EAProjectPickerView.h"
 
 @interface EAProjectTableViewController ()
 
 @property(nonatomic , assign) NSInteger currentIndex;
+@property(nonatomic , assign) NSInteger chooseIndex;
 
 @end
 
@@ -173,8 +175,39 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        [self showPickerFor:indexPath.row];
+    }    
 }
+
+
+#pragma mark - show picker
+-(void)showPickerFor:(NSInteger)index
+{
+    self.chooseIndex = index;
+    
+    EALoginUserInfoDataSitesModel *model = _userInfo.sites[_currentIndex];
+    
+    NSArray *items = nil;
+    if (index == 0) {
+        items = @[model.orgName];
+    }else{
+        items = @[model.name];
+    }
+    
+    EAProjectPickerView *picker = [[EAProjectPickerView alloc]initWithFrame:self.view.bounds];
+    
+    picker.items = items;
+    picker.chooseBlock = ^(NSInteger index) {
+        
+    };
+    
+    [picker show];
+
+}
+
+
+
 /*
 #pragma mark - Navigation
 

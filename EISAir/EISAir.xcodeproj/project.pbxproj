@@ -550,6 +550,7 @@
 		6E7015A91F71657E0006C2E9 /* EAProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015A71F71657E0006C2E9 /* EAProjectTableViewCell.m */; };
 		6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */; };
 		6E7015AD1F7169C20006C2E9 /* EAProjectToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */; };
+		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
@@ -1661,6 +1662,8 @@
 		6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAProjectTableViewCell.xib; sourceTree = "<group>"; };
 		6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAProjectToolbar.h; sourceTree = "<group>"; };
 		6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectToolbar.m; sourceTree = "<group>"; };
+		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
+		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
@@ -4058,6 +4061,8 @@
 				6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */,
 				6E7015AB1F7169C20006C2E9 /* EAProjectToolbar.h */,
 				6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */,
+				6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */,
+				6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4718,6 +4723,7 @@
 				6E63869A1F481BFE00017FB8 /* EALoginTextField.m in Sources */,
 				6E415E041F5171D10078436F /* ZXImage.m in Sources */,
 				6E4D93141F5BAE2900026B53 /* EAMessageNoDataView.m in Sources */,
+				6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */,
 				6E415EF81F5267B70078436F /* EAMsgSearchResultViewController.m in Sources */,
 				6E415E2A1F5171D10078436F /* ZXDataMatrixDecodedBitStreamParser.m in Sources */,
 				6E415DF71F5171D10078436F /* ZXTelResultParser.m in Sources */,
