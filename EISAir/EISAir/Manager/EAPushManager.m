@@ -479,8 +479,7 @@ IMP_SINGLETON
 
 -(void)showSetting:(NSDictionary *)param
 {
-    EASettingViewController *controller = [[EASettingViewController alloc]init];
-    
+    EASettingViewController *controller = [EASettingViewController controller];    
     [self pushViewController:controller];
 }
 

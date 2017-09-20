@@ -553,6 +553,9 @@
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
+		6EE9C5001F72AC50006C6CBC /* about.docx in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9C4FD1F72AC50006C6CBC /* about.docx */; };
+		6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */; };
+		6EE9C5051F72ADAD006C6CBC /* about.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9C5041F72ADAC006C6CBC /* about.pdf */; };
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
 		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
@@ -1668,6 +1671,10 @@
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
 		6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryHeaderView.m; sourceTree = "<group>"; };
+		6EE9C4FD1F72AC50006C6CBC /* about.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = about.docx; sourceTree = "<group>"; };
+		6EE9C5011F72AC65006C6CBC /* EAAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAboutViewController.h; sourceTree = "<group>"; };
+		6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAboutViewController.m; sourceTree = "<group>"; };
+		6EE9C5041F72ADAC006C6CBC /* about.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = about.pdf; sourceTree = "<group>"; };
 		6EF345C31F6D750D0002479D /* TKRequestHandler+Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Search.h"; sourceTree = "<group>"; };
 		6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Search.m"; sourceTree = "<group>"; };
 		6EF345C81F6D797E0002479D /* EAMsgSearchTipModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchTipModel.h; sourceTree = "<group>"; };
@@ -3162,6 +3169,8 @@
 		6E6885621F43C71A009AD662 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6EE9C5041F72ADAC006C6CBC /* about.pdf */,
+				6EE9C4FD1F72AC50006C6CBC /* about.docx */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -3929,6 +3938,8 @@
 			children = (
 				6E6386A61F481FF400017FB8 /* EASettingViewController.h */,
 				6E6386A71F481FF400017FB8 /* EASettingViewController.m */,
+				6EE9C5011F72AC65006C6CBC /* EAAboutViewController.h */,
+				6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4207,6 +4218,7 @@
 				6E4D93281F5BDD9000026B53 /* EAHomeHeaderView.xib in Resources */,
 				6E415F561F5AB0320078436F /* (null) in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
+				6EE9C5001F72AC50006C6CBC /* about.docx in Resources */,
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
 				6E68867B1F43C71A009AD662 /* shanguangdeng.png in Resources */,
 				6E415F1C1F527A630078436F /* EATaskStateInfoTableViewCell.xib in Resources */,
@@ -4238,6 +4250,7 @@
 				6E6386C71F49CA1F00017FB8 /* EAMessageTableViewCell.xib in Resources */,
 				6E6886681F43C71A009AD662 /* CHPhotoGroupTableViewCell.xib in Resources */,
 				6E415EC71F51B2D70078436F /* EAMsgDetailInfoCell.xib in Resources */,
+				6EE9C5051F72ADAD006C6CBC /* about.pdf in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
@@ -4529,6 +4542,7 @@
 				6E6885381F433C49009AD662 /* ViewController.m in Sources */,
 				6E415E281F5171D10078436F /* ZXDataMatrixBitMatrixParser.m in Sources */,
 				6E415DD61F5171D10078436F /* ZXAztecEncoder.m in Sources */,
+				6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */,
 				6E6886551F43C71A009AD662 /* NSObject+A2BlockDelegate.m in Sources */,
 				6E68868D1F43C71A009AD662 /* ZLPhotoLayout.m in Sources */,
 				53DB28921F6E51E600FB2B0F /* PYSplitArea.m in Sources */,

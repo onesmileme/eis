@@ -6,8 +6,10 @@
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EABaseViewController.h"
+#import "EABaseTableViewController.h"
 
-@interface EASettingViewController : EABaseViewController
+@interface EASettingViewController : EABaseTableViewController
+
++(instancetype)controller;
 
 @end
