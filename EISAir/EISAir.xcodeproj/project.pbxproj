@@ -578,6 +578,7 @@
 		FADB16231F72C055003C7E13 /* EAReportFilterHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB16221F72C055003C7E13 /* EAReportFilterHandle.m */; };
 		FADB16261F72C0BB003C7E13 /* EAReportFilterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB16251F72C0BB003C7E13 /* EAReportFilterBar.m */; };
 		FADB16291F72CEE4003C7E13 /* EAReportFilterContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB16281F72CEE4003C7E13 /* EAReportFilterContentView.m */; };
+		FADB162D1F7415AA003C7E13 /* EAReportColumnChart.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB162C1F7415AA003C7E13 /* EAReportColumnChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1731,6 +1732,8 @@
 		FADB16251F72C0BB003C7E13 /* EAReportFilterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportFilterBar.m; sourceTree = "<group>"; };
 		FADB16271F72CEE4003C7E13 /* EAReportFilterContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportFilterContentView.h; sourceTree = "<group>"; };
 		FADB16281F72CEE4003C7E13 /* EAReportFilterContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportFilterContentView.m; sourceTree = "<group>"; };
+		FADB162B1F7415AA003C7E13 /* EAReportColumnChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportColumnChart.h; sourceTree = "<group>"; };
+		FADB162C1F7415AA003C7E13 /* EAReportColumnChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportColumnChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4184,6 +4187,8 @@
 				FADB16251F72C0BB003C7E13 /* EAReportFilterBar.m */,
 				FADB16271F72CEE4003C7E13 /* EAReportFilterContentView.h */,
 				FADB16281F72CEE4003C7E13 /* EAReportFilterContentView.m */,
+				FADB162B1F7415AA003C7E13 /* EAReportColumnChart.h */,
+				FADB162C1F7415AA003C7E13 /* EAReportColumnChart.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4865,6 +4870,7 @@
 				6E415E581F5171D10078436F /* ZXRSSExpandedRow.m in Sources */,
 				6E415E671F5171D10078436F /* ZXEAN13Writer.m in Sources */,
 				6E6886901F43C71A009AD662 /* ZLPhotoPickerAssetsViewController.m in Sources */,
+				FADB162D1F7415AA003C7E13 /* EAReportColumnChart.m in Sources */,
 				6E6386A81F481FF400017FB8 /* EASettingViewController.m in Sources */,
 				53DB288D1F6E51E600FB2B0F /* PYNodes.m in Sources */,
 				FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */,

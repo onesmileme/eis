@@ -19,19 +19,19 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)chartData {
+    return @[
+             @[@(10), @(8)],
+             @[@(12), @(10)],
+             @[@(15), @(8)],
+             @[@(20), @(8)],
+             @[@(5), @(18)],
+             
+             @[@(22), @(8)],
+             @[@(19), @(8)],
+             @[@(10), @(8)],
+             @[@(19), @(18)],
+             ];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
