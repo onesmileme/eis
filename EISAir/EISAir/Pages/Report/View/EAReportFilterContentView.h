@@ -10,4 +10,11 @@
 
 @interface EAReportFilterContentView : UIView
 
+@property (nonatomic, assign, readonly) NSInteger selectedIndex;
+@property (nonatomic, copy) void (^itemClickedBlock)(void);
+@property (nonatomic, copy) void (^bgClickedBlock)(void);
+
+- (instancetype)initWithData:(NSArray *)data
+               selectedIndex:(NSInteger)selectedIndex;
+
 @end

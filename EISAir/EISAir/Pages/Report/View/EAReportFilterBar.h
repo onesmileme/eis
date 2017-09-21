@@ -10,7 +10,8 @@
 
 @interface EAReportFilterBar : UIView
 
-@property (nonatomic, copy) void (^clickedBlock)(NSUInteger index);
+@property (nonatomic, copy) void (^clickedBlock)(NSInteger index);
 - (void)setModel:(NSArray *)model;
+- (void)selectedNone;
 
 @end

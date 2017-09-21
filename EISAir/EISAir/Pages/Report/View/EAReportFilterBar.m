@@ -71,13 +71,22 @@ static const int kTag = 1000;
     } else {
         _selectedIndex = -1;
     }
+    [self updateButtonState];
+    if (self.clickedBlock) {
+        self.clickedBlock(_selectedIndex);
+    }
+}
+
+- (void)updateButtonState {
     for (int i = 0; i < _model.count; ++i) {
         UIButton *button = (UIButton *)[self viewWithTag:kTag + i];
         button.selected = button.tag == (kTag + _selectedIndex);
     }
-    if (self.clickedBlock) {
-        self.clickedBlock(_selectedIndex);
-    }
+}
+
+- (void)selectedNone {
+    _selectedIndex = -1;
+    [self updateButtonState];
 }
 
 @end
