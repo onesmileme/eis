@@ -551,6 +551,8 @@
 		6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7015A81F71657E0006C2E9 /* EAProjectTableViewCell.xib */; };
 		6E7015AD1F7169C20006C2E9 /* EAProjectToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */; };
 		6E8740BE1F732AFF005EFA50 /* EATaskItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740BD1F732AFF005EFA50 /* EATaskItemModel.m */; };
+		6E8740C61F7413C0005EFA50 /* EATaskFilterChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740C51F7413C0005EFA50 /* EATaskFilterChooseView.m */; };
+		6E8740C91F741B76005EFA50 /* EATaskFilterResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740C81F741B76005EFA50 /* EATaskFilterResultViewController.m */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
@@ -1679,6 +1681,10 @@
 		6E7015AC1F7169C20006C2E9 /* EAProjectToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAProjectToolbar.m; sourceTree = "<group>"; };
 		6E8740BC1F732AFF005EFA50 /* EATaskItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskItemModel.h; sourceTree = "<group>"; };
 		6E8740BD1F732AFF005EFA50 /* EATaskItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskItemModel.m; sourceTree = "<group>"; };
+		6E8740C41F7413C0005EFA50 /* EATaskFilterChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskFilterChooseView.h; sourceTree = "<group>"; };
+		6E8740C51F7413C0005EFA50 /* EATaskFilterChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskFilterChooseView.m; sourceTree = "<group>"; };
+		6E8740C71F741B76005EFA50 /* EATaskFilterResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskFilterResultViewController.h; sourceTree = "<group>"; };
+		6E8740C81F741B76005EFA50 /* EATaskFilterResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskFilterResultViewController.m; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
@@ -2873,6 +2879,8 @@
 			children = (
 				6E415ED81F5267B70078436F /* EAMessageFilterResultViewController.h */,
 				6E415ED91F5267B70078436F /* EAMessageFilterResultViewController.m */,
+				6E8740C71F741B76005EFA50 /* EATaskFilterResultViewController.h */,
+				6E8740C81F741B76005EFA50 /* EATaskFilterResultViewController.m */,
 				6E415EDA1F5267B70078436F /* EASearchViewController.h */,
 				6E415EDB1F5267B70078436F /* EASearchViewController.m */,
 				6E415EDC1F5267B70078436F /* EAMsgSearchResultViewController.h */,
@@ -4080,6 +4088,8 @@
 				6E415F0B1F526C740078436F /* EATaskInfoTableViewCell.xib */,
 				6E415F2C1F52AC6D0078436F /* EATaskActionSheet.h */,
 				6E415F2D1F52AC6D0078436F /* EATaskActionSheet.m */,
+				6E8740C41F7413C0005EFA50 /* EATaskFilterChooseView.h */,
+				6E8740C51F7413C0005EFA50 /* EATaskFilterChooseView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4469,6 +4479,7 @@
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				53DB28871F6E51E600FB2B0F /* PYLegend.m in Sources */,
 				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
+				6E8740C91F741B76005EFA50 /* EATaskFilterResultViewController.m in Sources */,
 				6E415E2B1F5171D10078436F /* ZXDataMatrixDecoder.m in Sources */,
 				6E6886581F43C71A009AD662 /* MFMessageComposeViewController+BlocksKit.m in Sources */,
 				53DB28771F6E51E600FB2B0F /* NSObject+PYObject.m in Sources */,
@@ -4776,6 +4787,7 @@
 				6E415E211F5171D10078436F /* ZXErrors.m in Sources */,
 				6E415E511F5171D10078436F /* ZXRSSExpandedDecodedNumeric.m in Sources */,
 				6E6886DE1F45124B009AD662 /* EASharePanelView.m in Sources */,
+				6E8740C61F7413C0005EFA50 /* EATaskFilterChooseView.m in Sources */,
 				6E415EF91F5267B70078436F /* EAFilterChooseDateView.m in Sources */,
 				6E415EA31F5171D10078436F /* ZXQRCodeBlockPair.m in Sources */,
 				53DB28A21F6E51E600FB2B0F /* PYMarkPoint.m in Sources */,

@@ -17,7 +17,9 @@
 #import "EAUserSearchViewController.h"
 #import "EAAddressBookManager.h"
 #import "EATaskDetailViewController.h"
-
+#import "EATaskFilterChooseView.h"
+#import "EATaskFilterModel.h"
+#import "EATaskFilterResultViewController.h"
 
 #define kSlideSwitchHeight 38
 
@@ -104,22 +106,56 @@
 
 -(void)filterAction
 {
+    EATaskFilterChooseView *filterView = [EATaskFilterChooseView view];
+    __weak typeof(self) wself = self;
+    filterView.chooseBlock = ^(NSInteger index) {
+        [wself showFilterView:index == 0];
+    };
+    [filterView show];
+    
+}
+
+-(void)showFilterView:(BOOL)isState
+{
     EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     __weak typeof(self) wself = self;
     v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
         [fv hide];
         [wself showSearchPage];
     };
+    
+    v.confirmBlock = ^(NSString *item, NSDate *startDate, NSDate *endDate) {
+        EATaskFilterModel *model = [[EATaskFilterModel alloc]init];
+        if (item) {
+            model.taskTypes = @[item];
+        }        
+        if (startDate && endDate) {
+            model.startDate = [NSString stringWithFormat:@"%.0f",[startDate timeIntervalSince1970]];
+            model.endDate = [NSString stringWithFormat:@"%.0f",[endDate timeIntervalSince1970]];
+        }
+        [wself showFilterResult:model];
+    };
+    
+    if (isState) {
+        
+        v.type = @"状态";
+        [v updateWithTags:@[@"待执行",@"执行中",@"已执行",@"已失效"] hasDate:true showIndicator:false];
+        
+    }else{
+        v.type = @"对象";
+        [v updateWithTags:nil hasDate:true showIndicator:true];
+    }
     [self.view.window addSubview:v];
 }
 
--(void)showFilterResult
+-(void)showFilterResult:(EATaskFilterModel *)filterModel
 {
-    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]initWithNibName:nil bundle:nil];
+    EATaskFilterResultViewController *controller = [[EATaskFilterResultViewController alloc]initWithStyle:UITableViewStyleGrouped];
     controller.hidesBottomBarWhenPushed = true;
-    
+    controller.filterModel = filterModel;
     [self.navigationController pushViewController:controller animated:true];
 }
+
 
 -(void)showSearchPage
 {
