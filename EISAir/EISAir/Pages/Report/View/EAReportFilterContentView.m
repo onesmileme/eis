@@ -28,7 +28,8 @@
         _titleLabel.highlightedTextColor = HexColor(0x00afcf);
         [self addSubview:_titleLabel];
         
-        _selectedIconIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+        _selectedIconIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gougou"]];
+        _selectedIconIV.size = CGSizeMake(14, 9);
         _selectedIconIV.centerY = self.height * .5;
         _selectedIconIV.right = self.width - 15;
         [self addSubview:_selectedIconIV];

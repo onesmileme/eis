@@ -10,6 +10,7 @@
 #import "EAReportCell.h"
 #import "EAReportHeader.h"
 #import "EAReportListVC.h"
+#import "EAReportDetailVC.h"
 
 @interface EAReportViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
@@ -177,7 +178,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EABaseViewController *vc = nil;
+    EABaseViewController *vc = [[EAReportDetailVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
