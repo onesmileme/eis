@@ -27,7 +27,7 @@ static const int kTagItem = 1000;
         self.backgroundColor = [UIColor whiteColor];
         if (_itemArray.count) {
             [self creatSubviewWithItemArray:itemArray titleFont:titleFont lineWidth:lineWidth lineColor:lineColor];
-            self.selectedIndex = 0;
+            [self setSelectedIndex:0 shouldNotify:NO animate:NO];
         }
     }
     return self;
@@ -66,14 +66,14 @@ static const int kTagItem = 1000;
 }
 
 - (void)itemClicked:(UIButton *)button {
-    [self setSelectedIndex:((int)button.tag - kTagItem) shouldNotify:YES];
+    [self setSelectedIndex:((int)button.tag - kTagItem) shouldNotify:YES animate:YES];
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
-    [self setSelectedIndex:selectedIndex shouldNotify:NO];
+    [self setSelectedIndex:selectedIndex shouldNotify:NO animate:YES];
 }
 
-- (void)setSelectedIndex:(NSUInteger)index shouldNotify:(BOOL)shouldNotify {
+- (void)setSelectedIndex:(NSUInteger)index shouldNotify:(BOOL)shouldNotify animate:(BOOL)animate {
     if (index > _itemArray.count - 1 || _selectedIndex == index) {
         return;
     }
@@ -83,9 +83,13 @@ static const int kTagItem = 1000;
         UIButton *button = [self viewWithTag:tag];
         button.selected = _selectedIndex == i;
         if (button.selected) {
-            [UIView animateWithDuration:0.2 animations:^{
+            if (animate) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    _selectedTagLine.centerX = button.centerX;
+                }];
+            } else {
                 _selectedTagLine.centerX = button.centerX;
-            }];
+            }
         }
     }
     if (shouldNotify) {
