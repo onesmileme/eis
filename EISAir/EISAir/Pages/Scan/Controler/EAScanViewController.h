@@ -10,6 +10,9 @@
 
 @interface EAScanViewController : LBXScanViewController
 
+@property(nonatomic , copy) void(^doneBlock)(NSString *urlcode);
+
 +(instancetype)scanController;
+
 
 @end

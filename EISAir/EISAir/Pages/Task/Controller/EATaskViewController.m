@@ -20,6 +20,7 @@
 #import "EATaskFilterChooseView.h"
 #import "EATaskFilterModel.h"
 #import "EATaskFilterResultViewController.h"
+#import "EATaskAddTableViewController.h"
 
 #define kSlideSwitchHeight 38
 
@@ -232,7 +233,7 @@
 -(void)test
 {
 //
-    EAUserSearchViewController *controller = [[EAUserSearchViewController alloc]init];
+    EATaskAddTableViewController *controller = [[EATaskAddTableViewController alloc]init];
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
     

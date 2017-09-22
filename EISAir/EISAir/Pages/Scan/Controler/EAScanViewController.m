@@ -156,10 +156,11 @@
 
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult
 {
-
     //TODO : add action
-    
-    
+    if (_doneBlock) {
+        _doneBlock(strResult.strScanned);
+    }
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 

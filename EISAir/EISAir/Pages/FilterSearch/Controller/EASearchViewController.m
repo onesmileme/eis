@@ -129,6 +129,9 @@
 -(void)scanAction:(id)sender
 {
     EAScanViewController *controller = [EAScanViewController scanController];
+    controller.doneBlock = ^(NSString *urlcode) {
+        
+    };
     [self.navigationController pushViewController:controller animated:true];
 }
 

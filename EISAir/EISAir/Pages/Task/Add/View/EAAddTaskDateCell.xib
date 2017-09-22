@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge3-pY-dXC" userLabel="title Label">
-                        <rect key="frame" x="15" y="13.5" width="100" height="17"/>
+                        <rect key="frame" x="15" y="13.5" width="120" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="hdY-2h-taK"/>
+                            <constraint firstAttribute="width" constant="120" id="hdY-2h-taK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-3s-LnN" userLabel="content Field">
-                        <rect key="frame" x="274" y="13.5" width="8" height="17"/>
+                        <rect key="frame" x="140" y="13.5" width="142" height="17"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -38,7 +38,7 @@
                     <constraint firstItem="Ge3-pY-dXC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="62Q-fi-KOM"/>
                     <constraint firstAttribute="trailing" secondItem="6Tk-3s-LnN" secondAttribute="trailing" constant="5" id="Wm7-eH-Rg3"/>
                     <constraint firstItem="6Tk-3s-LnN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f28-D6-aSy"/>
-                    <constraint firstItem="6Tk-3s-LnN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ge3-pY-dXC" secondAttribute="trailing" constant="5" id="sgm-rh-03y"/>
+                    <constraint firstItem="6Tk-3s-LnN" firstAttribute="leading" secondItem="Ge3-pY-dXC" secondAttribute="trailing" constant="5" id="sgm-rh-03y"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

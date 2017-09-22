@@ -13,4 +13,6 @@
 @property(nonatomic , strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic , strong) IBOutlet UITextField *contentField;
 
+@property(nonatomic , copy) void (^chooseDate)(EAAddTaskDateCell *cell ,NSDate *date);
+
 @end
