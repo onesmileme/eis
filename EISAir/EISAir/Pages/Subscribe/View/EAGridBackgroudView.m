@@ -12,11 +12,22 @@
     UIColor *_lineColor;
     int _row;
     int _column;
+    BOOL _isSquare;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
                     lineColor:(UIColor *)lineColor
-                          row:(int)row column:(int)column {
+                          row:(int)row {
+    int column = (int)(frame.size.width / (frame.size.height / row));
+    EAGridBackgroudView *view = [self initWithFrame:frame lineColor:lineColor row:row column:column];
+    view->_isSquare = YES;
+    return view;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+                    lineColor:(UIColor *)lineColor
+                          row:(int)row
+                       column:(int)column {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -40,7 +51,6 @@
     CGContextSetLineWidth(context, lineHeight);
     //设置颜色
     [_lineColor set];
-//    CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
     //开始一个起始路径
     CGContextBeginPath(context);
     //hua
@@ -63,6 +73,9 @@
     
     x = lineHeight;
     float columnInterval = self.width / (_column);
+    if (_isSquare) {
+        columnInterval = rowInterval;
+    }
     for (int i = 0; i < _column + 1; ++i) {
         if (i == _column) {
             x -= 2 * lineHeight;

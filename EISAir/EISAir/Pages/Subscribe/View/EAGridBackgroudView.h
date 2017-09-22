@@ -12,6 +12,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
                     lineColor:(UIColor *)lineColor
+                          row:(int)row;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                    lineColor:(UIColor *)lineColor
                           row:(int)row
                        column:(int)column;
 

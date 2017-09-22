@@ -10,4 +10,6 @@
 
 @interface EAReportColumnChart : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame datas:(NSArray *)datas;
+
 @end
