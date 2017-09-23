@@ -9,8 +9,11 @@
 #import "EASettingViewController.h"
 #import "EAAboutViewController.h"
 #import <SDImageCache.h>
+#import "TKAccountManager.h"
 
-@interface EASettingViewController ()
+@interface EASettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic , strong) UITableView *tableView;
 
 @end
 
@@ -18,14 +21,36 @@
 
 +(instancetype)controller
 {
-    return [[EASettingViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    return [[EASettingViewController alloc]init];
+}
+
+-(void)logoutAction
+{
+    [[TKAccountManager sharedInstance] logout];
+    [NotificationCenter postNotificationName:kLogoutNotification object:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"设置";
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-70) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -30, 0, 0);
+    
+    [self.view addSubview:self.tableView];
+    
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundColor:HexColor(0x28cfc1)];
+    [button setTitle:@"退出登录" forState:UIControlStateNormal];
+    button.titleLabel.font = SYS_FONT(18.5);
+    button.frame = CGRectMake(18, self.view.height-70, self.view.width - 36, 45);
+    [button addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
+    button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    [self.view addSubview:button];
     
 }
 

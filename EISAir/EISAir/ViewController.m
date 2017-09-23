@@ -82,7 +82,8 @@
 
 -(void)reloadAll
 {
-    
+    //重新创建控件
+    [self initItems];
 }
 
 -(void)showAddRecord
@@ -121,7 +122,7 @@
     //GET /eis/open/task/findTaskResultByTaskId
     //POST /eis/open/msg/findMsgTitleList
     //GET /eis/open/user/findLoginUser
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findLoginUser",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/dss/oss/policy",AppHost];
     //@"personId":udata.personId?:@"",
     EALoginUserInfoDataModel *udata = [TKAccountManager sharedInstance].loginUserInfo;
     NSLog(@"product array is: %@",udata.productArray);
@@ -129,19 +130,6 @@
     [productArray addObjectsFromArray:udata.productArray];
     
     NSDictionary *param = nil;// @{@"orgId":udata.orgId?:@"",@"siteId":udata.siteId?:@"",@"pageSize":@"20",@"pageNum":@"0",@"objName":@"B",@"productArray":productArray};
-    
-    //@{@"msgId":@"AV48ho8x0f-qWHUcq9_2"};//
-    
-    //@{@"id":@""};//
-//    @{@"username":@"lisi",@"password":@"123456",@"grant_type":@"password",@"prod":@"EIS"};
-    //@"personId":udata.personId?:@"",
-    
-//    TKRequestHandler *handler = [TKRequestHandler sharedInstance];
-//    [handler setAuthorizationHeaderFieldWithUsername:@"lisi" password:@"123456"];
-    
-    //siteId=4028e6eb5bec80c2015bec871ee30012&pageSize=20&pageNum=1&orgId=4028e6eb5bec6d12015bec6e38bd0021
-    
-//    NSLog(@"param is: %@\n\n",param);
     
     
     [[TKRequestHandler sharedInstance]getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {

@@ -10,6 +10,7 @@
 #import "EAUserInfoAvatarCell.h"
 #import "EALoginUserInfoModel.h"
 #import "EAModifyPasswordViewController.h"
+#import "EAUserInfoModifyViewController.h"
 
 @interface EAUserInfoViewController ()
 
@@ -129,9 +130,6 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return CGFLOAT_MIN;
-    }
     return 10;
 }
 
@@ -145,7 +143,16 @@
     if (indexPath.row == 2) {
         EAModifyPasswordViewController *controller = [[EAModifyPasswordViewController alloc]init];
         [self.navigationController pushViewController:controller animated:true];
+    }else if (indexPath.section == 0 || indexPath.row == 0){
+        [self showModifyController];
     }
+}
+
+-(void)showModifyController
+{
+    EAUserInfoModifyViewController *controller = [[EAUserInfoModifyViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    controller.userInfo = self.userInfo;
+    [self.navigationController pushViewController:controller animated:true];
 }
 
 /*
