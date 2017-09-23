@@ -8,6 +8,8 @@
 
 #import "EAMessageTableViewCell.h"
 #import "EAMessageModel.h"
+#import "EAMsgHelper.h"
+#import "TKAccountManager.h"
 
 @interface EAMessageTableViewCell ()
 
@@ -22,31 +24,6 @@
 @end
 
 @implementation EAMessageTableViewCell
-
-+(NSDictionary *)avatarBgDict
-{
-            /*
-              *  "EIS_MSG_TYPE_NOTICE": "通知",
-              *  "EIS_MSG_TYPE_ALARM": "报警",
-              *  "EIS_MSG_TYPE_RECORD": "人工记录",
-              *  "EIS_MSG_TYPE_EXCEPTION": "异常"
-             <color name="icon_bg_warn">#FFB549</color>
-             <color name="icon_bg_user">#00B0CE</color>
-             <color name="icon_bg_err">#FF6663 </color>
-             <color name="icon_bg_notice">#28CFC1 </color>
-             
-              */
-    static NSDictionary *dict = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        dict = @{@"EIS_MSG_TYPE_NOTICE":@(0X28CFC1),
-                 @"EIS_MSG_TYPE_ALARM":@(0XFFB549),
-                 @"EIS_MSG_TYPE_RECORD":@(0X00B0CE),
-                 @"EIS_MSG_TYPE_EXCEPTION":@(0XFF6663)
-                 };
-    });
-    return dict;
-}
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -77,10 +54,44 @@
 
 -(void)updateWithModel:(EAMessageDataListModel *)model
 {
-    _avatarLabel.text = [model.msgTitle substringToIndex:model.msgTitle.length > 4?3:model.msgTitle.length-1];    
-    NSNumber *num = [[self class] avatarBgDict][model.msgType];
-    NSInteger hexColor =  [num integerValue];
-    _avatarLabel.backgroundColor = HexColor(hexColor);
+    
+    EALoginUserInfoDataModel *userinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+    BOOL read = false;
+    for (EAMessageDataListMessageFollowersModel *follower in model.messageFollowers) {
+        if ([follower.personId isEqualToString:userinfo.personId]) {
+            read = true;
+            break;
+        }
+    }
+    
+    _reddot.hidden = read;    
+    _avatarLabel.text = [model.msgTitle substringToIndex:model.msgTitle.length > 4?3:model.msgTitle.length-1];
+    _avatarLabel.backgroundColor = [EAMsgHelper colorForMsgType:model.msgType];
+    
+    NSString *title = nil;
+    if (model.msgTitle.length >= 4) {
+        title = [NSString stringWithFormat:@"%@\n%@",[model.msgTitle substringToIndex:2],[model.msgTitle substringWithRange:NSMakeRange(2, 2)]];
+    }else if(model.msgTitle.length > 0){
+        title = model.msgTitle;
+    }else{
+        title = [EAMsgHelper detailTagForMsgType:model.msgType];
+    }
+    
+    _avatarLabel.text = title;
+    
+    if ([model.msgType isEqualToString:EIS_MSG_TYPE_RECORD] && model.avatar.length > 0) {
+        
+        _avatar.hidden = false;
+        NSURL *url = [NSURL URLWithString:model.avatar];
+        [_avatar sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (image) {
+                
+            }
+        }];
+        
+    }else{
+        _avatar.hidden = true;
+    }
     
     _titleLabel.text = model.msgTitle;
     _contentLabel.text = model.msgContent;

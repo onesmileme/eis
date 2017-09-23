@@ -13,6 +13,37 @@
 @end
 
 
+/*
+ {
+ "success": true,
+ "msg": "查询任务成功",
+ "detailMsg": "",
+ "data": {
+ "id": "402881455e50b19b015e50c17070001c",
+ "taskName": "xgorgid",
+ "taskType": "check",
+ "taskStatus": "invalid",
+ "taskFrequency": "day",
+ "taskDescription": "xgorgid",
+ "fillNum": false,
+ "startDate": "2017-09-05 14:36:48",
+ "endDate": "2017-09-06 14:36:48",
+ "finishDate": null,
+ "remindTime": 120,
+ "msgId": null,
+ "orgId": "8a80cb815e03764a015e03c536ca0064",
+ "siteId": "8a80cb815e03764a015e03ce4e310076",
+ "templateId": null,
+ "createDate": "2017-09-05 14:36:48",
+ "updateDate": "2017-09-13 10:52:25",
+ "createUser": null,
+ "createUserId": "zhangda",
+ "myExecuteStatus": null
+ },
+ "errorCode": null
+ }
+ */
+
 @interface  EATaskDataListModel  : JSONModel
 
 @property (nonatomic, copy , nullable) NSString *startDate;
@@ -41,6 +72,7 @@
 @property (nonatomic, copy , nullable) NSString *updateDate;
 @property (nonatomic, copy , nullable) NSString *templateId;
 @property (nonatomic, strong , nullable) NSArray *personNameList;
+@property (nonatomic, copy , nullable) NSString *myExecuteStatus;
 
 @end
 

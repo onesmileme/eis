@@ -102,6 +102,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:false animated:true];
+}
 
 -(void)menuAction
 {
@@ -132,7 +137,7 @@
         }
     };
     
-    v.confirmBlock = ^(NSString *item, NSDate *startDate, NSDate *endDate) {
+    v.confirmBlock = ^(NSString *item,NSInteger index, NSDate *startDate, NSDate *endDate) {
         EATaskFilterModel *model = [[EATaskFilterModel alloc]init];
         if (item) {
             model.taskTypes = @[item];
@@ -175,6 +180,7 @@
 -(void)showSearchPage:(EAFilterView *)fv
 {
     EASearchViewController *controller = [[EASearchViewController alloc]initWithNibName:nil bundle:nil];
+    controller.searchType = @"task";
     __weak typeof(self) wself = self;
     controller.chooseItemsBlock = ^(NSArray<EAMsgSearchTipDataModel *> *items) {
         wself.filterObjList = items;
@@ -182,6 +188,15 @@
             [wself showFilterView:false];
         });
     };
+    controller.searchObjBlock = ^(NSString *objId) {
+        if (objId.length == 0) {
+            return ;
+        }
+        EATaskFilterModel *filterModel = [[EATaskFilterModel alloc]init];
+        filterModel.objList = @[objId];
+        [wself showFilterResult:filterModel];
+    };
+    
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }

@@ -164,14 +164,18 @@
     return 81;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    UIView *v = [[UIView alloc]init];
+    v.backgroundColor = [UIColor clearColor];
+    return v;
 }
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    UIView *v = [[UIView alloc]init];
+    v.backgroundColor = [UIColor clearColor];
+    return v;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

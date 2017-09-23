@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EATaskHelper.h"
 
-typedef NS_ENUM(NSInteger, EATaskProcessState){
-    EATaskProcessStateBegin = 0 ,
-    EATaskProcessStateWating ,
-    EATaskProcessStateDoing ,
-    EATaskProcessStateDone ,
-    EATaskProcessStateInvalid ,
-};
+//typedef NS_ENUM(NSInteger, EATaskProcessState){
+//    EATaskProcessStateBegin = 0 ,
+//    EATaskProcessStateWating ,
+//    EATaskProcessStateDoing ,
+//    EATaskProcessStateDone ,
+//    EATaskProcessStateInvalid ,
+//};
 
 @interface EATaskProcessStateView : UIView
 
-@property(nonatomic , assign) IBInspectable EATaskProcessState state;
+@property(nonatomic , assign) IBInspectable EATaskStatus state;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "EAMsgDetailInfoCell.h"
+#import "EAMsgHelper.h"
 
 @interface EAMsgDetailInfoCell()
 
@@ -34,8 +35,18 @@
 
 -(void)updateWithModel:(EAMessageDataListModel *)model
 {
-    NSInteger index = model.msgTitle.length > 4?3:model.msgTitle.length-1;
-    _tagLabel.text = [model.msgTitle substringToIndex:index]?:@"标签";
+    UIColor *color = [EAMsgHelper colorForMsgType:model.msgType];
+    if (color) {
+        self.tagLabel.backgroundColor = color;
+    }
+    
+    if ([model.msgType isEqualToString:EIS_MSG_TYPE_RECORD]) {
+        _tagLabel.text = @"标签";
+        //add avatar
+        
+    }else{
+        _tagLabel.text = [EAMsgHelper detailTagForMsgType:model.msgType];
+    }
     _titleLabel.text = model.msgTitle;
     _infoLabel.text = model.msgContent;
 }

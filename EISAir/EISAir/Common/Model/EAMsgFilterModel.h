@@ -17,7 +17,7 @@
 @property (nonatomic, copy , nullable) NSString *keyword;
 @property (nonatomic, strong , nullable) NSArray *msgTitles;
 @property (nonatomic, copy , nullable) NSString *personId;
-@property (nonatomic, strong , nullable) NSArray *objList;
+@property (nonatomic, strong , nullable) NSArray *objList;//tagid list
 @property (nonatomic, copy , nullable) NSString *siteId;
 @property (nonatomic, copy , nullable) NSString *personName;
 @property (nonatomic, assign) BOOL isAdmin;

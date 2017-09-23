@@ -11,6 +11,7 @@
 @class EAUserDataListModel;
 @interface EAUserSearchViewController : EABaseTableViewController
 
-@property(nonatomic ,copy) void (^chooseUserBlock)(EAUserDataListModel *user);
+@property(nonatomic ,copy) void (^chooseUserBlock)(NSArray<EAUserDataListModel *>* user);
+@property(nonatomic , assign) BOOL multiChoose;
 
 @end

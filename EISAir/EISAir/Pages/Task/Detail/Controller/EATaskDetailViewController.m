@@ -13,11 +13,17 @@
 #import "EATaskHandleTableViewCell.h"
 #import "EATaskStateTableViewCell.h"
 #import "EAUserSearchViewController.h"
+#import "EAUserModel.h"
+#import "EATaskRejectChooseView.h"
+#import "EATaskDetailEditViewController.h"
+#import "EATaskHandleFeekbackTableViewCell.h"
+#import "EATaskAddTableViewController.h"
+#import "EATaskAddTableViewController.h"
 
 @interface EATaskDetailViewController ()
 
 @property(nonatomic , strong) NSMutableArray *stateList;
-@property(nonatomic , assign) BOOL showHandle;
+//@property(nonatomic , assign) BOOL showHandle;
 
 @end
 
@@ -52,7 +58,10 @@
     nib = [UINib nibWithNibName:@"EATaskStateInfoTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"info_cell"];
     
-    _showHandle = [[self.task.taskStatus lowercaseString] isEqualToString:@"wait"];
+    nib = [UINib nibWithNibName:@"EATaskHandleFeekbackTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"feed_cell"];
+    
+//    _showHandle = [[self.task.taskStatus lowercaseString] isEqualToString:@"wait"];
     _stateList = [NSMutableArray new];
     
     [self loadTaskStatusInfo];
@@ -73,18 +82,79 @@
             [hud hideAnimated:true afterDelay:0.7];
         }else{
             [hud hideAnimated:true];
-            [_stateList addObjectsFromArray:model.data];
+            [self processTaskStatus:model];
             [self.tableView reloadData];
         }
     }];
+    
+    [[TKRequestHandler sharedInstance] findEisTaskById:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskDetailModel *model, NSError *error) {
+        
+        if (error == nil && model.success) {
+            self.task = model.data;
+            [self.tableView reloadData];
+        }
+                
+    }];
+
 }
+
+-(BOOL)showHandle
+{
+    EATaskStatus status = [EATaskHelper taskStatus:self.task];
+    if (status == EATaskStatusWait) {
+        EATaskExecuteStatus estatus = [EATaskHelper taskMyExecuteStatus:self.task];
+        if (estatus != EATaskExecuteStatusAssign && estatus != EATaskExecuteStatusRefuse) {
+            return true;
+        }
+    }
+    return false;
+}
+
+-(BOOL)showFeedback
+{
+    EATaskStatus status = [EATaskHelper taskStatus:self.task];
+    if (status == EATaskStatusExecute) {
+        
+    }
+    
+    return true;
+}
+
+
+-(void)processTaskStatus:(EATaskStatusModel *)statusModel
+{
+    EATaskStatusDataModel *delivery = nil;
+    for (EATaskStatusDataModel * m in statusModel.data ) {
+        if ([m.anewStatus isEqualToString:@"delivery"]) {
+            delivery = m;
+            break;
+        }
+    }
+    
+    if (delivery) {
+        
+        _stateList = [NSMutableArray new];
+       for (EATaskStatusDataModel * m in statusModel.data ) {
+        
+           if (m != delivery && [delivery.deliveryTime compare:m.deliveryTime] == NSOrderedDescending) {
+               [_stateList addObject:m];
+           }
+       }
+    }else{
+        _stateList = [[NSMutableArray alloc]initWithArray:statusModel.data];
+    }
+}
+
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger section = 2;
-    if (_showHandle) {
-        section += 1;
-    }
+//    if ([self showHandle]) {
+        section += 1; //handle
+//    }
+    
+    section += 1;//feedback
     
     return section;
 }
@@ -94,8 +164,17 @@
     if (section == 0) {
         return 1;
     }
-    if (section == 1 && _showHandle) {
-        return 1;
+    if (section == 1 ) {
+        if ([self showHandle]) {
+            return 1;
+        }
+        return 0;
+    }
+    if (section == 2) {
+        if ([self showFeedback]) {
+            return 1;
+        }
+        return 0;
     }
     return _stateList.count;
 }
@@ -111,21 +190,28 @@
         
         cell = icell;
         
-    }else if (_showHandle && indexPath.section == 1 ) {
+    }else if ( indexPath.section == 1 ) {
         
+        __weak typeof(self) wself = self;
         EATaskHandleTableViewCell *hcell = [tableView dequeueReusableCellWithIdentifier:@"handle_cell"];
         if (!hcell.handleBlock) {
             hcell.handleBlock = ^(EATashHandler handler) {
                 switch (handler) {
                     case EATashHandlerAccept:
-                        
+                    {
+                        [wself executeTask];
+                    }
                         break;
                     case EATashHandlerReject:
-                        
+                    {
+                        [wself rejectTask];
+                    }
                         break;
                         
                     case EATashHandlerToOther:
-                        
+                    {
+                        [wself choosePerson];
+                    }
                         break;
                     default:
                         break;
@@ -134,6 +220,22 @@
         }
         
         cell = hcell;
+    }else if (indexPath.section == 2){
+        
+        EATaskHandleFeekbackTableViewCell *fcell = [tableView dequeueReusableCellWithIdentifier:@"feed_cell"];
+        
+        if (!fcell.showFeedBack) {
+            __weak typeof(self) wself = self;
+            fcell.showFeedBack = ^{
+                [wself showFeedbackPage];
+            };
+            
+            fcell.showContent = ^{
+                [wself handleAddTask];
+            };
+        }
+        
+        cell = fcell;
         
     }else{
         
@@ -159,8 +261,11 @@
     if (indexPath.section == 0) {
         return [EATaskStateInfoTableViewCell heightForModel:self.task];
     }
-    if (_showHandle && indexPath.section == 1) {
+    if ( indexPath.section == 1) {
         return 145;
+    }
+    if (indexPath.section == 2) {
+        return 122;
     }
     
     return 65;//normal status
@@ -169,7 +274,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 1 || (_showHandle && section == 2)) {
+    if (section == 1 || ([self showHandle] && section == 2) || ([self showFeedback] && section == 3)) {
         return 10;
     }
     return CGFLOAT_MIN;
@@ -182,7 +287,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 1 || (_showHandle && section == 2)) {
+    if (section == 1 || ([self showHandle] && section == 2) || ([self showFeedback] && section == 3)) {
         UIView *header = [[UIView alloc]initWithFrame:CGRectMake(0, 00, self.view.width, 10)];
         header.backgroundColor = HexColor(0xf7f7f7);
         return header;
@@ -199,26 +304,116 @@
 #pragma mark - task action
 -(void)rejectTask
 {
-    
+    EATaskRejectChooseView *v = [EATaskRejectChooseView view];
+    __weak typeof(self) wself = self;
+    v.actionBlock = ^(BOOL confirm) {
+        if (confirm) {
+            [wself rejectAction];
+        }
+    };
+    [v showInView:self.view.window];
 }
 
--(void)assignToOther
+-(void)executeTask
 {
+    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+    controller.showAssign = false;
+    controller.placeHoder = @"完成任务情况描述";
+    controller.title = @"拒绝原因";
+    controller.isRefuse = true;
+    controller.task = self.task;
+    controller.editType = EATaskEditTypeExecute;
+    __weak typeof(self) wself = self;
+    controller.doneBlock = ^(NSString *content, EAUserDataListModel *user) {
+        [wself loadTaskStatusInfo];
+    };
     
+    [self.navigationController pushViewController:controller animated:true];
 }
 
 -(void)choosePerson
 {
     EAUserSearchViewController *controller = [[EAUserSearchViewController alloc]init];
     controller.hidesBottomBarWhenPushed = true;
-    controller.chooseUserBlock = ^(EAUserDataListModel *ser) {
-        
+    controller.title = @"指派给";
+    controller.multiChoose = true;
+    __weak typeof(self) wself = self;
+    controller.chooseUserBlock = ^(NSArray<EAUserDataListModel *> *users) {
+        if (users) {
+            [wself assignToOtherAction:users];
+        }        
     };
     [self.navigationController pushViewController:controller animated:true];
 }
 
--(void)asignToOtherAction:(EAUserDataListModel *)other
+-(void)rejectAction
 {
+    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+    controller.showAssign = false;
+    controller.placeHoder = @"为什么拒绝";
+    controller.title = @"拒绝原因";
+    controller.isRefuse = true;
+    controller.task = self.task;
+    controller.editType = EATaskEditTypeReject;
+    __weak typeof(self) wself = self;
+    controller.doneBlock = ^(NSString *content, EAUserDataListModel *user) {
+        [wself loadTaskStatusInfo];
+    };
+    
+    [self.navigationController pushViewController:controller animated:true];
+    
+}
+
+-(void)assignToOtherAction:(NSArray<EAUserDataListModel *> *)users
+{
+    EATaskUpdateModel *model = [[EATaskUpdateModel alloc]init];
+    NSMutableArray *uids = [[NSMutableArray alloc]init];
+    for (EAUserDataListModel *m in users) {
+        [uids addObject: m.uid];
+    }
+    model.transferPersonIds = uids;
+    model.anewStatus = @"assign";
+    model.taskId = self.task.tid;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    [[TKRequestHandler sharedInstance] saveEisTaskResult:model completion:^(NSURLSessionDataTask *task, EATaskUpdateModel *model, NSError *error) {
+        if (error == nil && model) {
+            [hud hideAnimated:true];
+            
+            [self loadTaskStatusInfo];
+        }else{
+            hud.label.text = @"指派失败";
+            [hud hideAnimated:true afterDelay:0.7];
+        }
+    }];
+    
+}
+
+-(void)showFeedbackPage
+{
+    EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
+    controller.showAssign = false;
+    controller.placeHoder = @"完成任务情况描述";
+    controller.title = @"执行中";
+    controller.isRefuse = true;
+    controller.task = self.task;
+    __weak typeof(self) wself = self;
+    controller.doneBlock = ^(NSString *content, EAUserDataListModel *user) {
+        [wself loadTaskStatusInfo];
+    };
+    
+    [self.navigationController pushViewController:controller animated:true];
+}
+
+-(void)handleAddTask
+{
+    EATaskAddTableViewController *controller = [EATaskAddTableViewController controller];
+    controller.task = self.task;
+    __weak typeof(self) wself = self;
+    controller.completionBlock = ^{
+        [wself loadTaskStatusInfo];
+    };
+    [self.navigationController pushViewController:controller animated:true];
     
 }
 

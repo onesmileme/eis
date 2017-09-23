@@ -9,10 +9,13 @@
 #import "EAMsgStateInfoCell.h"
 #import "EATaskModel.h"
 #import "TKCommonTools.h"
+#import "EAMsgHelper.h"
+#import "EATaskStatusModel.h"
+
 @interface EAMsgStateInfoCell ()
 
 @property(nonatomic , strong) UIView *bottomLine;
-@property(nonatomic , strong) EATaskDataListModel *model;
+@property(nonatomic , strong) EATaskStatusDataModel *model;
 @property(nonatomic , assign) BOOL isFirst;
 
 @end
@@ -42,16 +45,29 @@
 }
 
 
--(void)updateWithModel:(EATaskDataListModel *)model isFirst:(BOOL)isFirst
+-(void)updateWithModel:(EATaskStatusDataModel *)model isFirst:(BOOL)isFirst
 {
     self.model = model;
     self.isFirst = isFirst;
     
-    self.textLabel.text = @"王磊执行该任务";
+    /*
+     @property (nonatomic, copy , nullable) NSString *taskId;
+     @property (nonatomic, copy , nullable) NSString *deliveryTime;
+     @property (nonatomic, copy , nullable) NSString *personId;
+     @property (nonatomic, copy , nullable) NSString *anewStatus;
+     @property (nonatomic, copy , nullable) NSString *createDate;
+     @property (nonatomic, copy , nullable) NSString *taskExecuteDesc;
+     @property (nonatomic, copy , nullable) NSString *transferPersonId;
+     @property (nonatomic, copy , nullable) NSString *taskResult;
+     @property (nonatomic, copy , nullable) NSString *taskName;
+     @property (nonatomic, copy , nullable) NSString *tid;
+     */
+    
+    self.textLabel.text = model.taskExecuteDesc;
     self.textLabel.textColor = isFirst ? HexColor(0x00B0CE) : HexColor(0x858585);
     self.textLabel.font = SYS_FONT(17);
     
-    self.detailTextLabel.text = @"10分钟前";
+    self.detailTextLabel.text = model.deliveryTime?:model.createDate;
     self.detailTextLabel.textColor = HexColor(0xB0B0B0);
     self.detailTextLabel.font = SYS_FONT(12);
     

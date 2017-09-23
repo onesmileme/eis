@@ -566,6 +566,14 @@
 		6E8741071F766137005EFA50 /* guide_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741041F766137005EFA50 /* guide_6_2.jpg */; };
 		6E8741081F766137005EFA50 /* guide_6_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741051F766137005EFA50 /* guide_6_3.jpg */; };
 		6E8741091F766137005EFA50 /* guide_6_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741061F766137005EFA50 /* guide_6_4.jpg */; };
+		6E87410C1F766BB4005EFA50 /* EAMsgHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87410B1F766BB4005EFA50 /* EAMsgHelper.m */; };
+		6E87410F1F76B12B005EFA50 /* EATaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87410E1F76B12B005EFA50 /* EATaskDetailModel.m */; };
+		6E8741121F76CE82005EFA50 /* EATaskUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741111F76CE82005EFA50 /* EATaskUpdateModel.m */; };
+		6E8741151F76D3B6005EFA50 /* EATaskRejectChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741141F76D3B6005EFA50 /* EATaskRejectChooseView.m */; };
+		6E8741171F76D3CD005EFA50 /* EATaskRejectChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741161F76D3CD005EFA50 /* EATaskRejectChooseView.xib */; };
+		6E87411B1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741191F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m */; };
+		6E87411C1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E87411A1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib */; };
+		6E87411F1F76F476005EFA50 /* EATaskAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
@@ -1718,6 +1726,20 @@
 		6E8741041F766137005EFA50 /* guide_6_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_2.jpg; sourceTree = "<group>"; };
 		6E8741051F766137005EFA50 /* guide_6_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_3.jpg; sourceTree = "<group>"; };
 		6E8741061F766137005EFA50 /* guide_6_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_4.jpg; sourceTree = "<group>"; };
+		6E87410A1F766BB4005EFA50 /* EAMsgHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAMsgHelper.h; sourceTree = "<group>"; };
+		6E87410B1F766BB4005EFA50 /* EAMsgHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAMsgHelper.m; sourceTree = "<group>"; };
+		6E87410D1F76B12B005EFA50 /* EATaskDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskDetailModel.h; sourceTree = "<group>"; };
+		6E87410E1F76B12B005EFA50 /* EATaskDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskDetailModel.m; sourceTree = "<group>"; };
+		6E8741101F76CE82005EFA50 /* EATaskUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskUpdateModel.h; sourceTree = "<group>"; };
+		6E8741111F76CE82005EFA50 /* EATaskUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskUpdateModel.m; sourceTree = "<group>"; };
+		6E8741131F76D3B6005EFA50 /* EATaskRejectChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskRejectChooseView.h; sourceTree = "<group>"; };
+		6E8741141F76D3B6005EFA50 /* EATaskRejectChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskRejectChooseView.m; sourceTree = "<group>"; };
+		6E8741161F76D3CD005EFA50 /* EATaskRejectChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskRejectChooseView.xib; sourceTree = "<group>"; };
+		6E8741181F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskHandleFeekbackTableViewCell.h; sourceTree = "<group>"; };
+		6E8741191F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskHandleFeekbackTableViewCell.m; sourceTree = "<group>"; };
+		6E87411A1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskHandleFeekbackTableViewCell.xib; sourceTree = "<group>"; };
+		6E87411D1F76F476005EFA50 /* EATaskAddCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskAddCollectionViewCell.h; sourceTree = "<group>"; };
+		6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskAddCollectionViewCell.m; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
@@ -3038,9 +3060,15 @@
 				6E415F221F52A2C40078436F /* EATaskStateDoingTableViewCell.h */,
 				6E415F231F52A2C40078436F /* EATaskStateDoingTableViewCell.m */,
 				6E415F241F52A2C40078436F /* EATaskStateDoingTableViewCell.xib */,
+				6E8741181F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.h */,
+				6E8741191F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m */,
+				6E87411A1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib */,
 				6E415F271F52A6970078436F /* EATaskHandleTableViewCell.h */,
 				6E415F281F52A6970078436F /* EATaskHandleTableViewCell.m */,
 				6E415F291F52A6970078436F /* EATaskHandleTableViewCell.xib */,
+				6E8741131F76D3B6005EFA50 /* EATaskRejectChooseView.h */,
+				6E8741141F76D3B6005EFA50 /* EATaskRejectChooseView.m */,
+				6E8741161F76D3CD005EFA50 /* EATaskRejectChooseView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3904,6 +3932,8 @@
 			children = (
 				6E63869D1F481EFF00017FB8 /* EAMessageViewController.h */,
 				6E63869E1F481EFF00017FB8 /* EAMessageViewController.m */,
+				6E87410A1F766BB4005EFA50 /* EAMsgHelper.h */,
+				6E87410B1F766BB4005EFA50 /* EAMsgHelper.m */,
 				6E6386BD1F49993600017FB8 /* EAMessageSlideListViewController.h */,
 				6E6386BE1F49993600017FB8 /* EAMessageSlideListViewController.m */,
 			);
@@ -4107,8 +4137,12 @@
 			children = (
 				6E4D67C71F5B908E00A8D69A /* EATaskModel.h */,
 				6E4D67C81F5B908E00A8D69A /* EATaskModel.m */,
+				6E87410D1F76B12B005EFA50 /* EATaskDetailModel.h */,
+				6E87410E1F76B12B005EFA50 /* EATaskDetailModel.m */,
 				6E7015891F6EA61A0006C2E9 /* EATaskStatusModel.h */,
 				6E70158A1F6EA61A0006C2E9 /* EATaskStatusModel.m */,
+				6E8741101F76CE82005EFA50 /* EATaskUpdateModel.h */,
+				6E8741111F76CE82005EFA50 /* EATaskUpdateModel.m */,
 				6E4D67CC1F5B91A400A8D69A /* TKRequestHandler+Task.h */,
 				6E4D67CD1F5B91A400A8D69A /* TKRequestHandler+Task.m */,
 			);
@@ -4257,6 +4291,8 @@
 				6EE9C5281F73274D006C6CBC /* EAAddTaskDateCell.h */,
 				6EE9C5291F73274D006C6CBC /* EAAddTaskDateCell.m */,
 				6EE9C52A1F73274D006C6CBC /* EAAddTaskDateCell.xib */,
+				6E87411D1F76F476005EFA50 /* EATaskAddCollectionViewCell.h */,
+				6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4450,7 +4486,9 @@
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E8740F11F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.xib in Resources */,
 				6E8740FC1F765550005EFA50 /* guide_6_1.jpg in Resources */,
+				6E87411C1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib in Resources */,
 				6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */,
+				6E8741171F76D3CD005EFA50 /* EATaskRejectChooseView.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */,
 				53DB28BF1F6E520200FB2B0F /* js in Resources */,
@@ -4801,6 +4839,7 @@
 				6E415E5E1F5171D10078436F /* ZXRSSUtils.m in Sources */,
 				6E6887011F451261009AD662 /* TKWeChatLoginHelper.m in Sources */,
 				6E6886721F43C71A009AD662 /* UIView+Extension.m in Sources */,
+				6E8741151F76D3B6005EFA50 /* EATaskRejectChooseView.m in Sources */,
 				6E415DEC1F5171D10078436F /* ZXISBNParsedResult.m in Sources */,
 				53DB289A1F6E51E600FB2B0F /* PYChordSeries.m in Sources */,
 				6E415E241F5171D10078436F /* ZXPlanarYUVLuminanceSource.m in Sources */,
@@ -4836,6 +4875,7 @@
 				6E415E6A1F5171D10078436F /* ZXEANManufacturerOrgSupport.m in Sources */,
 				6E415E751F5171D10078436F /* ZXUPCEANExtensionSupport.m in Sources */,
 				6E415E361F5171D10078436F /* ZXDataMatrixSymbolInfo.m in Sources */,
+				6E87411F1F76F476005EFA50 /* EATaskAddCollectionViewCell.m in Sources */,
 				6E415E1E1F5171D10078436F /* ZXDecodeHints.m in Sources */,
 				6E415E501F5171D10078436F /* ZXRSSExpandedDecodedInformation.m in Sources */,
 				6E415E081F5171D10078436F /* ZXGenericGF.m in Sources */,
@@ -4977,6 +5017,7 @@
 				FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */,
 				6E415EB51F5171D10078436F /* LBXScanViewStyle.m in Sources */,
 				53DB28A41F6E51E600FB2B0F /* PYRadarSeries.m in Sources */,
+				6E8741121F76CE82005EFA50 /* EATaskUpdateModel.m in Sources */,
 				6E415E031F5171D10078436F /* ZXCGImageLuminanceSource.m in Sources */,
 				6E415E8C1F5171D10078436F /* ZXPDF417ErrorCorrection.m in Sources */,
 				5330A8FB1F595B2600F8E07E /* DDPageScrollView.m in Sources */,
@@ -4993,6 +5034,7 @@
 				53DB28901F6E51E600FB2B0F /* PYPolar.m in Sources */,
 				53DB28A01F6E51E600FB2B0F /* PYMapSeries.m in Sources */,
 				6E415DF31F5171D10078436F /* ZXSMSParsedResult.m in Sources */,
+				6E87411B1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m in Sources */,
 				6E6886441F43C71A009AD662 /* NSIndexSet+BlocksKit.m in Sources */,
 				6E415EAC1F5171D10078436F /* ZXMultiFormatReader.m in Sources */,
 				6E6886451F43C71A009AD662 /* NSInvocation+BlocksKit.m in Sources */,
@@ -5083,7 +5125,9 @@
 				6E415E0F1F5171D10078436F /* ZXBoolArray.m in Sources */,
 				6E415DF41F5171D10078436F /* ZXSMSTOMMSTOResultParser.m in Sources */,
 				53DB28951F6E51E600FB2B0F /* PYTitle.m in Sources */,
+				6E87410F1F76B12B005EFA50 /* EATaskDetailModel.m in Sources */,
 				6E415E8D1F5171D10078436F /* ZXPDF417HighLevelEncoder.m in Sources */,
+				6E87410C1F766BB4005EFA50 /* EAMsgHelper.m in Sources */,
 				6E6386AB1F48200100017FB8 /* EASubscribeViewController.m in Sources */,
 				53D62B751F6E2E1200E4E43F /* EADingYueEnergyMainVC.m in Sources */,
 				6E68868F1F43C71A009AD662 /* ZLPhotoPickerGroup.m in Sources */,

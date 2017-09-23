@@ -14,7 +14,8 @@
 
 @interface EAMsgDetailViewController ()
 
-@property(nonatomic , strong) EATaskDataModel *taskDateModel;
+//@property(nonatomic , strong) EATaskDataModel *taskDateModel;
+@property(nonatomic , strong) NSArray *taskStatusList;
 
 @end
 
@@ -44,17 +45,27 @@
 
 -(void)loadTaskInfo
 {
+//    if (![self.msgModel.msgType isEqualToString:EIS_MSG_TYPE_ALARM] && [self.msgModel.msgType isEqualToString:EIS_MSG_TYPE_EXCEPTION] ) {
+//        //只有报警和异常才显示动态
+//        return;
+//    }
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
-    [[TKRequestHandler sharedInstance] findEisTaskById:self.msgModel.businessId completion:^(NSURLSessionDataTask *task, EATaskModel *model, NSError *error) {
+    [[TKRequestHandler sharedInstance]findTaskResultByTaskId:self.msgModel.businessId completion:^(NSURLSessionDataTask *task, EATaskStatusModel *model, NSError *error) {
+        
         if (error || model.data == nil) {
             hud.label.text = @"获取动态信息失败";
             [hud hideAnimated:true afterDelay:0.7];
             [self.navigationController popViewControllerAnimated:true];
             return ;
         }
-        self.taskDateModel = model.data;
+        [hud hideAnimated:true];
+        self.taskStatusList = model.data;
         [self.tableView reloadData];
+        
     }];
+    
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -67,7 +78,7 @@
     if (section == 0) {
         return 1;
     }
-    return 10;
+    return _taskStatusList.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +93,7 @@
     }else{
         EAMsgStateInfoCell *scell = [tableView dequeueReusableCellWithIdentifier:@"state_cell"];
         
-        EATaskDataListModel *task = _taskDateModel.list[indexPath.row];
+        EATaskStatusDataModel *task = _taskStatusList[indexPath.row];
         
         [scell updateWithModel:task isFirst:indexPath.row == 0];
         
@@ -102,7 +113,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == 1 && _taskStatusList.count > 0) {
         return 32;
     }
     return CGFLOAT_MIN;
@@ -110,7 +121,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == 0 && _taskStatusList.count > 0) {
         return 10;
     }
     return CGFLOAT_MIN;
@@ -118,7 +129,8 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == 1 && _taskStatusList.count > 0) {
+        
         EAMsgDetailHeader *header = [[EAMsgDetailHeader alloc]initWithFrame:CGRectMake(0, 0, tableView.width, 32)];
         header.backgroundColor = [UIColor whiteColor];
         return header;

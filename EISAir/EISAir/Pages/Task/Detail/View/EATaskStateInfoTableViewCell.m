@@ -10,6 +10,7 @@
 #import "EATaskProcessStateView.h"
 #import "NSString+TKSize.h"
 #import "EATaskModel.h"
+#import "EATaskHelper.h"
 
 @interface EATaskStateInfoTableViewCell ()
 
@@ -19,13 +20,57 @@
 @property(nonatomic , strong) IBOutlet UILabel *objLabel;
 @property(nonatomic , strong) IBOutlet UILabel *infoLabel;
 
+@property(nonatomic , strong) IBOutlet NSLayoutConstraint *stateToViewConstraint;
+@property(nonatomic , strong) IBOutlet NSLayoutConstraint *nameTopStateConstraint;
+
+
+
 @end
 
 @implementation EATaskStateInfoTableViewCell
 
 +(CGFloat)heightForModel:(EATaskDataListModel *)model
 {
-    CGFloat height = 195;
+    CGFloat height = 160;
+    EATaskStatus status = [EATaskHelper taskStatus:model];
+    EATaskExecuteStatus execStatus = [EATaskHelper taskMyExecuteStatus:model];
+    if (execStatus != EATaskExecuteStatusUnknown) {
+
+        switch (status) {
+            case EATaskStatusWait:
+            {
+                if (execStatus == EATaskExecuteStatusAssign || execStatus == EATaskExecuteStatusRefuse) {
+                    height += 35;
+                }else{
+                    
+                }
+            }
+                break;
+            case EATaskStatusFinish:
+            {
+                height += 35;
+            }
+                break;
+            case EATaskStatusExecute:
+            {
+                height += 35;
+            }
+                break;
+            case EATaskStatusInvalid:
+            {
+                height += 35;
+            }
+                break;
+            case EATaskStatusUnknown:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+        
+    }
     if (model.taskDescription.length > 0) {
         height += [model.taskDescription sizeWithMaxWidth:(SCREEN_WIDTH - 28) font:SYS_FONT(12)].height;
     }
@@ -46,19 +91,21 @@
 
 -(void)updteWithModel:(EATaskDataListModel*)model
 {
-    EATaskProcessState state = EATaskProcessStateWating;//EATaskProcessStateBegin;
-    NSString *status = [model.taskStatus lowercaseString];
-    if ([status  isEqualToString:@"wait"]) {
-        state = EATaskProcessStateWating;
-    }else if ([status isEqualToString:@"execute"]){
-        
-    }else if ([status isEqualToString:@""]){
-        
-    }else if ([status isEqualToString:@""]){
-        
-    }
+    EATaskStatus status = [EATaskHelper taskStatus:model];//EATaskProcessStateBegin;
+    self.stateView.state = status;
     
-    self.stateView.state = state;
+    NSString *jobState = [[EATaskHelper sharedInstance] valueForExecuteStatus:model.myExecuteStatus];
+    if (jobState.length > 0) {
+        _stateLabel.text = jobState;
+        _stateLabel.hidden = false;
+        [_stateLabel sizeToFit];
+        _nameTopStateConstraint.constant = 14;
+        _stateToViewConstraint.constant = 19;
+    }else{
+        _stateLabel.hidden = true;
+        _nameTopStateConstraint.constant = 0;
+        _stateToViewConstraint.constant = 14;
+    }
     
     _nameLabel.text = model.taskName;
     _objLabel.text = model.taskName;//hehe

@@ -117,12 +117,14 @@
 {
     if (_confirmBlock) {
         NSString *item = nil;
+        NSInteger index = -1;
         NSDate *startDate = nil;
         NSDate *endDate = nil;
         NSArray *selectedItems = [self.collectionView indexPathsForSelectedItems];
         for (NSIndexPath *indexPath in selectedItems) {
             if (indexPath.section == 0) {
                 item = _tags[indexPath.item];
+                index = indexPath.item;
             }else{
                 endDate = [NSDate date];
                 switch (indexPath.item) {
@@ -152,7 +154,7 @@
                 }
             }
         }
-        _confirmBlock(item,startDate , endDate );
+        _confirmBlock(item,index,startDate , endDate );
     }
     [self hide];
 }
@@ -264,6 +266,10 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (_type.length == 0 && indexPath.section == 0) {
+        return nil;
+    }
     
     EAFilterHeaderView *headView = (EAFilterHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                             withReuseIdentifier:@"UICollectionViewHeader"

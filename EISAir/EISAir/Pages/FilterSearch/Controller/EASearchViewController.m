@@ -85,6 +85,12 @@
     return _historyView;
 }
 
+-(NSString *)cacheKey
+{
+    NSString *key = [NSString stringWithFormat:@"%@_history_key",self.searchType];    
+    return key;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -93,7 +99,6 @@
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 60) style:UITableViewStyleGrouped];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _tableView.delegate = self;
@@ -101,8 +106,9 @@
     _tableView.backgroundColor = HexColor(0xf7f7f7);
     _tableView.allowsMultipleSelection = true;
     
+    NSString *key = [self cacheKey];
     self.historyKeys = [[NSMutableArray alloc]init];
-    NSArray *keys = [[NSUserDefaults standardUserDefaults] objectForKey:@"history_key"];
+    NSArray *keys = [[NSUserDefaults standardUserDefaults] arrayForKey:key];
     
     [self.historyKeys addObjectsFromArray:keys];
             
@@ -160,7 +166,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[NSUserDefaults standardUserDefaults] setObject:self.historyKeys forKey:@"history_key"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.historyKeys forKey:[self cacheKey]];
 }
 
 -(void)confirmAction:(id)sender
@@ -168,8 +174,6 @@
 
     if (_chooseItemsBlock) {
         NSMutableArray *items = [[NSMutableArray alloc]init];
-        NSArray *selected = [self.tableView indexPathsForSelectedRows];
-        
         for (NSString *key in [_chooedIndexDict allKeys]) {
             if ([_chooedIndexDict[key] boolValue]) {
                 NSInteger index = [key integerValue];
@@ -187,8 +191,14 @@
 -(void)scanAction:(id)sender
 {
     EAScanViewController *controller = [EAScanViewController scanController];
+    
+    __weak typeof(self) wself = self;
     controller.doneBlock = ^(NSString *urlcode) {
         //TODO dosearch
+        if (wself.searchObjBlock) {
+            wself.searchObjBlock(urlcode);
+        }
+        [wself.navigationController popViewControllerAnimated:true];
     };
     [self.navigationController pushViewController:controller animated:true];
 }
@@ -201,6 +211,9 @@
     if (self.task.state == NSURLSessionTaskStateRunning) {
         [self.task cancel];
     }
+    
+    [self addSearchKey:text];
+    
     EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
     filterModel.objName = text;
     NSURLSessionDataTask *task = [[TKRequestHandler sharedInstance] searchWithFilterParam:filterModel completion:^(NSURLSessionDataTask *task, EAMsgSearchTipModel *model, NSError *error) {
@@ -222,6 +235,23 @@
 {
     
 }
+
+-(void)addSearchKey:(NSString *)key
+{
+    NSInteger index =-1;
+    for (NSInteger i = 0 ; i  < self.historyKeys.count ; i++) {
+        NSString *str = self.historyKeys[i];
+        if ([str isEqualToString:key]) {
+            index = i;
+            break;
+        }
+    }
+    if (index >= 0) {
+        [self.historyKeys removeObjectAtIndex:index];
+    }
+    [self.historyKeys insertObject:key atIndex:0];
+}
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -280,18 +310,7 @@
 {
     if (_isSug) {
         NSString *key = self.searchBar.text;
-        NSInteger index =-1;
-        for (NSInteger i = 0 ; i  < self.historyKeys.count ; i++) {
-            NSString *str = self.historyKeys[i];
-            if ([str isEqualToString:key]) {
-                index = i;
-                break;
-            }
-        }
-        if (index >= 0) {
-            [self.historyKeys removeObjectAtIndex:index];
-        }
-        [self.historyKeys insertObject:key atIndex:0];
+        [self search:key];
     }else{
         self.chooedIndexDict[@(indexPath.row)] = @(YES);
     }

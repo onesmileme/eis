@@ -237,8 +237,41 @@
     
     if (_showMessageBlock) {
         EAMessageDataListModel *model = _msgList[indexPath.row];
+        if([self addReadStatus:model]){
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
         _showMessageBlock(model);
     }
+}
+
+-(BOOL)addReadStatus:(EAMessageDataListModel *)model
+{
+    EALoginUserInfoDataModel *userinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+    
+    if (model.messageFollowers) {
+        
+        for (EAMessageDataListMessageFollowersModel *f in model.messageFollowers) {
+            if ([userinfo.personId isEqualToString:f.personId]) {
+                return false;
+            }
+        }
+    }
+    
+    NSMutableArray *followers = [[NSMutableArray alloc]init];
+    EAMessageDataListMessageFollowersModel *f = [[EAMessageDataListMessageFollowersModel alloc]init];
+    f.personId = userinfo.personId;
+    f.readStatus = @"read";
+    f.siteId = userinfo.siteId;
+    f.orgId = userinfo.orgId;
+    
+    if (model.messageFollowers) {
+        [followers addObjectsFromArray:model.messageFollowers];
+    }
+    
+    model.messageFollowers = (NSMutableArray<EAMessageDataListMessageFollowersModel> *)followers;
+    
+    return true;
+    
 }
 
 #pragma mark - cache

@@ -20,10 +20,22 @@
 
 
 @implementation  EATaskModel
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
 @end
 
 
 @implementation  EATaskDataModel
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
 @end
 
 

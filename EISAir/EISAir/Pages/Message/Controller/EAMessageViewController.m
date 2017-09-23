@@ -16,6 +16,7 @@
 #import "EAHomeViewController.h"
 #import "TKRequestHandler+Message.h"
 #import "TKAccountManager.h"
+#import "EAMsgSearchTipModel.h"
 
 #define kSlideSwitchHeight 38
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSArray *titleArray;       //标题
 @property (nonatomic, strong) NSArray *typeArray;
 @property (nonatomic, strong) NSMutableDictionary *tagsDict;
+@property (nonatomic, strong) NSArray<EAMsgSearchTipDataModel *> *allFilterItems;
 
 @property (nonatomic, strong) NSArray *allTags;
 @property (nonatomic, strong) NSArray *alarmTags;
@@ -214,12 +216,31 @@
 
 -(void)filterAction
 {
-    NSString *key = self.typeArray[self.currentIndex];
-    NSArray *tags = self.tagsDict[key];
-    if (tags) {
+    
+//    NSString *type = self.typeArray[self.currentIndex];
+
+    
+    if (self.currentIndex == 0) {
+        //全部
+        NSMutableArray *tags = nil;
+        if (self.allFilterItems) {
+            tags = [[NSMutableArray alloc]init];
+            for (EAMsgSearchTipDataModel *m in self.allFilterItems) {
+                [tags addObject:m.objName];
+            }
+        }
         [self showFilterView:tags];
+        
     }else{
-        [self loadFilterTags];
+        
+        NSString *key = self.typeArray[self.currentIndex];
+        NSArray *tags = self.tagsDict[key];
+        
+        if (tags) {
+            [self showFilterView:tags];
+        }else{
+            [self loadFilterTags];
+        }
     }
 
 }
@@ -227,19 +248,32 @@
 -(void)showFilterView:(NSArray *)tags
 {
     EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    v.type = [NSString stringWithFormat:@"%@标签",self.titleArray[self.currentIndex]?:@""];
+    if (self.currentIndex == 0) {
+        v.type = @"对象";
+    }else{
+        v.type = [NSString stringWithFormat:@"%@标签",self.titleArray[self.currentIndex]?:@""];
+    }
     __weak typeof(self) wself = self;
     v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
         [fv hide];
         [wself showSearchPage];
     };
-    v.confirmBlock = ^(NSString *item, NSDate *startDate, NSDate *endDate) {
+    v.confirmBlock = ^(NSString *item,NSInteger index, NSDate *startDate, NSDate *endDate) {
         if (!(item || (startDate && endDate))) {
             return ;
-        }
-                
+        }                
         EAMsgFilterModel *model = [[EAMsgFilterModel alloc]init];
-        model.objName = item;
+        NSString *objId = nil;
+        if (wself.currentIndex == 0) {
+            EAMsgSearchTipDataModel *m = wself.allFilterItems[index];
+            objId = m.objId;
+        }
+        if (objId) {
+            model.objList = @[objId];
+        }else{
+            model.objName = item;
+        }
+        
         if (startDate && endDate) {
             model.startDate = [NSString stringWithFormat:@"%.0f",[startDate timeIntervalSince1970]];
             model.endDate = [NSString stringWithFormat:@"%.0f",[endDate timeIntervalSince1970]];
@@ -262,6 +296,34 @@
 -(void)showSearchPage
 {
     EASearchViewController *controller = [[EASearchViewController alloc]initWithNibName:nil bundle:nil];
+    controller.searchType = @"msg";
+    __weak typeof(self) wself = self;
+    controller.chooseItemsBlock = ^(NSArray<EAMsgSearchTipDataModel *> *items) {
+        wself.allFilterItems = items;
+        if (items.count > 0) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSMutableArray *tags = nil;
+                if (wself.allFilterItems) {
+                    tags = [[NSMutableArray alloc]init];
+                    for (EAMsgSearchTipDataModel *m in self.allFilterItems) {
+                        [tags addObject:m.objName];
+                    }
+                }
+                [wself showFilterView:tags];
+            });
+        }
+    };
+    
+    controller.searchObjBlock = ^(NSString *objId) {
+        if (objId.length == 0) {
+            return ;
+        }
+        EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
+        filterModel.objList = @[objId];
+        [wself showFilterResult:filterModel];
+    };
+    
+    
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }

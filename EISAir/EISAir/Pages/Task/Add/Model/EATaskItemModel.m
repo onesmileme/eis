@@ -10,4 +10,18 @@
 
 @implementation EATaskItemModel
 
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
+@end
+
+@implementation EATaskItemDataModel
+
++(BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
 @end

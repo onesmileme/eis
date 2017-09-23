@@ -12,11 +12,12 @@
 #import "ViewController.h"
 #import "EALoginViewController.h"
 #import "TKAccountManager.h"
-
+#import "EAPushManager.h"
 #import "EAFindPassordViewController.h"
 #import "EADefines.h"
 #import "TKGuideViewController.h"
 #import "TKAppInfo.h"
+#import <JPUSHService.h>
 
 @interface AppDelegate ()
 
@@ -46,6 +47,8 @@
 
     [EANetworkManager sharedInstance];
     
+    [[EAPushManager sharedInstance] registerPushConfigWithLauchOptions:launchOptions];
+    
     if (![[TKAccountManager sharedInstance] isLogin]) {
         [self showLogin];
     }
@@ -56,6 +59,51 @@
     [NotificationCenter addObserver:self selector:@selector(logoutNotification:) name:kLogoutNotification object:nil];
     
     return YES;
+}
+
+#pragma mark - 推送
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    
+    [[EAPushManager sharedInstance]registerDeviceToken:deviceToken];
+    
+    
+//    NSString *deviceString = [deviceToken description];
+//    NSString *value = [[NSString alloc] initWithFormat:@"%@", deviceString];
+//    value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    value = [value stringByReplacingOccurrencesOfString:@"<" withString:@""];
+//    value = [value stringByReplacingOccurrencesOfString:@">" withString:@""];
+//    
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    [userDefaults setObject:value forKey: kUserDefaultsWithDevice];
+//    [userDefaults synchronize];
+    
+}
+
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Error in registration. Error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [JPUSHService handleRemoteNotification: userInfo];
+    application.applicationIconBadgeNumber += 1;
+    
+    [[EAPushManager sharedInstance]handlePush:userInfo];
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
+{
+    // IOS 7 Support Required
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    application.applicationIconBadgeNumber += 1;
+    
+    [[EAPushManager sharedInstance ]handlePush:userInfo];
 }
 
 

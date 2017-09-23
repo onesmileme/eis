@@ -10,6 +10,10 @@
 #import "EATaskModel.h"
 #import "EATaskFilterModel.h"
 #import "EATaskStatusModel.h"
+#import "EATaskDetailModel.h"
+#import "EATaskUpdateModel.h"
+#import "EATaskItemModel.h"
+
 
 @interface TKRequestHandler (Task)
 
@@ -19,7 +23,7 @@
 
 -(NSURLSessionDataTask *)findDataComplete:(NSString *)taskId orgId:(NSString *)orgId siteId:(NSString *)siteId completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion;
 
--(NSURLSessionDataTask *)findEisTaskById:(NSString *)tid  completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)findEisTaskById:(NSString *)tid  completion:(void(^)(NSURLSessionDataTask *task , EATaskDetailModel *model , NSError *error))completion;
 /*
  * 查询我的任务
  */
@@ -29,5 +33,15 @@
  * 查询task 状态流转
  */
 -(NSURLSessionDataTask *)findTaskResultByTaskId:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskStatusModel *model , NSError *error))completion;
+
+/*
+ * 更改task状态
+ */
+-(NSURLSessionDataTask *)saveEisTaskResult:(EATaskUpdateModel *)filterParam completion:(void(^)(NSURLSessionDataTask *task , EATaskUpdateModel *model , NSError *error))completion;
+
+/*
+ * 拉取抄表内容
+ */
+-(NSURLSessionDataTask *)findPointData:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskItemModel *model , NSError *error))completion;
 
 @end

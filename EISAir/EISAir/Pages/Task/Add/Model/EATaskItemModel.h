@@ -24,18 +24,37 @@ typedef NS_ENUM(NSInteger,EATaskItemType) {
     EATaskItemTypeMonth
 };
 
-@interface EATaskItemModel : JSONModel
+@protocol EATaskItemDataModel <NSObject>
 
-@property(nonatomic , copy) NSString *index;//序号
-@property(nonatomic , copy) NSString *tableNum;//标号
-@property(nonatomic , copy) NSString *beilv; //倍率
-@property(nonatomic , copy) NSString *amount; //用量
-@property(nonatomic , copy) NSString *lastAmount;//上次用量
-@property(nonatomic , copy) NSString *thisAmountDays;//本次用量日数
-@property(nonatomic , copy) NSString *lastAmountDays;//上次用量日数
-@property(nonatomic , copy) NSString *thisNum;//本次读数
-@property(nonatomic , copy) NSString *lastNum;//上次读数
-@property(nonatomic , copy) NSString *date;//抄表日期
-@property(nonatomic , copy) NSString *lastDate;//上次抄表日期
-@property(nonatomic , copy) NSString *month;//本次用量结算月份
+
+@end
+
+@interface EATaskItemDataModel : JSONModel
+
+@property (nonatomic, copy , nullable) NSString *readCount;//本次读数
+@property (nonatomic, copy , nullable) NSString *settlementMonth; //本次用量结算月份
+@property (nonatomic, copy , nullable) NSString *lastConsumption;//上次用量
+@property (nonatomic, copy , nullable) NSString *lastConsumptionDays;//上次用量日数
+@property (nonatomic, copy , nullable) NSString *consumption;//用量
+@property (nonatomic, copy , nullable) NSString *fillDate;//填报时间
+@property (nonatomic, copy , nullable) NSString *timestamp;//時間毫秒
+@property (nonatomic, copy , nullable) NSString *tagid; //序号
+@property (nonatomic, copy , nullable) NSString *rate; //倍率
+@property (nonatomic, copy , nullable) NSString *value;//上次读数
+@property (nonatomic, copy , nullable) NSString *lastMeterDate;//上次抄表日期
+@property (nonatomic, copy , nullable) NSString *objName;//对象名称
+@property (nonatomic, copy , nullable) NSString *meterDate;//抄表日期
+@property (nonatomic, copy , nullable) NSString *consumptionDays;//本次用量日数
+
+
+@end
+
+@interface  EATaskItemModel  : JSONModel
+
+@property (nonatomic, copy , nullable) NSString *errorCode;
+@property (nonatomic, copy , nullable) NSString *msg;
+@property (nonatomic, copy , nullable) NSString *detailMsg;
+@property (nonatomic, strong , nullable) NSArray<EATaskItemDataModel> *data;
+@property (nonatomic, assign) BOOL success;
+
 @end

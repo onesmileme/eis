@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class EATaskDataListModel;
+@class EATaskStatusDataModel;
 @interface EAMsgStateInfoCell : UITableViewCell
 
--(void)updateWithModel:(EATaskDataListModel *)model isFirst:(BOOL)isFirst;
+-(void)updateWithModel:(EATaskStatusDataModel *)model isFirst:(BOOL)isFirst;
 
 @end

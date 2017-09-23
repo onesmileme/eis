@@ -18,6 +18,8 @@
 @property(nonatomic , strong) EAUserSearchHeader *searchHeader;
 @property(nonatomic , assign) NSInteger pageIndex;
 @property(nonatomic , strong) NSMutableArray *userList;
+@property(nonatomic , strong) NSMutableSet *choosedUsers;
+
 
 @end
 
@@ -35,8 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"交接给";
- 
+    if (self.title.length == 0) {
+        self.title = @"交接给";
+    }
+    
     [self initNavbar];
     
     _searchHeader = [[EAUserSearchHeader alloc]initWithFrame:CGRectMake(0,0 , SCREEN_WIDTH,40 )];
@@ -44,6 +48,10 @@
     self.tableView.tableHeaderView = _searchHeader;
     
     [self loadUsers];
+    
+    _choosedUsers = [[NSMutableSet alloc]init];
+    self.tableView.allowsMultipleSelection = _multiChoose;
+    
     
 }
 
@@ -79,15 +87,15 @@
 
 -(void)finishAction:(id)sender
 {
-    NSIndexPath *index = [self.tableView indexPathForSelectedRow];
-    if (index) {
-        NSString *key = _pinyinArray[index.section];
-        NSArray *users = _nameDict[key];
-        EAUserDataListModel *user = users[index.row];
-        if (_chooseUserBlock) {
-            _chooseUserBlock(user);
-        }
+    NSArray *users = nil;
+    if ([_choosedUsers count] > 0 ) {
+        users = [_choosedUsers allObjects];
     }
+    if (_chooseUserBlock) {
+        _chooseUserBlock(users);
+    }
+    
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 
@@ -162,6 +170,22 @@
 - (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return _pinyinArray;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *key = _pinyinArray[indexPath.section];
+    NSArray *values = _nameDict[key];
+    EAUserDataListModel *model = values[indexPath.row];
+    [_choosedUsers addObject:model];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *key = _pinyinArray[indexPath.section];
+    NSArray *values = _nameDict[key];
+    EAUserDataListModel *model = values[indexPath.row];
+    [_choosedUsers removeObject:model];
 }
 
 #pragma mark - search bar

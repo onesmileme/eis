@@ -11,6 +11,10 @@
 @class EAMsgSearchTipDataModel;
 @interface EASearchViewController : EABaseViewController
 
+@property(nonatomic , copy) NSString *searchType;
+
 @property(nonatomic , copy) void (^chooseItemsBlock)(NSArray<EAMsgSearchTipDataModel *> *items);
+
+@property(nonatomic , copy) void (^searchObjBlock)(NSString *objId);
 
 @end

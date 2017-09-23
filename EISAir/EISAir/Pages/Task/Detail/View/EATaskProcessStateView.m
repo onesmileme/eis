@@ -95,14 +95,14 @@
     
     UIColor *lineColor = RGBA(0x00, 0xb0, 0xce, 0.2);
     //draw line
-    
+        
     CGContextSetLineWidth(context, 0.5);
     CGFloat centerY = CGRectGetHeight(rect) - 40;
     CGFloat perlength = (CGRectGetWidth(rect) - 2*kHorPadding - kCircelWidth)/3;
     CGContextMoveToPoint(context, kHorPadding, centerY);
-    if (_state > EATaskProcessStateBegin) {
+    if (_state >= EATaskStatusWait) {
         CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
-        CGFloat now = perlength*_state+kHorPadding;
+        CGFloat now = perlength*(_state+1)+kHorPadding;
         CGContextAddLineToPoint(context, now, centerY);
         CGContextStrokePath(context);
         CGContextMoveToPoint(context, now, centerY);
@@ -114,9 +114,9 @@
     //draw circle
     //past
     UIBezierPath *path = nil;
-    if (_state > EATaskProcessStateBegin) {
+    if (_state >= EATaskStatusWait) {
         CGContextSetFillColorWithColor(context, [lineColor CGColor]);
-        for (int i = 0 ; i < _state; i++) {
+        for (int i = 0 ; i <= _state; i++) {
             path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
             [path fill];
         }
@@ -130,9 +130,9 @@
     [path stroke];
     
     //future
-    if (_state < EATaskProcessStateDone) {
+    if (_state <= EATaskStatusInvalid) {
         CGContextSetFillColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
-        for (int i = _state+1 ; i <= EATaskProcessStateDone; i++) {
+        for (int i = _state+1 ; i <= EATaskStatusInvalid; i++) {
             path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
             [path fill];
         }

@@ -56,6 +56,7 @@
 @property (nonatomic, copy , nullable) NSString *taskId;
 @property (nonatomic, copy , nullable) NSString *address;
 @property (nonatomic, copy , nullable) NSString *pointName;
+@property (nonatomic, copy , nullable) NSString *avatar;
 
 
 @end

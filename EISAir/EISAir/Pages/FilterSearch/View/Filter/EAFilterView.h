@@ -10,7 +10,7 @@
 
 @interface EAFilterView : UIControl
 
-@property(nonatomic , copy) void (^confirmBlock)(NSString *item , NSDate *startDate , NSDate *endDate);
+@property(nonatomic , copy) void (^confirmBlock)(NSString *item ,NSInteger index , NSDate *startDate , NSDate *endDate);
 @property(nonatomic , copy) void (^tapHeadBlock)(EAFilterView *filterView ,NSInteger index);
 @property(nonatomic , copy) NSString *type;
 

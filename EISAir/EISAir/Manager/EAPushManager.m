@@ -9,25 +9,19 @@
 #import "EAPushManager.h"
 #import "TKModuleWebViewController.h"
 #import "AppDelegate.h"
-//#import "FATweetDetailViewController.h"
-//#import "FATopicViewController.h"
-//#import "FATopicModel.h"
-//#import "FAMomentDetailViewController.h"
-//#import "FALivePlayerViewController.h"
-//#import "FALiveModel.h"
-//#import "FAConfigManager.h"
-//#import "FAMyMessageViewController.h"
-//#import "FARelationViewController.h"
 #import "TKAccountManager.h"
 #import "TKRequestHandler+Push.h"
 #import "EANetworkManager.h"
 #import "EALoginViewController.h"
 #import "EASettingViewController.h"
 #import "EAHomeViewController.h"
+#import <JPUSHService.h>
 
 @import UserNotifications;
 
-#define kUserJPush  0
+#define kUserJPush  1
+#define kJPushAppKey @""
+#define kJPushChannel @""
 
 #define kScheme @"eis"
 
@@ -86,25 +80,17 @@ IMP_SINGLETON
 {
 #if kUserJPush
     //推送
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        //可以添加自定义categories
-        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
-                                                          UIUserNotificationTypeSound |
-                                                          UIUserNotificationTypeAlert)
-                                              categories:nil];
-    } else {
-        //categories 必须为nil
-        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                          UIRemoteNotificationTypeSound |
-                                                          UIRemoteNotificationTypeAlert)
-                                              categories:nil];
-    }
+    //可以添加自定义categories
+    [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound |
+                                                      UIUserNotificationTypeAlert)
+                                          categories:nil];
     
     [JPUSHService setupWithOption:launchOptions appKey:kJPushAppKey channel:kJPushChannel apsForProduction:true];
     
     
 #if DEBUG
-    //    [JPUSHService setDebugMode];
+    [JPUSHService setDebugMode];
 #else
     [JPUSHService setLogOFF];
 #endif
@@ -165,48 +151,6 @@ IMP_SINGLETON
         [weakSelf showHome:param];
     };
     
-//    _handlesDic[@"h5"] = ^(NSDictionary *param){
-//        [weakSelf handleWeb:param];
-//    };
-//    _handlesDic[@"tweet"] = ^(NSDictionary *param){
-//        [weakSelf handleTweet:param];
-//    };
-//    
-//    _handlesDic[@"topic"] = ^(NSDictionary *param){
-//        [weakSelf handleTopic:param];
-//    };
-//    
-//    _handlesDic[@"moments"] = ^(NSDictionary *param){
-//        [weakSelf handleMoments:param];
-//    };
-//    _handlesDic[@"live_play"] = ^(NSDictionary *param){
-//        [weakSelf handleLive:param];
-//    };
-//    
-//    _handlesDic[@"sys_msg"] = ^(NSDictionary *param){
-//        [weakSelf handleSystemMsg:param];
-//    };
-//    
-//    _handlesDic[@"my_fans"] = ^(NSDictionary *param){
-//        [weakSelf handleFans:param];
-//    };
-//    
-//    _handlesDic[@"private_msg"] = ^(NSDictionary *param){
-//        [weakSelf handlePrivateMsg:param];
-//    };
-//    
-//    _handlesDic[@"user_verify"] = ^(NSDictionary *param){
-//        [weakSelf handleShowMyTab:param];
-//    };
-//    
-//
-//    _handlesDic[@"group_detail"] = ^(NSDictionary *param){
-//        [weakSelf handleShowGroup:param];
-//    };
-//    
-//    _handlesDic[@"user_home"] = ^(NSDictionary *param){
-//        [weakSelf handleUserHome:param];
-//    };
     
 }
 
@@ -243,7 +187,9 @@ IMP_SINGLETON
     NSURL *url = nil;
     if ([openUrl isKindOfClass:[NSString class]]) {
         if (![openUrl containsString:@"%"]) {
-            openUrl = [openUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *charactersToEscape = @"?!@#$^&%*+,;='\"`<>()[]{}\\| ";
+            NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+            openUrl = [openUrl stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
         }
         url =  [NSURL URLWithString:openUrl];
     }else if ([openUrl isKindOfClass:[NSURL class]]){
@@ -270,15 +216,7 @@ IMP_SINGLETON
     }
     
     if ([scheme isEqualToString:kScheme]) {
-        
-        /*
-         
-         1. 深度列表跳详情(新闻链接一样)：cailianshe://article_detail?article_id=xxx
-         2. 深度详情页，跳股票页面的schema：cailianshe://stock_detail?stock_id=xxx
-         3. 内参列表页跳转详情：cailianshe://article_inter_detail?article_id=xxx
-         4. 内参详情页，更多xx按钮，跳转schema：cailianshe://article_inter_list?list_id=xxx
-         */
-        
+                
         NSDictionary *param = [[self class] processUrlQuery:query];
         void (^handleAction )(NSDictionary *) = _handlesDic[host];
         if (handleAction) {
@@ -292,7 +230,7 @@ IMP_SINGLETON
         [self handleWeb:@{@"url":openUrl}];
     }else{
         
-        [self showNeedVersionUpdateTip];
+//        [self showNeedVersionUpdateTip];
         
     }
 }

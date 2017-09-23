@@ -8,8 +8,11 @@
 
 #import "EABaseViewController.h"
 
+@class EATaskDataListModel;
 @interface EATaskAddTableViewController : EABaseViewController
 
+@property(nonatomic , strong) EATaskDataListModel *task;
+@property(nonatomic , copy) void (^completionBlock)();
 +(instancetype)controller;
 
 @end
