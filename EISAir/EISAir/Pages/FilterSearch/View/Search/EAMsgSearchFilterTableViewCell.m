@@ -36,10 +36,18 @@
     }
 }
 
+-(void)updateTitle:(NSString *)title msg:(NSString *)msg checked:(BOOL)checked
+{
+    _titleLabel.text = title;
+    _msgLabel.text = msg;
+    _chooseImageView.highlighted = checked;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    _chooseImageView.highlighted = selected;
 }
 
 @end

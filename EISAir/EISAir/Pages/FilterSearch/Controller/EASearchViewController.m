@@ -13,17 +13,25 @@
 #import "TKRequestHandler+Search.h"
 #import "TKRequestHandler+Message.h"
 #import "EAMessageFilterResultViewController.h"
+#import "EAMsgSearchFilterHeaderView.h"
+#import "EAMsgSearchFilterTableViewCell.h"
 
+@interface EASearchViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@interface EASearchViewController ()<UITextFieldDelegate>
-
+@property(nonatomic , strong) UITableView *tableView;
 @property(nonatomic , strong) UITextField *searchBar;
-@property(nonatomic , strong) EAMessageSearchFilterView *filterView;
 @property(nonatomic , strong) EAMsgSearchHistoryView *historyView;
 @property(nonatomic , strong) NSMutableArray *historyKeys;
 @property(nonatomic , strong) NSMutableArray *objList;
 @property(nonatomic , copy)   NSString *searchKey;
 @property(nonatomic , weak)   NSURLSessionDataTask *task;
+
+@property(nonatomic , strong) EAMsgSearchFilterHeaderView *header;
+@property(nonatomic , assign) BOOL checkAll;
+@property(nonatomic , strong) NSMutableDictionary *chooedIndexDict;
+@property(nonatomic , strong) UIButton *confirmButton;
+@property(nonatomic , assign) BOOL isSug;
+@property(nonatomic , strong) NSMutableArray *sugList;
 
 @end
 
@@ -61,17 +69,6 @@
     self.navigationItem.rightBarButtonItem = scanItem;
 }
 
--(EAMessageSearchFilterView *)filterView
-{
-    if (!_filterView) {
-        CGRect frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT -64);
-        
-        NSArray *items = @[@{@"name":@"1111",@"info":@"2222"} , @{@"name":@"3333",@"info":@"2222"} , @{@"name":@"4444",@"info":@"2222"}];
-        
-        _filterView = [[EAMessageSearchFilterView alloc]initWithFrame:frame items:items];
-    }
-    return _filterView;
-}
 
 -(EAMsgSearchHistoryView *)historyView
 {
@@ -94,12 +91,18 @@
     [self initNavbar];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 60) style:UITableViewStyleGrouped];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = HexColor(0xf7f7f7);
+    _tableView.allowsMultipleSelection = true;
     
     self.historyKeys = [[NSMutableArray alloc]init];
     NSArray *keys = [[NSUserDefaults standardUserDefaults] objectForKey:@"history_key"];
-    
-//    keys = @[@"abc",@"haha",@"消息",@"说些什么",@"dingding"];
     
     [self.historyKeys addObjectsFromArray:keys];
             
@@ -110,8 +113,42 @@
     }
     
     _objList = [NSMutableArray new];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell_id"];
+    UINib *nib = [UINib nibWithNibName:@"EAMsgSearchFilterTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cell_id"];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"sug_id"];
+    
+    self.header = [[EAMsgSearchFilterHeaderView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.width, 34)];
+    __weak typeof(self) wself = self;
+    _header.checkBlock = ^(BOOL checked) {
+        wself.checkAll = checked;
+        if (checked) {
+            for (NSInteger i = 0 ; i < wself.objList.count ; i++) {
+                [wself.chooedIndexDict setObject:@(YES) forKey:@(i)];
+                [wself.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:false scrollPosition:UITableViewScrollPositionNone];
+            }
+        }else{
+            [wself.chooedIndexDict removeAllObjects];
+            [wself.tableView reloadData];
+        }
+    };
+    
+    _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_confirmButton setBackgroundImage:SYS_IMG(@"message_btn") forState:UIControlStateNormal];
+    _confirmButton.frame = CGRectMake(18, self.view.height-50, self.view.width-36, 45);
+    _confirmButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    
+    [_confirmButton addTarget:self action:@selector(confirmAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_tableView];
+    [self.view addSubview:_confirmButton];
+    
+    self.view.backgroundColor = HexColor(0xf7f7f7);
+    
+    _chooedIndexDict = [NSMutableDictionary new];
+    _sugList = [NSMutableArray new];
+    
+    _confirmButton.hidden = true;
     
 }
 
@@ -126,11 +163,32 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.historyKeys forKey:@"history_key"];
 }
 
+-(void)confirmAction:(id)sender
+{
+
+    if (_chooseItemsBlock) {
+        NSMutableArray *items = [[NSMutableArray alloc]init];
+        NSArray *selected = [self.tableView indexPathsForSelectedRows];
+        
+        for (NSString *key in [_chooedIndexDict allKeys]) {
+            if ([_chooedIndexDict[key] boolValue]) {
+                NSInteger index = [key integerValue];
+                EAMsgSearchTipDataModel *m = _objList[index];
+                [items addObject:m];
+            }
+        }
+        
+        _chooseItemsBlock(items);
+    }
+    
+    [self.navigationController popViewControllerAnimated:true];
+}
+
 -(void)scanAction:(id)sender
 {
     EAScanViewController *controller = [EAScanViewController scanController];
     controller.doneBlock = ^(NSString *urlcode) {
-        
+        //TODO dosearch
     };
     [self.navigationController pushViewController:controller animated:true];
 }
@@ -151,9 +209,18 @@
             [self.objList removeAllObjects];
             [self.objList addObjectsFromArray:model.data];
             [self.tableView reloadData];
+            self.tableView.tableHeaderView = self.header;
+            self.confirmButton.hidden = false;
+        }else{
+            self.tableView.tableHeaderView = nil;
         }
     }];
     self.task = task;
+}
+
+-(void)sugSearch:(NSString *)input
+{
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -163,52 +230,96 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_isSug) {
+        return [_sugList count];
+    }
     return [_objList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_id"];
-    UIView *split = [cell.contentView viewWithTag:100];
-    if (!split) {
-        split = [[UIView alloc]initWithFrame:CGRectMake(0, 42, self.view.width, 0.5)];
-        split.backgroundColor = HexColor(0xf3f3f3);
-        split.tag = 100;
-        [cell.contentView addSubview:split];
+    
+    UITableViewCell *cell = nil;//[tableView dequeueReusableCellWithIdentifier:@"cell_id"];
+    if (_isSug) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"sug_id"];
+
+//        UIView *split = [cell.contentView viewWithTag:100];
+//        if (!split) {
+//            split = [[UIView alloc]initWithFrame:CGRectMake(0, 42, self.view.width, 0.5)];
+//            split.backgroundColor = HexColor(0xf3f3f3);
+//            split.tag = 100;
+//            [cell.contentView addSubview:split];
+//        }
+        EAMsgSearchTipDataModel *model = _objList[indexPath.row];
+        cell.textLabel.attributedText = [self titleFor:model.objName];
+        
+    }else{
+       
+        EAMsgSearchFilterTableViewCell *fcell = [tableView dequeueReusableCellWithIdentifier:@"cell_id"];
+        if (!fcell.chooseBlock) {
+            __weak typeof(self) wself = self;
+            fcell.chooseBlock = ^(EAMsgSearchFilterTableViewCell *c, id model, BOOL checked) {
+                NSInteger index = [wself.tableView indexPathForCell:c].row;
+                wself.chooedIndexDict[@(index)] = @(checked);
+            };
+        }
+        
+        EAMsgSearchTipDataModel *model = _objList[indexPath.row];
+        BOOL check = [self.chooedIndexDict[@(indexPath.row)] boolValue];
+        [fcell updateTitle:model.objName msg:model.objDesc checked:check];
+        
+        cell = fcell;
     }
-    EAMsgSearchTipDataModel *model = _objList[indexPath.row];
-    cell.textLabel.attributedText = [self titleFor:model.objName];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *key = self.searchBar.text;
-    NSInteger index =-1;
-    for (NSInteger i = 0 ; i  < self.historyKeys.count ; i++) {
-        NSString *str = self.historyKeys[i];
-        if ([str isEqualToString:key]) {
-            index = i;
-            break;
+    if (_isSug) {
+        NSString *key = self.searchBar.text;
+        NSInteger index =-1;
+        for (NSInteger i = 0 ; i  < self.historyKeys.count ; i++) {
+            NSString *str = self.historyKeys[i];
+            if ([str isEqualToString:key]) {
+                index = i;
+                break;
+            }
         }
+        if (index >= 0) {
+            [self.historyKeys removeObjectAtIndex:index];
+        }
+        [self.historyKeys insertObject:key atIndex:0];
+    }else{
+        self.chooedIndexDict[@(indexPath.row)] = @(YES);
     }
-    if (index >= 0) {
-        [self.historyKeys removeObjectAtIndex:index];
+    
+    
+    
+//    //show detail
+//    EAMsgSearchTipDataModel *model = _objList[indexPath.row];
+//    
+//    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]init];
+//    EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
+//    filterModel.objList = @[model.objId];
+//    [self.navigationController pushViewController:controller animated:true];    
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!_isSug) {
+        self.chooedIndexDict[@(indexPath.row)] = @(NO);
     }
-    [self.historyKeys insertObject:key atIndex:0];
-    
-    //show detail
-    EAMsgSearchTipDataModel *model = _objList[indexPath.row];
-    
-    EAMessageFilterResultViewController *controller = [[EAMessageFilterResultViewController alloc]init];
-    EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
-    filterModel.objList = @[model.objId];
-    [self.navigationController pushViewController:controller animated:true];    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 42.5;
+    if (_isSug) {
+        return 42.5;
+    }
+    return 65;
 }
 
 -(NSAttributedString *)titleFor:(NSString *)objName
@@ -226,6 +337,19 @@
     return title;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (_isSug) {
+        return CGFLOAT_MIN;
+    }
+    return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
 #pragma mark - uitextfield delegate
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -236,19 +360,26 @@
     
     return true;
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _isSug = true;
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSMutableString *content = [[NSMutableString alloc]initWithString:textField.text ];
     
     [content replaceCharactersInRange:range withString:string];
     
-    [self search:content];
+    [self sugSearch:content];
     
     return true;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    _isSug = false;
     [self search:textField.text];
     [textField resignFirstResponder];
     return true;

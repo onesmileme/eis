@@ -40,6 +40,8 @@
         
         [self addSubview:_checkView];
         [self addSubview:_titleLabel];
+        
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

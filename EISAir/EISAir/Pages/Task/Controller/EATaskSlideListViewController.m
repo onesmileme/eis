@@ -61,6 +61,7 @@
 {
     if (!_noDataView) {
         _noDataView = [EAMessageNoDataView view];
+        _noDataView.isTask = YES;
         __weak typeof(self) wself = self;
         _noDataView.tapBlock = ^{            
             [wself startHeadRefresh:wself.tableView];

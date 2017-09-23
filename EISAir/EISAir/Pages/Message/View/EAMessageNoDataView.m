@@ -32,7 +32,23 @@
     [super awakeFromNib];
     [self addGesture];
     
-    self.tipImageView.backgroundColor =[UIColor orangeColor];
+}
+
+-(void)setIsTask:(BOOL)isTask
+{
+    _isTask = isTask;
+    NSString *imgName = nil;
+    NSString *tip = nil;
+    if (_isTask) {
+        imgName = @"no_task";
+        tip = @"暂时没有相关任务";
+    }else{
+        imgName = @"no_message";
+        tip = @"暂时没有相关消息";
+    }
+    self.tipImageView.image = SYS_IMG(imgName);
+    self.tipLabel.text = tip;
+    
 }
 
 -(void)addGesture

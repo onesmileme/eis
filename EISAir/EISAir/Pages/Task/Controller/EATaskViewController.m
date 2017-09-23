@@ -21,6 +21,7 @@
 #import "EATaskFilterModel.h"
 #import "EATaskFilterResultViewController.h"
 #import "EATaskAddTableViewController.h"
+#import "EAMsgSearchTipModel.h"
 
 #define kSlideSwitchHeight 38
 
@@ -28,6 +29,8 @@
 
 @property (nonatomic, strong) NSArray *titleArray;       //标题
 @property (nonatomic, strong) NSArray *typeArray;
+
+@property (nonatomic, strong) NSArray *filterObjList;
 
 @end
 
@@ -115,14 +118,18 @@
     [filterView show];
     
 }
-
+/*
+ * 显示筛选是对象筛选还是状态筛选
+ */
 -(void)showFilterView:(BOOL)isState
 {
     EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     __weak typeof(self) wself = self;
     v.tapHeadBlock = ^(EAFilterView *fv , NSInteger section) {
-        [fv hide];
-        [wself showSearchPage];
+        if (!isState) {
+            [fv hide];
+            [wself showSearchPage:fv];
+        }
     };
     
     v.confirmBlock = ^(NSString *item, NSDate *startDate, NSDate *endDate) {
@@ -144,7 +151,14 @@
         
     }else{
         v.type = @"对象";
-        [v updateWithTags:nil hasDate:true showIndicator:true];
+        NSMutableArray *tags = nil;
+        if (_filterObjList.count > 0) {
+            tags = [[NSMutableArray alloc]init];
+            for (EAMsgSearchTipDataModel * m in self.filterObjList) {
+                [tags addObject:m.objName];
+            }
+        }
+        [v updateWithTags:tags hasDate:true showIndicator:true];
     }
     [self.view.window addSubview:v];
 }
@@ -158,9 +172,16 @@
 }
 
 
--(void)showSearchPage
+-(void)showSearchPage:(EAFilterView *)fv
 {
     EASearchViewController *controller = [[EASearchViewController alloc]initWithNibName:nil bundle:nil];
+    __weak typeof(self) wself = self;
+    controller.chooseItemsBlock = ^(NSArray<EAMsgSearchTipDataModel *> *items) {
+        wself.filterObjList = items;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself showFilterView:false];
+        });
+    };
     controller.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:controller animated:true];
 }

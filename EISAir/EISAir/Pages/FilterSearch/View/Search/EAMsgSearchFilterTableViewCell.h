@@ -14,4 +14,6 @@
 
 -(BOOL)checked;
 
+-(void)updateTitle:(NSString *)title msg:(NSString *)msg checked:(BOOL)checked;
+
 @end

@@ -6,8 +6,11 @@
 //  Copyright © 2017年 onesmile. All rights reserved.
 //
 
-#import "EABaseTableViewController.h"
+#import "EABaseViewController.h"
 
-@interface EASearchViewController : EABaseTableViewController
+@class EAMsgSearchTipDataModel;
+@interface EASearchViewController : EABaseViewController
+
+@property(nonatomic , copy) void (^chooseItemsBlock)(NSArray<EAMsgSearchTipDataModel *> *items);
 
 @end

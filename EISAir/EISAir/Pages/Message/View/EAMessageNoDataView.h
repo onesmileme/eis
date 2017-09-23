@@ -15,6 +15,8 @@
 
 @property(nonatomic , copy) void (^tapBlock)();
 
+@property(nonatomic , assign) BOOL isTask;
+
 +(instancetype)view;
 
 @end
