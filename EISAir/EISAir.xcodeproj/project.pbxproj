@@ -562,6 +562,10 @@
 		6E8740EB1F761753005EFA50 /* EAUserInfoModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740E91F761753005EFA50 /* EAUserInfoModifyViewController.m */; };
 		6E8740F01F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740EE1F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.m */; };
 		6E8740F11F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8740EF1F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.xib */; };
+		6E8740FC1F765550005EFA50 /* guide_6_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8740F81F765550005EFA50 /* guide_6_1.jpg */; };
+		6E8741071F766137005EFA50 /* guide_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741041F766137005EFA50 /* guide_6_2.jpg */; };
+		6E8741081F766137005EFA50 /* guide_6_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741051F766137005EFA50 /* guide_6_3.jpg */; };
+		6E8741091F766137005EFA50 /* guide_6_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741061F766137005EFA50 /* guide_6_4.jpg */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
@@ -1710,6 +1714,10 @@
 		6E8740ED1F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoMNameTableViewCell.h; sourceTree = "<group>"; };
 		6E8740EE1F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoMNameTableViewCell.m; sourceTree = "<group>"; };
 		6E8740EF1F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAUserInfoMNameTableViewCell.xib; sourceTree = "<group>"; };
+		6E8740F81F765550005EFA50 /* guide_6_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_1.jpg; sourceTree = "<group>"; };
+		6E8741041F766137005EFA50 /* guide_6_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_2.jpg; sourceTree = "<group>"; };
+		6E8741051F766137005EFA50 /* guide_6_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_3.jpg; sourceTree = "<group>"; };
+		6E8741061F766137005EFA50 /* guide_6_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide_6_4.jpg; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
@@ -3240,6 +3248,7 @@
 		6E6885621F43C71A009AD662 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E8740F71F765550005EFA50 /* guide */,
 				6EE9C4FD1F72AC50006C6CBC /* about.docx */,
 			);
 			path = Resources;
@@ -4200,6 +4209,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E8740F71F765550005EFA50 /* guide */ = {
+			isa = PBXGroup;
+			children = (
+				6E8740F81F765550005EFA50 /* guide_6_1.jpg */,
+				6E8741041F766137005EFA50 /* guide_6_2.jpg */,
+				6E8741051F766137005EFA50 /* guide_6_3.jpg */,
+				6E8741061F766137005EFA50 /* guide_6_4.jpg */,
+			);
+			path = guide;
+			sourceTree = "<group>";
+		};
 		6EE9C51C1F732714006C6CBC /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -4388,6 +4408,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8741071F766137005EFA50 /* guide_6_2.jpg in Resources */,
+				6E8741081F766137005EFA50 /* guide_6_3.jpg in Resources */,
 				6E4D93281F5BDD9000026B53 /* EAHomeHeaderView.xib in Resources */,
 				6E415F561F5AB0320078436F /* (null) in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
@@ -4427,12 +4449,14 @@
 				6E415EC71F51B2D70078436F /* EAMsgDetailInfoCell.xib in Resources */,
 				6E68867E1F43C71A009AD662 /* shanguangdeng2@2x.png in Resources */,
 				6E8740F11F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.xib in Resources */,
+				6E8740FC1F765550005EFA50 /* guide_6_1.jpg in Resources */,
 				6E415F261F52A2C40078436F /* EATaskStateDoingTableViewCell.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */,
 				53DB28BF1F6E520200FB2B0F /* js in Resources */,
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
+				6E8741091F766137005EFA50 /* guide_6_4.jpg in Resources */,
 				6EE9C5271F732739006C6CBC /* EAAddTaskInputCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

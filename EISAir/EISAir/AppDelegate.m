@@ -14,6 +14,9 @@
 #import "TKAccountManager.h"
 
 #import "EAFindPassordViewController.h"
+#import "EADefines.h"
+#import "TKGuideViewController.h"
+#import "TKAppInfo.h"
 
 @interface AppDelegate ()
 
@@ -43,11 +46,11 @@
 
     [EANetworkManager sharedInstance];
     
-
-//    [self checkShowGuide];
     if (![[TKAccountManager sharedInstance] isLogin]) {
         [self showLogin];
     }
+    
+    [self checkShowGuide];
     
     [NotificationCenter addObserver:self selector:@selector(loginDoneNotification:) name:kLoginDoneNotification object:nil];
     [NotificationCenter addObserver:self selector:@selector(logoutNotification:) name:kLogoutNotification object:nil];
@@ -105,13 +108,12 @@
     [self showLogin];
 }
 
-#if 0
+#if 1
 /**
  *  检查是否需要引导页
  */
-- (void)checkShowGuide
+- (BOOL)checkShowGuide
 {
-    self.isShowGuide = NO;
     NSString *lastShowVersion  = [[NSUserDefaults standardUserDefaults] objectForKey: kUserDefaultsFirstOpenTheApp];
     
     NSString *appVersion = [TKAppInfo appVersion];
@@ -121,14 +123,14 @@
         
         NSMutableArray * images = [[NSMutableArray alloc]init];
         
-        for (int index = 1; index <= 3; index++)
+        for (int index = 1; index <= 4; index++)
         {
             UIImage *image;
-            if (IsIphone4x) {
-                image = [UIImage imageNamed: [NSString stringWithFormat: @"appfac_guide_%d_4.jpg",index]];
-            }else{
-                image = [UIImage imageNamed: [NSString stringWithFormat: @"appfac_guide_%d_6s.jpg",index]];
-            }
+//            if (IsIphone4x) {
+//                image = [UIImage imageNamed: [NSString stringWithFormat: @"guide_%d_4.jpg",index]];
+//            }else{
+                image = [UIImage imageNamed: [NSString stringWithFormat: @"guide_6_%d.jpg",index]];
+//            }
             
             if (image) {
                 [images addObject:image];
@@ -136,7 +138,6 @@
         }
         
         if (images.count > 0) {
-            self.isShowGuide = true;
             TKGuideViewController *controller = [[TKGuideViewController alloc]initWithNibName:nil bundle:nil];
             
             controller.guideImages = images;
@@ -144,13 +145,16 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                [self.rootNavController presentViewController:controller animated:false completion:nil];
+                [self.window.rootViewController presentViewController:controller animated:false completion:nil];
             });
             
         }
         
         [[NSUserDefaults standardUserDefaults] setObject:appVersion forKey: kUserDefaultsFirstOpenTheApp];
+        
+        return YES;
     }
+    return NO;
 }
 
 #endif
