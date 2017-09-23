@@ -18,6 +18,16 @@
     
     self.avatarImageView.layer.cornerRadius = self.avatarImageView.width/2;
     self.avatarImageView.layer.masksToBounds = true;
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAvatarAction:)];
+    [self.avatarImageView addGestureRecognizer:gesture];
+}
+
+-(void)tapAvatarAction:(UITapGestureRecognizer *)gesture
+{
+    if (_tapAvatarBlock) {
+        _tapAvatarBlock();
+    }
 }
 
 -(void)updateModel:(EALoginUserInfoDataModel *)model

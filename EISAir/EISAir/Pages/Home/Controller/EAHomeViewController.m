@@ -14,6 +14,7 @@
 #import "EAPushManager.h"
 #import "TKRequestHandler+User.h"
 #import "EAProjectTableViewController.h"
+#import "EAUserInfoViewController.h"
 
 @interface EAHomeViewController ()
 
@@ -54,6 +55,11 @@
     
     EALoginUserInfoDataModel *model = [TKAccountManager sharedInstance].loginUserInfo;
     [self.headerView updateModel:model];
+    
+    __weak typeof(self) wself = self;
+    self.headerView.tapAvatarBlock = ^{
+        [wself showUserInfo];
+    };
     
     [self loadUserInfo];
 }
@@ -178,6 +184,13 @@
         default:
             break;
     }
+}
+
+-(void)showUserInfo
+{
+    EAUserInfoViewController *controller = [EAUserInfoViewController controller];
+    controller.userInfo = [TKAccountManager sharedInstance].loginUserInfo;
+    [self.navigationController pushViewController:controller animated:true];
 }
 
 /*

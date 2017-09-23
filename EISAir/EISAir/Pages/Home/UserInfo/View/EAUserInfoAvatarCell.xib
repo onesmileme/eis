@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="EAUserInfoAvatarCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKP-ot-DkD" userLabel="avatarLabel">
+                        <rect key="frame" x="15" y="19.5" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="3G5-3R-2up"/>
+                            <constraint firstAttribute="width" constant="42" id="Omm-e0-Nb2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_avatar_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ir5-QO-AmA">
+                        <rect key="frame" x="238" y="11" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37.5" id="9G3-if-cnK"/>
+                            <constraint firstAttribute="height" constant="37.5" id="Uc2-ze-c8d"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zuv-40-uMU" userLabel="avatar">
+                        <rect key="frame" x="240" y="13" width="33" height="33"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zuv-40-uMU" firstAttribute="trailing" secondItem="Ir5-QO-AmA" secondAttribute="trailing" constant="-2" id="3ZD-H8-E4a"/>
+                    <constraint firstItem="zuv-40-uMU" firstAttribute="bottom" secondItem="Ir5-QO-AmA" secondAttribute="bottom" constant="-2" id="4bh-S6-0Y1"/>
+                    <constraint firstItem="mKP-ot-DkD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4kU-wD-VMc"/>
+                    <constraint firstItem="zuv-40-uMU" firstAttribute="leading" secondItem="Ir5-QO-AmA" secondAttribute="leading" constant="2" id="PXk-sM-mHQ"/>
+                    <constraint firstItem="zuv-40-uMU" firstAttribute="top" secondItem="Ir5-QO-AmA" secondAttribute="top" constant="2" id="PkP-gp-rGo"/>
+                    <constraint firstItem="mKP-ot-DkD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="acI-kf-Snl"/>
+                    <constraint firstItem="Ir5-QO-AmA" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-12" id="dxl-Ve-W9q"/>
+                    <constraint firstItem="Ir5-QO-AmA" firstAttribute="centerY" secondItem="mKP-ot-DkD" secondAttribute="centerY" id="xZA-lY-guC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImageView" destination="zuv-40-uMU" id="vhl-u7-DcE"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="set_avatar_bg" width="91" height="91"/>
+    </resources>
+</document>

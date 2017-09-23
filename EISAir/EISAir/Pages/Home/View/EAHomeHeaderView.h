@@ -22,6 +22,8 @@
 
 @property(nonatomic , strong) IBOutlet NSLayoutConstraint *tipWidthConstraint;
 
+@property(nonatomic , copy) void (^tapAvatarBlock)();
+
 -(void)updateModel:(EALoginUserInfoDataModel *)model;
 
 @end

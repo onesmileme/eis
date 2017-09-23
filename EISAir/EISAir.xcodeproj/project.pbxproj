@@ -554,6 +554,13 @@
 		6E8740BE1F732AFF005EFA50 /* EATaskItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740BD1F732AFF005EFA50 /* EATaskItemModel.m */; };
 		6E8740C61F7413C0005EFA50 /* EATaskFilterChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740C51F7413C0005EFA50 /* EATaskFilterChooseView.m */; };
 		6E8740C91F741B76005EFA50 /* EATaskFilterResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740C81F741B76005EFA50 /* EATaskFilterResultViewController.m */; };
+		6E8740D71F75F889005EFA50 /* EAUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740D61F75F889005EFA50 /* EAUserInfoViewController.m */; };
+		6E8740DB1F75F910005EFA50 /* EAUserInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740D91F75F910005EFA50 /* EAUserInfoAvatarCell.m */; };
+		6E8740DC1F75F910005EFA50 /* EAUserInfoAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8740DA1F75F910005EFA50 /* EAUserInfoAvatarCell.xib */; };
+		6E8740E31F76018A005EFA50 /* EAModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740E11F76018A005EFA50 /* EAModifyPasswordViewController.m */; };
+		6E8740E71F76076B005EFA50 /* EAModifyPasswordItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740E61F76076B005EFA50 /* EAModifyPasswordItemView.m */; };
+		6E8740EB1F761753005EFA50 /* EAUserInfoModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8740E91F761753005EFA50 /* EAUserInfoModifyViewController.m */; };
+		6E8740EC1F761753005EFA50 /* EAUserInfoModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8740EA1F761753005EFA50 /* EAUserInfoModifyViewController.xib */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
@@ -1688,6 +1695,18 @@
 		6E8740C51F7413C0005EFA50 /* EATaskFilterChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskFilterChooseView.m; sourceTree = "<group>"; };
 		6E8740C71F741B76005EFA50 /* EATaskFilterResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskFilterResultViewController.h; sourceTree = "<group>"; };
 		6E8740C81F741B76005EFA50 /* EATaskFilterResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskFilterResultViewController.m; sourceTree = "<group>"; };
+		6E8740D51F75F889005EFA50 /* EAUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoViewController.h; sourceTree = "<group>"; };
+		6E8740D61F75F889005EFA50 /* EAUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoViewController.m; sourceTree = "<group>"; };
+		6E8740D81F75F910005EFA50 /* EAUserInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoAvatarCell.h; sourceTree = "<group>"; };
+		6E8740D91F75F910005EFA50 /* EAUserInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoAvatarCell.m; sourceTree = "<group>"; };
+		6E8740DA1F75F910005EFA50 /* EAUserInfoAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAUserInfoAvatarCell.xib; sourceTree = "<group>"; };
+		6E8740E01F76018A005EFA50 /* EAModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAModifyPasswordViewController.h; sourceTree = "<group>"; };
+		6E8740E11F76018A005EFA50 /* EAModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAModifyPasswordViewController.m; sourceTree = "<group>"; };
+		6E8740E51F76076B005EFA50 /* EAModifyPasswordItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAModifyPasswordItemView.h; sourceTree = "<group>"; };
+		6E8740E61F76076B005EFA50 /* EAModifyPasswordItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAModifyPasswordItemView.m; sourceTree = "<group>"; };
+		6E8740E81F761753005EFA50 /* EAUserInfoModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoModifyViewController.h; sourceTree = "<group>"; };
+		6E8740E91F761753005EFA50 /* EAUserInfoModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoModifyViewController.m; sourceTree = "<group>"; };
+		6E8740EA1F761753005EFA50 /* EAUserInfoModifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAUserInfoModifyViewController.xib; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
@@ -3053,6 +3072,7 @@
 		6E4D93191F5BDD3400026B53 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6E8740D11F75F87E005EFA50 /* UserInfo */,
 				6E70159B1F7162A40006C2E9 /* Project */,
 				6E4D931A1F5BDD3400026B53 /* Controller */,
 				6E4D931B1F5BDD3400026B53 /* Model */,
@@ -3088,6 +3108,8 @@
 				6E4D932C1F5BED7600026B53 /* EAHomeTableViewCell.h */,
 				6E4D932D1F5BED7600026B53 /* EAHomeTableViewCell.m */,
 				6E4D932E1F5BED7600026B53 /* EAHomeTableViewCell.xib */,
+				6E8740E51F76076B005EFA50 /* EAModifyPasswordItemView.h */,
+				6E8740E61F76076B005EFA50 /* EAModifyPasswordItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4132,6 +4154,47 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E8740D11F75F87E005EFA50 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6E8740D21F75F87E005EFA50 /* Controller */,
+				6E8740D31F75F87E005EFA50 /* Model */,
+				6E8740D41F75F87E005EFA50 /* View */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		6E8740D21F75F87E005EFA50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E8740D51F75F889005EFA50 /* EAUserInfoViewController.h */,
+				6E8740D61F75F889005EFA50 /* EAUserInfoViewController.m */,
+				6E8740E01F76018A005EFA50 /* EAModifyPasswordViewController.h */,
+				6E8740E11F76018A005EFA50 /* EAModifyPasswordViewController.m */,
+				6E8740E81F761753005EFA50 /* EAUserInfoModifyViewController.h */,
+				6E8740E91F761753005EFA50 /* EAUserInfoModifyViewController.m */,
+				6E8740EA1F761753005EFA50 /* EAUserInfoModifyViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E8740D31F75F87E005EFA50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E8740D41F75F87E005EFA50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E8740D81F75F910005EFA50 /* EAUserInfoAvatarCell.h */,
+				6E8740D91F75F910005EFA50 /* EAUserInfoAvatarCell.m */,
+				6E8740DA1F75F910005EFA50 /* EAUserInfoAvatarCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6EE9C51C1F732714006C6CBC /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -4337,6 +4400,7 @@
 				6E415F331F52B0620078436F /* EATaskDetailEditViewController.xib in Resources */,
 				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
+				6E8740DC1F75F910005EFA50 /* EAUserInfoAvatarCell.xib in Resources */,
 				6E6886751F43C71A009AD662 /* AssetsPickerChecked.png in Resources */,
 				6EE9C52C1F73274D006C6CBC /* EAAddTaskDateCell.xib in Resources */,
 				6E6885401F433C49009AD662 /* LaunchScreen.storyboard in Resources */,
@@ -4364,6 +4428,7 @@
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
 				6EE9C5271F732739006C6CBC /* EAAddTaskInputCell.xib in Resources */,
+				6E8740EC1F761753005EFA50 /* EAUserInfoModifyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4616,6 +4681,7 @@
 				6E415EFF1F5267B70078436F /* EAMsgSearchFilterHeaderView.m in Sources */,
 				6E4D93261F5BDD8500026B53 /* EAHomeHeaderView.m in Sources */,
 				53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */,
+				6E8740E71F76076B005EFA50 /* EAModifyPasswordItemView.m in Sources */,
 				6E415E611F5171D10078436F /* ZXCode128Reader.m in Sources */,
 				6E415E861F5171D10078436F /* ZXPDF417Detector.m in Sources */,
 				6E415E3A1F5171D10078436F /* ZXDataMatrixReader.m in Sources */,
@@ -4770,6 +4836,7 @@
 				6E415E691F5171D10078436F /* ZXEAN8Writer.m in Sources */,
 				53DB28A71F6E51E600FB2B0F /* PYTreeSeries.m in Sources */,
 				6E6386BF1F49993600017FB8 /* EAMessageSlideListViewController.m in Sources */,
+				6E8740D71F75F889005EFA50 /* EAUserInfoViewController.m in Sources */,
 				6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */,
 				6E415E821F5171D10078436F /* ZXPDF417DetectionResult.m in Sources */,
 				6E415EC01F51B2980078436F /* EAMsgDetailViewController.m in Sources */,
@@ -4813,6 +4880,7 @@
 				FA3421551F717B11001D9FDC /* EAReportCell.m in Sources */,
 				6E6885321F433C49009AD662 /* main.m in Sources */,
 				FA3421431F7170CD001D9FDC /* EASheBeiHeader.m in Sources */,
+				6E8740EB1F761753005EFA50 /* EAUserInfoModifyViewController.m in Sources */,
 				6E415F141F5272220078436F /* EATaskDetailViewController.m in Sources */,
 				6E6886D21F45124B009AD662 /* EAImageItemModel.m in Sources */,
 				6E6886D01F45124B009AD662 /* EABaseImageModel.m in Sources */,
@@ -4827,6 +4895,7 @@
 				6E415DFC1F5171D10078436F /* ZXVCardResultParser.m in Sources */,
 				6E6886491F43C71A009AD662 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
 				FA34213D1F716DC4001D9FDC /* EASingleKongJianVC.m in Sources */,
+				6E8740E31F76018A005EFA50 /* EAModifyPasswordViewController.m in Sources */,
 				6E415DFE1F5171D10078436F /* ZXVINParsedResult.m in Sources */,
 				6E6886711F43C71A009AD662 /* TTTAttributedLabel.m in Sources */,
 				6E4D932B1F5BE88300026B53 /* EAHomeFooterView.m in Sources */,
@@ -4918,6 +4987,7 @@
 				6E4D93341F68312B00026B53 /* EAMsgFilterTagModel.m in Sources */,
 				6E415EA71F5171D10078436F /* ZXMultiDetector.m in Sources */,
 				6E415DD91F5171D10078436F /* ZXAztecState.m in Sources */,
+				6E8740DB1F75F910005EFA50 /* EAUserInfoAvatarCell.m in Sources */,
 				6E415DE11F5171D10078436F /* ZXAddressBookParsedResult.m in Sources */,
 				6E68864C1F43C71A009AD662 /* NSObject+BKBlockExecution.m in Sources */,
 				6E6886811F43C71A009AD662 /* ZLCamera.m in Sources */,
