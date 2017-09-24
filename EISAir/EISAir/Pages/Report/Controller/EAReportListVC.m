@@ -44,7 +44,8 @@ static NSString *const kReportTypeSpecial = @"special";
     _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
     
-    [self requestData];
+    [self addHeaderRefreshView:_tableView];
+    [self loadDataWithPage:0];
 }
 
 - (NSString *)reportType {
@@ -61,26 +62,33 @@ static NSString *const kReportTypeSpecial = @"special";
     return kReportTypeDay;
 }
 
-- (void)requestData {
+- (void)loadDataWithPage:(int)page {
     NSDictionary *params = @{
                              @"reportType": [self reportType],
-                             @"pageNum": @(_page + 1),
+                             @"pageNum": @(page),
                              @"pageSize": @(kEISRequestPageSize),
                              };
     weakify(self);
     [TKRequestHandler postWithPath:@"/eis/open/report/findEisReportOfReceive" params:params jsonModelClass:EAReportListModel.class completion:^(id model, NSError *error) {
         strongify(self);
-        [self requestDataComplete:model];
+        [self loadDataComplete:model page:page];
     }];
 }
 
-- (void)requestDataComplete:(id)aModel {
+- (void)loadDataComplete:(id)aModel page:(int)page {
+    [self stopRefresh:_tableView];
     EAReportListModel *model = aModel;
     if (model) {
         if (model.data.list.count) {
-            _page++;
+            _page = page;
+            if (page == 0) {
+                [_dataArray removeAllObjects];
+            }
             [_dataArray addObjectsFromArray:model.data.list];
             [_tableView reloadData];
+            if (model.data.list.count < kEISRequestPageSize) {
+                
+            }
         } else {
             _requestFinished = YES;
         }
