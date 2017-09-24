@@ -49,10 +49,13 @@
     _nameLabel.text = model.personName;
     _jobLabel.text = model.roleName;
     
-    
-    self.doneCountLabel.attributedText = [self countStr:25];
-    self.recordCountLabel.attributedText = [self countStr:10];
-    self.reportCountLabel.attributedText = [self countStr:8];
+}
+
+-(void)updateTask:(NSInteger)task record:(NSInteger)record report:(NSInteger)report
+{
+    self.doneCountLabel.attributedText = [self countStr:task];
+    self.recordCountLabel.attributedText = [self countStr:record];
+    self.reportCountLabel.attributedText = [self countStr:report];
 }
 
 -(NSAttributedString *)countStr:(NSInteger)count

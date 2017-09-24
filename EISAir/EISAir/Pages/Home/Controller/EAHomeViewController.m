@@ -15,6 +15,7 @@
 #import "TKRequestHandler+User.h"
 #import "EAProjectTableViewController.h"
 #import "EAUserInfoViewController.h"
+#import "TKRequestHandler+User.h"
 
 @interface EAHomeViewController ()
 
@@ -82,6 +83,12 @@
             [self.headerView updateModel:model.data];
             [TKAccountManager sharedInstance].loginUserInfo = model.data;
             [[TKAccountManager sharedInstance] save];
+        }
+    }];
+    
+    [[TKRequestHandler sharedInstance]findCountByUserCompletion:^(NSURLSessionDataTask *task, NSInteger taskCount, NSInteger workRecordCount, NSInteger reportCount, NSError *error) {
+        if (error == nil) {
+            [self.headerView updateTask:taskCount record:workRecordCount report:reportCount];
         }
     }];
 }

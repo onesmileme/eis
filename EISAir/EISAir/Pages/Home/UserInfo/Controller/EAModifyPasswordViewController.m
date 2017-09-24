@@ -9,6 +9,7 @@
 #import "EAModifyPasswordViewController.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "EAModifyPasswordItemView.h"
+#import "TKRequestHandler+UserInfo.h"
 
 @interface EAModifyPasswordViewController ()<UITextFieldDelegate>
 
@@ -80,12 +81,28 @@
 -(void)saveAction:(id)sender
 {
     
-    if (_confirmPwdView.textField.text.length == 0 || _setPwdView.textField.text.length == 0 || _confirmPwdView.textField.text.length == 0) {
+    if (_oldPwdView.textField.text.length == 0 || _setPwdView.textField.text.length == 0 || _confirmPwdView.textField.text.length == 0) {
+        [EATools showToast:@"请输入旧密码和新密码"];
         return;
     }
     
-    //TODO call modify password
+    if (![_setPwdView.textField.text isEqualToString:_confirmPwdView.textField.text]) {
+        [EATools showToast:@"两次密码不一致"];
+        return;
+    }
     
+    
+    //TODO call modify password
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
+    [[TKRequestHandler sharedInstance]modifyPassword:_setPwdView.textField.text oldPassword:_oldPwdView.textField.text completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
+        if (success) {
+            [hud hideAnimated:true];
+            [self.navigationController popViewControllerAnimated:true];
+        }else{
+            hud.label.text = @"修改密码失败";
+            [hud hideAnimated:true afterDelay:1];
+        }
+    }];
     
 }
 

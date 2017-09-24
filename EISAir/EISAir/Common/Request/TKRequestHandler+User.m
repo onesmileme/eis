@@ -15,12 +15,13 @@
 
 +(void)load
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSString *path = [NSString stringWithFormat:@"%@/eis/open/object/findSpaceAssetType", AppHost];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //GET /eis/open/user/findCountByUser
+        NSString *path = [NSString stringWithFormat:@"%@/eis/open/user/findCountByUser", AppHost];
         EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
-        NSDictionary *param = @{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
+        NSDictionary *param = nil;//@{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
         
-        [[TKRequestHandler sharedInstance] postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        [[TKRequestHandler sharedInstance] getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
             
             if (error) {
                 NSLog(@"error is: \n%@",error);
@@ -66,6 +67,37 @@
         
         if (completion) {
             completion(sessionDataTask,(EALoginUserInfoModel *)model,error);
+        }
+        
+    }];
+}
+//findCountByUser
+-(NSURLSessionDataTask *)findCountByUserCompletion:(void(^)(NSURLSessionDataTask *task , NSInteger taskCount , NSInteger workRecordCount , NSInteger reportCount , NSError *error))completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findCountByUser",AppHost];
+    
+    return [self getRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        
+        NSInteger taskCount = 0;
+        NSInteger workRecordCount = 0;
+        NSInteger reportCount = 0;
+        
+        if (completion) {
+            if (error == nil && response[@"data"]) {
+                NSDictionary *data = response[@"data"];
+                if ([data[@"taskCount"] respondsToSelector:@selector(integerValue)]) {
+                    taskCount = [data[@"taskCount"] integerValue];
+                }
+                
+                if ([data[@"workRecordCount"] respondsToSelector:@selector(integerValue)]) {
+                    workRecordCount = [data[@"workRecordCount"] integerValue];
+                }
+                if ([data[@"reportCount"] respondsToSelector:@selector(integerValue)]) {
+                    reportCount = [data[@"reportCount"]integerValue];
+                }
+            }
+            
+            completion(sessionDataTask,taskCount,workRecordCount,reportCount,error);
         }
         
     }];

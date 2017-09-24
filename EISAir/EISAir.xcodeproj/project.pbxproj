@@ -574,10 +574,12 @@
 		6E87411B1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741191F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m */; };
 		6E87411C1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E87411A1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib */; };
 		6E87411F1F76F476005EFA50 /* EATaskAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */; };
+		6E8741231F7805DC005EFA50 /* TKRequestHandler+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741221F7805DC005EFA50 /* TKRequestHandler+UserInfo.m */; };
+		6E8741281F7805F3005EFA50 /* EAUserInfoFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741271F7805F3005EFA50 /* EAUserInfoFilterModel.m */; };
+		6E87412A1F781086005EFA50 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741291F781086005EFA50 /* about.html */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
-		6EE9C5001F72AC50006C6CBC /* about.docx in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9C4FD1F72AC50006C6CBC /* about.docx */; };
 		6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */; };
 		6EE9C50D1F72B559006C6CBC /* EAUserDataModel+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */; };
 		6EE9C5221F732715006C6CBC /* EATaskAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C51F1F732714006C6CBC /* EATaskAddTableViewController.m */; };
@@ -1746,13 +1748,17 @@
 		6E87411A1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EATaskHandleFeekbackTableViewCell.xib; sourceTree = "<group>"; };
 		6E87411D1F76F476005EFA50 /* EATaskAddCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATaskAddCollectionViewCell.h; sourceTree = "<group>"; };
 		6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATaskAddCollectionViewCell.m; sourceTree = "<group>"; };
+		6E8741211F7805DC005EFA50 /* TKRequestHandler+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+UserInfo.h"; sourceTree = "<group>"; };
+		6E8741221F7805DC005EFA50 /* TKRequestHandler+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+UserInfo.m"; sourceTree = "<group>"; };
+		6E8741261F7805F3005EFA50 /* EAUserInfoFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoFilterModel.h; sourceTree = "<group>"; };
+		6E8741271F7805F3005EFA50 /* EAUserInfoFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoFilterModel.m; sourceTree = "<group>"; };
+		6E8741291F781086005EFA50 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
 		6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryHeaderView.m; sourceTree = "<group>"; };
-		6EE9C4FD1F72AC50006C6CBC /* about.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = about.docx; sourceTree = "<group>"; };
 		6EE9C5011F72AC65006C6CBC /* EAAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAboutViewController.h; sourceTree = "<group>"; };
 		6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAboutViewController.m; sourceTree = "<group>"; };
 		6EE9C50B1F72B559006C6CBC /* EAUserDataModel+Pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EAUserDataModel+Pinyin.h"; sourceTree = "<group>"; };
@@ -3294,7 +3300,7 @@
 			isa = PBXGroup;
 			children = (
 				6E8740F71F765550005EFA50 /* guide */,
-				6EE9C4FD1F72AC50006C6CBC /* about.docx */,
+				6E8741291F781086005EFA50 /* about.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -4250,6 +4256,10 @@
 		6E8740D31F75F87E005EFA50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E8741211F7805DC005EFA50 /* TKRequestHandler+UserInfo.h */,
+				6E8741221F7805DC005EFA50 /* TKRequestHandler+UserInfo.m */,
+				6E8741261F7805F3005EFA50 /* EAUserInfoFilterModel.h */,
+				6E8741271F7805F3005EFA50 /* EAUserInfoFilterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4477,7 +4487,6 @@
 				6E4D93281F5BDD9000026B53 /* EAHomeHeaderView.xib in Resources */,
 				6E415F561F5AB0320078436F /* (null) in Resources */,
 				6E415B791F5109740078436F /* EALoginViewController.xib in Resources */,
-				6EE9C5001F72AC50006C6CBC /* about.docx in Resources */,
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
 				6E68867B1F43C71A009AD662 /* shanguangdeng.png in Resources */,
 				6E415F1C1F527A630078436F /* EATaskStateInfoTableViewCell.xib in Resources */,
@@ -4485,6 +4494,7 @@
 				6E6886791F43C71A009AD662 /* paizhao.png in Resources */,
 				6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */,
 				6E68867C1F43C71A009AD662 /* shanguangdeng@2x.png in Resources */,
+				6E87412A1F781086005EFA50 /* about.html in Resources */,
 				6E4D93301F5BED7600026B53 /* EAHomeTableViewCell.xib in Resources */,
 				6E6886971F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.xib in Resources */,
 				6E415F211F527A770078436F /* EATaskStateTableViewCell.xib in Resources */,
@@ -4943,6 +4953,7 @@
 				53DB289D1F6E51E600FB2B0F /* PYFunnelSeries.m in Sources */,
 				6E415E561F5171D10078436F /* ZXRSSExpandedPair.m in Sources */,
 				FADB16261F72C0BB003C7E13 /* EAReportFilterBar.m in Sources */,
+				6E8741231F7805DC005EFA50 /* TKRequestHandler+UserInfo.m in Sources */,
 				5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */,
 				6E415F551F585E8D0078436F /* TKRequestHandler+Message.m in Sources */,
 				5330A8E91F59037F00F8E07E /* TKRequestHandler+Record.m in Sources */,
@@ -4977,6 +4988,7 @@
 				6E68864F1F43C71A009AD662 /* NSSet+BlocksKit.m in Sources */,
 				6E6886601F43C71A009AD662 /* UITextField+BlocksKit.m in Sources */,
 				FA3421551F717B11001D9FDC /* EAReportCell.m in Sources */,
+				6E8741281F7805F3005EFA50 /* EAUserInfoFilterModel.m in Sources */,
 				6E6885321F433C49009AD662 /* main.m in Sources */,
 				FA3421431F7170CD001D9FDC /* EASheBeiHeader.m in Sources */,
 				6E8740EB1F761753005EFA50 /* EAUserInfoModifyViewController.m in Sources */,

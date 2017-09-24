@@ -26,4 +26,6 @@
 
 -(void)updateModel:(EALoginUserInfoDataModel *)model;
 
+-(void)updateTask:(NSInteger)task record:(NSInteger)record report:(NSInteger)report;
+
 @end

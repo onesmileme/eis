@@ -22,4 +22,7 @@
  */
 -(NSURLSessionDataTask *)findLoginUserCompletion:(void(^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion;
 
+-(NSURLSessionDataTask *)findCountByUserCompletion:(void(^)(NSURLSessionDataTask *task , NSInteger taskCount , NSInteger workRecordCount , NSInteger reportCount , NSError *error))completion;
+
+
 @end

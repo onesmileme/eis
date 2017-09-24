@@ -26,7 +26,7 @@
     _webView = [[WKWebView alloc]initWithFrame:self.view.bounds];
     _webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"docx"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"];
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     

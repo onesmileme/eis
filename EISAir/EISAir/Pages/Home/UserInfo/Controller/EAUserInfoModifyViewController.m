@@ -12,6 +12,8 @@
 #import "EALoginUserInfoModel.h"
 #import "EAUserInfoMNameTableViewCell.h"
 #import "TKImagePickerHelper.h"
+#import "TKRequestHandler+UserInfo.h"
+#import "TKAccountManager.h"
 
 @interface EAUserInfoModifyViewController ()<UITextFieldDelegate>
 
@@ -57,6 +59,27 @@
 {
     
     //TODO call modify password
+    EAUserInfoFilterModel *filterModel = [[EAUserInfoFilterModel alloc]init];
+    if (_nameTextField.text.length > 0) {
+        filterModel.name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    }
+    
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view.window];
+    __weak typeof(self) wself = self;
+    [[TKRequestHandler sharedInstance] updateUserInfo:filterModel completion:^(NSURLSessionDataTask *task, EALoginUserInfoModel *model, NSError *error) {
+        if (model.success) {
+            [hud hideAnimated:true];
+            [TKAccountManager sharedInstance].loginUserInfo = model.data;
+            [[TKAccountManager sharedInstance] save];
+            if (wself.modifyUserInfoBlock) {
+                wself.modifyUserInfoBlock(model.data);
+            }
+            [self.navigationController popViewControllerAnimated:true];
+        }else{
+            hud.label.text = model.msg?:@"更改信息失败";
+            [hud hideAnimated:true afterDelay:1];
+        }
+    }];
     
     
 }

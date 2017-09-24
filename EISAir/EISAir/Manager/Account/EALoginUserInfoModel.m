@@ -94,3 +94,43 @@
 
 @end
 
+
+@implementation EALoginUserInfoDataLevelsModel
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
+@end
+
+@implementation EALoginUserInfoDataRolesModel
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++(JSONKeyMapper *)keyMapper
+{
+    NSDictionary *dict = @{@"desc":@"description",@"rid":@"id"};
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
+}
+
+
+@end
+
+@implementation EALoginUserInfoDataProductsModel
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++(JSONKeyMapper *)keyMapper
+{
+    NSDictionary *dict = @{@"desc":@"description",@"pid":@"id"};
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:dict];
+}
+
+@end

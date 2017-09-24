@@ -12,5 +12,6 @@
 @interface EAUserInfoModifyViewController : EABaseTableViewController
 
 @property(nonatomic , strong)  EALoginUserInfoDataModel *userInfo;
+@property(nonatomic , copy)    void(^modifyUserInfoBlock)(EALoginUserInfoDataModel *userInfo);
 
 @end

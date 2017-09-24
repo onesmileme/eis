@@ -72,8 +72,6 @@
         
     }else{
         
-        
-        
         if (indexPath.row == 0 || indexPath.row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"info_cell"];
             if (!cell) {
@@ -151,6 +149,11 @@
 -(void)showModifyController
 {
     EAUserInfoModifyViewController *controller = [[EAUserInfoModifyViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    __weak typeof(self) wself = self;
+    controller.modifyUserInfoBlock = ^(EALoginUserInfoDataModel *userInfo) {
+        wself.userInfo = userInfo;
+        [wself.tableView reloadData];
+    };
     controller.userInfo = self.userInfo;
     [self.navigationController pushViewController:controller animated:true];
 }
