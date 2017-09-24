@@ -13,6 +13,7 @@
 #import "EAUserModel.h"
 #import "EAChooseObjVC.h"
 #import "EAMsgSearchTipModel.h"
+#import "NSString+JSON.h"
 
 @interface EAAddRecordVC ()
 
@@ -266,14 +267,15 @@
     __block NSString *toast = nil;
     if (EAAddRecordTypeText == _type) {
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (!obj.inputText.length) {
+            NSString *inputText = TrimStr(obj.inputText);
+            if (!inputText.length) {
                 if (0 == idx) {
                     toast = @"请输入记录名称";
                 } else if (1 == idx) {
                     toast = @"请选择对象";
                 }
             }
-            if (2 == idx && obj.inputText.length < 3) {
+            if (2 == idx && inputText.length < 3) {
                 toast = @"请输入记录内容(3-50字)";
             }
             if (toast.length) {
@@ -282,7 +284,8 @@
         }];
     } else if (EAAddRecordTypeNumber == _type) {
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (!obj.inputText.length) {
+            NSString *inputText = TrimStr(obj.inputText);
+            if (!inputText.length) {
                 if (0 == idx) {
                     toast = @"请输入记录名称";
                 } else if (1 == idx) {
@@ -295,7 +298,7 @@
                     toast = @"请选择点位代表时间";
                 }
             }
-            if (5 == idx && obj.inputText.length < 3) {
+            if (5 == idx && inputText.length < 3) {
                 toast = @"请输入记录内容(3-50字)";
             }
             if (toast.length) {
@@ -304,7 +307,8 @@
         }];
     } else if (EAAddRecordTypeRelation == _type) {
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (!obj.inputText.length) {
+            NSString *inputText = TrimStr(obj.inputText);
+            if (!inputText.length) {
                 if (0 == idx) {
                     toast = @"请选择关系类型";
                 } else if (1 == idx) {
@@ -329,22 +333,62 @@
 
 - (NSDictionary *)paramsForSubmit {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"objectType"] = self.objectType;
+    params[@"recordType"] = self.recordType;
+    if (EAAddRecordTypeText == _type) {
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *inputText = ToSTR(TrimStr(obj.inputText));
+            if (0 == idx) {
+                params[@"recordName"] = inputText;
+            } else if (2 == idx) {
+                params[@"recordContent"] = inputText;
+            }
+        }];
+        params[@"objType"] = _firstModel.objType;
+        if (_user.uid.length) {
+            params[@"assignPersonIds"] = _user.uid;
+        }
+        params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
+    } else if (EAAddRecordTypeNumber == _type) {
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *inputText = ToSTR(TrimStr(obj.inputText));
+                if (0 == idx) {
+                    params[@"recordName"] = inputText;
+                } else if (2 == idx) {
+                    params[@"recordValue"] = inputText;
+                } else if (5 == idx) {
+                    params[@"recordContent"] = inputText;
+                } else if (3 == idx) {
+                    params[@"pointReadTime"] = @((long long)([obj.selectedDate timeIntervalSince1970] * 1000));
+                } else if (4 == idx) {
+                    params[@"pointDeputyEndTime"] = @((long long)([obj.selectedDate timeIntervalSince1970] * 1000));
+                }
+            }];
+            params[@"objType"] = _firstModel.objType;
+            if (_user.uid.length) {
+                params[@"assignPersonIds"] = _user.uid;
+            }
+            params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
+            
+        }];
+    } else if (EAAddRecordTypeRelation == _type) {
+        
+    }
     return params;
 }
 
-- (NSString *)objectType {
+- (NSString *)recordType {
     switch (_type) {
         case EAAddRecordTypeText:
-            return @"object";
+            return @"text";
         case EAAddRecordTypeNumber:
-            return @"";
+            return @"number";
         case EAAddRecordTypeRelation:
-            return @"";
+            return @"relation";
         default:
             break;
     }
-    return @"object";
+    return @"text";
 }
 
 @end
