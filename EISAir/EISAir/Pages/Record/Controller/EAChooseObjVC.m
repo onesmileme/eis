@@ -11,8 +11,12 @@
 #import "EARecordObjVC.h"
 #import "EAScanViewController.h"
 #import "EAMessageFilterResultViewController.h"
+#import "EAMsgSearchHistoryView.h"
+#import "EAMsgFilterModel.h"
+#import "TKRequestHandler+Search.h"
+#import "EARecordFilterCell.h"
 
-@interface EAChooseObjVC () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UITextFieldDelegate> {
+@interface EAChooseObjVC () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
     UIPageViewController *_pageViewController;
     EATabSwitchControl *_tabSwtichControl;
     NSMutableArray *_viewControllers;
@@ -23,12 +27,25 @@
     UIButton *_confirmButton;
 }
 
+@property(nonatomic , strong) UITableView *tableView;
+@property(nonatomic , strong) UITextField *searchBar;
+@property(nonatomic , strong) NSMutableArray *objList;
+@property(nonatomic , copy)   NSString *searchKey;
+@property(nonatomic , weak)   NSURLSessionDataTask *task;
+
+@property(nonatomic , assign) BOOL isSug;
+@property(nonatomic , strong) NSMutableArray *sugList;
+
 @end
 
 @implementation EAChooseObjVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.objList = [NSMutableArray array];
+    self.sugList = [NSMutableArray array];
+    
     [self initNavbar];
     NSArray *items = @[@"空间", @"设备", @"点", ];
     _tabSwtichControl = [[EATabSwitchControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)
@@ -55,6 +72,13 @@
     
     [_pageViewController setViewControllers:@[_viewControllers.firstObject] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
     }];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT) style:UITableViewStylePlain];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = HexColor(0xf7f7f7);
 }
 
 - (void)viewWillLayoutSubviews {
@@ -84,6 +108,8 @@
     _searchBar.layer.cornerRadius = 4;
     _searchBar.layer.masksToBounds = true;
     _searchBar.delegate = self;
+    _searchBar.textColor = HexColor(0x333333);
+    _searchBar.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     //left view
     //search
@@ -181,6 +207,140 @@
     if (completed) {
         _tabSwtichControl.selectedIndex = _currentIndex ;
     }
+}
+
+
+#pragma mark - search
+- (void)search:(NSString *)text {
+    if (text.length == 0) {
+        return;
+    }
+    if (self.task.state == NSURLSessionTaskStateRunning) {
+        [self.task cancel];
+    }
+    
+    EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
+    filterModel.objName = text;
+    weakify(self);
+    NSURLSessionDataTask *task = [[TKRequestHandler sharedInstance] searchWithFilterParam:filterModel completion:^(NSURLSessionDataTask *task, EAMsgSearchTipModel *model, NSError *error) {
+        strongify(self);
+        [self searchDone:model text:text];
+    }];
+    self.task = task;
+}
+
+- (void)searchDone:(EAMsgSearchTipModel *)model text:(NSString *)text {
+    if (model.data.count > 0) {
+        self.searchKey = text;
+        [self.objList removeAllObjects];
+        [self.objList addObjectsFromArray:model.data];
+        [self.tableView reloadData];
+        [self showTableView];
+    } else {
+        [TKCommonTools showToastWithText:(model ? kTextRequestNoData : kTextRequestFailed) inView:self.view];
+    }
+}
+
+- (void)sugSearch:(NSString *)input {
+    
+}
+
+- (void)showTableView {
+    [self.view addSubview:self.tableView];
+}
+
+- (void)hideTableView {
+    [self.tableView removeFromSuperview];
+}
+
+#pragma mark - TableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_isSug) {
+        return [_sugList count];
+    }
+    return [_objList count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_isSug) {
+        return 42;
+    }
+    return [EARecordFilterCell cellHeightWithModel:nil];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = nil;
+    if (_isSug) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"sug_id"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sug_id"];
+            UILabel *label = TKTemplateLabel(SYS_FONT(14), HexColor(0x666666));
+            label.tag = 1000;
+            [cell addSubview:label];
+            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 42 - LINE_HEIGHT, SCREEN_WIDTH, LINE_HEIGHT)];
+            line.backgroundColor = LINE_COLOR;
+            [cell addSubview:line];
+        }
+        UILabel *label = (UILabel *)[cell viewWithTag:1000];
+        label.text = @"接口没好，就这样吧";
+        [label sizeToFit];
+        label.left = 15;
+        label.centerY = 21;
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"obj_id"];
+        if (!cell) {
+            cell = [[EARecordFilterCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"obj_id"];
+        }
+        EAMsgSearchTipDataModel *model = _objList[indexPath.row];
+        [((EARecordFilterCell *)cell) setModel:@{
+                                                 @"title": ToSTR(model.objName),
+                                                 @"desc": ToSTR(model.objDesc),
+                                                 @"label": ToSTR(model.objType),
+                                                 }];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_isSug) {
+        NSString *key = self.searchBar.text;
+        [self search:key];
+    }
+    else {
+        EAMsgSearchTipDataModel *model = _objList[indexPath.row];
+        if (self.doneBlock && model.objId.length) {
+            self.doneBlock(model);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+#pragma mark - uitextfield delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return true;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    _isSug = true;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSMutableString *content = [[NSMutableString alloc]initWithString:textField.text ];
+    [content replaceCharactersInRange:range withString:string];
+    [self sugSearch:content];
+    return true;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    _isSug = false;
+    [self search:textField.text];
+    [textField resignFirstResponder];
+    return true;
 }
 
 @end

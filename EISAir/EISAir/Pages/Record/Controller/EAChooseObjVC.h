@@ -8,6 +8,9 @@
 
 #import "EABaseViewController.h"
 
+@class EAMsgSearchTipDataModel;
 @interface EAChooseObjVC : EABaseViewController
+
+@property (nonatomic, copy) void (^doneBlock)(EAMsgSearchTipDataModel *model);
 
 @end

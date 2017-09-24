@@ -100,5 +100,6 @@ return __singleton__; \
 // common text
 #define kTextRequestFailed @"请求失败"
 #define kTextRequestNoMoreData @"没有更多数据啦"
+#define kTextRequestNoData @"很抱歉，没有数据"
 
 #endif /* TKDefines_h */

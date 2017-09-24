@@ -21,6 +21,7 @@ typedef void(^EAInputChooseBlock)(EAInputView *view);
 
 @interface EAInputView : UIView
 
+@property (nonatomic, assign, readonly) EAInputType type;
 @property (nonatomic, copy) NSString *inputText;
 @property (nonatomic, copy) EAInputChooseBlock chooseBlock;
 @property (nonatomic, copy) NSDate *selectedDate;

@@ -179,6 +179,10 @@
     [((UIPickerView *)_textField.inputView) selectRow:pickerIndex inComponent:0 animated:NO];
 }
 
+- (EAInputType)type {
+    return _type;
+}
+
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     _placeHolderLabel.hidden = YES;
@@ -205,7 +209,7 @@
 }
 
 - (void)doneAction:(id)sender {
-    
+    [self endEditing:YES];
 }
 
 

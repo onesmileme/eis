@@ -12,7 +12,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 #import "EATaskHelper.h"
-
+#import "TKRequestHandler+Simple.h"
 
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "iOS-Echarts.h"

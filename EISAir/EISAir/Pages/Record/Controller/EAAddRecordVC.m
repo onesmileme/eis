@@ -12,7 +12,7 @@
 #import "EAUserSearchViewController.h"
 #import "EAUserModel.h"
 #import "EAChooseObjVC.h"
-#import "EAPickerView.h"
+#import "EAMsgSearchTipModel.h"
 
 @interface EAAddRecordVC ()
 
@@ -21,11 +21,14 @@
 @implementation EAAddRecordVC {
     EAAddRecordType _type;
     NSArray *_contentDatas;
+    NSArray *_inputViews;
     
     UIScrollView *_contentView;
     UIButton *_submitBtn;
     EAInputView *_chooseInputView;
     EAUserDataListModel *_user;
+    EAMsgSearchTipDataModel *_firstModel;
+    EAMsgSearchTipDataModel *_secondModel;
 }
 
 - (instancetype)initWithType:(EAAddRecordType)type {
@@ -82,7 +85,7 @@
                                      placeholder:@"请选择（必填）"
                                      chooseBlock:objBlock],
                               [self itemWithType:EAInputTypeMultiLinesInput
-                                           title:@"记录对象"
+                                           title:@"记录内容"
                                      placeholder:@"请输入记录内容（必填3-50字内）"],
                               ],
                           @[
@@ -115,7 +118,7 @@
                                            title:@"点位代表时间"
                                      placeholder:@"请选择"],
                               [self itemWithType:EAInputTypeMultiLinesInput
-                                           title:@"记录对象"
+                                           title:@"记录内容"
                                      placeholder:@"请输入记录内容（必填3-50字内）"],
                               ],
                           @[
@@ -191,6 +194,7 @@
 
 - (void)createInputViews {
     float top = 10;
+    NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < _contentDatas.count; ++i) {
         NSArray *itemGroup = _contentDatas[i];
         for (int j = 0; j < itemGroup.count; ++j) {
@@ -208,6 +212,7 @@
                                                          pickerContents:pickerData];
             inputView.chooseBlock = itemDic[@"chooseBlock"];
             [_contentView addSubview:inputView];
+            [array addObject:inputView];
             if (j == 0) {
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _contentView.width, LINE_HEIGHT)];
                 line.backgroundColor = LINE_COLOR;
@@ -218,6 +223,7 @@
         }
         top += 10;
     }
+    _inputViews = array;
     _contentView.contentSize = CGSizeMake(_contentView.width, MAX(_contentView.height, top));
 }
 
@@ -242,12 +248,103 @@
 
 - (void)chooseObj {
     EAChooseObjVC *vc = [[EAChooseObjVC alloc] init];
+    weakify(self);
+    vc.doneBlock = ^(EAMsgSearchTipDataModel *model) {
+        strongify(self);
+        [self choosedObj:model];
+    };
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)choosedObj:(EAMsgSearchTipDataModel *)model {
+    _firstModel = model;
+    [_chooseInputView setInputText:model.objName];
 }
 
 #pragma mark - submit
 - (void)submit {
-    
+    __block NSString *toast = nil;
+    if (EAAddRecordTypeText == _type) {
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.inputText.length) {
+                if (0 == idx) {
+                    toast = @"请输入记录名称";
+                } else if (1 == idx) {
+                    toast = @"请选择对象";
+                }
+            }
+            if (2 == idx && obj.inputText.length < 3) {
+                toast = @"请输入记录内容(3-50字)";
+            }
+            if (toast.length) {
+                *stop = YES;
+            }
+        }];
+    } else if (EAAddRecordTypeNumber == _type) {
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.inputText.length) {
+                if (0 == idx) {
+                    toast = @"请输入记录名称";
+                } else if (1 == idx) {
+                    toast = @"请选择对象";
+                } else if (2 == idx) {
+                    toast = @"请输入记录值";
+                } else if (3 == idx) {
+                    toast = @"请选择点位数值时间";
+                } else if (4 == idx) {
+                    toast = @"请选择点位代表时间";
+                }
+            }
+            if (5 == idx && obj.inputText.length < 3) {
+                toast = @"请输入记录内容(3-50字)";
+            }
+            if (toast.length) {
+                *stop = YES;
+            }
+        }];
+    } else if (EAAddRecordTypeRelation == _type) {
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.inputText.length) {
+                if (0 == idx) {
+                    toast = @"请选择关系类型";
+                } else if (1 == idx) {
+                    toast = @"请选择起始对象";
+                } else if (2 == idx) {
+                    toast = @"请选择结束对象";
+                }
+            }
+            if (toast.length) {
+                *stop = YES;
+            }
+        }];
+    }
+    if (toast.length) {
+        [TKCommonTools showToastWithText:toast inView:self.view];
+        return;
+    }
+    [TKRequestHandler postWithPath:@"/eis/open/record/saveEisWorkRecord" params:[self paramsForSubmit] jsonModelClass:EAMsgSearchTipModel.class completion:^(id model, NSError *error) {
+        
+    }];
+}
+
+- (NSDictionary *)paramsForSubmit {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"objectType"] = self.objectType;
+    return params;
+}
+
+- (NSString *)objectType {
+    switch (_type) {
+        case EAAddRecordTypeText:
+            return @"object";
+        case EAAddRecordTypeNumber:
+            return @"";
+        case EAAddRecordTypeRelation:
+            return @"";
+        default:
+            break;
+    }
+    return @"object";
 }
 
 @end
