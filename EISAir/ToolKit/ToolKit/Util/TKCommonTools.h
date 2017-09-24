@@ -201,3 +201,9 @@ void tk_safe_dispatch_sync_main_queue(void (^block)(void));
 
 @end
 
+@interface TKCommonTools (Toast)
+
++ (void)showToastWithText:(NSString *)text inView:(UIView *)view;
+
+@end
+

@@ -42,3 +42,10 @@
 + (UINavigationController *)rootNavigationController;
 
 @end
+
+@interface EABaseViewController (NoDataView)
+
+- (void)nodata_showNoDataViewWithTapedBlock:(void (^)(void))tapedBlock;
+- (void)nodata_hideView;
+
+@end

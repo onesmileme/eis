@@ -15,7 +15,9 @@
 @property (nonatomic, strong) NSString *createUserName;
 @property (nonatomic, strong) NSString *createUserId;
 @property (nonatomic, strong) NSString *reportType;
-@property (nonatomic, strong) NSArray *receivePersonIds;@property (nonatomic, strong) NSArray *receivePersonNames;@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSArray *receivePersonIds;
+@property (nonatomic, strong) NSArray *receivePersonNames;
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *generateCount;
 @end
 

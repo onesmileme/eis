@@ -97,4 +97,8 @@ return __singleton__; \
 #endif
 #endif
 
+// common text
+#define kTextRequestFailed @"请求失败"
+#define kTextRequestNoMoreData @"没有更多数据啦"
+
 #endif /* TKDefines_h */

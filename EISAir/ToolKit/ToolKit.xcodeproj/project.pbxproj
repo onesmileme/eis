@@ -127,6 +127,7 @@
 		F50F98F11CB76D9D00F2E82A /* TKSmartFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F98E71CB76D9D00F2E82A /* TKSmartFunction.m */; };
 		F5D94EC71DC88EB2001C8B4E /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D94EC61DC88EB2001C8B4E /* UMMobClick.framework */; };
 		F5D94EEA1DC8958C001C8B4E /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D94EC61DC88EB2001C8B4E /* UMMobClick.framework */; };
+		FA0069BA1F776FE9008A4826 /* TKCommonTools+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069B91F776FE9008A4826 /* TKCommonTools+Toast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,7 @@
 		F50F98E61CB76D9D00F2E82A /* TKSmartFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSmartFunction.h; sourceTree = "<group>"; };
 		F50F98E71CB76D9D00F2E82A /* TKSmartFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSmartFunction.m; sourceTree = "<group>"; };
 		F5D94EC61DC88EB2001C8B4E /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		FA0069B91F776FE9008A4826 /* TKCommonTools+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKCommonTools+Toast.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -656,6 +658,7 @@
 				6E203EB01BA31D1600451DE0 /* TKAppInfo.h */,
 				6E203EB11BA31D1600451DE0 /* TKAppInfo.m */,
 				533055721BD9DA5F0091915B /* TKCommonTools.h */,
+				FA0069B91F776FE9008A4826 /* TKCommonTools+Toast.m */,
 				533055731BD9DA5F0091915B /* TKCommonTools.m */,
 				53AD6E761F64DCB5005025BD /* TKCommonTools+Date.m */,
 				6EE9C5111F72B5B9006C6CBC /* NSString+pinyin.h */,
@@ -1261,6 +1264,7 @@
 			files = (
 				6EE9C5131F72B5B9006C6CBC /* pinyin.c in Sources */,
 				6EB83EAE1CDC7AFD00F1B45A /* TKInputEmojiCollectionViewCell.m in Sources */,
+				FA0069BA1F776FE9008A4826 /* TKCommonTools+Toast.m in Sources */,
 				6EFC5A111C940ED30009D695 /* TKWebJSHelper.m in Sources */,
 				6E1846051C8843FF00B38971 /* NSString+Encode.m in Sources */,
 				6E1CD4F51B3FA351003E56FF /* MJRefreshBackGifFooter.m in Sources */,

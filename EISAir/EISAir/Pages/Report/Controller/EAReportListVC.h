@@ -23,5 +23,6 @@ typedef NS_ENUM(NSUInteger, EAReportListContentType) {
 
 @property (nonatomic, assign) EAReportListVCType showType;
 @property (nonatomic, assign) EAReportListContentType contentType;
+@property (nonatomic, strong) NSString *reportId;
 
 @end

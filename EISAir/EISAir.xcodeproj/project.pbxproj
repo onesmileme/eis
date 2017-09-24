@@ -590,6 +590,8 @@
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
 		FA0069AD1F7617A4008A4826 /* TKRequestHandler+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069AC1F7617A4008A4826 /* TKRequestHandler+Simple.m */; };
 		FA0069B51F762C4D008A4826 /* EAReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069B41F762C4D008A4826 /* EAReportListModel.m */; };
+		FA0069BD1F7771AA008A4826 /* EABaseViewController+NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069BC1F7771AA008A4826 /* EABaseViewController+NoDataView.m */; };
+		FA0069C31F778397008A4826 /* EAReportPageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069C21F778397008A4826 /* EAReportPageListModel.m */; };
 		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
 		FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */; };
 		FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */; };
@@ -1773,6 +1775,9 @@
 		FA0069AC1F7617A4008A4826 /* TKRequestHandler+Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Simple.m"; sourceTree = "<group>"; };
 		FA0069B31F762C4D008A4826 /* EAReportListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportListModel.h; sourceTree = "<group>"; };
 		FA0069B41F762C4D008A4826 /* EAReportListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportListModel.m; sourceTree = "<group>"; };
+		FA0069BC1F7771AA008A4826 /* EABaseViewController+NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EABaseViewController+NoDataView.m"; sourceTree = "<group>"; };
+		FA0069C11F778397008A4826 /* EAReportPageListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportPageListModel.h; sourceTree = "<group>"; };
+		FA0069C21F778397008A4826 /* EAReportPageListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportPageListModel.m; sourceTree = "<group>"; };
 		FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyHistoryVC.h; sourceTree = "<group>"; };
 		FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyHistoryVC.m; sourceTree = "<group>"; };
 		FA34212D1F70280F001D9FDC /* EAHorColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHorColumnChartView.h; sourceTree = "<group>"; };
@@ -3721,6 +3726,7 @@
 				5330A8A11F4EC3D000F8E07E /* EAVCView.m */,
 				5330A9171F5A3CD700F8E07E /* EABaseTableViewCell.h */,
 				5330A9181F5A3CD700F8E07E /* EABaseTableViewCell.m */,
+				FA0069BC1F7771AA008A4826 /* EABaseViewController+NoDataView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4310,6 +4316,8 @@
 			children = (
 				FA0069B31F762C4D008A4826 /* EAReportListModel.h */,
 				FA0069B41F762C4D008A4826 /* EAReportListModel.m */,
+				FA0069C11F778397008A4826 /* EAReportPageListModel.h */,
+				FA0069C21F778397008A4826 /* EAReportPageListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5010,6 +5018,7 @@
 				6E415E051F5171D10078436F /* ZXMathUtils.m in Sources */,
 				6E415DDD1F5171D10078436F /* ZXAztecWriter.m in Sources */,
 				6E415E931F5171D10078436F /* ZXQRCodeDataBlock.m in Sources */,
+				FA0069BD1F7771AA008A4826 /* EABaseViewController+NoDataView.m in Sources */,
 				6E415EA41F5171D10078436F /* ZXQRCodeEncoder.m in Sources */,
 				6E415E971F5171D10078436F /* ZXQRCodeDecoderMetaData.m in Sources */,
 				6E415DD31F5171D10078436F /* ZXAztecDetector.m in Sources */,
@@ -5091,6 +5100,7 @@
 				6E415E6F1F5171D10078436F /* ZXOneDimensionalCodeWriter.m in Sources */,
 				6E415E791F5171D10078436F /* ZXModulusGF.m in Sources */,
 				6E6886D71F45124B009AD662 /* TKRequestHandler+Account.m in Sources */,
+				FA0069C31F778397008A4826 /* EAReportPageListModel.m in Sources */,
 				6E415DE01F5171D10078436F /* ZXAddressBookDoCoMoResultParser.m in Sources */,
 				5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */,
 				FA3421521F7176EF001D9FDC /* EAReportHeader.m in Sources */,

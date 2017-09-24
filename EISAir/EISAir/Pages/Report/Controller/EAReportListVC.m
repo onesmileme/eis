@@ -12,6 +12,7 @@
 #import "EAReportFilterHandle.h"
 #import "TKRequestHandler+Simple.h"
 #import "EAReportListModel.h"
+#import "EAReportPageListModel.h"
 
 static NSString *const kReportTypeDay = @"day";
 static NSString *const kReportTypeMonth = @"month";
@@ -44,8 +45,8 @@ static NSString *const kReportTypeSpecial = @"special";
     _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
     
-    [self addHeaderRefreshView:_tableView];
-    [self loadDataWithPage:0];
+    [self addRefreshView:_tableView];
+    [self startHeadRefresh:_tableView];
 }
 
 - (NSString *)reportType {
@@ -62,47 +63,80 @@ static NSString *const kReportTypeSpecial = @"special";
     return kReportTypeDay;
 }
 
-- (void)loadDataWithPage:(int)page {
+#pragma mark - Header/Footer action
+- (void)headRefreshAction {
+    [self loadDataWithPage:0];
+}
+
+- (void)footRefreshAction {
+    [self loadDataWithPage:_page+1];
+}
+
+#pragma mark - request
+- (void)loadDataWithPage:(NSInteger)page {
+    [self nodata_hideView];
     NSDictionary *params = @{
-                             @"reportType": [self reportType],
+                             @"reportId": ToSTR(self.reportId),
                              @"pageNum": @(page),
                              @"pageSize": @(kEISRequestPageSize),
                              };
+    NSString *path = @"/eis/open/report/findEisReportDetailOfReceive";
+    Class cls = EAReportPageListModel.class;
+    if (EAReportListVCTypeFolder == self.showType) {
+        params = @{
+                   @"reportType": [self reportType],
+                   @"pageNum": @(page),
+                   @"pageSize": @(kEISRequestPageSize),
+                   };
+        path = @"/eis/open/report/findEisReportOfReceive";
+        cls = EAReportListModel.class;
+    }
     weakify(self);
-    [TKRequestHandler postWithPath:@"/eis/open/report/findEisReportOfReceive" params:params jsonModelClass:EAReportListModel.class completion:^(id model, NSError *error) {
+    [TKRequestHandler postWithPath:path params:params jsonModelClass:cls completion:^(id model, NSError *error) {
         strongify(self);
         [self loadDataComplete:model page:page];
     }];
 }
 
-- (void)loadDataComplete:(id)aModel page:(int)page {
+- (void)loadDataComplete:(id)aModel page:(NSInteger)page {
     [self stopRefresh:_tableView];
-    EAReportListModel *model = aModel;
-    if (model) {
-        if (model.data.list.count) {
+    NSArray *list = nil;
+    if (EAReportListVCTypeFolder == self.showType) {
+        EAReportListModel *model = aModel;
+        list = model.data.list;
+    } else {
+        list = ((EAReportPageListModel *)aModel).data;
+    }
+    if (list) {
+        if (list.count) {
             _page = page;
             if (page == 0) {
                 [_dataArray removeAllObjects];
             }
-            [_dataArray addObjectsFromArray:model.data.list];
+            [_dataArray addObjectsFromArray:list];
             [_tableView reloadData];
-            if (model.data.list.count < kEISRequestPageSize) {
-                
-            }
         } else {
+            [TKCommonTools showToastWithText:kTextRequestNoMoreData inView:self.view];
             _requestFinished = YES;
+        }
+    } else {
+        [TKCommonTools showToastWithText:kTextRequestFailed inView:self.view];
+        if (!_dataArray.count) {
+            [self nodata_showNoDataViewWithTapedBlock:nil];
         }
     }
 }
 
 - (void)updateTitle {
-    NSString *title = @"日报";
-    if (EAReportListContentTypeMouth == self.contentType) {
-        title = @"月报";
-    } else if (EAReportListContentTypeSpecial == self.contentType) {
-        title = @"专题报告";
+    if (EAReportListVCTypeFolder == self.showType) {
+        NSString *title = @"日报";
+        if (EAReportListContentTypeMouth == self.contentType) {
+            title = @"月报";
+        } else if (EAReportListContentTypeSpecial == self.contentType) {
+            title = @"专题报告";
+        }
+        self.title = title;
     }
-    self.title = title;
 }
 
 - (NSArray *)filterHandleData {
@@ -126,62 +160,24 @@ static NSString *const kReportTypeSpecial = @"special";
 
 - (void)initDatas {
     _dataArray = [NSMutableArray array];
-//    _dataArray = @[
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   ].mutableCopy;
 }
 
-- (NSDictionary *)dictWithModel:(EAReportListListModel *)model {
-    return @{
-             @"title": ToSTR(model.reportName),
-             @"time": ToSTR(model.createDate),
-             @"red": @"1",
-             };
-    
+- (NSDictionary *)dictWithModel:(id)aModel {
+    if (EAReportListVCTypeFolder == self.showType) {
+        EAReportListListModel *model = (EAReportListListModel *)aModel;
+        return @{
+                 @"title": ToSTR(model.reportName),
+                 @"time": ToSTR(model.createDate),
+                 @"red": @"1",
+                 };
+    } else {
+        EAReportPageListDataModel *model = (EAReportPageListDataModel *)aModel;
+        return @{
+                 @"title": ToSTR(model.reportName),
+                 @"time": ToSTR(model.createDate),
+                 @"red": @"1",
+                 };
+    }
 }
 
 #pragma mark - TableView Delegate/DataSource
@@ -210,11 +206,14 @@ static NSString *const kReportTypeSpecial = @"special";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EABaseViewController *vc = nil;
     if (self.showType == EAReportListVCTypeFolder) {
+        EAReportListListModel *model = _dataArray[indexPath.row];
         EAReportListVC *listVC = [[EAReportListVC alloc] init];
         listVC.showType = EAReportListVCTypeList;
-        listVC.title = @"日报列表";
+        listVC.title = model.reportName;
+        listVC.reportId = model.id;
         vc = listVC;
     } else {
+        EAReportPageListDataModel *model = _dataArray[indexPath.row];
         EAReportDetailVC *detailVC = [[EAReportDetailVC alloc] init];
         detailVC.title = @"详情";
         vc = detailVC;
