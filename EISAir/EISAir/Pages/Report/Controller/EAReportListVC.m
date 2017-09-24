@@ -10,11 +10,19 @@
 #import "EAReportCell.h"
 #import "EAReportDetailVC.h"
 #import "EAReportFilterHandle.h"
+#import "TKRequestHandler+Simple.h"
+#import "EAReportListModel.h"
+
+static NSString *const kReportTypeDay = @"day";
+static NSString *const kReportTypeMonth = @"month";
+static NSString *const kReportTypeSpecial = @"special";
 
 @interface EAReportListVC  () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
     EAReportFilterHandle *_filterHandle;
     NSMutableArray *_dataArray;
+    NSInteger _page;
+    BOOL _requestFinished;
 }
 @end
 
@@ -35,6 +43,48 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
+    
+    [self requestData];
+}
+
+- (NSString *)reportType {
+    switch (self.contentType) {
+        case EAReportListContentTypeDay:
+            return kReportTypeDay;
+        case EAReportListContentTypeMouth:
+            return kReportTypeMonth;
+        case EAReportListContentTypeSpecial:
+            return kReportTypeSpecial;
+        default:
+            break;
+    }
+    return kReportTypeDay;
+}
+
+- (void)requestData {
+    NSDictionary *params = @{
+                             @"reportType": [self reportType],
+                             @"pageNum": @(_page + 1),
+                             @"pageSize": @(kEISRequestPageSize),
+                             };
+    weakify(self);
+    [TKRequestHandler postWithPath:@"/eis/open/report/findEisReportOfReceive" params:params jsonModelClass:EAReportListModel.class completion:^(id model, NSError *error) {
+        strongify(self);
+        [self requestDataComplete:model];
+    }];
+}
+
+- (void)requestDataComplete:(id)aModel {
+    EAReportListModel *model = aModel;
+    if (model) {
+        if (model.data.list.count) {
+            _page++;
+            [_dataArray addObjectsFromArray:model.data.list];
+            [_tableView reloadData];
+        } else {
+            _requestFinished = YES;
+        }
+    }
 }
 
 - (void)updateTitle {
@@ -67,53 +117,63 @@
 }
 
 - (void)initDatas {
-    _dataArray = @[
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   ].mutableCopy;
+    _dataArray = [NSMutableArray array];
+//    _dataArray = @[
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   ].mutableCopy;
+}
+
+- (NSDictionary *)dictWithModel:(EAReportListListModel *)model {
+    return @{
+             @"title": ToSTR(model.reportName),
+             @"time": ToSTR(model.createDate),
+             @"red": @"1",
+             };
+    
 }
 
 #pragma mark - TableView Delegate/DataSource
@@ -135,7 +195,7 @@
     if(!cell){
         cell = [[EAReportCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier cellStyle:(EAReportCellStyle)self.showType];
     }
-    [cell setModel:_dataArray[indexPath.row]];
+    [cell setModel:[self dictWithModel:_dataArray[indexPath.row]]];
     return cell;
 }
 

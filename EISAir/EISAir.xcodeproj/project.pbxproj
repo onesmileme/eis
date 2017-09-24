@@ -588,6 +588,8 @@
 		6EF345C51F6D750D0002479D /* TKRequestHandler+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C41F6D750D0002479D /* TKRequestHandler+Search.m */; };
 		6EF345CA1F6D797E0002479D /* EAMsgSearchTipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF345C91F6D797E0002479D /* EAMsgSearchTipModel.m */; };
 		D76E41A2EC52C372D1DDD67C /* libPods-EISAirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */; };
+		FA0069AD1F7617A4008A4826 /* TKRequestHandler+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069AC1F7617A4008A4826 /* TKRequestHandler+Simple.m */; };
+		FA0069B51F762C4D008A4826 /* EAReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069B41F762C4D008A4826 /* EAReportListModel.m */; };
 		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
 		FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */; };
 		FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */; };
@@ -1767,6 +1769,10 @@
 		C5213142B48C8276E4B76135 /* Pods-EISAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.debug.xcconfig"; sourceTree = "<group>"; };
 		D677BF13055C157E3A660E7F /* Pods-EISAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAir.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAir/Pods-EISAir.release.xcconfig"; sourceTree = "<group>"; };
 		E57558C003FAC9E8341CEA24 /* Pods-EISAirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0069AB1F7617A4008A4826 /* TKRequestHandler+Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Simple.h"; sourceTree = "<group>"; };
+		FA0069AC1F7617A4008A4826 /* TKRequestHandler+Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Simple.m"; sourceTree = "<group>"; };
+		FA0069B31F762C4D008A4826 /* EAReportListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportListModel.h; sourceTree = "<group>"; };
+		FA0069B41F762C4D008A4826 /* EAReportListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportListModel.m; sourceTree = "<group>"; };
 		FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyHistoryVC.h; sourceTree = "<group>"; };
 		FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyHistoryVC.m; sourceTree = "<group>"; };
 		FA34212D1F70280F001D9FDC /* EAHorColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHorColumnChartView.h; sourceTree = "<group>"; };
@@ -3769,6 +3775,8 @@
 				6E415F451F544FEE0078436F /* TKRequestHandler+Config.m */,
 				6E70158E1F6EAC320006C2E9 /* TKRequestHandler+User.h */,
 				6E70158F1F6EAC320006C2E9 /* TKRequestHandler+User.m */,
+				FA0069AB1F7617A4008A4826 /* TKRequestHandler+Simple.h */,
+				FA0069AC1F7617A4008A4826 /* TKRequestHandler+Simple.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -4300,6 +4308,8 @@
 		FA34214D1F7176BE001D9FDC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA0069B31F762C4D008A4826 /* EAReportListModel.h */,
+				FA0069B41F762C4D008A4826 /* EAReportListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5105,6 +5115,7 @@
 				6E68868B1F43C71A009AD662 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				6E415E171F5171D10078436F /* ZXHybridBinarizer.m in Sources */,
 				53AD8CB81F74F413006A02D6 /* EAReportDetailExcel.m in Sources */,
+				FA0069B51F762C4D008A4826 /* EAReportListModel.m in Sources */,
 				6E415F461F544FEE0078436F /* TKRequestHandler+Config.m in Sources */,
 				6E415E531F5171D10078436F /* ZXRSSExpandedFieldParser.m in Sources */,
 				6E415EF71F5267B70078436F /* EASearchViewController.m in Sources */,
@@ -5115,6 +5126,7 @@
 				6E415E711F5171D10078436F /* ZXUPCAReader.m in Sources */,
 				6E415E2C1F5171D10078436F /* ZXDataMatrixVersion.m in Sources */,
 				6E415E5F1F5171D10078436F /* ZXCodaBarReader.m in Sources */,
+				FA0069AD1F7617A4008A4826 /* TKRequestHandler+Simple.m in Sources */,
 				6E415E221F5171D10078436F /* ZXInvertedLuminanceSource.m in Sources */,
 				6E415ECB1F51B4F10078436F /* EAMsgStateInfoCell.m in Sources */,
 				6E6886561F43C71A009AD662 /* NSObject+A2DynamicDelegate.m in Sources */,

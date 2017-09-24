@@ -23,6 +23,8 @@
 #define IsArrayClass(__obj) ((__obj) && [(__obj) isKindOfClass:[NSArray class]])
 // 把字符串首尾的空格和回车去掉
 #define TrimStr(__str) [(__str) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
+// to string
+#define ToSTR(__str) ([(__str) isKindOfClass:[NSString class]] ? (__str) : @"")
 
 // 导航栏高度
 #define NAVIGATION_BAR_HEIGHT (64.0f)
