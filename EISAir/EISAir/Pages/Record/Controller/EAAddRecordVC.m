@@ -8,12 +8,13 @@
 
 #import "EAAddRecordVC.h"
 #import "EAInputView.h"
-#import <AddressBookUI/ABPeoplePickerNavigationController.h>
-#import <AddressBook/ABPerson.h>
-#import <AddressBookUI/ABPersonViewController.h>
 #import "NSString+ValidateFormat.h"
+#import "EAUserSearchViewController.h"
+#import "EAUserModel.h"
+#import "EAChooseObjVC.h"
+#import "EAPickerView.h"
 
-@interface EAAddRecordVC () <ABPeoplePickerNavigationControllerDelegate>
+@interface EAAddRecordVC ()
 
 @end
 
@@ -24,6 +25,7 @@
     UIScrollView *_contentView;
     UIButton *_submitBtn;
     EAInputView *_chooseInputView;
+    EAUserDataListModel *_user;
 }
 
 - (instancetype)initWithType:(EAAddRecordType)type {
@@ -62,6 +64,7 @@
     EAInputChooseBlock objBlock = ^ (EAInputView *view) {
         strongify(self);
         self->_chooseInputView = view;
+        [self chooseObj];
     };
     EAInputChooseBlock atBlock = ^ (EAInputView *view) {
         strongify(self);
@@ -91,14 +94,6 @@
                           ];
     }
     else if (EAAddRecordTypeNumber == _type) {
-        EAInputChooseBlock shuzhiTimeBlock = ^ (EAInputView *view) {
-            strongify(self);
-            self->_chooseInputView = view;
-        };
-        EAInputChooseBlock dianweiBlock = ^ (EAInputView *view) {
-            strongify(self);
-            self->_chooseInputView = view;
-        };
         _contentDatas = @[
                           @[
                               [self itemWithType:EAInputTypeOneLineInput
@@ -113,14 +108,12 @@
                                      placeholder:@"请输入记录值"],
                               ],
                           @[
-                              [self itemWithType:EAInputTypeChoose
+                              [self itemWithType:EAInputTypeDate
                                            title:@"点位数值时间"
-                                     placeholder:@"请选择"
-                                     chooseBlock:shuzhiTimeBlock],
-                              [self itemWithType:EAInputTypeChoose
+                                     placeholder:@"请选择"],
+                              [self itemWithType:EAInputTypeDate
                                            title:@"点位代表时间"
-                                     placeholder:@"请选择"
-                                     chooseBlock:dianweiBlock],
+                                     placeholder:@"请选择"],
                               [self itemWithType:EAInputTypeMultiLinesInput
                                            title:@"记录对象"
                                      placeholder:@"请输入记录内容（必填3-50字内）"],
@@ -134,24 +127,21 @@
                           ];
     }
     else {
-        EAInputChooseBlock guanxiBlock = ^ (EAInputView *view) {
-            strongify(self);
-            self->_chooseInputView = view;
-        };
         EAInputChooseBlock qishiBlock = ^ (EAInputView *view) {
             strongify(self);
             self->_chooseInputView = view;
+            [self chooseObj];
         };
         EAInputChooseBlock jieshuBlock = ^ (EAInputView *view) {
             strongify(self);
             self->_chooseInputView = view;
+            [self chooseObj];
         };
         _contentDatas = @[
                           @[
-                              [self itemWithType:EAInputTypeChoose
+                              [self itemWithType:EAInputTypePicker
                                            title:@"关系类型"
-                                     placeholder:@"请选择关系类型（必填）"
-                                     chooseBlock:guanxiBlock],
+                                     placeholder:@"请选择关系类型（必填）"],
                               [self itemWithType:EAInputTypeChoose
                                            title:@"起始对象"
                                      placeholder:@"请选择起始对象（必填）"
@@ -183,6 +173,9 @@
     if (chooseBlock) {
         dict[@"chooseBlock"] = chooseBlock;
     }
+    if (EAInputTypePicker == type) {
+        dict[@"pickerData"] = @[@"包含关系", @"包含关系", @"包含关系", ];
+    }
     return dict;
 }
 
@@ -205,12 +198,14 @@
             EAInputType type = [itemDic[@"type"] intValue];
             NSString *title = itemDic[@"title"];
             NSString *placeholder = itemDic[@"placeholder"];
+            NSArray *pickerData = itemDic[@"pickerData"];
             float height = EAInputTypeMultiLinesInput == type ? 85 : 45;
             CGRect frame = CGRectMake(0, top, _contentView.width, height);
             EAInputView *inputView = [[EAInputView alloc] initWithFrame:frame
                                                                    type:type
                                                                   title:title
-                                                            placeHolder:placeholder];
+                                                            placeHolder:placeholder
+                                                         pickerContents:pickerData];
             inputView.chooseBlock = itemDic[@"chooseBlock"];
             [_contentView addSubview:inputView];
             if (j == 0) {
@@ -228,45 +223,26 @@
 
 #pragma mark - Choose Actions
 - (void)chooseContanct {
-    ABPeoplePickerNavigationController *nav = [[ABPeoplePickerNavigationController alloc] init];
-    nav.peoplePickerDelegate = self;
-    nav.predicateForSelectionOfPerson = [NSPredicate predicateWithValue:false];
-    [self presentViewController:nav animated:YES completion:nil];
+    EAUserSearchViewController *vc = [[EAUserSearchViewController alloc] init];
+    vc.title = @"选择@";
+    weakify(self);
+    vc.chooseUserBlock = ^ (NSArray *users) {
+        strongify(self);
+        [self choosedUser:users.firstObject];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)chooseTime {
-    
-}
-
-#pragma mark - Contact
-//取消选择
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
-    [peoplePicker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
-    ABMultiValueRef phone = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    long index = ABMultiValueGetIndexForIdentifier(phone,identifier);
-    NSString *phoneNO = (__bridge NSString *)ABMultiValueCopyValueAtIndex(phone, index);
-    if ([phoneNO hasPrefix:@"+"]) {
-        phoneNO = [phoneNO substringFromIndex:3];
-    }
-    phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    if (phone && [phoneNO isValidatePhoneNum]) {
-        NSString *firstName = (NSString *)CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty)) ?: @"";
-        NSString *lastName = (NSString *)CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty)) ?: @"";
-        NSString *name = [lastName stringByAppendingString:firstName];
-        _chooseInputView.inputText = name;
-        [peoplePicker dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        // TODO
+- (void)choosedUser:(EAUserDataListModel *)user {
+    if (user) {
+        _user = user;
+        [_chooseInputView setInputText:user.name];
     }
 }
 
-- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person {
-    ABPersonViewController *personViewController = [[ABPersonViewController alloc] init];
-    personViewController.displayedPerson = person;
-    [peoplePicker pushViewController:personViewController animated:YES];
+- (void)chooseObj {
+    EAChooseObjVC *vc = [[EAChooseObjVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - submit

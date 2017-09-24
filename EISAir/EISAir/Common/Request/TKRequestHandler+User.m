@@ -15,12 +15,12 @@
 
 +(void)load
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findUsers",AppHost];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *path = [NSString stringWithFormat:@"%@/eis/open/object/findSpaceAssetType", AppHost];
         EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
         NSDictionary *param = @{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
         
-        [[TKRequestHandler sharedInstance] getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        [[TKRequestHandler sharedInstance] postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
             
             if (error) {
                 NSLog(@"error is: \n%@",error);

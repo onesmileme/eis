@@ -10,6 +10,8 @@
 
 @interface EASearchCondintionSelectControl : UIControl
 
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title itemArray:(NSArray *)itemArray;
 @property (nonatomic, assign, readonly) NSInteger selectedIndex;
+- (void)reset;
 
 @end

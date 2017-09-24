@@ -592,6 +592,8 @@
 		FA0069B51F762C4D008A4826 /* EAReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069B41F762C4D008A4826 /* EAReportListModel.m */; };
 		FA0069BD1F7771AA008A4826 /* EABaseViewController+NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069BC1F7771AA008A4826 /* EABaseViewController+NoDataView.m */; };
 		FA0069C31F778397008A4826 /* EAReportPageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069C21F778397008A4826 /* EAReportPageListModel.m */; };
+		FA0069C81F778F4C008A4826 /* EARecordObjVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069C71F778F4C008A4826 /* EARecordObjVC.m */; };
+		FA0069CB1F77B41A008A4826 /* EAPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0069CA1F77B41A008A4826 /* EAPickerView.m */; };
 		FA3421291F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */; };
 		FA34212F1F70280F001D9FDC /* EAHorColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34212E1F70280F001D9FDC /* EAHorColumnChartView.m */; };
 		FA3421341F70284F001D9FDC /* EAGridBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421331F70284F001D9FDC /* EAGridBackgroudView.m */; };
@@ -1778,6 +1780,10 @@
 		FA0069BC1F7771AA008A4826 /* EABaseViewController+NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EABaseViewController+NoDataView.m"; sourceTree = "<group>"; };
 		FA0069C11F778397008A4826 /* EAReportPageListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportPageListModel.h; sourceTree = "<group>"; };
 		FA0069C21F778397008A4826 /* EAReportPageListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportPageListModel.m; sourceTree = "<group>"; };
+		FA0069C61F778F4C008A4826 /* EARecordObjVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARecordObjVC.h; sourceTree = "<group>"; };
+		FA0069C71F778F4C008A4826 /* EARecordObjVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARecordObjVC.m; sourceTree = "<group>"; };
+		FA0069C91F77B41A008A4826 /* EAPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPickerView.h; sourceTree = "<group>"; };
+		FA0069CA1F77B41A008A4826 /* EAPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPickerView.m; sourceTree = "<group>"; };
 		FA3421271F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyHistoryVC.h; sourceTree = "<group>"; };
 		FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyHistoryVC.m; sourceTree = "<group>"; };
 		FA34212D1F70280F001D9FDC /* EAHorColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAHorColumnChartView.h; sourceTree = "<group>"; };
@@ -4001,6 +4007,8 @@
 				53D7D3621F4B484800CC4034 /* EAAddRecordVC.m */,
 				5330A8C61F53036600F8E07E /* EAChooseObjVC.h */,
 				5330A8C71F53036600F8E07E /* EAChooseObjVC.m */,
+				FA0069C61F778F4C008A4826 /* EARecordObjVC.h */,
+				FA0069C71F778F4C008A4826 /* EARecordObjVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4024,6 +4032,8 @@
 				5330A8FA1F595B2600F8E07E /* DDPageScrollView.m */,
 				5330A9021F595B6500F8E07E /* WMPageControl.h */,
 				5330A9031F595B6500F8E07E /* WMPageControl.m */,
+				FA0069C91F77B41A008A4826 /* EAPickerView.h */,
+				FA0069CA1F77B41A008A4826 /* EAPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4746,6 +4756,7 @@
 				6E415E331F5171D10078436F /* ZXDataMatrixEncoderContext.m in Sources */,
 				53DB289B1F6E51E600FB2B0F /* PYEventRiverSeries.m in Sources */,
 				53DB28861F6E51E600FB2B0F /* PYItemStyleProp.m in Sources */,
+				FA0069C81F778F4C008A4826 /* EARecordObjVC.m in Sources */,
 				6E4D67CE1F5B91A400A8D69A /* TKRequestHandler+Task.m in Sources */,
 				6E6886951F43C71A009AD662 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
 				6E415E401F5171D10078436F /* ZXByQuadrantReader.m in Sources */,
@@ -5043,6 +5054,7 @@
 				6E415E341F5171D10078436F /* ZXDataMatrixErrorCorrection.m in Sources */,
 				6E68868C1F43C71A009AD662 /* ZLPhotoAssets.m in Sources */,
 				5330A8B21F4ED3F500F8E07E /* UIAlertController+Simple.m in Sources */,
+				FA0069CB1F77B41A008A4826 /* EAPickerView.m in Sources */,
 				6E415E581F5171D10078436F /* ZXRSSExpandedRow.m in Sources */,
 				6E415E671F5171D10078436F /* ZXEAN13Writer.m in Sources */,
 				6E6886901F43C71A009AD662 /* ZLPhotoPickerAssetsViewController.m in Sources */,

@@ -11,33 +11,6 @@
 
 static const int kTagItem = 1000;
 
-@interface EASearchCondintionSelectItemButton : UIButton
-
-@end
-
-@implementation EASearchCondintionSelectItemButton
-
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.titleLabel.font = [UIFont systemFontOfSize:12];
-        [self setTitle:title forState:UIControlStateNormal];
-        [self setTitleColor:HexColor(0x444444) forState:UIControlStateNormal];
-        [self setTitleColor:HexColor(0x28cfc1) forState:UIControlStateHighlighted];
-        [self setTitleColor:HexColor(0x28cfc1) forState:UIControlStateSelected];
-        self.layer.cornerRadius = 2.0;
-        self.clipsToBounds = YES;
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    self.backgroundColor = selected ? [HexColor(0x28cfc1) colorWithAlphaComponent:0.1] : HexColor(0xf7f7f7);
-}
-
-@end
-
 @implementation EASearchCondintionSelectControl {
     NSArray *_itemArray;
     UILabel *_titleLabel;
@@ -61,25 +34,37 @@ static const int kTagItem = 1000;
 }
 
 - (void)creatSubviews {
-    float left = 0;
-    float width = self.width / _itemArray.count;
+    float left = 15;
+    float interval = 6;
+    int columnPerRow = 4;
+    float width = (self.width - left * 2 - interval * (columnPerRow - 1)) / columnPerRow;
     float top = _titleLabel.bottom + 6;
+    float height = top;
     for (int i = 0; i < _itemArray.count; ++i) {
         int tag = kTagItem + i;
         UIButton *button = [self viewWithTag:tag];
         if (!button) {
-            button = [[UIButton alloc] initWithFrame:CGRectMake(left, top, width, self.height)];
+            button = [[UIButton alloc] initWithFrame:CGRectMake(left, top, width, 35)];
             button.tag = tag;
-            button.titleLabel.font = [UIFont systemFontOfSize:14];
-            [button setTitleColor:HexColor(0x9b9b9b) forState:UIControlStateNormal];
-            [button setTitleColor:HexColor(0x28cfc1) forState:UIControlStateHighlighted];
+            button.titleLabel.font = [UIFont systemFontOfSize:12];
+            [button setTitleColor:HexColor(0x444444) forState:UIControlStateNormal];
             [button setTitleColor:HexColor(0x28cfc1) forState:UIControlStateSelected];
+            [button setBackgroundImage:[UIImage imageNamed:@"tag"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"tag_choose_s"] forState:UIControlStateSelected];
             [button setTitle:_itemArray[i] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
         }
+        height = button.bottom;
+        if ((i + 1) % columnPerRow) {
+            left = button.right + interval;
+        } else {
+            left = 15;
+            top = button.bottom + 10;
+        }
     }
     
+    self.height = height + 15;
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - LINE_HEIGHT, self.width, LINE_HEIGHT)];
     line.backgroundColor = LINE_COLOR;
     [self addSubview:line];
@@ -100,6 +85,11 @@ static const int kTagItem = 1000;
         button.selected = _selectedIndex == i;
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+- (void)reset {
+    _selectedIndex = -1;
+    [self selectedIndex:0];
 }
 
 @end

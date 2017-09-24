@@ -11,6 +11,8 @@
 typedef enum : NSUInteger {
     EAInputTypeOneLineInput,
     EAInputTypeMultiLinesInput,
+    EAInputTypeDate,    // time
+    EAInputTypePicker,  // picker 模式下需要pickerContents
     EAInputTypeChoose,
 } EAInputType;
 
@@ -21,11 +23,19 @@ typedef void(^EAInputChooseBlock)(EAInputView *view);
 
 @property (nonatomic, copy) NSString *inputText;
 @property (nonatomic, copy) EAInputChooseBlock chooseBlock;
+@property (nonatomic, copy) NSDate *selectedDate;
+@property (nonatomic, assign) NSInteger pickerIndex;
 
 - (instancetype)initWithFrame:(CGRect)frame
                          type:(EAInputType)type
                         title:(NSString *)title
                   placeHolder:(NSString *)placeHolder;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                         type:(EAInputType)type
+                        title:(NSString *)title
+                  placeHolder:(NSString *)placeHolder
+               pickerContents:(NSArray *)pickerContents;
 
 - (void)setInputKeyboardType:(UIKeyboardType)inputKeyboardType;
 
