@@ -4049,7 +4049,6 @@
 			children = (
 				6E6887411F481772009AD662 /* Controller */,
 				FA34214D1F7176BE001D9FDC /* Model */,
-				FA34214E1F7176BE001D9FDC /* Request */,
 				FA34214F1F7176BE001D9FDC /* View */,
 			);
 			path = Report;
@@ -4340,13 +4339,6 @@
 				FA0069C21F778397008A4826 /* EAReportPageListModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		FA34214E1F7176BE001D9FDC /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		FA34214F1F7176BE001D9FDC /* View */ = {

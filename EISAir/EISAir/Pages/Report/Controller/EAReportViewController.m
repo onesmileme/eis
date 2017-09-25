@@ -11,12 +11,13 @@
 #import "EAReportHeader.h"
 #import "EAReportListVC.h"
 #import "EAReportDetailVC.h"
+#import "EAReportPageListModel.h"
 
 @interface EAReportViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
     EAReportHeader *_reportHeader;
     NSMutableArray *_dataArray;
-    
+    NSInteger _page;
 }
 @end
 
@@ -24,58 +25,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initViews];
     [self initDatas];
+    [self initViews];
 }
 
 - (void)initDatas {
-    _dataArray = @[
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   @{
-                       @"title": @"C座VAV系统运行分析报告-5月",
-                       @"time": @"11:50",
-                       @"red": @"1",
-                       },
-                   ].mutableCopy;
+    _dataArray = [NSMutableArray array];
+//    _dataArray = @[
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   @{
+//                       @"title": @"C座VAV系统运行分析报告-5月",
+//                       @"time": @"11:50",
+//                       @"red": @"1",
+//                       },
+//                   ].mutableCopy;
 }
 
 - (void)initViews {
@@ -115,6 +117,9 @@
                                   },
                               ]];
     _tableView.tableHeaderView = _reportHeader;
+    
+    [self addRefreshView:_tableView];
+    [self startHeadRefresh:_tableView];
 }
 
 - (void)initNavbar {
@@ -125,6 +130,23 @@
     [menuButton addTarget:self action:@selector(menuAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:menuButton];
     self.navigationItem.leftBarButtonItems = @[menuItem];
+}
+
+- (void)headRefreshAction {
+    [self loadDataWithPage:0];
+}
+
+- (void)footRefreshAction {
+    [self loadDataWithPage:_page+1];
+}
+
+- (NSDictionary *)dictWithModel:(id)aModel {
+    EAReportPageListDataModel *model = (EAReportPageListDataModel *)aModel;
+    return @{
+             @"title": ToSTR(model.reportName),
+             @"time": ToSTR(model.createDate),
+             @"red": @"1",
+             };
 }
 
 #pragma mark - Actions
@@ -173,7 +195,7 @@
     if(!cell){
         cell = [[EAReportCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    [cell setModel:_dataArray[indexPath.row]];
+    [cell setModel:[self dictWithModel:_dataArray[indexPath.row]]];
     return cell;
 }
 
@@ -181,6 +203,44 @@
     EABaseViewController *vc = [[EAReportDetailVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - Request
+- (void)loadDataWithPage:(NSInteger)page {
+    [self nodata_hideView];
+    NSDictionary *params = @{
+                             @"pageNum": @(page),
+                             @"pageSize": @(kEISRequestPageSize),
+                             };
+    NSString *path = @"/eis/open/report/findEisReportDetailOfReceive";
+    Class cls = EAReportPageListModel.class;
+    weakify(self);
+    [TKRequestHandler postWithPath:path params:params jsonModelClass:cls completion:^(id model, NSError *error) {
+        strongify(self);
+        [self loadDataComplete:model page:page];
+    }];
+}
+
+- (void)loadDataComplete:(id)aModel page:(NSInteger)page {
+    [self stopRefresh:_tableView];
+    NSArray *list = ((EAReportPageListModel *)aModel).data;
+    if (list) {
+        if (list.count) {
+            _page = page;
+            if (page == 0) {
+                [_dataArray removeAllObjects];
+            }
+            [_dataArray addObjectsFromArray:list];
+            [_tableView reloadData];
+        } else {
+            [TKCommonTools showToastWithText:kTextRequestNoMoreData inView:self.view];
+        }
+    } else {
+        [TKCommonTools showToastWithText:kTextRequestFailed inView:self.view];
+        if (!_dataArray.count) {
+            [self nodata_showNoDataViewWithTapedBlock:nil];
+        }
+    }
 }
 
 @end

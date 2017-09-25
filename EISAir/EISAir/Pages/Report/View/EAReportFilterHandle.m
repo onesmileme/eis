@@ -104,6 +104,9 @@
 - (void)contentClicked:(EAReportFilterContentView *)contentView {
     _seletedArray[_showingIndex] = @(contentView.selectedIndex);
     [self updateContentViewIsShow:NO];
+    if ([self.delegate respondsToSelector:@selector(filterHandle:clickedInCategory:rowIndex:)]) {
+        [self.delegate filterHandle:self clickedInCategory:_showingIndex rowIndex:([_seletedArray[_showingIndex] integerValue])];
+    }
 }
 
 @end

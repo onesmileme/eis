@@ -18,12 +18,18 @@ static NSString *const kReportTypeDay = @"day";
 static NSString *const kReportTypeMonth = @"month";
 static NSString *const kReportTypeSpecial = @"special";
 
-@interface EAReportListVC  () <UITableViewDelegate, UITableViewDataSource> {
+static NSString *const kFilterRankName = @"nameAsc";
+static NSString *const kFilterRankDate = @"dateAsc";
+
+@interface EAReportListVC  () <UITableViewDelegate, UITableViewDataSource, EAReportFilterHandleProtocol> {
     UITableView *_tableView;
     EAReportFilterHandle *_filterHandle;
     NSMutableArray *_dataArray;
     NSInteger _page;
     BOOL _requestFinished;
+    // filter
+    NSString *_filterRank;
+    BOOL _filterTimeIsNow;
 }
 @end
 
@@ -36,6 +42,7 @@ static NSString *const kReportTypeSpecial = @"special";
     [self updateTitle];
     
     _filterHandle = [[EAReportFilterHandle alloc] initWithData:self.filterHandleData];
+    _filterHandle.delegate = self;
     [self.view addSubview:_filterHandle.filterBar];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _filterHandle.filterBar.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - _filterHandle.filterBar.bottom)];
@@ -177,6 +184,20 @@ static NSString *const kReportTypeSpecial = @"special";
                  @"time": ToSTR(model.createDate),
                  @"red": @"1",
                  };
+    }
+}
+
+#pragma mark - EAReportFilterHandleProtocol
+- (void)filterHandle:(EAReportFilterHandle *)handle clickedInCategory:(NSInteger)categoryIndex rowIndex:(NSInteger)rowIndex {
+    BOOL changed;
+    if (0 == categoryIndex) {
+        NSString *filter = 0 == rowIndex ? kFilterRankName : kFilterRankDate;
+        changed = ![_filterRank isEqualToString:filter];
+        _filterRank = filter;
+    } else if (1 == categoryIndex) {
+        if (0 == rowIndex) {
+            
+        }
     }
 }
 
