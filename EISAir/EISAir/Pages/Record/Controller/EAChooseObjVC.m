@@ -15,6 +15,14 @@
 #import "EAMsgFilterModel.h"
 #import "TKRequestHandler+Search.h"
 #import "EARecordFilterCell.h"
+#import "EARecordAttrModel.h"
+
+typedef NS_ENUM(NSUInteger, EATableType) {
+    EATableTypeNone,
+    EATableTypeConditionSearch,
+    EATableTypeSug,
+    EATableTypeWordSearch,
+};
 
 @interface EAChooseObjVC () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
     UIPageViewController *_pageViewController;
@@ -29,11 +37,17 @@
 
 @property(nonatomic , strong) UITableView *tableView;
 @property(nonatomic , strong) UITextField *searchBar;
+
+@property(nonatomic , assign) NSInteger *objPage;
 @property(nonatomic , strong) NSMutableArray *objList;
+
+@property(nonatomic , assign) NSInteger *conditionPage;
+@property(nonatomic , strong) NSMutableArray *conditionList;
+
 @property(nonatomic , copy)   NSString *searchKey;
 @property(nonatomic , weak)   NSURLSessionDataTask *task;
 
-@property(nonatomic , assign) BOOL isSug;
+@property(nonatomic , assign) EATableType tableType;
 @property(nonatomic , strong) NSMutableArray *sugList;
 
 @end
@@ -176,7 +190,30 @@
         EARecordObjVC *vc = _viewControllers[_currentIndex];
         [vc resetCondition];
     } else {
-        // TODO
+        EARecordObjVC *vc = _viewControllers[_currentIndex];
+        [self condintionSearch:vc.chooseConditions];
+    }
+}
+
+#pragma mark - Search request
+- (void)condintionSearch:(NSDictionary *)conditions {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:conditions];
+    [TKRequestHandler postWithPath:self.conditionSearchPath params:params jsonModelClass:EAMsgSearchTipModel.class completion:^(id model, NSError *error) {
+        
+    }];
+}
+
+- (NSString *)conditionSearchPath {
+    EARecordObjVC *vc = _viewControllers[_currentIndex];
+    switch (vc.type) {
+        case EARecordObjTypeKongJian:
+            return @"/eis/open/object/findSpaces";
+        case EARecordObjTypeSheBei:
+            return @"/eis/open/object/findAssets";
+        case EARecordObjTypeDian:
+            return @"/eis/open/object/findMeters";
+        default:
+            break;
     }
 }
 
@@ -208,7 +245,6 @@
         _tabSwtichControl.selectedIndex = _currentIndex ;
     }
 }
-
 
 #pragma mark - search
 - (void)search:(NSString *)text {
@@ -259,14 +295,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_isSug) {
+    if (self.isSug) {
         return [_sugList count];
     }
     return [_objList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_isSug) {
+    if (self.isSug) {
         return 42;
     }
     return [EARecordFilterCell cellHeightWithModel:nil];
@@ -274,7 +310,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    if (_isSug) {
+    if (self.isSug) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"sug_id"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sug_id"];
@@ -307,7 +343,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_isSug) {
+    if (self.isSug) {
         NSString *key = self.searchBar.text;
         [self search:key];
     }
@@ -326,7 +362,7 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    _isSug = true;
+    self.tableType = EATableTypeSug;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -337,10 +373,15 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    _isSug = false;
+    self.tableType = EATableTypeWordSearch;
     [self search:textField.text];
     [textField resignFirstResponder];
     return true;
+}
+
+#pragma mark - TableType
+- (BOOL)isSug {
+    return (self.tableType == EATableTypeSug);
 }
 
 @end

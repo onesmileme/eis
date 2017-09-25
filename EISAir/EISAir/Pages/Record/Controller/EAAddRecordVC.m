@@ -345,7 +345,7 @@
         }];
         params[@"objType"] = _firstModel.objType;
         if (_user.uid.length) {
-            params[@"assignPersonIds"] = _user.uid;
+            params[@"assignPersonIds"] = [NSString json_stringWithArray:@[_user.uid]];
         }
         params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
     } else if (EAAddRecordTypeNumber == _type) {
@@ -366,7 +366,7 @@
             }];
             params[@"objType"] = _firstModel.objType;
             if (_user.uid.length) {
-                params[@"assignPersonIds"] = _user.uid;
+                params[@"assignPersonIds"] = [NSString json_stringWithArray:@[_user.uid]];
             }
             params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
             

@@ -14,11 +14,13 @@ typedef NS_ENUM(NSUInteger, EARecordObjType) {
     EARecordObjTypeDian,
 };
 
+@class EARecordAttrDataModel;
 @interface EARecordObjVC : EABaseViewController
 
 - (instancetype)initWithType:(EARecordObjType)type;
 @property (nonatomic, assign, readonly) EARecordObjType type;
 
 - (void)resetCondition;
+- (NSDictionary *)chooseConditions;
 
 @end

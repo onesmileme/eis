@@ -99,6 +99,7 @@
 		53DB28BF1F6E520200FB2B0F /* js in Resources */ = {isa = PBXBuildFile; fileRef = 53DB28BD1F6E520200FB2B0F /* js */; };
 		53DB28C01F6E520200FB2B0F /* theme in Resources */ = {isa = PBXBuildFile; fileRef = 53DB28BE1F6E520200FB2B0F /* theme */; };
 		53DB28C31F6E5CDF00FB2B0F /* EAEnergyCountControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB28C21F6E5CDF00FB2B0F /* EAEnergyCountControl.m */; };
+		53F02A0C1F78F89C00704B68 /* EARecordAttrModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */; };
 		6E00B20E1F6E6398006D4BF1 /* EATaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
@@ -817,6 +818,8 @@
 		53DB28BE1F6E520200FB2B0F /* theme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = theme; sourceTree = "<group>"; };
 		53DB28C11F6E5CDF00FB2B0F /* EAEnergyCountControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAEnergyCountControl.h; sourceTree = "<group>"; };
 		53DB28C21F6E5CDF00FB2B0F /* EAEnergyCountControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAEnergyCountControl.m; sourceTree = "<group>"; };
+		53F02A0A1F78F89C00704B68 /* EARecordAttrModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EARecordAttrModel.h; sourceTree = "<group>"; };
+		53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EARecordAttrModel.m; sourceTree = "<group>"; };
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EATaskHelper.h; sourceTree = "<group>"; };
 		6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EATaskHelper.m; sourceTree = "<group>"; };
@@ -2099,6 +2102,15 @@
 				53DB28761F6E51E600FB2B0F /* WKEchartsView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		53F02A091F78F87700704B68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53F02A0A1F78F89C00704B68 /* EARecordAttrModel.h */,
+				53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5E0369442AE5613BC41B6162 /* Frameworks */ = {
@@ -3997,6 +4009,7 @@
 		6E68873C1F481772009AD662 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				53F02A091F78F87700704B68 /* Model */,
 				5330A8E61F59034600F8E07E /* Request */,
 				6E68873D1F481772009AD662 /* Controller */,
 				6E68873F1F481772009AD662 /* View */,
@@ -5072,6 +5085,7 @@
 				6E87411B1F76E48A005EFA50 /* EATaskHandleFeekbackTableViewCell.m in Sources */,
 				6E6886441F43C71A009AD662 /* NSIndexSet+BlocksKit.m in Sources */,
 				6E415EAC1F5171D10078436F /* ZXMultiFormatReader.m in Sources */,
+				53F02A0C1F78F89C00704B68 /* EARecordAttrModel.m in Sources */,
 				6E6886451F43C71A009AD662 /* NSInvocation+BlocksKit.m in Sources */,
 				6E6887061F451261009AD662 /* EACrashManager.m in Sources */,
 				6E415E2D1F5171D10078436F /* ZXDataMatrixDetector.m in Sources */,
