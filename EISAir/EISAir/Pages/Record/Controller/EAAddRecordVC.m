@@ -323,7 +323,7 @@
         }];
     }
     if (toast.length) {
-        [TKCommonTools showToastWithText:toast inView:self.view];
+        [TKCommonTools showToast:toast];
         return;
     }
     [TKRequestHandler postWithPath:@"/eis/open/record/saveEisWorkRecord" params:[self paramsForSubmit] jsonModelClass:EAMsgSearchTipModel.class completion:^(id model, NSError *error) {

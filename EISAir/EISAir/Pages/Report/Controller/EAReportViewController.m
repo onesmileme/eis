@@ -31,53 +31,6 @@
 
 - (void)initDatas {
     _dataArray = [NSMutableArray array];
-//    _dataArray = @[
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   @{
-//                       @"title": @"C座VAV系统运行分析报告-5月",
-//                       @"time": @"11:50",
-//                       @"red": @"1",
-//                       },
-//                   ].mutableCopy;
 }
 
 - (void)initViews {
@@ -224,23 +177,21 @@
 - (void)loadDataComplete:(id)aModel page:(NSInteger)page {
     [self stopRefresh:_tableView];
     NSArray *list = ((EAReportPageListModel *)aModel).data;
-    if (list) {
-        if (list.count) {
-            _page = page;
-            if (page == 0) {
-                [_dataArray removeAllObjects];
-            }
-            [_dataArray addObjectsFromArray:list];
-            [_tableView reloadData];
-        } else {
-            [TKCommonTools showToastWithText:kTextRequestNoMoreData inView:self.view];
-        }
+    BOOL success = ((EAReportPageListModel *)aModel).success;
+    if (page == 0) {
+        _page = 0;
+        [_dataArray removeAllObjects];
+    }
+    if (list.count) {
+        _page = page;
+        [_dataArray addObjectsFromArray:list];
     } else {
-        [TKCommonTools showToastWithText:kTextRequestFailed inView:self.view];
         if (!_dataArray.count) {
             [self nodata_showNoDataViewWithTapedBlock:nil];
         }
+        [TKCommonTools showToast:success ? kTextRequestNoMoreData : kTextRequestFailed];
     }
+    [_tableView reloadData];
 }
 
 @end

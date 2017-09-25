@@ -21,7 +21,10 @@ static const int kTagOfNoData = 7383948;
     if (tapedBlock) {
         nodataView.tapBlock = tapedBlock;
     }
-    [self.view addSubview:nodataView];
+    UIView *superView = [self nodata_findTableView] ?: self.view;
+    nodataView.frame = superView.bounds;
+    nodataView.tag = kTagOfNoData;
+    [superView addSubview:nodataView];
 }
 
 - (void)nodata_hideView {
@@ -33,7 +36,6 @@ static const int kTagOfNoData = 7383948;
 
 - (EAMessageNoDataView *)nodata_createNoDataView {
     EAMessageNoDataView *noDataView = [EAMessageNoDataView view];
-    noDataView.frame = self.view.bounds;
     __weak typeof(self) wself = self;
     UITableView *tableView = [self nodata_findTableView];
     if (tableView) {
@@ -44,12 +46,12 @@ static const int kTagOfNoData = 7383948;
             [weaknoDataView removeFromSuperview];
         };
     }
-    noDataView.tag = kTagOfNoData;
     return noDataView;
 }
 
 - (EAMessageNoDataView *)nodata_View {
-    EAMessageNoDataView *noDataView = [self.view viewWithTag:kTagOfNoData];
+    UIView *superView = [self nodata_findTableView] ?: self.view;
+    EAMessageNoDataView *noDataView = [superView viewWithTag:kTagOfNoData];
     return noDataView;
 }
 

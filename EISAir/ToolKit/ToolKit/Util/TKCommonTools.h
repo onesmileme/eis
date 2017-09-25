@@ -203,7 +203,11 @@ void tk_safe_dispatch_sync_main_queue(void (^block)(void));
 
 @interface TKCommonTools (Toast)
 
-+ (void)showToastWithText:(NSString *)text inView:(UIView *)view;
+// Toast
++ (void)showToast:(NSString *)toast;
++ (void)showLongToast:(NSString *)toast;
++ (void)showLoadingOnView:(UIView *)view;
++ (void)hideLoadingOnView:(UIView *)view;
 
 @end
 

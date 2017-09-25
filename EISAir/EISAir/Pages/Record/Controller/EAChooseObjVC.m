@@ -237,7 +237,7 @@
         [self.tableView reloadData];
         [self showTableView];
     } else {
-        [TKCommonTools showToastWithText:(model ? kTextRequestNoData : kTextRequestFailed) inView:self.view];
+        [TKCommonTools showToast:(model ? kTextRequestNoData : kTextRequestFailed)];
     }
 }
 

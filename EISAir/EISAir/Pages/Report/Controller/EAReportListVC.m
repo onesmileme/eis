@@ -13,6 +13,12 @@
 #import "TKRequestHandler+Simple.h"
 #import "EAReportListModel.h"
 #import "EAReportPageListModel.h"
+#import "NSDate+Category.h"
+
+typedef NS_ENUM(NSUInteger, EAReportListFilterTimeType) {
+    EAReportListFilterTimeTypeCurrent,
+    EAReportListFilterTimeTypeLastYear,
+};
 
 static NSString *const kReportTypeDay = @"day";
 static NSString *const kReportTypeMonth = @"month";
@@ -29,7 +35,7 @@ static NSString *const kFilterRankDate = @"dateAsc";
     BOOL _requestFinished;
     // filter
     NSString *_filterRank;
-    BOOL _filterTimeIsNow;
+    EAReportListFilterTimeType _filterTime;
 }
 @end
 
@@ -82,21 +88,23 @@ static NSString *const kFilterRankDate = @"dateAsc";
 #pragma mark - request
 - (void)loadDataWithPage:(NSInteger)page {
     [self nodata_hideView];
-    NSDictionary *params = @{
-                             @"reportId": ToSTR(self.reportId),
-                             @"pageNum": @(page),
-                             @"pageSize": @(kEISRequestPageSize),
-                             };
+    NSMutableDictionary *params = @{ @"reportId": ToSTR(self.reportId), }.mutableCopy;
     NSString *path = @"/eis/open/report/findEisReportDetailOfReceive";
     Class cls = EAReportPageListModel.class;
     if (EAReportListVCTypeFolder == self.showType) {
-        params = @{
-                   @"reportType": [self reportType],
-                   @"pageNum": @(page),
-                   @"pageSize": @(kEISRequestPageSize),
-                   };
+        params = @{ @"reportType": [self reportType], }.mutableCopy;
         path = @"/eis/open/report/findEisReportOfReceive";
         cls = EAReportListModel.class;
+    }
+    params[@"sorts"] = _filterRank;
+    params[@"pageNum"] = @(page);
+    params[@"pageSize"] = @(kEISRequestPageSize);
+    NSInteger year =[[NSDate date] year];
+    if (EAReportListFilterTimeTypeCurrent == _filterTime) {
+        params[@"startDate"] = [NSString stringWithFormat:@"%@-01-01 00:00:00", @(year)];
+    } else {
+        params[@"startDate"] = [NSString stringWithFormat:@"%@-01-01 00:00:00", @(year-1)];
+        params[@"endDate"] = [NSString stringWithFormat:@"%@-01-01 00:00:00", @(year)];
     }
     weakify(self);
     [TKRequestHandler postWithPath:path params:params jsonModelClass:cls completion:^(id model, NSError *error) {
@@ -108,30 +116,29 @@ static NSString *const kFilterRankDate = @"dateAsc";
 - (void)loadDataComplete:(id)aModel page:(NSInteger)page {
     [self stopRefresh:_tableView];
     NSArray *list = nil;
+    BOOL success = YES;
     if (EAReportListVCTypeFolder == self.showType) {
         EAReportListModel *model = aModel;
         list = model.data.list;
+        success = model.success;
     } else {
         list = ((EAReportPageListModel *)aModel).data;
+        success = ((EAReportPageListModel *)aModel).success;
     }
-    if (list) {
-        if (list.count) {
-            _page = page;
-            if (page == 0) {
-                [_dataArray removeAllObjects];
-            }
-            [_dataArray addObjectsFromArray:list];
-            [_tableView reloadData];
-        } else {
-            [TKCommonTools showToastWithText:kTextRequestNoMoreData inView:self.view];
-            _requestFinished = YES;
-        }
+    if (page == 0) {
+        _page = 0;
+        [_dataArray removeAllObjects];
+    }
+    if (list.count) {
+        _page = page;
+        [_dataArray addObjectsFromArray:list];
     } else {
-        [TKCommonTools showToastWithText:kTextRequestFailed inView:self.view];
         if (!_dataArray.count) {
             [self nodata_showNoDataViewWithTapedBlock:nil];
         }
+        [TKCommonTools showToast:success ? kTextRequestNoMoreData : kTextRequestFailed];
     }
+    [_tableView reloadData];
 }
 
 - (void)updateTitle {
@@ -166,6 +173,8 @@ static NSString *const kFilterRankDate = @"dateAsc";
 }
 
 - (void)initDatas {
+    _filterRank = kFilterRankName;
+    _filterTime = EAReportListFilterTimeTypeCurrent;
     _dataArray = [NSMutableArray array];
 }
 
@@ -189,15 +198,18 @@ static NSString *const kFilterRankDate = @"dateAsc";
 
 #pragma mark - EAReportFilterHandleProtocol
 - (void)filterHandle:(EAReportFilterHandle *)handle clickedInCategory:(NSInteger)categoryIndex rowIndex:(NSInteger)rowIndex {
-    BOOL changed;
+    BOOL changed = NO;
     if (0 == categoryIndex) {
         NSString *filter = 0 == rowIndex ? kFilterRankName : kFilterRankDate;
         changed = ![_filterRank isEqualToString:filter];
         _filterRank = filter;
     } else if (1 == categoryIndex) {
-        if (0 == rowIndex) {
-            
-        }
+        EAReportListFilterTimeType type = 0 == rowIndex ? EAReportListFilterTimeTypeCurrent : EAReportListFilterTimeTypeLastYear;
+        changed = _filterTime != type;
+        _filterTime = type;
+    }
+    if (changed) {
+        [self loadDataWithPage:0];
     }
 }
 
