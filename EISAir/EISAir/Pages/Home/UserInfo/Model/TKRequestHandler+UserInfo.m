@@ -52,7 +52,8 @@
 {
     NSDictionary *param = @{@"password":newPwd?:@"",@"oldPassword":oldPwd?:@""};
     
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/updateUser",AppHost];
+    //
+    NSString *path = [NSString stringWithFormat:@"%@/app/uas/open/personandusers/updatePassword",AppHost];
     
     NSURLSessionDataTask *task = [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         if (completion) {

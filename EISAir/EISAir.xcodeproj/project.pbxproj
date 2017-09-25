@@ -578,6 +578,10 @@
 		6E8741231F7805DC005EFA50 /* TKRequestHandler+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741221F7805DC005EFA50 /* TKRequestHandler+UserInfo.m */; };
 		6E8741281F7805F3005EFA50 /* EAUserInfoFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741271F7805F3005EFA50 /* EAUserInfoFilterModel.m */; };
 		6E87412A1F781086005EFA50 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E8741291F781086005EFA50 /* about.html */; };
+		6E8741371F794649005EFA50 /* EAOssPolicyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741361F794649005EFA50 /* EAOssPolicyModel.m */; };
+		6E87413A1F79466B005EFA50 /* TKRequestHandler+UploadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8741391F79466B005EFA50 /* TKRequestHandler+UploadImage.m */; };
+		6E87413C1F794B3C005EFA50 /* login_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E87413B1F794B3C005EFA50 /* login_bg.jpg */; };
+		6E87413F1F7951DA005EFA50 /* EASyncFileInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87413E1F7951DA005EFA50 /* EASyncFileInfoModel.m */; };
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
@@ -1756,6 +1760,13 @@
 		6E8741261F7805F3005EFA50 /* EAUserInfoFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUserInfoFilterModel.h; sourceTree = "<group>"; };
 		6E8741271F7805F3005EFA50 /* EAUserInfoFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUserInfoFilterModel.m; sourceTree = "<group>"; };
 		6E8741291F781086005EFA50 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		6E8741351F794649005EFA50 /* EAOssPolicyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAOssPolicyModel.h; sourceTree = "<group>"; };
+		6E8741361F794649005EFA50 /* EAOssPolicyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAOssPolicyModel.m; sourceTree = "<group>"; };
+		6E8741381F79466B005EFA50 /* TKRequestHandler+UploadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+UploadImage.h"; sourceTree = "<group>"; };
+		6E8741391F79466B005EFA50 /* TKRequestHandler+UploadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+UploadImage.m"; sourceTree = "<group>"; };
+		6E87413B1F794B3C005EFA50 /* login_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_bg.jpg; sourceTree = "<group>"; };
+		6E87413D1F7951DA005EFA50 /* EASyncFileInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASyncFileInfoModel.h; sourceTree = "<group>"; };
+		6E87413E1F7951DA005EFA50 /* EASyncFileInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASyncFileInfoModel.m; sourceTree = "<group>"; };
 		6EBA491D1F71EAE20023C16E /* EAProjectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAProjectPickerView.h; sourceTree = "<group>"; };
 		6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAProjectPickerView.m; sourceTree = "<group>"; };
 		6EDBF2C81F6D2F220062A573 /* EAMsgSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryView.h; sourceTree = "<group>"; };
@@ -3311,6 +3322,7 @@
 		6E6885621F43C71A009AD662 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E87413B1F794B3C005EFA50 /* login_bg.jpg */,
 				6E8740F71F765550005EFA50 /* guide */,
 				6E8741291F781086005EFA50 /* about.html */,
 			);
@@ -3729,6 +3741,7 @@
 				5330A8AB1F4ED2B300F8E07E /* ContactUtil */,
 				6E68870C1F451542009AD662 /* Browser */,
 				6E6887111F451542009AD662 /* Category */,
+				6E8741341F794649005EFA50 /* OSS */,
 				6E68871A1F451542009AD662 /* EATools.h */,
 				6E68871B1F451542009AD662 /* EATools.m */,
 				6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */,
@@ -4300,6 +4313,19 @@
 			path = guide;
 			sourceTree = "<group>";
 		};
+		6E8741341F794649005EFA50 /* OSS */ = {
+			isa = PBXGroup;
+			children = (
+				6E8741351F794649005EFA50 /* EAOssPolicyModel.h */,
+				6E8741361F794649005EFA50 /* EAOssPolicyModel.m */,
+				6E87413D1F7951DA005EFA50 /* EASyncFileInfoModel.h */,
+				6E87413E1F7951DA005EFA50 /* EASyncFileInfoModel.m */,
+				6E8741381F79466B005EFA50 /* TKRequestHandler+UploadImage.h */,
+				6E8741391F79466B005EFA50 /* TKRequestHandler+UploadImage.m */,
+			);
+			path = OSS;
+			sourceTree = "<group>";
+		};
 		6EE9C51C1F732714006C6CBC /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -4495,6 +4521,7 @@
 				6E6886641F43C71A009AD662 /* CHGalleryGroupViewController.xib in Resources */,
 				6E68867B1F43C71A009AD662 /* shanguangdeng.png in Resources */,
 				6E415F1C1F527A630078436F /* EATaskStateInfoTableViewCell.xib in Resources */,
+				6E87413C1F794B3C005EFA50 /* login_bg.jpg in Resources */,
 				6E68867D1F43C71A009AD662 /* shanguangdeng2.png in Resources */,
 				6E6886791F43C71A009AD662 /* paizhao.png in Resources */,
 				6E4D93111F5BAD7600026B53 /* EAMessageNoDataView.xib in Resources */,
@@ -4667,6 +4694,7 @@
 				6E6386E51F506B2200017FB8 /* EAOauthModel.m in Sources */,
 				53DB289F1F6E51E600FB2B0F /* PYHeatmapSeries.m in Sources */,
 				6E7015931F6EAD460006C2E9 /* EAUserModel.m in Sources */,
+				6E87413A1F79466B005EFA50 /* TKRequestHandler+UploadImage.m in Sources */,
 				6E7015A91F71657E0006C2E9 /* EAProjectTableViewCell.m in Sources */,
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
 				6E415E841F5171D10078436F /* ZXPDF417DetectionResultRowIndicatorColumn.m in Sources */,
@@ -4768,6 +4796,7 @@
 				6E6886471F43C71A009AD662 /* NSMutableDictionary+BlocksKit.m in Sources */,
 				6E415E981F5171D10078436F /* ZXQRCodeErrorCorrectionLevel.m in Sources */,
 				6E415E121F5171D10078436F /* ZXDecoderResult.m in Sources */,
+				6E8741371F794649005EFA50 /* EAOssPolicyModel.m in Sources */,
 				6E415E331F5171D10078436F /* ZXDataMatrixEncoderContext.m in Sources */,
 				53DB289B1F6E51E600FB2B0F /* PYEventRiverSeries.m in Sources */,
 				53DB28861F6E51E600FB2B0F /* PYItemStyleProp.m in Sources */,
@@ -4953,6 +4982,7 @@
 				6E8740D71F75F889005EFA50 /* EAUserInfoViewController.m in Sources */,
 				6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */,
 				6E8740F01F7627F7005EFA50 /* EAUserInfoMNameTableViewCell.m in Sources */,
+				6E87413F1F7951DA005EFA50 /* EASyncFileInfoModel.m in Sources */,
 				6E415E821F5171D10078436F /* ZXPDF417DetectionResult.m in Sources */,
 				6E415EC01F51B2980078436F /* EAMsgDetailViewController.m in Sources */,
 				6E415E391F5171D10078436F /* ZXDataMatrixX12Encoder.m in Sources */,

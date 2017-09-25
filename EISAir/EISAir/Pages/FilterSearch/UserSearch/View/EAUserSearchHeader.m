@@ -20,11 +20,11 @@
         
         UIImageView *leftImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 49, self.height)];
         leftImgView.contentMode = UIViewContentModeCenter;        
-        leftImgView.image = SYS_IMG(@"seach_icon1");
+        leftImgView.image = SYS_IMG(@"seach_icon2");
         _searchBar.leftView = leftImgView;
         _searchBar.leftViewMode = UITextFieldViewModeAlways;
         
-        leftImgView.backgroundColor = [UIColor orangeColor];
+        leftImgView.backgroundColor = [UIColor clearColor];
         
         UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
         rightView.backgroundColor = [UIColor clearColor];
