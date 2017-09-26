@@ -167,6 +167,10 @@ static NSString *kRequestPoint = @"/eis/open/object/findMeasureList";
         if (EARecordObjTypeKongJian == _type) {
             EARecordAttrModel *kongJianModel = [[EARecordAttrModel alloc] initWithDictionary:self.kongJianDefaultDic error:nil];
             _attrModelArray = @[kongJianModel, model];
+        } else if (EARecordObjTypeDian == _type) {
+            EARecordAttrModel *pointOne = [[EARecordAttrModel alloc] initWithDictionary:self.pointFirst error:nil];
+            EARecordAttrModel *pointTwo = [[EARecordAttrModel alloc] initWithDictionary:self.pointSecond error:nil];
+            _attrModelArray = @[pointOne, pointTwo, model];
         } else {
             _attrModelArray = @[model];
         }
@@ -208,15 +212,15 @@ static NSString *kRequestPoint = @"/eis/open/object/findMeasureList";
                          },
                      @{
                          @"name": @"状态值",
-                         @"id": @"building",
+                         @"id": @"status_value",
                          },
                      @{
                          @"name": @"累计值",
-                         @"id": @"floor",
+                         @"id": @"total_value",
                          },
                      @{
                          @"name": @"瞬时值",
-                         @"id": @"room",
+                         @"id": @"instant_value",
                          },
                      ],
              };
@@ -230,16 +234,20 @@ static NSString *kRequestPoint = @"/eis/open/object/findMeasureList";
                          @"id": @"",
                          },
                      @{
-                         @"name": @"建筑",
-                         @"id": @"building",
+                         @"name": @"采集点",
+                         @"id": @"collect_point",
                          },
                      @{
-                         @"name": @"楼层",
-                         @"id": @"floor",
+                         @"name": @"计算点",
+                         @"id": @"reckon_point",
                          },
                      @{
-                         @"name": @"房间",
-                         @"id": @"room",
+                         @"name": @"记录点",
+                         @"id": @"record_point",
+                         },
+                     @{
+                         @"name": @"控制点",
+                         @"id": @"control_point",
                          },
                      ],
              };

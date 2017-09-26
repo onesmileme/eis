@@ -7,12 +7,7 @@
 //
 
 #import "EABaseViewController.h"
-
-typedef NS_ENUM(NSUInteger, EARecordObjType) {
-    EARecordObjTypeKongJian,
-    EARecordObjTypeSheBei,
-    EARecordObjTypeDian,
-};
+#import "EARecordDefines.h"
 
 @class EARecordAttrDataModel;
 @interface EARecordObjVC : EABaseViewController

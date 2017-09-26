@@ -16,6 +16,8 @@
 #import "TKRequestHandler+Search.h"
 #import "EARecordFilterCell.h"
 #import "EARecordAttrModel.h"
+#import "EAConditionSearchModel.h"
+#import "EAConditionSearchVC.h"
 
 typedef NS_ENUM(NSUInteger, EATableType) {
     EATableTypeNone,
@@ -40,9 +42,6 @@ typedef NS_ENUM(NSUInteger, EATableType) {
 
 @property(nonatomic , assign) NSInteger *objPage;
 @property(nonatomic , strong) NSMutableArray *objList;
-
-@property(nonatomic , assign) NSInteger *conditionPage;
-@property(nonatomic , strong) NSMutableArray *conditionList;
 
 @property(nonatomic , copy)   NSString *searchKey;
 @property(nonatomic , weak)   NSURLSessionDataTask *task;
@@ -191,30 +190,34 @@ typedef NS_ENUM(NSUInteger, EATableType) {
         [vc resetCondition];
     } else {
         EARecordObjVC *vc = _viewControllers[_currentIndex];
-        [self condintionSearch:vc.chooseConditions];
+        EAConditionSearchVC *searchVC = [[EAConditionSearchVC alloc] initWithType:vc.type conditions:vc.chooseConditions];
+        weakify(self);
+        searchVC.doneBlock = ^(EAConditionSearchListModel *model) {
+            strongify(self);
+            [self choosedConditionModel:model];
+        };
+        [self.navigationController pushViewController:searchVC animated:YES];
     }
 }
 
-#pragma mark - Search request
-- (void)condintionSearch:(NSDictionary *)conditions {
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:conditions];
-    [TKRequestHandler postWithPath:self.conditionSearchPath params:params jsonModelClass:EAMsgSearchTipModel.class completion:^(id model, NSError *error) {
-        
+- (void)choosedConditionModel:(EAConditionSearchListModel *)model {
+    if (self.doneBlock) {
+        EAMsgSearchTipDataModel *msgModel = [[EAMsgSearchTipDataModel alloc] init];
+        msgModel.objId = model.id;
+        msgModel.objName = model.name;
+        msgModel.objType = model.spaceType;
+        self.doneBlock(msgModel);
+    }
+    __block UIViewController *preVC = nil;
+    [self.navigationController.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj == self) {
+            if (idx > 0) {
+                preVC = self.navigationController.viewControllers[idx - 1];
+            }
+            *stop = YES;
+        }
     }];
-}
-
-- (NSString *)conditionSearchPath {
-    EARecordObjVC *vc = _viewControllers[_currentIndex];
-    switch (vc.type) {
-        case EARecordObjTypeKongJian:
-            return @"/eis/open/object/findSpaces";
-        case EARecordObjTypeSheBei:
-            return @"/eis/open/object/findAssets";
-        case EARecordObjTypeDian:
-            return @"/eis/open/object/findMeters";
-        default:
-            break;
-    }
+    [self.navigationController popToViewController:preVC animated:YES];
 }
 
 #pragma mark - Page Delegate

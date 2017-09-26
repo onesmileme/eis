@@ -610,6 +610,8 @@
 		FA3421521F7176EF001D9FDC /* EAReportHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421511F7176EF001D9FDC /* EAReportHeader.m */; };
 		FA3421551F717B11001D9FDC /* EAReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3421541F717B11001D9FDC /* EAReportCell.m */; };
 		FA4E4F5F1F780048004A8DBB /* EARecordFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4E4F5E1F780048004A8DBB /* EARecordFilterCell.m */; };
+		FA4E4F691F7AA530004A8DBB /* EAConditionSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4E4F681F7AA530004A8DBB /* EAConditionSearchModel.m */; };
+		FA4E4F6E1F7AA836004A8DBB /* EAConditionSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4E4F6D1F7AA836004A8DBB /* EAConditionSearchVC.m */; };
 		FADB161D1F72BD64003C7E13 /* EAReportListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB161C1F72BD64003C7E13 /* EAReportListVC.m */; };
 		FADB16201F72BD73003C7E13 /* EAReportDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB161F1F72BD73003C7E13 /* EAReportDetailVC.m */; };
 		FADB16231F72C055003C7E13 /* EAReportFilterHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB16221F72C055003C7E13 /* EAReportFilterHandle.m */; };
@@ -1823,6 +1825,11 @@
 		FA3421541F717B11001D9FDC /* EAReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportCell.m; sourceTree = "<group>"; };
 		FA4E4F5D1F780048004A8DBB /* EARecordFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARecordFilterCell.h; sourceTree = "<group>"; };
 		FA4E4F5E1F780048004A8DBB /* EARecordFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARecordFilterCell.m; sourceTree = "<group>"; };
+		FA4E4F671F7AA530004A8DBB /* EAConditionSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAConditionSearchModel.h; sourceTree = "<group>"; };
+		FA4E4F681F7AA530004A8DBB /* EAConditionSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAConditionSearchModel.m; sourceTree = "<group>"; };
+		FA4E4F6C1F7AA836004A8DBB /* EAConditionSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAConditionSearchVC.h; sourceTree = "<group>"; };
+		FA4E4F6D1F7AA836004A8DBB /* EAConditionSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAConditionSearchVC.m; sourceTree = "<group>"; };
+		FA4E4F6F1F7AA8DB004A8DBB /* EARecordDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARecordDefines.h; sourceTree = "<group>"; };
 		FADB161B1F72BD64003C7E13 /* EAReportListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportListVC.h; sourceTree = "<group>"; };
 		FADB161C1F72BD64003C7E13 /* EAReportListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportListVC.m; sourceTree = "<group>"; };
 		FADB161E1F72BD73003C7E13 /* EAReportDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportDetailVC.h; sourceTree = "<group>"; };
@@ -2123,6 +2130,8 @@
 			children = (
 				53F02A0A1F78F89C00704B68 /* EARecordAttrModel.h */,
 				53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */,
+				FA4E4F671F7AA530004A8DBB /* EAConditionSearchModel.h */,
+				FA4E4F681F7AA530004A8DBB /* EAConditionSearchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4046,6 +4055,9 @@
 				5330A8C71F53036600F8E07E /* EAChooseObjVC.m */,
 				FA0069C61F778F4C008A4826 /* EARecordObjVC.h */,
 				FA0069C71F778F4C008A4826 /* EARecordObjVC.m */,
+				FA4E4F6C1F7AA836004A8DBB /* EAConditionSearchVC.h */,
+				FA4E4F6D1F7AA836004A8DBB /* EAConditionSearchVC.m */,
+				FA4E4F6F1F7AA8DB004A8DBB /* EARecordDefines.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4976,6 +4988,7 @@
 				53DB28BC1F6E51E700FB2B0F /* WKEchartsView.m in Sources */,
 				6E415DEF1F5171D10078436F /* ZXProductParsedResult.m in Sources */,
 				6E415EAD1F5171D10078436F /* ZXMultiFormatWriter.m in Sources */,
+				FA4E4F691F7AA530004A8DBB /* EAConditionSearchModel.m in Sources */,
 				6E6886841F43C71A009AD662 /* ZLCameraViewController.m in Sources */,
 				6E415DED1F5171D10078436F /* ZXISBNResultParser.m in Sources */,
 				6EE9C5221F732715006C6CBC /* EATaskAddTableViewController.m in Sources */,
@@ -5158,6 +5171,7 @@
 				53DB287F1F6E51E600FB2B0F /* PYCategories.m in Sources */,
 				6E415DF51F5171D10078436F /* ZXSMTPResultParser.m in Sources */,
 				6E415E021F5171D10078436F /* ZXCapture.m in Sources */,
+				FA4E4F6E1F7AA836004A8DBB /* EAConditionSearchVC.m in Sources */,
 				6E415F201F527A770078436F /* EATaskStateTableViewCell.m in Sources */,
 				6E4D67C91F5B908E00A8D69A /* EATaskModel.m in Sources */,
 				6E4D930A1F5BA4C600026B53 /* EATaskFilterModel.m in Sources */,
