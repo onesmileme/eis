@@ -84,28 +84,62 @@
 -(IBAction)backAction:(id)sender
 {
     [self.view endEditing:true];
-    [self dismissViewControllerAnimated:true completion:^{
-        
-    }];
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:true];
+    }else{
+        [self dismissViewControllerAnimated:true completion:^{
+            
+        }];
+    }
 }
 
 -(IBAction)sendAction:(id)sender
 {
+    [self.view endEditing:true];
     [self startCountDown];
     
     self.phone = self.phoneTextField.text;
     [[TKRequestHandler sharedInstance]sendMessage:self.phone completion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
-        
+        if (model && [model[@"success"] integerValue] == 1) {
+            //成功
+        }
     }];
     
 }
 
 -(IBAction)confirmAction:(id)sender
 {
+    [self.view endEditing:true];
+    
+    if (self.phone.length == 0) {
+        [EATools showToast:@"请输入手机号，并获取验证码"];
+        return;
+    }else if (self.captcha.length == 0){
+        [EATools showToast:@"请输入验证码"];
+        return;
+    }else if (self.passwordTextField.text.length == 0 || [self.passwordTextField.text isEqualToString:self.cofirmTextField.text]){
+        [EATools showToast:@"两次密码不一致"];
+        return;
+    }
     
     MBProgressHUD *hud = [EATools showLoadHUD:self.view];
-    [[TKRequestHandler sharedInstance]findPassword:self.phone captcha:self.captcha password:self.passwordTextField.text completion:^{
-        
+    [[TKRequestHandler sharedInstance]findPassword:self.phone captcha:self.captcha password:self.passwordTextField.text completion:^(NSURLSessionDataTask *task, NSDictionary *response, NSError *error) {
+        BOOL success = false;
+        if (response) {
+            
+            success = [response[@"success"] integerValue] > 0;
+            if (success) {
+                hud.label.text = @"密码重置成功";
+            }else{
+                hud.label.text = response[@"msg"]?:@"密码重置失败";
+            }
+        }else{
+            hud.label.text = @"密码重置失败";
+        }
+        [hud hideAnimated:true afterDelay:1];
+        if (success) {
+            [self backAction:nil];
+        }
     }];
     
 }

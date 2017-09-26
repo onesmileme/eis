@@ -15,6 +15,6 @@
 
 -(NSURLSessionDataTask *)sendMessage:(NSString *)phone completion:(void(^)(NSURLSessionDataTask *task , NSDictionary *model , NSError * error))completion;
 
--(NSURLSessionDataTask *)findPassword:(NSString *)phone captcha:(NSString *)captcha password:(NSString *)password completion:(void (^)())completion;
+-(NSURLSessionDataTask *)findPassword:(NSString *)phone captcha:(NSString *)captcha password:(NSString *)password completion:(void (^)(NSURLSessionDataTask* task , NSDictionary *response , NSError *error))completion;
 
 @end

@@ -110,10 +110,14 @@
             success = true;
         }
         
+        @try{
+            NSData * jsonData = [NSJSONSerialization dataWithJSONObject:response options:0 error:nil];
+            NSString * myString = [[NSString alloc] initWithData:jsonData  encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",myString);
+        }@catch(NSException *e){
+            NSLog(@"exception is: %@",e);
+        }
         
-        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:response options:0 error:nil];
-        NSString * myString = [[NSString alloc] initWithData:jsonData  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",myString);
         
 //        if (response) {
 //            Class clazz = NSClassFromString(jsonName);
