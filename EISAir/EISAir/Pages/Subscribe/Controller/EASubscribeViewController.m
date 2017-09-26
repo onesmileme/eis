@@ -51,6 +51,11 @@
     [self.view addSubview:_tableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)initNavbar {
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 40, 40);

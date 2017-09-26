@@ -29,6 +29,11 @@
     [self initViews];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)initDatas {
     _dataArray = [NSMutableArray array];
 }
