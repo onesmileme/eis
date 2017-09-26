@@ -14,6 +14,9 @@
 #import "EAChooseObjVC.h"
 #import "EAMsgSearchTipModel.h"
 #import "NSString+JSON.h"
+#import "EARelationModel.h"
+
+static NSString *const kEARelations = @"kEARelations";
 
 @interface EAAddRecordVC ()
 
@@ -30,19 +33,24 @@
     EAUserDataListModel *_user;
     EAMsgSearchTipDataModel *_firstModel;
     EAMsgSearchTipDataModel *_secondModel;
+    NSDictionary *_relations;
 }
 
 - (instancetype)initWithType:(EAAddRecordType)type {
     self = [super init];
     if (self) {
         _type = type;
-        [self initContentData];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (EAAddRecordTypeRelation == _type) {
+        _relations = [[NSUserDefaults standardUserDefaults] objectForKey:kEARelations];
+    }
+    [self initContentData];
     
     [self updateTitle];
     _submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(18, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - 60, SCREEN_WIDTH - 36, 45)];
@@ -61,6 +69,7 @@
     [self.view addSubview:_contentView];
     
     [self createInputViews];
+    [self requestRelations];
 }
 
 - (void)initContentData {
@@ -177,10 +186,17 @@
     if (chooseBlock) {
         dict[@"chooseBlock"] = chooseBlock;
     }
-    if (EAInputTypePicker == type) {
-        dict[@"pickerData"] = @[@"包含关系", @"包含关系", @"包含关系", ];
+    if (EAAddRecordTypeRelation == _type && EAInputTypePicker == type && _relations.count) {
+        dict[@"pickerData"] = self.relationDescs;
     }
     return dict;
+}
+
+- (NSArray *)relationDescs {
+    NSArray *allValues = _relations.allValues;
+    return [allValues sortedArrayUsingComparator:^NSComparisonResult(NSString  *_Nonnull obj1, NSString  *  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
 }
 
 - (void)updateTitle {
@@ -258,8 +274,45 @@
 }
 
 - (void)choosedObj:(EAMsgSearchTipDataModel *)model {
-    _firstModel = model;
+    if (EAAddRecordTypeRelation == _type) {
+        if ([_inputViews indexOfObject:_chooseInputView] == 1) {
+            _firstModel = model;
+        } else {
+            _secondModel = model;
+        }
+    } else {
+        _firstModel = model;
+    }
     [_chooseInputView setInputText:model.objName];
+}
+
+#pragma mark - relations
+- (void)requestRelations {
+    weakify(self);
+    [TKRequestHandler getWithPath:@"/eis/open/constants/findRelationalTypes" params:nil jsonModelClass:EARelationModel.class completion:^(id model, NSError *error) {
+        strongify(self);
+        [self requestRelationsDone:model];
+    }];
+}
+
+- (void)requestRelationsDone:(EARelationModel *)aModel {
+    if (aModel.data) {
+        NSDictionary *dic = [aModel.data toDictionary];
+        if (dic.count) {
+            [[NSUserDefaults standardUserDefaults] setValue:dic forKey:kEARelations];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            if (EAAddRecordTypeRelation == _type && !(self->_relations.count)) {
+                self->_relations = dic;
+                
+                for (EAInputView *inputView in _inputViews) {
+                    if (inputView.type == EAInputTypePicker) {
+                        [inputView updatePickerContents:[self relationDescs]];
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #pragma mark - submit
@@ -356,30 +409,49 @@
         params[@"objIds"] = @[ToSTR(_firstModel.objId)];
     } else if (EAAddRecordTypeNumber == _type) {
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSString *inputText = ToSTR(TrimStr(obj.inputText));
-                if (0 == idx) {
-                    params[@"recordName"] = inputText;
-                } else if (2 == idx) {
-                    params[@"recordValue"] = inputText;
-                } else if (5 == idx) {
-                    params[@"recordContent"] = inputText;
-                } else if (3 == idx) {
-                    params[@"pointReadTime"] = @((long long)([obj.selectedDate timeIntervalSince1970] * 1000));
-                } else if (4 == idx) {
-                    params[@"pointDeputyEndTime"] = @((long long)([obj.selectedDate timeIntervalSince1970] * 1000));
-                }
-            }];
-            params[@"objType"] = _firstModel.objType;
-            if (_user.uid.length) {
-                params[@"assignPersonIds"] = @[_user.uid];
+            NSString *inputText = ToSTR(TrimStr(obj.inputText));
+            if (0 == idx) {
+                params[@"recordName"] = inputText;
+            } else if (2 == idx) {
+                params[@"recordValue"] = inputText;
+            } else if (5 == idx) {
+                params[@"recordContent"] = inputText;
+            } else if (3 == idx) {
+                params[@"pointReadTime"] = inputText;
+            } else if (4 == idx) {
+                params[@"pointDeputyEndTime"] = inputText;
             }
-            params[@"objIds"] = @[ToSTR(_firstModel.objId)];
         }];
+        params[@"objType"] = _firstModel.objType;
+        if (_user.uid.length) {
+            params[@"assignPersonIds"] = @[_user.uid];
+        }
+        params[@"objIds"] = @[ToSTR(_firstModel.objId)];
     } else if (EAAddRecordTypeRelation == _type) {
-        
+        [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *inputText = ToSTR(TrimStr(obj.inputText));
+            if (0 == idx) {
+                params[@"refType"] = [self relationKeyWithValue:inputText];
+            }
+            *stop = YES;
+        }];
+        params[@"startObjId"] = _firstModel.objId;
+        params[@"startObjType"] = _firstModel.objType;
+        params[@"endObjIds"] = @[ToSTR(_secondModel.objId)];
+        params[@"endObjType"] = _secondModel.objType;
     }
     return params;
+}
+
+- (NSString *)relationKeyWithValue:(NSString *)value {
+    __block NSString *result = nil;
+    [_relations enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([obj isEqualToString:value]) {
+            result = key;
+            *stop = YES;
+        }
+    }];
+    return result ?: @"";
 }
 
 - (NSString *)recordType {

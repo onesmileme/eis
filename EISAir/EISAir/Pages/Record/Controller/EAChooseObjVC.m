@@ -205,7 +205,7 @@ typedef NS_ENUM(NSUInteger, EATableType) {
         EAMsgSearchTipDataModel *msgModel = [[EAMsgSearchTipDataModel alloc] init];
         msgModel.objId = model.id;
         msgModel.objName = model.name;
-        msgModel.objType = model.spaceType;
+        msgModel.objType = model.objType;
         self.doneBlock(msgModel);
     }
     __block UIViewController *preVC = nil;

@@ -183,6 +183,14 @@
     return _type;
 }
 
+- (void)updatePickerContents:(NSArray *)pickerContents {
+    _pickerContents = pickerContents;
+    UIPickerView *pickerView = ((UIPickerView *)_textField.inputView);
+    if ([pickerView isKindOfClass:[UIPickerView class]]) {
+        [pickerView reloadAllComponents];
+    }
+}
+
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     _placeHolderLabel.hidden = YES;
@@ -209,6 +217,12 @@
 }
 
 - (void)doneAction:(id)sender {
+    if (EAInputTypeDate == _type) {
+        _textField.text = [TKCommonTools dateStringWithFormat:TKDateFormatChineseLongYMD date:[(UIDatePicker *)_textField.inputView date]];
+    } else {
+        UIPickerView *pickerView = (UIPickerView *)_textField.inputView;
+        _textField.text = _pickerContents[[pickerView selectedRowInComponent:0]];
+    }
     [self endEditing:YES];
 }
 

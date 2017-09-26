@@ -40,4 +40,6 @@ typedef void(^EAInputChooseBlock)(EAInputView *view);
 
 - (void)setInputKeyboardType:(UIKeyboardType)inputKeyboardType;
 
+- (void)updatePickerContents:(NSArray *)pickerContents;
+
 @end

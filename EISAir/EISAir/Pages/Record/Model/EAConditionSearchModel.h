@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *spaceType;
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *objType;
 @end
 
 

@@ -145,6 +145,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EAConditionSearchListModel *model = _dataArray[indexPath.row];
+    switch (_type) {
+        case EARecordObjTypeKongJian:
+            model.objType = @"space";
+            break;
+        case EARecordObjTypeSheBei:
+            model.objType = @"device";
+            break;
+        case EARecordObjTypeDian:
+            model.objType = @"point";
+            break;
+        default:
+            break;
+    }
     if (self.doneBlock && model.id.length) {
         self.doneBlock(model);
     }
