@@ -326,8 +326,14 @@
         [TKCommonTools showToast:toast];
         return;
     }
-    [TKRequestHandler postWithPath:@"/eis/open/record/saveEisWorkRecord" params:[self paramsForSubmit] jsonModelClass:EAMsgSearchTipModel.class completion:^(id model, NSError *error) {
-        
+    weakify(self);
+    [TKRequestHandler postWithPath:@"/eis/open/record/saveEisWorkRecord" params:[self paramsForSubmit] jsonModelClass:EAPostBasicModel.class completion:^(id model, NSError *error) {
+        strongify(self);
+        EAPostBasicModel *aModel = model;
+        [TKCommonTools showToast:aModel.msg];
+        if (aModel.success) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }];
 }
 
@@ -345,9 +351,9 @@
         }];
         params[@"objType"] = _firstModel.objType;
         if (_user.uid.length) {
-            params[@"assignPersonIds"] = [NSString json_stringWithArray:@[_user.uid]];
+            params[@"assignPersonIds"] = @[_user.uid];
         }
-        params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
+        params[@"objIds"] = @[ToSTR(_firstModel.objId)];
     } else if (EAAddRecordTypeNumber == _type) {
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -366,10 +372,9 @@
             }];
             params[@"objType"] = _firstModel.objType;
             if (_user.uid.length) {
-                params[@"assignPersonIds"] = [NSString json_stringWithArray:@[_user.uid]];
+                params[@"assignPersonIds"] = @[_user.uid];
             }
-            params[@"objIds"] = [NSString json_stringWithArray:@[ToSTR(_firstModel.objId)]];
-            
+            params[@"objIds"] = @[ToSTR(_firstModel.objId)];
         }];
     } else if (EAAddRecordTypeRelation == _type) {
         

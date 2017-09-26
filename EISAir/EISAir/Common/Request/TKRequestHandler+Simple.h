@@ -7,6 +7,7 @@
 //
 
 #import "TKRequestHandler.h"
+#import "EAPostBasicModel.h"
 
 FOUNDATION_EXPORT const int kEISRequestPageSize;
 

@@ -199,6 +199,52 @@ static NSString *kRequestPoint = @"/eis/open/object/findMeasureList";
              };
 }
 
+- (NSDictionary *)pointFirst {
+    return @{
+             @"data": @[
+                     @{
+                         @"name": @"不限",
+                         @"id": @"",
+                         },
+                     @{
+                         @"name": @"状态值",
+                         @"id": @"building",
+                         },
+                     @{
+                         @"name": @"累计值",
+                         @"id": @"floor",
+                         },
+                     @{
+                         @"name": @"瞬时值",
+                         @"id": @"room",
+                         },
+                     ],
+             };
+}
+
+- (NSDictionary *)pointSecond {
+    return @{
+             @"data": @[
+                     @{
+                         @"name": @"不限",
+                         @"id": @"",
+                         },
+                     @{
+                         @"name": @"建筑",
+                         @"id": @"building",
+                         },
+                     @{
+                         @"name": @"楼层",
+                         @"id": @"floor",
+                         },
+                     @{
+                         @"name": @"房间",
+                         @"id": @"room",
+                         },
+                     ],
+             };
+}
+
 - (NSString *)requestPath {
     switch (_type) {
         case EARecordObjTypeKongJian:

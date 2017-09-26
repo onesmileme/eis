@@ -12,7 +12,7 @@
 
 + (NSString *)json_stringWithArray:(NSArray *)array {
     NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array
                                                        options:kNilOptions
                                                          error:&error];
     

@@ -100,6 +100,7 @@
 		53DB28C01F6E520200FB2B0F /* theme in Resources */ = {isa = PBXBuildFile; fileRef = 53DB28BE1F6E520200FB2B0F /* theme */; };
 		53DB28C31F6E5CDF00FB2B0F /* EAEnergyCountControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB28C21F6E5CDF00FB2B0F /* EAEnergyCountControl.m */; };
 		53F02A0C1F78F89C00704B68 /* EARecordAttrModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */; };
+		53F02A101F7A3E3F00704B68 /* EAPostBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */; };
 		6E00B20E1F6E6398006D4BF1 /* EATaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
@@ -824,6 +825,8 @@
 		53DB28C21F6E5CDF00FB2B0F /* EAEnergyCountControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAEnergyCountControl.m; sourceTree = "<group>"; };
 		53F02A0A1F78F89C00704B68 /* EARecordAttrModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EARecordAttrModel.h; sourceTree = "<group>"; };
 		53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EARecordAttrModel.m; sourceTree = "<group>"; };
+		53F02A0E1F7A3E3F00704B68 /* EAPostBasicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPostBasicModel.h; sourceTree = "<group>"; };
+		53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPostBasicModel.m; sourceTree = "<group>"; };
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EATaskHelper.h; sourceTree = "<group>"; };
 		6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EATaskHelper.m; sourceTree = "<group>"; };
@@ -3799,6 +3802,8 @@
 				6E7015921F6EAD460006C2E9 /* EAUserModel.m */,
 				6EE9C50B1F72B559006C6CBC /* EAUserDataModel+Pinyin.h */,
 				6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */,
+				53F02A0E1F7A3E3F00704B68 /* EAPostBasicModel.h */,
+				53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5196,6 +5201,7 @@
 				6E415E711F5171D10078436F /* ZXUPCAReader.m in Sources */,
 				6E415E2C1F5171D10078436F /* ZXDataMatrixVersion.m in Sources */,
 				6E415E5F1F5171D10078436F /* ZXCodaBarReader.m in Sources */,
+				53F02A101F7A3E3F00704B68 /* EAPostBasicModel.m in Sources */,
 				FA0069AD1F7617A4008A4826 /* TKRequestHandler+Simple.m in Sources */,
 				6E415E221F5171D10078436F /* ZXInvertedLuminanceSource.m in Sources */,
 				6E415ECB1F51B4F10078436F /* EAMsgStateInfoCell.m in Sources */,
