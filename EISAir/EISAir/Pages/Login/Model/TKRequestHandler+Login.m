@@ -28,7 +28,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)sendMessageCompletion:(void(^)(NSURLSessionDataTask *task , NSDictionary *model , NSError * error))completion
+-(NSURLSessionDataTask *)sendMessage:(NSString *)phone completion:(void(^)(NSURLSessionDataTask *task , NSDictionary *model , NSError * error))completion
 {
     //GET /uas/open/message/send
     NSString *path = [NSString stringWithFormat:@"%@/uas/open/message/send",AppHost];
@@ -40,10 +40,31 @@
         if (error) {
             NSLog(@"error is: \n%@\n\n",error);
         }
-        
+        if (completion) {
+            completion(sessionDataTask,response,error);
+        }
     }];
     
     
 }
+
+-(NSURLSessionDataTask *)findPassword:(NSString *)phone captcha:(NSString *)captcha password:(NSString *)password completion:(void (^)())completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/uas/open/message/send",AppHost];
+    return [self getRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        
+        if (response) {
+            NSLog(@"response is: \n%@\n\n",response);
+        }
+        if (error) {
+            NSLog(@"error is: \n%@\n\n",error);
+        }
+       
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
 
 @end

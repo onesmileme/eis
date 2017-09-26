@@ -9,6 +9,7 @@
 #import "EAFindPassordViewController.h"
 #import "EALoginCountdownView.h"
 #import "TKRequestHandler+Login.h"
+#import "EATools.h"
 
 @interface EAFindPassordViewController ()<UITextFieldDelegate>
 
@@ -24,6 +25,9 @@
 @property(nonatomic , strong) IBOutlet UIButton *sendChapterButton;
 
 @property(nonatomic , strong) EALoginCountdownView *countdownView;
+@property(nonatomic , copy)   NSString *captcha;
+@property(nonatomic , copy)   NSString *phone;
+
 
 @end
 
@@ -89,7 +93,8 @@
 {
     [self startCountDown];
     
-    [[TKRequestHandler sharedInstance]sendMessageCompletion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
+    self.phone = self.phoneTextField.text;
+    [[TKRequestHandler sharedInstance]sendMessage:self.phone completion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
         
     }];
     
@@ -97,6 +102,11 @@
 
 -(IBAction)confirmAction:(id)sender
 {
+    
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
+    [[TKRequestHandler sharedInstance]findPassword:self.phone captcha:self.captcha password:self.passwordTextField.text completion:^{
+        
+    }];
     
 }
 #pragma textfield delegate
