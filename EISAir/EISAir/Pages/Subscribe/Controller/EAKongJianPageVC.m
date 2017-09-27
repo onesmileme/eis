@@ -1,0 +1,97 @@
+//
+//  EAKongJianPageVC.m
+//  EISAir
+//
+//  Created by DoubleHH on 2017/9/27.
+//  Copyright © 2017年 onesmile. All rights reserved.
+//
+
+#import "EAKongJianPageVC.h"
+#import "EADingYueGridContentView.h"
+#import "TKAccountManager.h"
+#import "EASpaceModel.h"
+
+@interface EAKongJianPageVC () {
+    EADingYueGridContentView *_contentView;
+    EASpaceModel *_model;
+}
+
+@end
+
+@implementation EAKongJianPageVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateContentView];
+    [self startHeadRefresh:_contentView];
+}
+
+- (void)headRefreshAction {
+    [self requestData];
+}
+
+- (void)updateContentView {
+    [_contentView removeFromSuperview];
+    _contentView = [[EADingYueGridContentView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) datas:[self contentData]];
+    [self.view addSubview:_contentView];
+    [self addHeaderRefreshView:_contentView];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _contentView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+}
+
+- (NSArray *)contentData {
+    if (!_model.data.floorList.count) {
+        return nil;
+    }
+    NSMutableArray *array = [NSMutableArray array];
+    for (EASpaceFloorlistModel *listModel in _model.data.floorList) {
+        NSMutableArray *items = [NSMutableArray array];
+        for (EASpaceRoomlistModel *roomModel in listModel.roomList) {
+            [items addObject:@{
+                               @"name": ToSTR(roomModel.name),
+                               @"id": ToSTR(roomModel.id),
+                               }];
+        }
+        [array addObject:@{
+                           @"title": ToSTR(listModel.name),
+                           @"id": ToSTR(listModel.id),
+                           @"items": items,
+                           @"subscribed": @"0",
+                           }];
+    }
+    return array;
+}
+
+#pragma mark - Request
+- (void)requestData {
+    [self nodata_hideView];
+    weakify(self);
+    NSMutableDictionary *params = @{@"productArray": [TKAccountManager sharedInstance].loginUserInfo.productArray ?: @[],
+                                    }.mutableCopy;
+    if (self.buildId.length) {
+        params[@"params"] = self.buildId;
+    }
+    [TKRequestHandler postWithPath:@"/eis/open/track/findTrackSpaces" params:params jsonModelClass:EASpaceModel.class completion:^(id model, NSError *error) {
+        strongify(self);
+        [self requestDataDone:model];
+    }];
+}
+
+- (void)requestDataDone:(EASpaceModel *)model {
+    [self stopRefresh:_contentView];
+    if (model.success) {
+        _model = model;
+        if (self.requestSuccessBlock) {
+            self.requestSuccessBlock(model);
+        }
+        [self updateContentView];
+    }
+    if (!model.data.floorList.count) {
+        [self nodata_showNoDataViewWithTapedBlock:nil];
+    }
+}
+
+@end

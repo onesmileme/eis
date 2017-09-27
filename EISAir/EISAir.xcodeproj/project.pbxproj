@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
 		5306BD9B1F7B79D900ED2C8F /* EASubscribePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BD9A1F7B79D900ED2C8F /* EASubscribePageVC.m */; };
+		5306BDAB1F7BA2D700ED2C8F /* EAKongJianPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDAA1F7BA2D700ED2C8F /* EAKongJianPageVC.m */; };
+		5306BDB01F7BA5E900ED2C8F /* EASpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */; };
+		5306BDB31F7BBA4900ED2C8F /* EAPageVCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */; };
 		5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8A11F4EC3D000F8E07E /* EAVCView.m */; };
 		5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8AD1F4ED2B300F8E07E /* WMContactUtil.m */; };
 		5330A8B21F4ED3F500F8E07E /* UIAlertController+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8B11F4ED3F500F8E07E /* UIAlertController+Simple.m */; };
@@ -649,6 +652,12 @@
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
 		5306BD991F7B79D900ED2C8F /* EASubscribePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASubscribePageVC.h; sourceTree = "<group>"; };
 		5306BD9A1F7B79D900ED2C8F /* EASubscribePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASubscribePageVC.m; sourceTree = "<group>"; };
+		5306BDA91F7BA2D700ED2C8F /* EAKongJianPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAKongJianPageVC.h; sourceTree = "<group>"; };
+		5306BDAA1F7BA2D700ED2C8F /* EAKongJianPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAKongJianPageVC.m; sourceTree = "<group>"; };
+		5306BDAE1F7BA5E900ED2C8F /* EASpaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASpaceModel.h; sourceTree = "<group>"; };
+		5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASpaceModel.m; sourceTree = "<group>"; };
+		5306BDB11F7BBA4900ED2C8F /* EAPageVCHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPageVCHandler.h; sourceTree = "<group>"; };
+		5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPageVCHandler.m; sourceTree = "<group>"; };
 		5330A8A01F4EC3D000F8E07E /* EAVCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVCView.h; sourceTree = "<group>"; };
 		5330A8A11F4EC3D000F8E07E /* EAVCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAVCView.m; sourceTree = "<group>"; };
 		5330A8AC1F4ED2B300F8E07E /* WMContactUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMContactUtil.h; sourceTree = "<group>"; };
@@ -1916,6 +1925,8 @@
 			children = (
 				53AD6EC41F695CC9005025BD /* EAAllSubscribeModel.h */,
 				53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */,
+				5306BDAE1F7BA5E900ED2C8F /* EASpaceModel.h */,
+				5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4180,6 +4191,10 @@
 				FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */,
 				FA34213B1F716DC4001D9FDC /* EASingleKongJianVC.h */,
 				FA34213C1F716DC4001D9FDC /* EASingleKongJianVC.m */,
+				5306BDA91F7BA2D700ED2C8F /* EAKongJianPageVC.h */,
+				5306BDAA1F7BA2D700ED2C8F /* EAKongJianPageVC.m */,
+				5306BDB11F7BBA4900ED2C8F /* EAPageVCHandler.h */,
+				5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4774,6 +4789,7 @@
 				6E4D93221F5BDD6100026B53 /* EAHomeViewController.m in Sources */,
 				6E415E571F5171D10078436F /* ZXRSSExpandedReader.m in Sources */,
 				53DB287C1F6E51E600FB2B0F /* PYAxisPointer.m in Sources */,
+				5306BDAB1F7BA2D700ED2C8F /* EAKongJianPageVC.m in Sources */,
 				53AD6EBE1F695A42005025BD /* EADingYueGridView.m in Sources */,
 				6E6886D31F45124B009AD662 /* EARedDotModel.m in Sources */,
 				6E6886DB1F45124B009AD662 /* TKRequestHandler+Util.m in Sources */,
@@ -4834,6 +4850,7 @@
 				6E415E4B1F5171D10078436F /* ZXAI01weightDecoder.m in Sources */,
 				53D62B7A1F6E301000E4E43F /* EAEnergyTableView.m in Sources */,
 				5330A9221F5A643000F8E07E /* EADianFeiVC.m in Sources */,
+				5306BDB31F7BBA4900ED2C8F /* EAPageVCHandler.m in Sources */,
 				6E415E101F5171D10078436F /* ZXByteArray.m in Sources */,
 				6E6886881F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				6E415E461F5171D10078436F /* ZXAI01393xDecoder.m in Sources */,
@@ -4845,6 +4862,7 @@
 				6E4D93261F5BDD8500026B53 /* EAHomeHeaderView.m in Sources */,
 				53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */,
 				6E8740E71F76076B005EFA50 /* EAModifyPasswordItemView.m in Sources */,
+				5306BDB01F7BA5E900ED2C8F /* EASpaceModel.m in Sources */,
 				6E415E611F5171D10078436F /* ZXCode128Reader.m in Sources */,
 				6E415E861F5171D10078436F /* ZXPDF417Detector.m in Sources */,
 				6E415E3A1F5171D10078436F /* ZXDataMatrixReader.m in Sources */,

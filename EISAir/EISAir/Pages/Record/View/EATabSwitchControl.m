@@ -13,6 +13,9 @@ static const int kTagItem = 1000;
 @implementation EATabSwitchControl {
     NSArray *_itemArray;
     UIView *_selectedTagLine;
+    UIFont *_titleFont;
+    float _lineWidth;
+    UIColor *_lineColor;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -22,15 +25,23 @@ static const int kTagItem = 1000;
                     lineColor:(UIColor *)lineColor {
     self = [super initWithFrame:frame];
     if (self) {
-        _selectedIndex = INT_MAX;
-        _itemArray = itemArray;
-        self.backgroundColor = [UIColor whiteColor];
-        if (_itemArray.count) {
-            [self creatSubviewWithItemArray:itemArray titleFont:titleFont lineWidth:lineWidth lineColor:lineColor];
-            [self setSelectedIndex:0 shouldNotify:NO animate:NO];
-        }
+        _titleFont = titleFont;
+        _lineWidth = lineWidth;
+        _lineColor = lineColor;
+        [self updateItemArray:itemArray];
     }
     return self;
+}
+
+- (void)updateItemArray:(NSArray *)itemArray {
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    _itemArray = itemArray;
+    _selectedIndex = INT_MAX;
+    self.backgroundColor = [UIColor whiteColor];
+    if (_itemArray.count) {
+        [self creatSubviewWithItemArray:itemArray titleFont:_titleFont lineWidth:_lineWidth lineColor:_lineColor];
+        [self setSelectedIndex:0 shouldNotify:NO animate:NO];
+    }
 }
 
 - (void)creatSubviewWithItemArray:(NSArray *)itemArray

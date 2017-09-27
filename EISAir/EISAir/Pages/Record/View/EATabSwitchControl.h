@@ -18,4 +18,6 @@
 // 默认0
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
+- (void)updateItemArray:(NSArray *)itemArray;
+
 @end

@@ -7,107 +7,30 @@
 //
 
 #import "EAKongJianVC.h"
-#import "EATabSwitchContainer.h"
+#import "EATabSwitchControl.h"
 #import "EADingYueGridContentView.h"
 #import "EASubscribeHeaderView.h"
+#import "TKAccountManager.h"
+#import "EAKongJianPageVC.h"
+#import "EAPageVCHandler.h"
+#import "EASpaceModel.h"
 
-@interface EAKongJianVC () <EATabSwitchContainerProtocol>
+@interface EAKongJianVC () <EAPageVCHandlerDelegate>
 
 @end
 
 @implementation EAKongJianVC {
     EASubscribeHeaderView *_headerView;
-    EATabSwitchContainer *_tabSwitchContainer;
-    
+    EATabSwitchControl *_tabSwitchControl;
     NSArray *_datas;
     NSArray *_contents;
+    EAPageVCHandler *_pageHandler;
+    NSArray *_buildList;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.type == EAKongJianVCTypeSheBei ? @"设置追踪" : @"空间追踪";
-    
-    _datas =
-    @[
-      @[
-          @{
-              @"title": @"F1",
-              @"items": @[@"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          @{
-              @"title": @"F2",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(1),
-              },
-          @{
-              @"title": @"F3",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          ],
-      @[
-          @{
-              @"title": @"K1",
-              @"items": @[@"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          @{
-              @"title": @"K2",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(1),
-              },
-          @{
-              @"title": @"K3",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          ],
-      @[
-          @{
-              @"title": @"U1",
-              @"items": @[@"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          @{
-              @"title": @"I2",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(1),
-              },
-          @{
-              @"title": @"HJKL3",
-              @"items": @[@"计算单位1计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",@"计算单位1",@"计算单位1",
-                          @"计算单位1",@"计算单位1",],
-              @"subscribed": @(0),
-              },
-          ],
-      ];
     [self createSubviews];
 }
 
@@ -122,39 +45,65 @@
     };
     [self.view addSubview:_headerView];
     
-    NSMutableArray *views = [NSMutableArray array];
-    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - kTabSwtichControlHeight - NAVIGATION_BAR_HEIGHT - _headerView.bottom);
-    for (int i = 0; i < _datas.count; ++i) {
-        EADingYueGridContentView *container = [[EADingYueGridContentView alloc] initWithFrame:frame datas:_datas[i]];
-        [views addObject:container];
-    }
-    _contents = views;
+    // tab
+    _tabSwitchControl = [[EATabSwitchControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)
+                                                        itemArray:nil
+                                                        titleFont:[UIFont systemFontOfSize:15]
+                                                        lineWidth:FlexibleWithTo6(115)
+                                                        lineColor:HexColor((0x28cfc1))];
+    [_tabSwitchControl addTarget:self action:@selector(tabSwitched:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_tabSwitchControl];
     
-    _tabSwitchContainer = [[EATabSwitchContainer alloc] initWithFrame:CGRectMake(0, _headerView.bottom, SCREEN_WIDTH, frame.size.height + kTabSwtichControlHeight)];
-    _tabSwitchContainer.delegate = self;
-    [self.view addSubview:_tabSwitchContainer];
+    _pageHandler = [[EAPageVCHandler alloc] init];
+    _pageHandler.delegate = self;
+    [self addChildViewController:_pageHandler.pageVC];
+    [self.view addSubview:_pageHandler.pageVC.view];
+    [_pageHandler moveToIndex:0 animated:NO];
 }
 
-#pragma mark - EATabSwitchContainerProtocol
-// data source
-- (NSArray<NSString *> *)tabSwitchContainerHeaderTitles:(EATabSwitchContainer *)container {
-    return @[@"建筑A", @"建筑B", @"建筑C"];
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _pageHandler.pageVC.view.frame = CGRectMake(0, _tabSwitchControl.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - _tabSwitchControl.height - NAVIGATION_BAR_HEIGHT - _headerView.bottom);
 }
 
-- (UIView *)tabSwitchContainer:(EATabSwitchContainer *)container viewForIndex:(NSUInteger)index {
-    if (index < _contents.count) {
-        return _contents[index];
+- (void)tabSwitched:(id)sender {
+    [_pageHandler moveToIndex:_tabSwitchControl.selectedIndex animated:YES];
+}
+
+#pragma mark - Request
+- (void)requestDataDone:(EASpaceModel *)model {
+    if (!_buildList.count && model.data.buildList.count) {
+        _buildList = model.data.buildList;
+        NSMutableArray *array = [NSMutableArray array];
+        for (EASpaceBuildlistModel *listModel in _buildList) {
+            [array addObject:ToSTR(listModel.name)];
+        }
+        [_tabSwitchControl updateItemArray:array];
+    }
+}
+
+- (NSString *)buildIDWithIndex:(NSInteger)index {
+    if (index >= 0 && index < _buildList.count) {
+        EASpaceBuildlistModel *listModel = _buildList[index];
+        return listModel.id;
     }
     return nil;
 }
 
-- (NSDictionary *)tabSwitchContainerHeaderConfig:(EATabSwitchContainer *)container {
-    return @{ @"lineColor": HexColor(0x28cfc1), };
+#pragma mark - EAPageVCHandlerDelegate
+- (UIViewController *)pageHandler:(EAPageVCHandler *)handler viewControllerWithIndex:(NSUInteger)index {
+    EAKongJianPageVC *vc = [[EAKongJianPageVC alloc] init];
+    weakify(self);
+    vc.requestSuccessBlock = ^(EASpaceModel *model) {
+        strongify(self);
+        [self requestDataDone:model];
+    };
+    vc.buildId = [self buildIDWithIndex:index];
+    return vc;
 }
 
-// actions
-- (void)tabSwitchContainer:(EATabSwitchContainer *)container selectedIndex:(NSUInteger)index {
-    
+- (void)pageHandler:(EAPageVCHandler *)handler didMoveToIndex:(NSUInteger)index {
+    _tabSwitchControl.selectedIndex = index;
 }
 
 @end

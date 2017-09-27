@@ -43,7 +43,7 @@
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(left, top, width, 35)];
             [button addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
             [button setTitleColor:HexColor(0x444444) forState:UIControlStateNormal];
-            [button setTitle:items[i] forState:UIControlStateNormal];
+            [button setTitle:items[i][@"name"] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:12];
             button.clipsToBounds = YES;
             button.layer.cornerRadius = 2.0;
