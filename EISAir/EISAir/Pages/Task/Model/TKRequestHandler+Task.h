@@ -43,5 +43,9 @@
  * 拉取抄表内容
  */
 -(NSURLSessionDataTask *)findPointData:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskItemModel *model , NSError *error))completion;
+/*
+ * 保存抄表內容
+ */
+-(NSURLSessionDataTask *)savePointData:(NSString *)tagId createDate:(NSString *)date value:(NSString *)value completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion;
 
 @end

@@ -111,19 +111,19 @@
 {
     [self.view endEditing:true];
     
-    if (self.phone.length == 0) {
+    if (self.phoneTextField.text.length == 0) {
         [EATools showToast:@"请输入手机号，并获取验证码"];
         return;
-    }else if (self.captcha.length == 0){
+    }else if (self.chapterTextField.text.length == 0){
         [EATools showToast:@"请输入验证码"];
         return;
-    }else if (self.passwordTextField.text.length == 0 || [self.passwordTextField.text isEqualToString:self.cofirmTextField.text]){
+    }else if (self.passwordTextField.text.length == 0 || ![self.passwordTextField.text isEqualToString:self.cofirmTextField.text]){
         [EATools showToast:@"两次密码不一致"];
         return;
     }
     
     MBProgressHUD *hud = [EATools showLoadHUD:self.view];
-    [[TKRequestHandler sharedInstance]findPassword:self.phone captcha:self.captcha password:self.passwordTextField.text completion:^(NSURLSessionDataTask *task, NSDictionary *response, NSError *error) {
+    [[TKRequestHandler sharedInstance]findPassword:self.phoneTextField.text captcha:self.chapterTextField.text password:self.passwordTextField.text completion:^(NSURLSessionDataTask *task, NSDictionary *response, NSError *error) {
         BOOL success = false;
         if (response) {
             

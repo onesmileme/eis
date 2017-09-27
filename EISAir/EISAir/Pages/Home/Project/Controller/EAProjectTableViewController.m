@@ -60,6 +60,9 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (_userInfo.sites.count == 0) {
+        return 0;
+    }
     return 2;
 }
 

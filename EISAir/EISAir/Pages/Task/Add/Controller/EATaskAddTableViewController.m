@@ -108,7 +108,7 @@
 -(void)loadTaskItems
 {
     
-    [[TKRequestHandler sharedInstance] findPointData:@"" completion:^(NSURLSessionDataTask *task, EATaskItemModel *model, NSError *error) {
+    [[TKRequestHandler sharedInstance] findPointData:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskItemModel *model, NSError *error) {
         if (error == nil && model.success) {
             self.model = model;
             [self.collectionView reloadData];
@@ -142,11 +142,25 @@
     NSIndexPath *indexPath = nil;
     if (page < self.model.data.count-1) {
         indexPath = [NSIndexPath indexPathForItem:page+1 inSection:0];
+          [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:true];
     }else{
-        indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+        EATaskItemDataModel *m = self.model.data[page];
+        [self saveModel:m showLoading:true];
     }
-    
-    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:true];
+}
+
+-(void)saveModel:(EATaskItemDataModel *)m showLoading:(BOOL)showloading
+{
+    MBProgressHUD *hud = nil;
+    if (showloading) {
+        hud = [EATools showLoadHUD:self.view];
+    }
+    [[TKRequestHandler sharedInstance] savePointData:m.tagid createDate:m.meterDate value:m.readCount completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
+        if (hud) {
+            hud.label.text = @"保存失败";
+            [hud hideAnimated:true afterDelay:1];
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -160,9 +174,22 @@
 {
     EATaskAddCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell_id" forIndexPath:indexPath];
     
+    EATaskItemDataModel *m = self.model.data[indexPath.item];
+    [cell updateWithModel:m];
+    
     return cell;
 }
 
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.item == _model.data.count -1) {
+        
+        [self.nextButton setTitle:@"保存" forState:UIControlStateNormal];
+    }else{
+        [self.nextButton setTitle:@"下一个" forState:UIControlStateNormal];
+    }
+}
 
 
 /*

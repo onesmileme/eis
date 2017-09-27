@@ -218,6 +218,12 @@
         cell.titleLabel.text = title;
         cell.contentField.text = content;
         
+        if (indexPath.row == EATaskItemTypeThisNum) {
+            cell.contentField.enabled = true;
+        }else{
+            cell.contentField.enabled = false;
+        }
+        
         
         c = cell;
         
@@ -287,6 +293,12 @@
         
         cell.contentField.text = content;
         cell.titleLabel.text = title;
+        
+        if (indexPath.row == EATaskItemTypeDate) {
+            cell.contentField.enabled = true;
+        }else{
+            cell.contentField.enabled = false;
+        }
         
         c = cell;
     }

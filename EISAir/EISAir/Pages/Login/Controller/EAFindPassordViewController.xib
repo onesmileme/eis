@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,7 +82,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" background="lost_password_input" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-a1-J5A" userLabel="phone text field">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" background="lost_password_input" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-a1-J5A" userLabel="phone text field">
                     <rect key="frame" x="17.5" y="41.5" width="340" height="41"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -91,7 +92,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" background="lost_password_input" translatesAutoresizingMaskIntoConstraints="NO" id="4HS-ZM-p9S" userLabel="chapter Text Field">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" background="lost_password_input" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4HS-ZM-p9S" userLabel="chapter Text Field">
                     <rect key="frame" x="17.5" y="90" width="231" height="41"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -101,7 +102,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码，8-20位，必须是数字和字母组合" textAlignment="natural" minimumFontSize="17" background="lost_password_input" translatesAutoresizingMaskIntoConstraints="NO" id="Jww-8T-DEO" userLabel="password Text Field">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码，8-20位，必须是数字和字母组合" textAlignment="natural" minimumFontSize="17" background="lost_password_input" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jww-8T-DEO" userLabel="password Text Field">
                     <rect key="frame" x="17.5" y="141" width="340" height="41"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -111,7 +112,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重复密码" textAlignment="natural" minimumFontSize="17" background="lost_password_input" translatesAutoresizingMaskIntoConstraints="NO" id="IKH-Bp-JaW" userLabel="confirm password Text Field">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重复密码" textAlignment="natural" minimumFontSize="17" background="lost_password_input" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IKH-Bp-JaW" userLabel="confirm password Text Field">
                     <rect key="frame" x="17.5" y="192" width="340" height="41"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>

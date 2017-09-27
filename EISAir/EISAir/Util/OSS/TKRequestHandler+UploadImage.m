@@ -87,7 +87,7 @@
     
     NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
     
-    NSString *key = [policy.dir stringByAppendingPathComponent:[NSString stringWithFormat:@"-%.0f-icon.jpg",interval*100]];
+    NSString *key = [policy.dir stringByAppendingPathComponent:[NSString stringWithFormat:@"icon_%.0f.jpg",interval*100]];
     NSString *imgUrl = [policy.host stringByAppendingPathComponent:key];    
     
     NSString *path = policy.host;
@@ -139,7 +139,7 @@
     
     NSLog(@"param is: \n%@",param);
     
-    return [self getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+    return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         
         if (error) {
             NSLog(@"error is: %@",error);

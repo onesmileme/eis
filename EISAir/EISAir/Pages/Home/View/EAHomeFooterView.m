@@ -84,13 +84,11 @@
 
 -(void)onTapAction:(UIButton *)button
 {
-    
-    
     NSString* appstoreUrlString = nil;
     if (button == _eamButton) {
-            appstoreUrlString = @"itms-apps://itunes.apple.com/cn/app/hun-lian-dui-xiang/id1096497249?mt=8";//
+            appstoreUrlString = @"itms-apps://itunes.apple.com/cn/app/id1129680275?mt=8";//
     }else{
-            appstoreUrlString = @"itms-apps://itunes.apple.com/cn/app/hun-lian-dui-xiang/id1096497249?mt=8";//        
+            appstoreUrlString = @"itms-apps://itunes.apple.com/cn/app/id1195778908?mt=8";//
     }
     
     

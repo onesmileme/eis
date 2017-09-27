@@ -204,6 +204,39 @@
     }];
 }
 
+//open/task/savePointData
+-(NSURLSessionDataTask *)savePointData:(NSString *)tagId createDate:(NSString *)date value:(NSString *)value completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion
+{
+    
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/savePointData",AppHost];
+    EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
+    NSMutableDictionary *param = [@{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId} mutableCopy];
+    if (date.length > 0) {
+        param[@"timestamp"] = date;
+    }
+    if (value.length > 0) {
+        param[@"value"] = value;
+    }
+    if (tagId.length > 0) {
+        param[@"tagid"] = tagId;
+    }
+    
+    
+    return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id response, NSError * _Nullable error) {
+        if (completion) {
+            BOOL success = false;
+            if (response) {
+                if ([response[@"success"] boolValue]) {
+                    success = true;
+                }else{
+                    error = [NSError errorWithDomain:@"请求失败" code:-10000 userInfo:nil];
+                }
+            }
+            completion(sessionDataTask,success,error);
+        }
+    }];
+}
+
 //-(NSURLSessionDataTask *)findEisTaskById:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion
 //{
 //    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskById",AppHost];

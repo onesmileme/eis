@@ -50,7 +50,7 @@
 
 -(NSURLSessionDataTask *)modifyPassword:(NSString *)newPwd oldPassword:(NSString *)oldPwd completion:(void (^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion
 {
-    NSDictionary *param = @{@"password":newPwd?:@"",@"oldPassword":oldPwd?:@""};
+    NSDictionary *param = @{@"newPasswd":newPwd?:@"",@"oldPasswd":oldPwd?:@""};
     
     //
     NSString *path = [NSString stringWithFormat:@"%@/app/uas/open/personandusers/updatePassword",AppHost];

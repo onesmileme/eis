@@ -64,6 +64,7 @@
 -(void)doneAction
 {
     if (_chooseDate) {
+        [self.contentField resignFirstResponder];
         NSDate *date = self.picker.date;
         _chooseDate(self,date);
     }
