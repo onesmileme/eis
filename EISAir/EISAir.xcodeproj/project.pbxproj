@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4807F75103AA91C2D3B76673 /* libPods-EISAir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96388FFD4F742D805950B839 /* libPods-EISAir.a */; };
+		5306BD9B1F7B79D900ED2C8F /* EASubscribePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BD9A1F7B79D900ED2C8F /* EASubscribePageVC.m */; };
 		5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8A11F4EC3D000F8E07E /* EAVCView.m */; };
 		5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8AD1F4ED2B300F8E07E /* WMContactUtil.m */; };
 		5330A8B21F4ED3F500F8E07E /* UIAlertController+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8B11F4ED3F500F8E07E /* UIAlertController+Simple.m */; };
@@ -28,7 +29,6 @@
 		53AD6EBE1F695A42005025BD /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EB81F695A42005025BD /* EADingYueGridView.m */; };
 		53AD6EBF1F695A42005025BD /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EBA1F695A42005025BD /* EASubscribeCell.m */; };
 		53AD6EC01F695A42005025BD /* EASubscribeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EBC1F695A42005025BD /* EASubscribeHeaderView.m */; };
-		53AD6EC31F695AF2005025BD /* TKRequestHandler+Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */; };
 		53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */; };
 		53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */; };
 		53AD8CB81F74F413006A02D6 /* EAReportDetailExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */; };
@@ -647,6 +647,8 @@
 
 /* Begin PBXFileReference section */
 		1E156D4ED41BBA69BD14DE38 /* Pods-EISAirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EISAirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EISAirTests/Pods-EISAirTests.release.xcconfig"; sourceTree = "<group>"; };
+		5306BD991F7B79D900ED2C8F /* EASubscribePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASubscribePageVC.h; sourceTree = "<group>"; };
+		5306BD9A1F7B79D900ED2C8F /* EASubscribePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASubscribePageVC.m; sourceTree = "<group>"; };
 		5330A8A01F4EC3D000F8E07E /* EAVCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVCView.h; sourceTree = "<group>"; };
 		5330A8A11F4EC3D000F8E07E /* EAVCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAVCView.m; sourceTree = "<group>"; };
 		5330A8AC1F4ED2B300F8E07E /* WMContactUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMContactUtil.h; sourceTree = "<group>"; };
@@ -687,8 +689,6 @@
 		53AD6EBA1F695A42005025BD /* EASubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASubscribeCell.m; sourceTree = "<group>"; };
 		53AD6EBB1F695A42005025BD /* EASubscribeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASubscribeHeaderView.h; sourceTree = "<group>"; };
 		53AD6EBC1F695A42005025BD /* EASubscribeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASubscribeHeaderView.m; sourceTree = "<group>"; };
-		53AD6EC11F695AF2005025BD /* TKRequestHandler+Subscribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+Subscribe.h"; sourceTree = "<group>"; };
-		53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+Subscribe.m"; sourceTree = "<group>"; };
 		53AD6EC41F695CC9005025BD /* EAAllSubscribeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAllSubscribeModel.h; sourceTree = "<group>"; };
 		53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAllSubscribeModel.m; sourceTree = "<group>"; };
 		53AD6EC71F697805005025BD /* EADingYueEnergyChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyChartVC.h; sourceTree = "<group>"; };
@@ -1923,8 +1923,6 @@
 		53AD6EB31F695A42005025BD /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				53AD6EC11F695AF2005025BD /* TKRequestHandler+Subscribe.h */,
-				53AD6EC21F695AF2005025BD /* TKRequestHandler+Subscribe.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -4166,6 +4164,8 @@
 			children = (
 				6E6386A91F48200100017FB8 /* EASubscribeViewController.h */,
 				6E6386AA1F48200100017FB8 /* EASubscribeViewController.m */,
+				5306BD991F7B79D900ED2C8F /* EASubscribePageVC.h */,
+				5306BD9A1F7B79D900ED2C8F /* EASubscribePageVC.m */,
 				5330A91D1F5A4B5D00F8E07E /* EADingYueRenVC.h */,
 				5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */,
 				5330A9201F5A643000F8E07E /* EADianFeiVC.h */,
@@ -4956,6 +4956,7 @@
 				53DB28821F6E51E600FB2B0F /* PYDataRange.m in Sources */,
 				6E415F321F52B0620078436F /* EATaskDetailEditViewController.m in Sources */,
 				6E6386B21F482CDF00017FB8 /* EAFindPassordViewController.m in Sources */,
+				5306BD9B1F7B79D900ED2C8F /* EASubscribePageVC.m in Sources */,
 				6E415E681F5171D10078436F /* ZXEAN8Reader.m in Sources */,
 				6E6886CF1F45124B009AD662 /* EABaseViewController.m in Sources */,
 				5330A8D01F53045A00F8E07E /* EATabSwitchControl.m in Sources */,
@@ -5111,7 +5112,6 @@
 				53DB28831F6E51E600FB2B0F /* PYDataZoom.m in Sources */,
 				6E415EA81F5171D10078436F /* ZXMultiFinderPatternFinder.m in Sources */,
 				6E415DD01F5171D10078436F /* LBXZBarWrapper.m in Sources */,
-				53AD6EC31F695AF2005025BD /* TKRequestHandler+Subscribe.m in Sources */,
 				6E68864A1F43C71A009AD662 /* NSMutableSet+BlocksKit.m in Sources */,
 				6E415E641F5171D10078436F /* ZXCode39Writer.m in Sources */,
 				6E68868A1F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,

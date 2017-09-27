@@ -11,7 +11,7 @@
 @interface EAAllSubscribeDataModel : JSONModel
 @property (nonatomic, strong) NSString *subscribePersonCount;
 @property (nonatomic, strong) NSString *modularName;
-@property (nonatomic, strong) NSString *subscribePersonNames;
+@property (nonatomic, strong) NSArray *subscribePersonNames;
 @property (nonatomic, strong) NSString *isSubscribe;
 @property (nonatomic, strong) NSString *subscribePersonId;
 @property (nonatomic, strong) NSString *id;

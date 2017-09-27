@@ -59,10 +59,11 @@
 }
 
 - (void)setModel:(id)aModel {
-    _titleLabel.text = @"空间追踪";
-    _detailLabel.text = @"王磊，马云等20人订阅王磊，马云等20人订阅王磊，马云等20人订阅王磊，马云等20人订阅";
-    _imageView.image = [UIImage imageNamed:@"dingyue_pic1"];
-    
+    _titleLabel.text = aModel[@"name"];
+    _detailLabel.text = aModel[@"desc"];
+    _imageView.image = [UIImage imageNamed:aModel[@"pic"]];
+    _subscribeBtn.selected = [aModel[@"subscribed"] boolValue];
+ 
     [_titleLabel sizeToFit];
     [_detailLabel sizeToFit];
     _titleLabel.origin = CGPointMake(_imageView.right + 20, _imageView.top + 7);
