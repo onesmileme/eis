@@ -658,6 +658,7 @@
 		5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASpaceModel.m; sourceTree = "<group>"; };
 		5306BDB11F7BBA4900ED2C8F /* EAPageVCHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPageVCHandler.h; sourceTree = "<group>"; };
 		5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPageVCHandler.m; sourceTree = "<group>"; };
+		5306BDB41F7BD05100ED2C8F /* EADingYueDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EADingYueDefines.h; sourceTree = "<group>"; };
 		5330A8A01F4EC3D000F8E07E /* EAVCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVCView.h; sourceTree = "<group>"; };
 		5330A8A11F4EC3D000F8E07E /* EAVCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAVCView.m; sourceTree = "<group>"; };
 		5330A8AC1F4ED2B300F8E07E /* WMContactUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMContactUtil.h; sourceTree = "<group>"; };
@@ -4183,6 +4184,8 @@
 				5330A9211F5A643000F8E07E /* EADianFeiVC.m */,
 				5330A9231F5A644E00F8E07E /* EAKongJianVC.h */,
 				5330A9241F5A644E00F8E07E /* EAKongJianVC.m */,
+				5306BDA91F7BA2D700ED2C8F /* EAKongJianPageVC.h */,
+				5306BDAA1F7BA2D700ED2C8F /* EAKongJianPageVC.m */,
 				53AD6EC71F697805005025BD /* EADingYueEnergyChartVC.h */,
 				53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */,
 				53D62B731F6E2E1200E4E43F /* EADingYueEnergyMainVC.h */,
@@ -4191,10 +4194,9 @@
 				FA3421281F6ED8E0001D9FDC /* EADingYueEnergyHistoryVC.m */,
 				FA34213B1F716DC4001D9FDC /* EASingleKongJianVC.h */,
 				FA34213C1F716DC4001D9FDC /* EASingleKongJianVC.m */,
-				5306BDA91F7BA2D700ED2C8F /* EAKongJianPageVC.h */,
-				5306BDAA1F7BA2D700ED2C8F /* EAKongJianPageVC.m */,
 				5306BDB11F7BBA4900ED2C8F /* EAPageVCHandler.h */,
 				5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */,
+				5306BDB41F7BD05100ED2C8F /* EADingYueDefines.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

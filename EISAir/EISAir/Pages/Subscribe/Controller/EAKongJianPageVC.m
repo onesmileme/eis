@@ -71,10 +71,11 @@
     weakify(self);
     NSMutableDictionary *params = @{@"productArray": [TKAccountManager sharedInstance].loginUserInfo.productArray ?: @[],
                                     }.mutableCopy;
-    if (self.buildId.length) {
-        params[@"params"] = self.buildId;
+    if (self.categoryId.length) {
+        params[EAKongJianVCTypeKongJian == self.type ? @"bulidId" : @"deviceWhatId"] = self.categoryId;
     }
-    [TKRequestHandler postWithPath:@"/eis/open/track/findTrackSpaces" params:params jsonModelClass:EASpaceModel.class completion:^(id model, NSError *error) {
+    NSString *path = EAKongJianVCTypeKongJian == self.type ? @"/eis/open/track/findTrackSpaces" : @"/eis/open/track/findTrackDevices";
+    [TKRequestHandler postWithPath:path params:params jsonModelClass:EASpaceModel.class completion:^(id model, NSError *error) {
         strongify(self);
         [self requestDataDone:model];
     }];

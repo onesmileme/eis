@@ -82,7 +82,7 @@
     }
 }
 
-- (NSString *)buildIDWithIndex:(NSInteger)index {
+- (NSString *)categoryIdWithIndex:(NSInteger)index {
     if (index >= 0 && index < _buildList.count) {
         EASpaceBuildlistModel *listModel = _buildList[index];
         return listModel.id;
@@ -93,12 +93,13 @@
 #pragma mark - EAPageVCHandlerDelegate
 - (UIViewController *)pageHandler:(EAPageVCHandler *)handler viewControllerWithIndex:(NSUInteger)index {
     EAKongJianPageVC *vc = [[EAKongJianPageVC alloc] init];
+    vc.type = self.type;
     weakify(self);
     vc.requestSuccessBlock = ^(EASpaceModel *model) {
         strongify(self);
         [self requestDataDone:model];
     };
-    vc.buildId = [self buildIDWithIndex:index];
+    vc.categoryId = [self categoryIdWithIndex:index];
     return vc;
 }
 

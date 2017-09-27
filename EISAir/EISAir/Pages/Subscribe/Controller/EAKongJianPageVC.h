@@ -7,11 +7,13 @@
 //
 
 #import "EABaseViewController.h"
+#import "EADingYueDefines.h"
 
 @class EASpaceModel;
 @interface EAKongJianPageVC : EABaseViewController
 
-@property (nonatomic, copy) NSString *buildId;
+@property (nonatomic, assign) EAKongJianVCType type;
+@property (nonatomic, copy) NSString *categoryId;
 @property (nonatomic, copy) void (^requestSuccessBlock)(EASpaceModel *model);
 
 @end

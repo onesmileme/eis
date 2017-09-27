@@ -7,11 +7,7 @@
 //
 
 #import "EABaseViewController.h"
-
-typedef enum : int {
-    EAKongJianVCTypeKongJian,
-    EAKongJianVCTypeSheBei,
-} EAKongJianVCType;
+#import "EADingYueDefines.h"
 
 @interface EAKongJianVC : EABaseViewController
 

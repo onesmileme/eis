@@ -37,12 +37,12 @@ static const int kTagOfNoData = 7383948;
 - (EAMessageNoDataView *)nodata_createNoDataView {
     EAMessageNoDataView *noDataView = [EAMessageNoDataView view];
     __weak typeof(self) wself = self;
-    UITableView *tableView = [self nodata_findTableView];
-    if (tableView) {
-        weakify(tableView);
+    UIScrollView *scrollview = [self nodata_findTableView];
+    if (scrollview) {
+        weakify(scrollview);
         weakify(noDataView);
         noDataView.tapBlock = ^{
-            [wself startHeadRefresh:weaktableView];
+            [wself startHeadRefresh:weakscrollview];
             [weaknoDataView removeFromSuperview];
         };
     }
@@ -55,10 +55,10 @@ static const int kTagOfNoData = 7383948;
     return noDataView;
 }
 
-- (UITableView *)nodata_findTableView {
+- (UIScrollView *)nodata_findTableView {
     for (UIView *view in self.view.subviews) {
-        if ([view isKindOfClass:[UITableView class]]) {
-            return (UITableView *)view;
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            return (UIScrollView *)view;
         }
     }
     return nil;

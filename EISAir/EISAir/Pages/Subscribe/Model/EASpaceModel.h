@@ -13,13 +13,14 @@
 @property (nonatomic, strong) NSString *id;
 @end
 
-
+@protocol EASpaceBuildlistModel
+@end
 @interface EASpaceRoomlistModel : JSONModel
 @property (nonatomic, assign) BOOL isHaveException;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *area;
 @property (nonatomic, assign) BOOL isHaveAlarm;
-@property (nonatomic, strong) NSString *devices;
+@property (nonatomic, strong) NSArray<EASpaceBuildlistModel> *devices;
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *disInstantValue;
 @property (nonatomic, strong) NSString *endValue;
@@ -38,8 +39,6 @@
 @end
 
 
-@protocol EASpaceBuildlistModel
-@end
 @protocol EASpaceFloorlistModel
 @end
 @interface EASpaceDataModel : JSONModel

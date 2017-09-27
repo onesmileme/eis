@@ -465,7 +465,8 @@ static JSONKeyMapper* globalKeyMapper = nil;
                         NSString* msg = [NSString stringWithFormat:@"%@ type not supported for %@.%@", property.type, [self class], property.name];
                         JSONModelError* dataErr = [JSONModelError errorInvalidDataWithTypeMismatch:msg];
                         *err = [dataErr errorByPrependingKeyPathComponent:property.name];
-                        return NO;
+                        NSLog(@"JSONModel ERROR: %@", msg);
+                        return YES;
                     }
 
                 } else {
@@ -1027,7 +1028,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
                     [tempDictionary setValue:value forKeyPath: keyPath];
 
                 } else {
-
+                    
                     //in this case most probably a custom property was defined in a model
                     //but no default reverse transformer for it
                     @throw [NSException exceptionWithName:@"Value transformer not found"
