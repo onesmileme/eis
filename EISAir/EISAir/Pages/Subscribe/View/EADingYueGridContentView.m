@@ -33,10 +33,10 @@ static const int kTag = 1000;
                     self.subscribeBlock(self, dic);
                 }
             };
-            view.itemPressedBlock = ^(EADingYueGridView *aview, NSUInteger index, NSDictionary *data) {
+            view.itemPressedBlock = ^(EADingYueGridView *aview, NSUInteger index) {
                 strongify(self);
                 if (self.itemPressedBlock) {
-                    self.itemPressedBlock(self, data, i, index);
+                    self.itemPressedBlock(self, i, index);
                 }
             };
             [self addSubview:view];

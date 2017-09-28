@@ -39,7 +39,7 @@
         strongify(self);
         [self subscribeAction:data];
     };
-    _contentView.itemPressedBlock = ^(EADingYueGridContentView *view, NSDictionary *data, NSUInteger section, NSUInteger row) {
+    _contentView.itemPressedBlock = ^(EADingYueGridContentView *view, NSUInteger section, NSUInteger row) {
         strongify(self);
         [self itemPressedWithSection:section row:row];
     };

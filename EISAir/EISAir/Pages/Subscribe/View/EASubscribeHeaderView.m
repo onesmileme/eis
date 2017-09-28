@@ -25,7 +25,7 @@
         bgImageView.image = [UIImage imageNamed:@"dingyue_bg_s"];
         [self addSubview:bgImageView];
         
-        _iconImageView = [UIImageView roundPhotoWithFrame:CGRectMake(0, 0, 70, 70)];
+        _iconImageView = [UIImageView roundPhotoWithFrame:CGRectMake(0, 5, 70, 70)];
         _iconImageView.centerX = self.width * .5;
         [_iconImageView sd_setImageWithURL:[NSURL URLWithString:icon]];
         [self addSubview:_iconImageView];

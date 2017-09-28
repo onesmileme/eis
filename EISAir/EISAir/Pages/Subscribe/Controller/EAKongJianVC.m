@@ -8,7 +8,6 @@
 
 #import "EAKongJianVC.h"
 #import "EATabSwitchControl.h"
-#import "EADingYueGridContentView.h"
 #import "EASubscribeHeaderView.h"
 #import "TKAccountManager.h"
 #import "EAKongJianPageVC.h"
