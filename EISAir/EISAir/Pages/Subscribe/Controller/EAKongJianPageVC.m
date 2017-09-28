@@ -71,10 +71,7 @@
     for (EASpaceFloorlistModel *listModel in _model.data.floorList) {
         NSMutableArray *items = [NSMutableArray array];
         for (EASpaceRoomlistModel *roomModel in listModel.roomList) {
-            [items addObject:@{
-                               @"name": ToSTR(roomModel.name),
-                               @"id": ToSTR(roomModel.id),
-                               }];
+            [items addObject:ToSTR(roomModel.name)];
         }
         [array addObject:@{
                            @"title": ToSTR(listModel.name),
