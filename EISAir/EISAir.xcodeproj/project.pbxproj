@@ -14,6 +14,8 @@
 		5306BDB31F7BBA4900ED2C8F /* EAPageVCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDB21F7BBA4900ED2C8F /* EAPageVCHandler.m */; };
 		5306BDC31F7CAAEB00ED2C8F /* EAKongJianChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDC21F7CAAEB00ED2C8F /* EAKongJianChartVC.m */; };
 		5306BDC61F7CAAF800ED2C8F /* EAKongJianEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDC51F7CAAF800ED2C8F /* EAKongJianEventVC.m */; };
+		5306BDCA1F7CED8000ED2C8F /* EASheBeiMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDC91F7CED8000ED2C8F /* EASheBeiMainVC.m */; };
+		5306BDCD1F7CFBBA00ED2C8F /* EAEnergyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */; };
 		5330A8A21F4EC3D000F8E07E /* EAVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8A11F4EC3D000F8E07E /* EAVCView.m */; };
 		5330A8AE1F4ED2B300F8E07E /* WMContactUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8AD1F4ED2B300F8E07E /* WMContactUtil.m */; };
 		5330A8B21F4ED3F500F8E07E /* UIAlertController+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8B11F4ED3F500F8E07E /* UIAlertController+Simple.m */; };
@@ -665,6 +667,10 @@
 		5306BDC21F7CAAEB00ED2C8F /* EAKongJianChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAKongJianChartVC.m; sourceTree = "<group>"; };
 		5306BDC41F7CAAF800ED2C8F /* EAKongJianEventVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAKongJianEventVC.h; sourceTree = "<group>"; };
 		5306BDC51F7CAAF800ED2C8F /* EAKongJianEventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAKongJianEventVC.m; sourceTree = "<group>"; };
+		5306BDC81F7CED8000ED2C8F /* EASheBeiMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASheBeiMainVC.h; sourceTree = "<group>"; };
+		5306BDC91F7CED8000ED2C8F /* EASheBeiMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASheBeiMainVC.m; sourceTree = "<group>"; };
+		5306BDCB1F7CFBBA00ED2C8F /* EAEnergyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAEnergyModel.h; sourceTree = "<group>"; };
+		5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAEnergyModel.m; sourceTree = "<group>"; };
 		5330A8A01F4EC3D000F8E07E /* EAVCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVCView.h; sourceTree = "<group>"; };
 		5330A8A11F4EC3D000F8E07E /* EAVCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAVCView.m; sourceTree = "<group>"; };
 		5330A8AC1F4ED2B300F8E07E /* WMContactUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMContactUtil.h; sourceTree = "<group>"; };
@@ -1934,6 +1940,8 @@
 				53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */,
 				5306BDAE1F7BA5E900ED2C8F /* EASpaceModel.h */,
 				5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */,
+				5306BDCB1F7CFBBA00ED2C8F /* EAEnergyModel.h */,
+				5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4207,6 +4215,8 @@
 				5306BDC21F7CAAEB00ED2C8F /* EAKongJianChartVC.m */,
 				5306BDC41F7CAAF800ED2C8F /* EAKongJianEventVC.h */,
 				5306BDC51F7CAAF800ED2C8F /* EAKongJianEventVC.m */,
+				5306BDC81F7CED8000ED2C8F /* EASheBeiMainVC.h */,
+				5306BDC91F7CED8000ED2C8F /* EASheBeiMainVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5018,6 +5028,7 @@
 				53DB28931F6E51E600FB2B0F /* PYTextStyle.m in Sources */,
 				6E6886851F43C71A009AD662 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				6E415E4D1F5171D10078436F /* ZXRSSExpandedBlockParsedResult.m in Sources */,
+				5306BDCD1F7CFBBA00ED2C8F /* EAEnergyModel.m in Sources */,
 				6E415EAE1F5171D10078436F /* ZXingWrapper.m in Sources */,
 				6E6887091F451261009AD662 /* EASlideConfigManager.m in Sources */,
 				6E415E291F5171D10078436F /* ZXDataMatrixDataBlock.m in Sources */,
@@ -5064,6 +5075,7 @@
 				6E6886DE1F45124B009AD662 /* EASharePanelView.m in Sources */,
 				6E8740C61F7413C0005EFA50 /* EATaskFilterChooseView.m in Sources */,
 				6E415EF91F5267B70078436F /* EAFilterChooseDateView.m in Sources */,
+				5306BDCA1F7CED8000ED2C8F /* EASheBeiMainVC.m in Sources */,
 				6E415EA31F5171D10078436F /* ZXQRCodeBlockPair.m in Sources */,
 				53DB28A21F6E51E600FB2B0F /* PYMarkPoint.m in Sources */,
 				53DB28B91F6E51E700FB2B0F /* PYJsonUtil.m in Sources */,

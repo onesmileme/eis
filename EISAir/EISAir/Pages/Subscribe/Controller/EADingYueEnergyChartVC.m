@@ -9,6 +9,8 @@
 #import "EADingYueEnergyChartVC.h"
 #import "EAEnergyCountControl.h"
 #import "EADingYueEnergyHistoryVC.h"
+#import "TKAccountManager.h"
+#import "EAEnergyModel.h"
 
 @interface EADingYueEnergyChartVC () {
     UIScrollView *_contentView;
@@ -74,6 +76,9 @@
     intervalView.backgroundColor = [UIColor themeGrayColor];
     [_contentView addSubview:intervalView];
     [self addDetail];
+    
+    [self addHeaderRefreshView:_contentView];
+    [self startHeadRefresh:_contentView];
 }
 
 - (void)addHeader {
@@ -161,4 +166,23 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)headRefreshAction {
+    [self requestData];
+}
+
+#pragma mark - request
+- (void)requestData {
+    [self nodata_hideView];
+    NSMutableDictionary *params = @{@"productArray": [TKAccountManager sharedInstance].loginUserInfo.productArray ?: @[],
+                                    }.mutableCopy;
+    weakify(self);
+    [TKRequestHandler postWithPath:@"/eis/open/track/findTrackEnergys" params:params jsonModelClass:EAEnergyModel.class completion:^(id model, NSError *error) {
+        strongify(self);
+        [self requestDataDone:model];
+    }];
+}
+
+- (void)requestDataDone:(EAEnergyModel *)model {
+    [self stopRefresh:_contentView];
+}
 @end
