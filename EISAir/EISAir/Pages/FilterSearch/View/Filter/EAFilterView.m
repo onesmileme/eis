@@ -49,6 +49,7 @@
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"date_cell"];
         
         [self.collectionView registerClass:[EAFilterHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionViewHeader"];
+        [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"holder_header"];
         
         _collectionView.allowsMultipleSelection = true;
         [self addSubview:_collectionView];
@@ -268,7 +269,10 @@
                                  atIndexPath:(NSIndexPath *)indexPath {
     
     if (_type.length == 0 && indexPath.section == 0) {
-        return nil;
+        
+        UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"holder_header" forIndexPath:indexPath];
+        
+        return header;
     }
     
     EAFilterHeaderView *headView = (EAFilterHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
@@ -298,7 +302,11 @@ referenceSizeForHeaderInSection:(NSInteger)section
 {
     CGFloat height = 35;
     if (section == 0) {
-        height = 40;
+        if (_type.length == 0) {
+            height = 1;
+        }else{
+            height = 40;
+        }
     }
     return CGSizeMake(collectionView.width, height);
 }

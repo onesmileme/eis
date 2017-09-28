@@ -26,7 +26,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528299251.76611"
+                  timestampString = "528300661.475193"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "37"
@@ -41,7 +41,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528299251.768034"
+                  timestampString = "528300661.478258"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -271,7 +271,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/ToolKit/ToolKit/Helper/TKImagePickerHelper.m"
-                  timestampString = "528299251.818992"
+                  timestampString = "528300661.530216"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -286,7 +286,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/ToolKit/ToolKit/Helper/TKImagePickerHelper.m"
-                  timestampString = "528299251.821612"
+                  timestampString = "528300661.531945"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -303,7 +303,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EISAir/ViewController.m"
-            timestampString = "528299251.458969"
+            timestampString = "528300661.154635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -447,7 +447,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528299251.862335"
+                  timestampString = "528300661.580668"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -462,7 +462,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528299251.864086"
+                  timestampString = "528300661.582531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -494,13 +494,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EISAir/Pages/Login/Controller/EALoginViewController.m"
-            timestampString = "528251421.027273"
+            filePath = "EISAir/Pages/Subscribe/Controller/EADingYueEnergyMainVC.m"
+            timestampString = "528299858.029109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-loadLoinUserInfo:userInfo:refresh:"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-clickedWithTab:index:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -510,46 +510,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EISAir/Pages/Task/Model/TKRequestHandler+Task.m"
-            timestampString = "528251577.526518"
+            filePath = "EISAir/Pages/Subscribe/Controller/EAKongJianPageVC.m"
+            timestampString = "528300122.870185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-findMyTask:completion:"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-itemPressedWithSection:row:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TKRequestHandler(Task) findMyTask:completion:]"
-                  moduleName = "EISAir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Task/Model/TKRequestHandler+Task.m"
-                  timestampString = "528299251.877236"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "309">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__48-[TKRequestHandler(Task) findMyTask:completion:]_block_invoke"
-                  moduleName = "EISAir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Task/Model/TKRequestHandler+Task.m"
-                  timestampString = "528299251.879587"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -558,13 +526,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EISAir/Pages/Task/Model/TKRequestHandler+Task.m"
-            timestampString = "528251595.338102"
+            filePath = "EISAir/Pages/Subscribe/Controller/EAKongJianVC.m"
+            timestampString = "528300159.880068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-findMyTask:completion:"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-pageHandler:viewControllerWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EISAir/Pages/Subscribe/Controller/EASubscribePageVC.m"
+            timestampString = "528300189.705862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
