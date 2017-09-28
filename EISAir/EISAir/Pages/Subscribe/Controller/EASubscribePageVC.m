@@ -84,8 +84,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EABaseViewController *vc = nil;
     if (indexPath.row == 2) {
-        //        vc = [[EADingYueEnergyMainVC alloc] init];
-        vc = [[NSClassFromString(@"EADingYueEnergyHistoryVC") alloc] init];
+        vc = [[NSClassFromString(@"EADingYueEnergyMainVC") alloc] init];
     } else {
         EAKongJianVC *kjVC = [[EAKongJianVC alloc] init];
         kjVC.type = indexPath.row == 0 ? EAKongJianVCTypeKongJian : EAKongJianVCTypeSheBei;

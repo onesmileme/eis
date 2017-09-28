@@ -34,6 +34,7 @@ const int kEISRequestPageSize = 20;
                         jsonModelClass:(Class)jsonModelClass
                             completion:(void(^)(id model , NSError *error))completion {
     NSDictionary *allParams = [self allParamsWithParams:params];
+    NSLog(@"\n%@\n%@", path, allParams);
     return [[TKRequestHandler sharedInstance] postRequestForPath:URLWithPath(path) param:allParams jsonName:NSStringFromClass(jsonModelClass) finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
             completion(model, error);

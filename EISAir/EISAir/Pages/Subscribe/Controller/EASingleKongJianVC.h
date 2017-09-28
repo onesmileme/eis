@@ -7,14 +7,12 @@
 //
 
 #import "EABaseViewController.h"
+#import "EADingYueDefines.h"
 
-typedef NS_ENUM(NSUInteger, EASingleKongJianVCType) {
-    EASingleKongJianVCTypeKongJian,
-    EASingleKongJianVCTypeSheBei,
-};
-
+@class EASpaceRoomlistModel;
 @interface EASingleKongJianVC : EABaseViewController
 
-@property (nonatomic, assign) EASingleKongJianVCType type;
+@property (nonatomic, assign) EAKongJianVCType type;
+@property (nonatomic, strong) EASpaceRoomlistModel *rModel;
 
 @end

@@ -10,6 +10,7 @@
 #import "EADingYueGridContentView.h"
 #import "TKAccountManager.h"
 #import "EASpaceModel.h"
+#import "EASingleKongJianVC.h"
 
 @interface EAKongJianPageVC () {
     EADingYueGridContentView *_contentView;
@@ -32,9 +33,29 @@
 
 - (void)updateContentView {
     [_contentView removeFromSuperview];
+    weakify(self);
     _contentView = [[EADingYueGridContentView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) datas:[self contentData]];
+    _contentView.subscribeBlock = ^(EADingYueGridContentView *view, NSDictionary *data) {
+        strongify(self);
+        [self subscribeAction:data];
+    };
+    _contentView.itemPressedBlock = ^(EADingYueGridContentView *view, NSDictionary *data, NSUInteger section, NSUInteger row) {
+        strongify(self);
+        [self itemPressedWithSection:section row:row];
+    };
     [self.view addSubview:_contentView];
     [self addHeaderRefreshView:_contentView];
+}
+
+- (void)subscribeAction:(NSDictionary *)data {
+    
+}
+
+- (void)itemPressedWithSection:(NSUInteger)section row:(NSUInteger)row {
+    EASingleKongJianVC *vc = [[EASingleKongJianVC alloc] init];
+    EASpaceFloorlistModel *floorModel = _model.data.floorList[section];
+    vc.rModel = floorModel.roomList[row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewWillLayoutSubviews {

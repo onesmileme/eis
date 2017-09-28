@@ -10,6 +10,7 @@
 
 @class EAPageVCHandler;
 @protocol EAPageVCHandlerDelegate <NSObject>
+- (NSUInteger)countOfViewControllersPageHandler:(EAPageVCHandler *)handler;
 - (UIViewController *)pageHandler:(EAPageVCHandler *)handler viewControllerWithIndex:(NSUInteger)index;
 - (void)pageHandler:(EAPageVCHandler *)handler didMoveToIndex:(NSUInteger)index;
 @end

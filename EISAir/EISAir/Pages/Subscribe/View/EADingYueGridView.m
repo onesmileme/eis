@@ -10,12 +10,14 @@
 
 @implementation EADingYueGridView {
     UIButton *subscribeButton;
+    NSArray *_items;
 }
 
 - (instancetype)initWithTitle:(NSString *)title items:(NSArray *)items {
     CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, 0);
     self = [super initWithFrame:frame];
     if (self) {
+        _items = items;
         UILabel *titleLabel = TKTemplateLabel2([UIFont systemFontOfSize:15], HexColor(0x4a4a4a), title);
         titleLabel.left = 15;
         [self addSubview:titleLabel];
@@ -72,7 +74,10 @@
 }
 
 - (void)itemPressed:(UIButton *)btn {
-    
+    if (self.itemPressedBlock) {
+        NSInteger index = btn.tag - 1000;
+        self.itemPressedBlock(self, index, _items[index]);
+    }
 }
 
 - (void)subscribe {

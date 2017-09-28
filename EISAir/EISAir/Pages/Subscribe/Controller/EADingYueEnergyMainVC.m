@@ -12,6 +12,7 @@
 #import "EAEnergyTableView.h"
 #import "EADianFeiVC.h"
 #import "EADingYueEnergyChartVC.h"
+#import "TKAccountManager.h"
 
 @interface EADingYueEnergyMainVC () <EATabSwitchContainerProtocol> {
     EASubscribeHeaderView *_headerView;
@@ -59,6 +60,8 @@
     _tabSwitchContainer.delegate = self;
     [self.view addSubview:_tabSwitchContainer];
     _tabSwitchContainer.backgroundColor = self.view.backgroundColor;
+    
+//    [self requestData];
 }
 
 - (void)initDatas {
@@ -134,4 +137,13 @@
     
 }
 
+#pragma mark - Request
+- (void)requestData {
+    NSMutableDictionary *params = @{@"productArray": [TKAccountManager sharedInstance].loginUserInfo.productArray ?: @[],
+                                    }.mutableCopy;
+    [TKRequestHandler postWithPath:@"/eis/open/track/findTrackEnergys" params:params jsonModelClass:EAPostBasicModel.class completion:^(id model, NSError *error) {
+//        strongify(self);
+//        [self requestDataDone:model];
+    }];
+}
 @end

@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 @interface UIViewController (EAIndex)
-@property (nonatomic, assign) NSInteger ea_index;
+@property (nonatomic) NSInteger ea_index;
 @end
 
 @implementation UIViewController (EAIndex)
@@ -51,12 +51,16 @@
 }
 
 - (UIViewController *)viewControllerWithIndex:(NSInteger)index {
-    if (index < 0) {
-        return nil;
-    }
     UIViewController *vc = [_weakVCs objectForKey:@(index)];
     if (vc) {
         return vc;
+    }
+    if (index < 0) {
+        return nil;
+    }
+    NSUInteger count = [self countOfViewControllers];
+    if (index >= count) {
+        return nil;
     }
     if ([self.delegate respondsToSelector:@selector(pageHandler:viewControllerWithIndex:)]) {
         vc = [self.delegate pageHandler:self viewControllerWithIndex:index];
@@ -64,6 +68,13 @@
         [_weakVCs setObject:vc forKey:@(index)];
     }
     return vc;
+}
+
+- (NSUInteger)countOfViewControllers {
+    if ([self.delegate respondsToSelector:@selector(countOfViewControllersPageHandler:)]) {
+        return [self.delegate countOfViewControllersPageHandler:self];
+    }
+    return 0;
 }
 
 - (void)initPageVC {
@@ -79,6 +90,7 @@
 - (void)moveToIndex:(NSUInteger)index animated:(BOOL)animated {
     UIPageViewControllerNavigationDirection direction = _currentIndex < index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
     [_pageVC setViewControllers:@[[self viewControllerWithIndex:index]] direction:(direction) animated:animated completion:nil];
+    _currentIndex = index;
 }
 
 #pragma mark - Page Delegate

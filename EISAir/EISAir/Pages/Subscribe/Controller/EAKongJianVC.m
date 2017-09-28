@@ -22,8 +22,6 @@
 @implementation EAKongJianVC {
     EASubscribeHeaderView *_headerView;
     EATabSwitchControl *_tabSwitchControl;
-    NSArray *_datas;
-    NSArray *_contents;
     EAPageVCHandler *_pageHandler;
     NSArray *_buildList;
 }
@@ -91,6 +89,10 @@
 }
 
 #pragma mark - EAPageVCHandlerDelegate
+- (NSUInteger)countOfViewControllersPageHandler:(EAPageVCHandler *)handler {
+    return (_buildList ? _buildList.count : 1);
+}
+
 - (UIViewController *)pageHandler:(EAPageVCHandler *)handler viewControllerWithIndex:(NSUInteger)index {
     EAKongJianPageVC *vc = [[EAKongJianPageVC alloc] init];
     vc.type = self.type;

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EAKongJianHeader : UIView
-
+- (instancetype)initWithFrame:(CGRect)frame data:(NSArray *)data subscribed:(BOOL)subscribed;
 @end
