@@ -14,7 +14,7 @@
 @property (nonatomic, copy , nullable) NSString *quoteType;//userInfoImg
 @property (nonatomic, copy , nullable) NSString *fileName;
 @property (nonatomic, copy , nullable) NSString *fileDescription;
-@property (nonatomic, copy , nullable) NSString *fileSize;
+@property (nonatomic, assign) NSInteger fileSize;
 @property (nonatomic, copy , nullable) NSString *path;
 @property (nonatomic, copy , nullable) NSString *orgId;
 @property (nonatomic, copy , nullable) NSString *siteId;

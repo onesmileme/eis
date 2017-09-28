@@ -109,6 +109,7 @@
 		53F02A0C1F78F89C00704B68 /* EARecordAttrModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */; };
 		53F02A101F7A3E3F00704B68 /* EAPostBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */; };
 		6E00B20E1F6E6398006D4BF1 /* EATaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */; };
+		6E14CCDA1F7C77D2008DE669 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCD71F7C77D2008DE669 /* launch.png */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
 		6E415DCE1F5171D10078436F /* LBXScanNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BCA1F5171D10078436F /* LBXScanNative.m */; };
@@ -855,6 +856,7 @@
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EATaskHelper.h; sourceTree = "<group>"; };
 		6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EATaskHelper.m; sourceTree = "<group>"; };
+		6E14CCD71F7C77D2008DE669 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		6E415BB11F5155FE0078436F /* UINavigationItem+margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+margin.h"; sourceTree = "<group>"; };
 		6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+margin.m"; sourceTree = "<group>"; };
 		6E415BC91F5171D10078436F /* LBXScanNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanNative.h; sourceTree = "<group>"; };
@@ -3363,6 +3365,7 @@
 		6E6885621F43C71A009AD662 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E14CCD71F7C77D2008DE669 /* launch.png */,
 				6E87413B1F794B3C005EFA50 /* login_bg.jpg */,
 				6E8740F71F765550005EFA50 /* guide */,
 				6E8741291F781086005EFA50 /* about.html */,
@@ -4620,6 +4623,7 @@
 				6E8741171F76D3CD005EFA50 /* EATaskRejectChooseView.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */,
+				6E14CCDA1F7C77D2008DE669 /* launch.png in Resources */,
 				53DB28BF1F6E520200FB2B0F /* js in Resources */,
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,

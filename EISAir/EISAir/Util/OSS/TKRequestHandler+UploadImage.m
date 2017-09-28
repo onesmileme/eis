@@ -37,7 +37,7 @@
                     EASyncFileInfoModel *info = [[EASyncFileInfoModel alloc]init];
                     info.quoteId = uinfo.userId;
                     info.quoteType = @"userInfoImg";
-                    info.fileSize = [@(size) description];
+                    info.fileSize = size;//[@(size) description];
                     info.fileName = [imgUrl lastPathComponent];
                     NSURL *url = [NSURL URLWithString:imgurl];
                     info.path = [url path];

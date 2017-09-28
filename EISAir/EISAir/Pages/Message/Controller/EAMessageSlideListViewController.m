@@ -119,7 +119,11 @@
         _types = types;
     }
     if (reload && _msgList.count == 0) {
-        [self loadMessage:_pageNum];
+//        [self loadMessage:_pageNum];
+        if (self.view) {
+            [self startHeadRefresh:self.msgListTableView];
+        }
+        
     }
 }
 

@@ -46,7 +46,7 @@
         self.slideBackgroundColor = [UIColor themeGrayColor];
         
         self.titleArray = @[@"临时任务",@"计划任务"];
-        self.typeArray = @[kTaskTypeCheck,kTaskTypePlain];
+        self.typeArray = @[kTaskTypeCheck,kTaskTypePlan];
     }
     return self;
 }
