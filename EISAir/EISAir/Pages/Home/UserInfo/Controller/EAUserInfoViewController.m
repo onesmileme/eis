@@ -67,6 +67,7 @@
         
         EAUserInfoAvatarCell *c = [tableView dequeueReusableCellWithIdentifier:@"avatar_cell"];
         
+        [c updateWithAvatar:self.userInfo.avatar];
         
         cell = c;
         

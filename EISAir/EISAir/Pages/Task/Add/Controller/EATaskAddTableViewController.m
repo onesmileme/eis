@@ -16,6 +16,7 @@
 #import "TKRequestHandler+Task.h"
 #import "EATaskModel.h"
 #import "EATaskAddCollectionViewCell.h"
+#import "EAAddTaskGuideView.h"
 
 @interface EATaskAddTableViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -55,6 +56,19 @@
     [self.navigationController pushViewController:controller animated:true];
 }
 
+-(void)showGuide
+{
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"shown_add_task_guide"]){
+        EAAddTaskGuideView *guide = [EAAddTaskGuideView view];
+        guide.frame = self.view.bounds;
+        guide.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+        guide.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:guide];
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"shown_add_task_guide"];
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -88,6 +102,7 @@
 
     [self loadTaskItems];
     
+    [self showGuide];
 }
 
 - (void)didReceiveMemoryWarning {

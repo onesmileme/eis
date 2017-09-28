@@ -61,7 +61,6 @@
     nib = [UINib nibWithNibName:@"EATaskHandleFeekbackTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"feed_cell"];
     
-//    _showHandle = [[self.task.taskStatus lowercaseString] isEqualToString:@"wait"];
     _stateList = [NSMutableArray new];
     
     [self loadTaskStatusInfo];
@@ -88,12 +87,16 @@
     }];
     
     [[TKRequestHandler sharedInstance] findEisTaskById:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskDetailModel *model, NSError *error) {
-        
+
         if (error == nil && model.success) {
-            self.task = model.data;
-            [self.tableView reloadData];
+            if (model.data.myExecuteStatus) {
+                self.task.myExecuteStatus = model.data.myExecuteStatus;
+                self.task.taskStatus = model.data.taskStatus;
+                self.task = model.data;
+                [self.tableView reloadData];
+            }
         }
-                
+
     }];
 
 }
@@ -114,10 +117,10 @@
 {
     EATaskStatus status = [EATaskHelper taskStatus:self.task];
     if (status == EATaskStatusExecute) {
-        
+        return true;
     }
     
-    return true;
+    return false;
 }
 
 
@@ -131,18 +134,19 @@
         }
     }
     
-    if (delivery) {
-        
-        _stateList = [NSMutableArray new];
-       for (EATaskStatusDataModel * m in statusModel.data ) {
-        
-           if (m != delivery && [delivery.deliveryTime compare:m.deliveryTime] == NSOrderedDescending) {
-               [_stateList addObject:m];
-           }
-       }
-    }else{
+//    if (delivery) {
+//
+//        _stateList = [NSMutableArray new];
+//       for (EATaskStatusDataModel * m in statusModel.data ) {
+//
+//           if (m != delivery ) {
+//               //&& [delivery.deliveryTime compare:m.deliveryTime] == NSOrderedDescending
+//               [_stateList addObject:m];
+//           }
+//       }
+//    }else{
         _stateList = [[NSMutableArray alloc]initWithArray:statusModel.data];
-    }
+//    }
 }
 
 
@@ -193,6 +197,7 @@
     }else if ( indexPath.section == 1 ) {
         
         __weak typeof(self) wself = self;
+        //拒绝或者执行任务
         EATaskHandleTableViewCell *hcell = [tableView dequeueReusableCellWithIdentifier:@"handle_cell"];
         if (!hcell.handleBlock) {
             hcell.handleBlock = ^(EATashHandler handler) {
@@ -319,8 +324,7 @@
     EATaskDetailEditViewController *controller = [EATaskDetailEditViewController nibController];
     controller.showAssign = false;
     controller.placeHoder = @"完成任务情况描述";
-    controller.title = @"拒绝原因";
-    controller.isRefuse = true;
+    controller.title = @"执行中";
     controller.task = self.task;
     controller.editType = EATaskEditTypeExecute;
     __weak typeof(self) wself = self;
@@ -352,7 +356,6 @@
     controller.showAssign = false;
     controller.placeHoder = @"为什么拒绝";
     controller.title = @"拒绝原因";
-    controller.isRefuse = true;
     controller.task = self.task;
     controller.editType = EATaskEditTypeReject;
     __weak typeof(self) wself = self;
@@ -395,7 +398,7 @@
     controller.showAssign = false;
     controller.placeHoder = @"完成任务情况描述";
     controller.title = @"执行中";
-    controller.isRefuse = true;
+    controller.editType = EATaskEditTypeAssign;
     controller.task = self.task;
     __weak typeof(self) wself = self;
     controller.doneBlock = ^(NSString *content, EAUserDataListModel *user) {

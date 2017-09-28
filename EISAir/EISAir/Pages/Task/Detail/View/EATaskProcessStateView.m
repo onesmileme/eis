@@ -97,7 +97,7 @@
     //draw line
         
     CGContextSetLineWidth(context, 0.5);
-    CGFloat centerY = CGRectGetHeight(rect) - 40;
+    CGFloat centerY = CGRectGetHeight(rect) - 40-kCircelWidth/3;
     CGFloat perlength = (CGRectGetWidth(rect) - 2*kHorPadding - kCircelWidth)/3;
     CGContextMoveToPoint(context, kHorPadding, centerY);
     if (_state >= EATaskStatusWait) {

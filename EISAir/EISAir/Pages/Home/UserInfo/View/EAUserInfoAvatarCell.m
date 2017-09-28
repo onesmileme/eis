@@ -35,4 +35,9 @@
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatar]];
 }
 
+-(void)updateWithImage:(UIImage *)img
+{
+    self.avatarImageView.image = img;
+}
+
 @end

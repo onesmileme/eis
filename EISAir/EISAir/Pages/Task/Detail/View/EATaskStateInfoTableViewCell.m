@@ -108,7 +108,10 @@
     }
     
     _nameLabel.text = model.taskName;
-    _objLabel.text = model.taskName;//hehe
+    _objLabel.text = [model.objNameList componentsJoinedByString:@" "];//hehe
+    if (_objLabel.text.length == 0) {
+        _objLabel.text = model.taskName;
+    }
     _infoLabel.text = model.taskDescription;
 }
 

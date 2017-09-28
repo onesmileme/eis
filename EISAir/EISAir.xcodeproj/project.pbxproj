@@ -110,6 +110,9 @@
 		53F02A101F7A3E3F00704B68 /* EAPostBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */; };
 		6E00B20E1F6E6398006D4BF1 /* EATaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */; };
 		6E14CCDA1F7C77D2008DE669 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCD71F7C77D2008DE669 /* launch.png */; };
+		6E14CCE01F7D4BC9008DE669 /* EATaskDataListModel+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */; };
+		6E14CCE31F7D5258008DE669 /* EAAddTaskGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */; };
+		6E14CCE51F7D5286008DE669 /* EAAddTaskGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
 		6E415DCE1F5171D10078436F /* LBXScanNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BCA1F5171D10078436F /* LBXScanNative.m */; };
@@ -857,6 +860,11 @@
 		6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EATaskHelper.h; sourceTree = "<group>"; };
 		6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EATaskHelper.m; sourceTree = "<group>"; };
 		6E14CCD71F7C77D2008DE669 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		6E14CCDE1F7D4BC9008DE669 /* EATaskDataListModel+Info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EATaskDataListModel+Info.h"; sourceTree = "<group>"; };
+		6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EATaskDataListModel+Info.m"; sourceTree = "<group>"; };
+		6E14CCE11F7D5258008DE669 /* EAAddTaskGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAddTaskGuideView.h; sourceTree = "<group>"; };
+		6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAddTaskGuideView.m; sourceTree = "<group>"; };
+		6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAAddTaskGuideView.xib; sourceTree = "<group>"; };
 		6E415BB11F5155FE0078436F /* UINavigationItem+margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+margin.h"; sourceTree = "<group>"; };
 		6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+margin.m"; sourceTree = "<group>"; };
 		6E415BC91F5171D10078436F /* LBXScanNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanNative.h; sourceTree = "<group>"; };
@@ -1946,13 +1954,6 @@
 				5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		53AD6EB31F695A42005025BD /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		53AD6EB41F695A42005025BD /* View */ = {
@@ -4181,7 +4182,6 @@
 			isa = PBXGroup;
 			children = (
 				53AD6EB21F695A42005025BD /* Model */,
-				53AD6EB31F695A42005025BD /* Request */,
 				53AD6EB41F695A42005025BD /* View */,
 				6E6887491F481772009AD662 /* Controller */,
 			);
@@ -4253,6 +4253,8 @@
 			isa = PBXGroup;
 			children = (
 				6E4D67C71F5B908E00A8D69A /* EATaskModel.h */,
+				6E14CCDE1F7D4BC9008DE669 /* EATaskDataListModel+Info.h */,
+				6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */,
 				6E4D67C81F5B908E00A8D69A /* EATaskModel.m */,
 				6E87410D1F76B12B005EFA50 /* EATaskDetailModel.h */,
 				6E87410E1F76B12B005EFA50 /* EATaskDetailModel.m */,
@@ -4427,6 +4429,9 @@
 				6EE9C52A1F73274D006C6CBC /* EAAddTaskDateCell.xib */,
 				6E87411D1F76F476005EFA50 /* EATaskAddCollectionViewCell.h */,
 				6E87411E1F76F476005EFA50 /* EATaskAddCollectionViewCell.m */,
+				6E14CCE11F7D5258008DE669 /* EAAddTaskGuideView.h */,
+				6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */,
+				6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4596,6 +4601,7 @@
 				6E415ECC1F51B4F10078436F /* EAMsgStateInfoCell.xib in Resources */,
 				6E6886781F43C71A009AD662 /* camera@2x.png in Resources */,
 				6E8740DC1F75F910005EFA50 /* EAUserInfoAvatarCell.xib in Resources */,
+				6E14CCE51F7D5286008DE669 /* EAAddTaskGuideView.xib in Resources */,
 				6E6886751F43C71A009AD662 /* AssetsPickerChecked.png in Resources */,
 				6EE9C52C1F73274D006C6CBC /* EAAddTaskDateCell.xib in Resources */,
 				6E6885401F433C49009AD662 /* LaunchScreen.storyboard in Resources */,
@@ -4763,6 +4769,7 @@
 				6E68869A1F43C71A009AD662 /* ZLPhotoThumbsToolbarView.m in Sources */,
 				FA4E4F721F7AB9B8004A8DBB /* EARelationModel.m in Sources */,
 				6E415E841F5171D10078436F /* ZXPDF417DetectionResultRowIndicatorColumn.m in Sources */,
+				6E14CCE01F7D4BC9008DE669 /* EATaskDataListModel+Info.m in Sources */,
 				6E415DD51F5171D10078436F /* ZXAztecCode.m in Sources */,
 				6E415DEB1F5171D10078436F /* ZXGeoResultParser.m in Sources */,
 				6E415EAB1F5171D10078436F /* ZXQRCodeWriter.m in Sources */,
@@ -5123,6 +5130,7 @@
 				6E415E3D1F5171D10078436F /* ZXMaxiCodeDecodedBitStreamParser.m in Sources */,
 				6E415DD21F5171D10078436F /* ZXAztecDecoder.m in Sources */,
 				6E415DD41F5171D10078436F /* ZXAztecBinaryShiftToken.m in Sources */,
+				6E14CCE31F7D5258008DE669 /* EAAddTaskGuideView.m in Sources */,
 				6E415DE71F5171D10078436F /* ZXEmailDoCoMoResultParser.m in Sources */,
 				6E415E1C1F5171D10078436F /* ZXBinaryBitmap.m in Sources */,
 				6E415E961F5171D10078436F /* ZXQRCodeDecoder.m in Sources */,

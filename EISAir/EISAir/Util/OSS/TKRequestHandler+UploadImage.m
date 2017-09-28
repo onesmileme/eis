@@ -17,11 +17,11 @@
 //    return;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        NSString *imgurl = @"http:/panyun.oss-cn-beijing.aliyuncs.com/image/12345/20170925/icon.jpg";
-        
-        NSURL *url = [NSURL URLWithString:imgurl];
-        NSLog(@"path is: %@",[url path]);
-        NSLog(@"file name is: %@",[imgurl lastPathComponent]);
+//        NSString *imgurl = @"http:/panyun.oss-cn-beijing.aliyuncs.com/image/12345/20170925/icon.jpg";
+//
+//        NSURL *url = [NSURL URLWithString:imgurl];
+//        NSLog(@"path is: %@",[url path]);
+//        NSLog(@"file name is: %@",[imgurl lastPathComponent]);
         
         [[TKRequestHandler sharedInstance]getOssPolicyCompletion:^(NSURLSessionDataTask *task, EAOssPolicyModel *policy, NSError *error) {
           
@@ -39,12 +39,12 @@
                     info.quoteType = @"userInfoImg";
                     info.fileSize = size;//[@(size) description];
                     info.fileName = [imgUrl lastPathComponent];
-                    NSURL *url = [NSURL URLWithString:imgurl];
+                    NSURL *url = [NSURL URLWithString:imgUrl];
                     info.path = [url path];
                     info.siteId = uinfo.siteId;
                     info.orgId = uinfo.orgId;
                     
-                    [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^{
+                    [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
                         
                     }];
                     
@@ -131,7 +131,8 @@
 
 }
 
--(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)())completion
+
+-(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)(NSURLSessionDataTask *task ,BOOL success , NSError *error))completion
 {
     NSString *path = [NSString stringWithFormat:@"%@/dss/fileinfos/save",AppHost];
     
@@ -141,15 +142,17 @@
     
     return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         
+        BOOL success = false;
         if (error) {
             NSLog(@"error is: %@",error);
             NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
             NSString *info = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
             NSLog(@"info is: \n%@\n",info);
-        }
-        NSLog(@"response is: %@",response);
-        
-        completion();
+        }else if (response){
+            NSLog(@"response is: %@",response);
+            success = true;
+        }        
+        completion(sessionDataTask ,success, error);
         
     }];
     

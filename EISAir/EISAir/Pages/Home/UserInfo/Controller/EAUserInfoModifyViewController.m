@@ -14,11 +14,15 @@
 #import "TKImagePickerHelper.h"
 #import "TKRequestHandler+UserInfo.h"
 #import "TKAccountManager.h"
+#import "TKRequestHandler+UploadImage.h"
 
 @interface EAUserInfoModifyViewController ()<UITextFieldDelegate>
 
 @property(nonatomic , strong) UITextField *nameTextField;
 @property(nonatomic , strong) TKImagePickerHelper *imagePickerHelper;
+@property(nonatomic , strong) UIImage *avatar;
+@property(nonatomic , weak)   MBProgressHUD *hud;
+
 @end
 
 @implementation EAUserInfoModifyViewController
@@ -104,6 +108,11 @@
         
         EAUserInfoAvatarCell *c = [tableView dequeueReusableCellWithIdentifier:@"avatar_cell"];
         
+        if (self.avatar) {
+            [c updateWithImage:self.avatar];
+        }else{
+            [c updateWithAvatar:self.userInfo.avatar];
+        }
         cell = c;
         
     }else{
@@ -203,6 +212,7 @@
         _imagePickerHelper.chooseImageBlock = ^(UIImage *image, NSDictionary<NSString *,id> *editingInfo) {
             NSLog(@"image is: %@",image);
             NSLog(@"edit info is: \n%@\n",editingInfo);
+            [wself doUpdateloadImage:image];
         };
     }
     
@@ -211,11 +221,65 @@
     [_imagePickerHelper showPickerWithPresentController:self.navigationController sourceType:source allowEdit:true];
 }
 
-
-
--(void)updateloadImage:(UIImage *)image
+-(void)doUpdateloadImage:(UIImage *)image
 {
+    self.avatar = image;
+    [self getPolicy];
+}
+
+-(void)getPolicy{
     
+    self.hud = [EATools showLoadHUD:self.view];
+    __weak typeof(self) wself = self;
+    [[TKRequestHandler sharedInstance] getOssPolicyCompletion:^(NSURLSessionDataTask *task, EAOssPolicyModel *policy, NSError *error) {
+        if (error || policy == nil) {
+            wself.hud.label.text = @"上传失败";
+            [wself.hud hideAnimated:true afterDelay:1];
+        }else{
+            [wself uploadImage:policy];
+        }
+    }];
+}
+
+-(void)uploadImage:(EAOssPolicyModel *)policy
+{
+    __weak typeof(self) wself = self;
+    [[TKRequestHandler sharedInstance]postImage:self.avatar policy:policy completion:^(NSURLSessionDataTask *task, NSString *imgUrl, NSInteger size, NSError *error) {
+        if (imgUrl) {
+            EALoginUserInfoDataModel *uinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+            EASyncFileInfoModel *info = [[EASyncFileInfoModel alloc]init];
+            info.quoteId = uinfo.userId;
+            info.quoteType = @"userInfoImg";
+            info.fileSize = size;
+            info.fileName = [imgUrl lastPathComponent];
+            NSURL *url = [NSURL URLWithString:imgUrl];
+            info.path = [url path];
+            info.siteId = uinfo.siteId;
+            info.orgId = uinfo.orgId;
+            
+            [wself saveImageInfo:info imgUrl:imgUrl];
+        }else{
+            wself.hud.label.text = @"上传失败";
+            [wself.hud hideAnimated:true afterDelay:1];
+        }
+    }];
+}
+
+-(void)saveImageInfo:(EASyncFileInfoModel *)info imgUrl:(NSString *)imgUrl
+{
+    __weak typeof(self) wself = self;
+    [[TKRequestHandler sharedInstance] saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
+        if (success) {
+            [wself.hud hideAnimated:true];
+            wself.userInfo.avatar = imgUrl;
+            if (wself.modifyUserInfoBlock) {
+                wself.modifyUserInfoBlock(wself.userInfo);
+            }
+        }else{
+            wself.hud.label.text = @"上传失败";
+            [wself.hud hideAnimated:true afterDelay:1];
+        }
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

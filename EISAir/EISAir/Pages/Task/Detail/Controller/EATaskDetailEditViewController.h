@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger , EATaskEditType) {
 
 @property(nonatomic , copy) NSString *placeHoder;
 @property(nonatomic , assign) BOOL showAssign;
-@property(nonatomic , assign) BOOL isRefuse;
+//@property(nonatomic , assign) BOOL isRefuse;
 @property(nonatomic , assign) EATaskEditType editType;
 
 @property(nonatomic , strong) EATaskDataListModel *task;

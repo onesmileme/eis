@@ -136,13 +136,42 @@
 
 -(void)executeAction
 {
-    EATaskUpdateModel *model = [[EATaskUpdateModel alloc]init];
-    model.anewStatus = [EATaskHelper executeStatusName:EATaskExecuteStatusReceive];
-    //@"接收任务";
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"该任务是否完成" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) wself = self;
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        EATaskUpdateModel *model = [[EATaskUpdateModel alloc]init];
+        model.anewStatus = [EATaskHelper executeStatusName:EATaskExecuteStatusCompleted];
+        //@"接收任务";
+        model.transferPersonIds = [wself atUserIds];
+        [self updateTaskAction:model];
+    }];
     
-    [self updateTaskAction:model];
+    [controller addAction:action];
+    
+    action = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        EATaskUpdateModel *model = [[EATaskUpdateModel alloc]init];
+        model.anewStatus = [EATaskHelper executeStatusName:EATaskExecuteStatusReceive];
+        //@"接收任务";
+        model.transferPersonIds = [wself atUserIds];
+        [self updateTaskAction:model];
+    }];
+    [controller addAction:action];
+    
+    [self presentViewController:controller animated:true completion:nil];
+    
 }
 
+-(NSArray *)atUserIds
+{
+    if (_users.count > 0) {
+        NSMutableArray *ids = [[NSMutableArray alloc]init];
+        for(EAUserDataListModel *m in self.users){
+            [ids addObject:m.uid];
+        }
+        return ids;
+    }
+    return nil;
+}
 
 -(void)updateTaskAction:(EATaskUpdateModel * )model
 {
@@ -166,7 +195,7 @@
             }
             [wself.navigationController popViewControllerAnimated:true];
         }else{
-            hud.label.text = @"拒绝失败";
+            hud.label.text = @"更改请求失败";
             [hud hideAnimated:true afterDelay:0.7];
             NSLog(@"error is: \n%@\n",error);
         }

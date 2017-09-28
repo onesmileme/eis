@@ -26,7 +26,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528300661.475193"
+                  timestampString = "528305257.881031"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "37"
@@ -41,7 +41,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528300661.478258"
+                  timestampString = "528305257.88292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -271,7 +271,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/ToolKit/ToolKit/Helper/TKImagePickerHelper.m"
-                  timestampString = "528300661.530216"
+                  timestampString = "528305257.927303"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -286,7 +286,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/ToolKit/ToolKit/Helper/TKImagePickerHelper.m"
-                  timestampString = "528300661.531945"
+                  timestampString = "528305257.929973"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -303,28 +303,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EISAir/ViewController.m"
-            timestampString = "528300661.154635"
+            timestampString = "528305257.576954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
             landmarkName = "-test"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EISAir/Common/Request/TKRequestHandler+User.m"
-            timestampString = "527958663.347729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "+load"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -447,7 +431,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528300661.580668"
+                  timestampString = "528305257.963333"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -462,7 +446,7 @@
                   moduleName = "EISAir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chunhui/workspace/ios/work/eis/code/eis/EISAir/EISAir/Pages/Login/Model/TKRequestHandler+Login.m"
-                  timestampString = "528300661.582531"
+                  timestampString = "528305257.965458"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -549,6 +533,38 @@
             startingLineNumber = "89"
             endingLineNumber = "89"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EISAir/Pages/Task/Detail/Controller/EATaskDetailViewController.m"
+            timestampString = "528305257.577483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "-assignToOtherAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EISAir/Pages/Task/Detail/Controller/EATaskDetailViewController.m"
+            timestampString = "528305257.577544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "-assignToOtherAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

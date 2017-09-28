@@ -63,7 +63,7 @@
 {
     self.titleLabel.text = model.taskName;
     self.stateLabel.text = [[EATaskHelper sharedInstance] valueForStatus:model.taskStatus];
-    self.typeLabel.text = model.taskType;
+    self.typeLabel.text = [model.objNameList componentsJoinedByString:@" "];
     self.infoLabel.text = model.taskDescription;
     
     NSString *dateStr = model.updateDate?:model.createDate;

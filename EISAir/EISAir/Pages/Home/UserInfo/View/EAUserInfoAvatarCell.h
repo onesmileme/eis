@@ -10,4 +10,8 @@
 
 @interface EAUserInfoAvatarCell : UITableViewCell
 
+-(void)updateWithAvatar:(NSString *)avatar;
+
+-(void)updateWithImage:(UIImage *)img;
+
 @end
