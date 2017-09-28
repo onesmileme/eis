@@ -44,7 +44,7 @@
     [self.view addSubview:_headerView];
     
     // tab
-    _tabSwitchControl = [[EATabSwitchControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)
+    _tabSwitchControl = [[EATabSwitchControl alloc] initWithFrame:CGRectMake(0, _headerView.bottom, SCREEN_WIDTH, 40)
                                                         itemArray:nil
                                                         titleFont:[UIFont systemFontOfSize:15]
                                                         lineWidth:FlexibleWithTo6(115)
