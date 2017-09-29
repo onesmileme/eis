@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class EATaskDataListModel;
 @interface EATaskHandleFeekbackTableViewCell : UITableViewCell
 
 @property(nonatomic , copy) void (^showFeedBack)();
 @property(nonatomic , copy) void (^showContent)();
+
+-(void)updateWithModel:(EATaskDataListModel *)model;
 
 @end

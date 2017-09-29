@@ -19,6 +19,7 @@
 #import "EATaskHandleFeekbackTableViewCell.h"
 #import "EATaskAddTableViewController.h"
 #import "EATaskAddTableViewController.h"
+#import "TKAccountManager.h"
 
 @interface EATaskDetailViewController ()
 
@@ -117,7 +118,12 @@
 {
     EATaskStatus status = [EATaskHelper taskStatus:self.task];
     if (status == EATaskStatusExecute) {
-        return true;
+        
+        EALoginUserInfoDataModel *uinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+        EATaskStatusDataModel *stModel = [self.stateList firstObject];
+        if ([stModel.personId isEqualToString:uinfo.personId]) {
+            return true;
+        }
     }
     
     return false;
@@ -239,6 +245,8 @@
                 [wself handleAddTask];
             };
         }
+        
+        [fcell updateWithModel:self.task];
         
         cell = fcell;
         

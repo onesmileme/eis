@@ -7,10 +7,12 @@
 //
 
 #import "EATaskHandleFeekbackTableViewCell.h"
+#import "EATaskModel.h"
 
 @interface EATaskHandleFeekbackTableViewCell ()
 
 @property(nonatomic , strong) IBOutlet UILabel *contentLabel;
+@property(nonatomic , strong) IBOutlet UILabel *stateLabel;
 @property(nonatomic , strong) IBOutlet UIView *spliteLine;
 
 @end
@@ -36,6 +38,16 @@
             _showFeedBack();
         }
     }
+}
+
+-(void)updateWithModel:(EATaskDataListModel *)model
+{
+    
+    NSString *tip = model.fillNum ?@"数值填写完成":@"未进行数值填写";//部分数值填写
+    UIColor *color = model.fillNum?RGB(63, 209, 196):HexColor(0xff6663);
+    
+    self.stateLabel.attributedText = [[NSAttributedString alloc] initWithString:tip attributes:@{NSForegroundColorAttributeName:color,NSFontAttributeName:SYS_FONT(12)}];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

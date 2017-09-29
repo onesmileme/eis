@@ -11,7 +11,7 @@
 #import "TKUserInfo+QQ.h"
 #import "EALoginUserInfoModel.h"
 
-#define MYUID  [[TKAccountManager sharedInstance] uid]
+#define MYUID  [[TKAccountManager sharedInstance] userId]
 
 extern NSString *const kLogoutNotification;
 extern NSString *const kLoginDoneNotification ;
@@ -25,7 +25,9 @@ extern NSString *const kLoginDoneNotification ;
 
 - (BOOL)isLogin;
 
-- (NSString *)uid;
+- (NSString *)personId;
+
+- (NSString *)userId;
 
 - (NSString *)myName;
 

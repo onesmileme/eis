@@ -7,7 +7,6 @@
 //
 
 #import "TKRequestHandler.h"
-#import "TKWexinUserInfo.h"
 #import "EALoginUserInfoModel.h"
 
 

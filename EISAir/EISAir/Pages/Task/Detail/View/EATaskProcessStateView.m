@@ -73,14 +73,31 @@
 {
     [super layoutSubviews];
     
-    NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel,_doneLabel];
-    CGFloat perlength = (self.width - 2*kHorPadding-kCircelWidth)/3;
-    for (int i = 0 ; i < labels.count; i++) {
-        UILabel *l = labels[i];
+    if (_state == EATaskStatusInvalid) {
+        NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel];
+        CGFloat perlength = (self.width - 2*kHorPadding-kCircelWidth)/3;
+        for (int i = 0 ; i < labels.count; i++) {
+            UILabel *l = labels[i];
+            
+            l.bottom = self.height;
+            CGFloat centerX = kHorPadding+i*perlength+kCircelWidth/2;
+            l.centerX = centerX;
+        }
+        _doingLabel.text = @"已失效";
+        _doneLabel.hidden = true;
+    }else{
         
-        l.bottom = self.height;
-        CGFloat centerX = kHorPadding+i*perlength+kCircelWidth/2;
-        l.centerX = centerX;
+        NSArray *labels = @[_beginLabel,_waitLabel,_doingLabel,_doneLabel];
+        CGFloat perlength = (self.width - 2*kHorPadding-kCircelWidth)/3;
+        for (int i = 0 ; i < labels.count; i++) {
+            UILabel *l = labels[i];
+            
+            l.bottom = self.height;
+            CGFloat centerX = kHorPadding+i*perlength+kCircelWidth/2;
+            l.centerX = centerX;
+        }
+        _doingLabel.text = @"执行中";
+        _doneLabel.hidden = false;
     }
     
 }
@@ -99,45 +116,65 @@
     CGContextSetLineWidth(context, 0.5);
     CGFloat centerY = CGRectGetHeight(rect) - 40-kCircelWidth/3;
     CGFloat perlength = (CGRectGetWidth(rect) - 2*kHorPadding - kCircelWidth)/3;
-    CGContextMoveToPoint(context, kHorPadding, centerY);
-    if (_state >= EATaskStatusWait) {
+    
+    if (_state == EATaskStatusInvalid) {
+        
+        lineColor = HexColor(0xd8d8d8);
+        CGContextMoveToPoint(context, kHorPadding, centerY);
         CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
-        CGFloat now = perlength*(_state+1)+kHorPadding;
+        CGFloat now = perlength*(2)+kHorPadding;
         CGContextAddLineToPoint(context, now, centerY);
         CGContextStrokePath(context);
-        CGContextMoveToPoint(context, now, centerY);
-    }
-    CGContextAddLineToPoint(context, CGRectGetWidth(rect)-kHorPadding, centerY);
-    CGContextSetStrokeColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
-    CGContextStrokePath(context);
-    
-    //draw circle
-    //past
-    UIBezierPath *path = nil;
-    if (_state >= EATaskStatusWait) {
-        CGContextSetFillColorWithColor(context, [lineColor CGColor]);
-        for (int i = 0 ; i <= _state; i++) {
-            path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
-            [path fill];
+        //draw circle
+        UIBezierPath *path = nil;
+        if (_state >= EATaskStatusWait) {
+            CGContextSetFillColorWithColor(context, [lineColor CGColor]);
+            for (int i = 0 ; i <= 2; i++) {
+                path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
+                [path fill];
+            }
+        }        
+    }else{
+        
+        CGContextMoveToPoint(context, kHorPadding, centerY);
+        if (_state >= EATaskStatusWait) {
+            CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
+            CGFloat now = perlength*(_state+1)+kHorPadding;
+            CGContextAddLineToPoint(context, now, centerY);
+            CGContextStrokePath(context);
+            CGContextMoveToPoint(context, now, centerY);
+        }
+        CGContextAddLineToPoint(context, CGRectGetWidth(rect)-kHorPadding, centerY);
+        CGContextSetStrokeColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
+        CGContextStrokePath(context);
+        
+        //draw circle
+        //past
+        UIBezierPath *path = nil;
+        if (_state >= EATaskStatusWait) {
+            CGContextSetFillColorWithColor(context, [lineColor CGColor]);
+            for (int i = 0 ; i <= _state; i++) {
+                path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
+                [path fill];
+            }
+        }
+        //now
+        CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
+        CGContextSetFillColorWithColor(context, [HexColor(0x00b0ce) CGColor]);
+        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+_state*perlength-(25-kCircelWidth)/2, centerY-12.5, 25, 25)];
+        [path fill];
+        path.lineWidth = 1;
+        [path stroke];
+        
+        //future
+        if (_state <= EATaskStatusInvalid) {
+            CGContextSetFillColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
+            for (int i = _state+1 ; i <= EATaskStatusInvalid; i++) {
+                path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
+                [path fill];
+            }
         }
     }
-    //now
-    CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
-    CGContextSetFillColorWithColor(context, [HexColor(0x00b0ce) CGColor]);
-    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+_state*perlength-(25-kCircelWidth)/2, centerY-12.5, 25, 25)];
-    [path fill];
-    path.lineWidth = 1;
-    [path stroke];
-    
-    //future
-    if (_state <= EATaskStatusInvalid) {
-        CGContextSetFillColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
-        for (int i = _state+1 ; i <= EATaskStatusInvalid; i++) {
-            path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
-            [path fill];
-        }
-    }
-    
 }
 
 

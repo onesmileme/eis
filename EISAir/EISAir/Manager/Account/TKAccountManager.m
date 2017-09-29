@@ -8,8 +8,6 @@
 
 #import "TKAccountManager.h"
 #import "TKFileUtil.h"
-#import "TKWexinUserAuthoInfo.h"
-#import "TKWeChatLoginHelper.h"
 #import "MBProgressHUD.h"
 #import "TKRequestHandler+Account.h"
 
@@ -72,9 +70,14 @@
     return self.userInfo.accessToken.length > 0 && self.userInfo.tokenType.length > 0;
 }
 
-- (NSString *)uid
+- (NSString *)personId
 {
-    return self.userInfo.uid;
+    return self.loginUserInfo.personId;
+}
+
+- (NSString *)userId
+{
+    return self.loginUserInfo.userId;
 }
 
 - (NSString *)myName

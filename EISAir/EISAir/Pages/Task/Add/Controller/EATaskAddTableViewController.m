@@ -190,6 +190,16 @@
     EATaskAddCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell_id" forIndexPath:indexPath];
     
     EATaskItemDataModel *m = self.model.data[indexPath.item];
+    if (indexPath.item > 0) {
+        EATaskItemDataModel *lm = self.model.data[indexPath.item-1];
+        if (lm.meterDate && m.meterDate == nil) {
+            m.meterDate = lm.meterDate;
+        }
+        if (lm.lastMeterDate && m.lastMeterDate == nil) {
+            m.lastMeterDate = m.lastMeterDate;
+        }
+    }
+    
     [cell updateWithModel:m];
     
     return cell;

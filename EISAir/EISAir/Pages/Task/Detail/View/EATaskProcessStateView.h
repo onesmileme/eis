@@ -21,4 +21,6 @@
 
 @property(nonatomic , assign) IBInspectable EATaskStatus state;
 
+@property(nonatomic , assign) BOOL hideExecuting;
+
 @end

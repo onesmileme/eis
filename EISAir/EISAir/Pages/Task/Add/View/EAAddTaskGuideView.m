@@ -14,9 +14,15 @@
 +(instancetype)view
 {
     UINib *nib = [UINib nibWithNibName:@"EAAddTaskGuideView" bundle:nil];
-    EAAddTaskGuideView *v = [[nib instantiateWithOwner:self options:nib] firstObject];
-    retur v;
+    EAAddTaskGuideView *v = (EAAddTaskGuideView *)[[nib instantiateWithOwner:self options:nib] firstObject];
+    return v;
 }
+
+-(IBAction)confirmAction:(id)sender
+{
+    [self removeFromSuperview];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

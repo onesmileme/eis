@@ -113,6 +113,7 @@
 		6E14CCE01F7D4BC9008DE669 /* EATaskDataListModel+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */; };
 		6E14CCE31F7D5258008DE669 /* EAAddTaskGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */; };
 		6E14CCE51F7D5286008DE669 /* EAAddTaskGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */; };
+		6E14CCEA1F7E8E9C008DE669 /* task_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE71F7E8E9C008DE669 /* task_guide.png */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
 		6E415DCE1F5171D10078436F /* LBXScanNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BCA1F5171D10078436F /* LBXScanNative.m */; };
@@ -532,11 +533,6 @@
 		6E6886FE1F451261009AD662 /* TKUserInfo+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886E31F451261009AD662 /* TKUserInfo+QQ.m */; };
 		6E6886FF1F451261009AD662 /* TKAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886E51F451261009AD662 /* TKAccountManager.m */; };
 		6E6887001F451261009AD662 /* TKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886E71F451261009AD662 /* TKUserInfo.m */; };
-		6E6887011F451261009AD662 /* TKWeChatLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886EA1F451261009AD662 /* TKWeChatLoginHelper.m */; };
-		6E6887021F451261009AD662 /* TKWexinUserAuthoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886EC1F451261009AD662 /* TKWexinUserAuthoInfo.m */; };
-		6E6887031F451261009AD662 /* TKWexinUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886EE1F451261009AD662 /* TKWexinUserInfo.m */; };
-		6E6887041F451261009AD662 /* FAPayInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886F11F451261009AD662 /* FAPayInfoModel.m */; };
-		6E6887051F451261009AD662 /* TKRequestHandler+WechatPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886F31F451261009AD662 /* TKRequestHandler+WechatPay.m */; };
 		6E6887061F451261009AD662 /* EACrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886F51F451261009AD662 /* EACrashManager.m */; };
 		6E6887071F451261009AD662 /* EANetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886F71F451261009AD662 /* EANetworkManager.m */; };
 		6E6887081F451261009AD662 /* EAPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6886F91F451261009AD662 /* EAPushManager.m */; };
@@ -865,6 +861,7 @@
 		6E14CCE11F7D5258008DE669 /* EAAddTaskGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAddTaskGuideView.h; sourceTree = "<group>"; };
 		6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAddTaskGuideView.m; sourceTree = "<group>"; };
 		6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAAddTaskGuideView.xib; sourceTree = "<group>"; };
+		6E14CCE71F7E8E9C008DE669 /* task_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_guide.png; sourceTree = "<group>"; };
 		6E415BB11F5155FE0078436F /* UINavigationItem+margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+margin.h"; sourceTree = "<group>"; };
 		6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+margin.m"; sourceTree = "<group>"; };
 		6E415BC91F5171D10078436F /* LBXScanNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanNative.h; sourceTree = "<group>"; };
@@ -1696,16 +1693,6 @@
 		6E6886E51F451261009AD662 /* TKAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAccountManager.m; sourceTree = "<group>"; };
 		6E6886E61F451261009AD662 /* TKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUserInfo.h; sourceTree = "<group>"; };
 		6E6886E71F451261009AD662 /* TKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKUserInfo.m; sourceTree = "<group>"; };
-		6E6886E91F451261009AD662 /* TKWeChatLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWeChatLoginHelper.h; sourceTree = "<group>"; };
-		6E6886EA1F451261009AD662 /* TKWeChatLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWeChatLoginHelper.m; sourceTree = "<group>"; };
-		6E6886EB1F451261009AD662 /* TKWexinUserAuthoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWexinUserAuthoInfo.h; sourceTree = "<group>"; };
-		6E6886EC1F451261009AD662 /* TKWexinUserAuthoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWexinUserAuthoInfo.m; sourceTree = "<group>"; };
-		6E6886ED1F451261009AD662 /* TKWexinUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWexinUserInfo.h; sourceTree = "<group>"; };
-		6E6886EE1F451261009AD662 /* TKWexinUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWexinUserInfo.m; sourceTree = "<group>"; };
-		6E6886F01F451261009AD662 /* FAPayInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAPayInfoModel.h; sourceTree = "<group>"; };
-		6E6886F11F451261009AD662 /* FAPayInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAPayInfoModel.m; sourceTree = "<group>"; };
-		6E6886F21F451261009AD662 /* TKRequestHandler+WechatPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TKRequestHandler+WechatPay.h"; sourceTree = "<group>"; };
-		6E6886F31F451261009AD662 /* TKRequestHandler+WechatPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TKRequestHandler+WechatPay.m"; sourceTree = "<group>"; };
 		6E6886F41F451261009AD662 /* EACrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACrashManager.h; sourceTree = "<group>"; };
 		6E6886F51F451261009AD662 /* EACrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACrashManager.m; sourceTree = "<group>"; };
 		6E6886F61F451261009AD662 /* EANetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EANetworkManager.h; sourceTree = "<group>"; };
@@ -3368,6 +3355,7 @@
 			children = (
 				6E14CCD71F7C77D2008DE669 /* launch.png */,
 				6E87413B1F794B3C005EFA50 /* login_bg.jpg */,
+				6E14CCE71F7E8E9C008DE669 /* task_guide.png */,
 				6E8740F71F765550005EFA50 /* guide */,
 				6E8741291F781086005EFA50 /* about.html */,
 			);
@@ -3898,8 +3886,6 @@
 				6E6886E71F451261009AD662 /* TKUserInfo.m */,
 				6E415F4D1F5707750078436F /* EALoginUserInfoModel.h */,
 				6E415F4E1F5707750078436F /* EALoginUserInfoModel.m */,
-				6E6886E81F451261009AD662 /* WechatLogin */,
-				6E6886EF1F451261009AD662 /* WechatPay */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -3911,30 +3897,6 @@
 				6E6886E31F451261009AD662 /* TKUserInfo+QQ.m */,
 			);
 			path = QQLogin;
-			sourceTree = "<group>";
-		};
-		6E6886E81F451261009AD662 /* WechatLogin */ = {
-			isa = PBXGroup;
-			children = (
-				6E6886E91F451261009AD662 /* TKWeChatLoginHelper.h */,
-				6E6886EA1F451261009AD662 /* TKWeChatLoginHelper.m */,
-				6E6886EB1F451261009AD662 /* TKWexinUserAuthoInfo.h */,
-				6E6886EC1F451261009AD662 /* TKWexinUserAuthoInfo.m */,
-				6E6886ED1F451261009AD662 /* TKWexinUserInfo.h */,
-				6E6886EE1F451261009AD662 /* TKWexinUserInfo.m */,
-			);
-			path = WechatLogin;
-			sourceTree = "<group>";
-		};
-		6E6886EF1F451261009AD662 /* WechatPay */ = {
-			isa = PBXGroup;
-			children = (
-				6E6886F01F451261009AD662 /* FAPayInfoModel.h */,
-				6E6886F11F451261009AD662 /* FAPayInfoModel.m */,
-				6E6886F21F451261009AD662 /* TKRequestHandler+WechatPay.h */,
-				6E6886F31F451261009AD662 /* TKRequestHandler+WechatPay.m */,
-			);
-			path = WechatPay;
 			sourceTree = "<group>";
 		};
 		6E68870C1F451542009AD662 /* Browser */ = {
@@ -4613,6 +4575,7 @@
 				6E68867F1F43C71A009AD662 /* xiang.png in Resources */,
 				6E68867A1F43C71A009AD662 /* paizhao@2x.png in Resources */,
 				53DB28AA1F6E51E600FB2B0F /* echarts.html in Resources */,
+				6E14CCEA1F7E8E9C008DE669 /* task_guide.png in Resources */,
 				6E68853D1F433C49009AD662 /* Assets.xcassets in Resources */,
 				6E7015A51F7162BB0006C2E9 /* EAProjectInfoTableViewCell.xib in Resources */,
 				6E415EAF1F5171D10078436F /* CodeScan.bundle in Resources */,
@@ -4804,7 +4767,6 @@
 				53DB28881F6E51E600FB2B0F /* PYLineStyle.m in Sources */,
 				53DB289C1F6E51E600FB2B0F /* PYForceSeries.m in Sources */,
 				6E4D930F1F5BA69800026B53 /* EAMsgFilterModel.m in Sources */,
-				6E6887051F451261009AD662 /* TKRequestHandler+WechatPay.m in Sources */,
 				6E6886961F43C71A009AD662 /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
 				6E415E7E1F5171D10078436F /* ZXPDF417BoundingBox.m in Sources */,
 				FADB16231F72C055003C7E13 /* EAReportFilterHandle.m in Sources */,
@@ -4843,7 +4805,6 @@
 				53DB287B1F6E51E600FB2B0F /* PYAxisLine.m in Sources */,
 				6E6386AE1F48208C00017FB8 /* EATaskViewController.m in Sources */,
 				53D7D3581F4B2F4800CC4034 /* UIButton+EdgeInsets.m in Sources */,
-				6E6887031F451261009AD662 /* TKWexinUserInfo.m in Sources */,
 				6E415E891F5171D10078436F /* ZXPDF417BarcodeMatrix.m in Sources */,
 				53DB28A51F6E51E600FB2B0F /* PYSeries.m in Sources */,
 				53DB28941F6E51E600FB2B0F /* PYTimeline.m in Sources */,
@@ -4987,13 +4948,11 @@
 				6E68865C1F43C71A009AD662 /* UIControl+BlocksKit.m in Sources */,
 				6E415E451F5171D10078436F /* ZXAI01392xDecoder.m in Sources */,
 				6E415E5E1F5171D10078436F /* ZXRSSUtils.m in Sources */,
-				6E6887011F451261009AD662 /* TKWeChatLoginHelper.m in Sources */,
 				6E6886721F43C71A009AD662 /* UIView+Extension.m in Sources */,
 				6E8741151F76D3B6005EFA50 /* EATaskRejectChooseView.m in Sources */,
 				6E415DEC1F5171D10078436F /* ZXISBNParsedResult.m in Sources */,
 				53DB289A1F6E51E600FB2B0F /* PYChordSeries.m in Sources */,
 				6E415E241F5171D10078436F /* ZXPlanarYUVLuminanceSource.m in Sources */,
-				6E6887021F451261009AD662 /* TKWexinUserAuthoInfo.m in Sources */,
 				6E415E271F5171D10078436F /* ZXRGBLuminanceSource.m in Sources */,
 				6E415F401F52B8140078436F /* EAUserSearchHeader.m in Sources */,
 				6E415E8B1F5171D10078436F /* ZXPDF417Dimensions.m in Sources */,
@@ -5201,7 +5160,6 @@
 				6E415E2D1F5171D10078436F /* ZXDataMatrixDetector.m in Sources */,
 				6E415E491F5171D10078436F /* ZXAI01AndOtherAIs.m in Sources */,
 				6E68868E1F43C71A009AD662 /* ZLPhotoPickerDatas.m in Sources */,
-				6E6887041F451261009AD662 /* FAPayInfoModel.m in Sources */,
 				6E415E251F5171D10078436F /* ZXResult.m in Sources */,
 				6E415DE41F5171D10078436F /* ZXCalendarParsedResult.m in Sources */,
 				6E415EFA1F5267B70078436F /* EAFilterCollectionViewCell.m in Sources */,
