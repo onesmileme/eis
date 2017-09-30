@@ -75,7 +75,7 @@
 
 -(void)loadTaskStatusInfo
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     [[TKRequestHandler sharedInstance] findTaskResultByTaskId:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskStatusModel *model, NSError *error) {
         if (error || !model.success) {
             hud.label.text = @"获取任务信息失败";
@@ -386,7 +386,7 @@
     model.anewStatus = @"assign";
     model.taskId = self.task.tid;
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     [[TKRequestHandler sharedInstance] saveEisTaskResult:model completion:^(NSURLSessionDataTask *task, EATaskUpdateModel *model, NSError *error) {
         if (error == nil && model) {
             [hud hideAnimated:true];

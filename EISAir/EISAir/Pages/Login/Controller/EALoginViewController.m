@@ -86,7 +86,7 @@
         return;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     NSString *name = _nameField.text;
     [[TKRequestHandler sharedInstance]loginWithUserName:name password:_passwordField.text completion:^(NSURLSessionDataTask *task, EAOauthModel *model, NSError *error) {
         if (error || model == nil) {

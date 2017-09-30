@@ -43,7 +43,9 @@
 }
 
 + (void)showLoadingOnView:(UIView *)view {
-    [MBProgressHUD showHUDAddedTo:view animated:YES];
+    MBProgressHUD *hud =  [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color =[UIColor colorWithWhite:0.2 alpha:0.8];
 }
 
 + (void)hideLoadingOnView:(UIView *)view {

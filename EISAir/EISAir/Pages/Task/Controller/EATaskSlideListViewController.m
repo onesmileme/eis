@@ -128,7 +128,7 @@
             
 #endif
             
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+            MBProgressHUD *hud = [EATools showLoadHUD:self.view];
             hud.label.text = @"请求失败";
             [hud hideAnimated:true afterDelay:0.7];
         }else{

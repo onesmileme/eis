@@ -341,7 +341,7 @@
     if (self.currentIndex != 0) {
         model.msgTypes = @[key];
     }
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];    
     [[TKRequestHandler sharedInstance] loadMsgFilterTag:model completion:^(NSURLSessionDataTask *task, EAMsgFilterTagModel *tagModel, NSError *error) {
         
         if (error || !tagModel.success) {

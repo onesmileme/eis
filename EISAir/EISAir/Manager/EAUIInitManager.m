@@ -23,6 +23,7 @@ IMP_SINGLETON
     if (self) {
         [self initNavStyle];
         [self initTabStyle];
+        [self initHudStyle];
     }
     return self;
 }
@@ -61,6 +62,19 @@ IMP_SINGLETON
 //    UITabBar *bar = [UITabBar appearance];
 //    bar.backgroundImage = [UIImage imageNamed:@"tabbar_bg"];
     
+}
+
+-(void)initHudStyle
+{
+    MBBackgroundView *backview = [MBBackgroundView appearance];
+    backview.style = MBProgressHUDBackgroundStyleSolidColor;
+//    backview.color = [UIColor colorWithWhite:0 alpha:0.8];
+    
+    [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
+    
+    
+//    MBRoundProgressView *progressView = [MBRoundProgressView appearance];
+//    progressView.backgroundTintColor = [UIColor blackColor];
 }
 
 

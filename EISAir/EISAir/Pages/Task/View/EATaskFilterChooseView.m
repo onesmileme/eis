@@ -18,6 +18,7 @@
 
 @interface EATaskFilterChooseView ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic , strong)UIControl *bgControl;
 @property(nonatomic , strong)UITableView *tableView;
 
 @end
@@ -44,6 +45,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        _bgControl = [[UIControl alloc]initWithFrame:self.bounds];
+        [_bgControl addTarget:self action:@selector(tapBlank) forControlEvents:UIControlEventTouchUpInside];
+        _bgControl.backgroundColor = [UIColor clearColor];
+        [self addSubview:_bgControl];
+        
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(self.width-120, 70, 103, 90)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -53,6 +60,11 @@
         self.backgroundColor = RGBA(0x4a, 0x4a, 0x4a, 0.2);
     }
     return self;
+}
+
+-(void)tapBlank
+{
+    [self hide];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

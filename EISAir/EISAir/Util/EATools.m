@@ -35,6 +35,8 @@
         return;
     }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self keyWindow] animated:YES];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.8];
 
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
@@ -57,7 +59,9 @@
 + (MBProgressHUD *)showLoadHUD:(UIView *)inView
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
-    
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor colorWithWhite:0.1 alpha:0.8];
+
     return hud;
 }
 

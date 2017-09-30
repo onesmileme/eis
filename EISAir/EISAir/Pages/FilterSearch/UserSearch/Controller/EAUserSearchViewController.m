@@ -57,7 +57,7 @@
 
 -(void)loadUsers
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     self.userList = [NSMutableArray new];
     self.pageIndex = 0;
     [self loadUserReqeust:hud];

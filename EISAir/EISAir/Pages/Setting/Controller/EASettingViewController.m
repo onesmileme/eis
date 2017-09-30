@@ -126,6 +126,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
+        case 0:{
+            NSURL *openURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            [[UIApplication sharedApplication]openURL:openURL];
+        }
+            break;
         case 1:
         {
             EAAboutViewController *controller = [[EAAboutViewController alloc]init];
@@ -134,7 +139,7 @@
             break;
         case 2:
         {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+            MBProgressHUD *hud = [EATools showLoadHUD:self.view];
             hud.label.text = @"正在清除缓存";
             [[SDImageCache sharedImageCache]clearDiskOnCompletion:^{
                 [hud hideAnimated:true afterDelay:0.5];

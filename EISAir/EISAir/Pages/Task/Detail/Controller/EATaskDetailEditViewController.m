@@ -185,7 +185,7 @@
         model.transferPersonIds = ids;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     __weak typeof(self) wself = self;
     [[TKRequestHandler sharedInstance] saveEisTaskResult:model completion:^(NSURLSessionDataTask *task, EATaskUpdateModel *model, NSError *error) {
         if (error == nil && model) {

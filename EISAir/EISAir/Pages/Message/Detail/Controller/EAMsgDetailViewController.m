@@ -50,7 +50,7 @@
 //        return;
 //    }
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     [[TKRequestHandler sharedInstance]findTaskResultByTaskId:self.msgModel.businessId completion:^(NSURLSessionDataTask *task, EATaskStatusModel *model, NSError *error) {
         
         if (error || model.data == nil) {
