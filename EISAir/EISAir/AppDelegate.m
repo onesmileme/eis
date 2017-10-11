@@ -18,6 +18,7 @@
 #import "TKGuideViewController.h"
 #import "TKAppInfo.h"
 #import <JPUSHService.h>
+#import "EAAddRecordVC.h"
 
 @interface AppDelegate ()
 
@@ -57,6 +58,15 @@
     
     [NotificationCenter addObserver:self selector:@selector(loginDoneNotification:) name:kLoginDoneNotification object:nil];
     [NotificationCenter addObserver:self selector:@selector(logoutNotification:) name:kLogoutNotification object:nil];
+    
+    UIApplicationShortcutItem *shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+    //如果是从快捷选项标签启动app，则根据不同标识执行不同操作，然后返回NO，防止调用- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+    if (shortcutItem) {
+        
+        [self handleShortcut:shortcutItem fromLaunch:YES];
+        return NO;
+    }
+    
     
     return YES;
 }
@@ -131,6 +141,40 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    [self handleShortcut:shortcutItem fromLaunch:NO];
+    completionHandler(true);
+}
+
+-(void)handleShortcut:(UIApplicationShortcutItem *)shortcutItem fromLaunch:(BOOL)isLaunch
+{
+    NSLog(@"short cut item is: %@",shortcutItem);
+    if (self.rootNavController != self.window.rootViewController) {
+        //do login
+        return;
+    }
+    
+    if ([shortcutItem.type isEqualToString:@"com.eis.addtextrecord"]) {
+        UIViewController *vc = [[EAAddRecordVC alloc] initWithType:EAAddRecordTypeText];
+        vc.hidesBottomBarWhenPushed = YES;
+        [[EABaseViewController currentNavigationController] pushViewController:vc animated:YES];
+    }else if([shortcutItem.type isEqualToString:@"com.eis.addvaluerecord"]){
+        UIViewController *vc = [[EAAddRecordVC alloc] initWithType:EAAddRecordTypeNumber];
+        vc.hidesBottomBarWhenPushed = YES;
+        [[EABaseViewController currentNavigationController] pushViewController:vc animated:YES];
+    }else if([shortcutItem.type isEqualToString:@"com.eis.task"]){
+        //show task
+        [[EABaseViewController currentNavigationController] popToRootViewControllerAnimated:false];
+        self.mainController.selectedIndex = 1;
+    }else if([shortcutItem.type isEqualToString:@"com.eis.dailyreport"]){
+        
+    }else if([shortcutItem.type isEqualToString:@"com.eis.share"]){
+        
+    }
+
 }
 
 -(void)showLogin

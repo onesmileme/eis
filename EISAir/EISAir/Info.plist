@@ -37,6 +37,8 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>需要访问您的摄像头</string>
@@ -58,5 +60,73 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.eis.addtextrecord</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>添加文本记录</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>firstShorcutKey1</key>
+				<string>firstShortcutKeyValue1</string>
+			</dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>add_icon1</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.eis.addvaluerecord</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>添加数值记录</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>firstShorcutKey1</key>
+				<string>firstShortcutKeyValue1</string>
+			</dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>add_icon2</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.eis.task</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>任务</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>firstShorcutKey1</key>
+				<string>firstShortcutKeyValue1</string>
+			</dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>add_icon2</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.eis.share</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>分享</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>firstShorcutKey1</key>
+				<string>firstShortcutKeyValue1</string>
+			</dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>add_icon2</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.eis.dailyreport</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>日报</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>firstShorcutKey1</key>
+				<string>firstShortcutKeyValue1</string>
+			</dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>add_icon2</string>
+		</dict>
+	</array>
 </dict>
 </plist>
