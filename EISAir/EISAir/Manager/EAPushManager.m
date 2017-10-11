@@ -20,7 +20,7 @@
 @import UserNotifications;
 
 #define kUserJPush  1
-#define kJPushAppKey @""
+#define kJPushAppKey @"ef242377373c048472a81bba"
 #define kJPushChannel @""
 
 #define kScheme @"eis"
@@ -30,6 +30,7 @@
 @property(nonatomic , strong) NSMutableDictionary *handlesDic;
 
 @property(nonatomic , strong) NSString *deviceToken;
+@property(nonatomic , strong) NSString * pushRegisterId;
 @property(nonatomic , strong) NSString *msgId;
 
 
@@ -67,7 +68,7 @@ IMP_SINGLETON
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutNotification:) name:kLogoutNotification object:nil];
         
 #if kUserJPush
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jpushLoginDoneNotification:) name:kJPFNetworkDidLoginNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jpushLoginDoneNotification:) name:kJPFNetworkDidLoginNotification object:nil];
 #endif
     
         
@@ -429,89 +430,6 @@ IMP_SINGLETON
 
 #if 0
 
--(void)handleTweet:(NSDictionary *)param
-{
-    NSString *tid = param[@"id"];
-    if (tid.length == 0) {
-        return;
-    }
-    FATweetDetailViewController *controller = [[FATweetDetailViewController alloc]initWithNibName:nil bundle:nil];
-    controller.tid = tid;
-    
-    [self pushViewController:controller];
-}
-
--(void)handleTopic:(NSDictionary *)param
-{
-    NSString *tid = param[@"topic_id"];
-    if (tid.length == 0) {
-        tid = param[@"id"];
-    }
-    if (tid.length == 0) {
-        return;
-    }
-    FATopicViewController *controller = [[FATopicViewController alloc]initWithNibName:nil bundle:nil];
-    FATopicDataModel *model = [[FATopicDataModel alloc]init];
-    model.id = tid;
-    controller.topic = model;
-    
-    [self pushViewController:controller];
-}
-
--(void)handleMoments:(NSDictionary *)param
-{
-    NSString *tid = param[@"id"];
-    if (tid.length == 0) {
-        return;
-    }
-    FAMomentDetailViewController *controller = [[FAMomentDetailViewController alloc]init];
-    controller.tid = tid;
-    
-    [self pushViewController:controller];
-
-}
-
--(void)handleLive:(NSDictionary *)param
-{
-    NSString *liveId = param[@"liveid"];
-    if (liveId.length == 0) {
-        return;
-    }
-    FALivePlayerViewController *controller = [[FALivePlayerViewController alloc]init];
-    FALiveDataContentModel *liveModel = [[FALiveDataContentModel alloc]init];
-    liveModel.liveId = liveId;
-    controller.liveModel = liveModel;
-    
-    UIViewController *rootController =  [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [rootController presentViewController:controller animated:true completion:nil];
-}
-
--(void)handleSystemMsg:(NSDictionary *)param
-{
-    FAMyMessageViewController *controller = [[FAMyMessageViewController alloc]init];
-    
-    [self pushViewController:controller];
-}
-
--(void)handleFans:(NSDictionary *)param
-{
-    FARelationViewController *controller = [[FARelationViewController alloc]init];
-    controller.uid = MYUID;
-    controller.isFans = true;
-    [self pushViewController:controller];
-}
-
--(void)handlePrivateMsg:(NSDictionary *)param
-{
-    NSString *uid = param[@"search_uid"];
-    if (uid.length == 0) {
-        return;
-    }
-    FAPrivateMsgTalkViewController *controller = [[FAPrivateMsgTalkViewController alloc]initWithNibName:nil bundle:nil];
-    controller.uid = uid;
-    controller.name = param[@"nickname"];
-    [self pushViewController:controller];
-}
 
 -(void)handleShowMyTab:(NSDictionary *)param
 {
@@ -524,31 +442,6 @@ IMP_SINGLETON
 
 
 
--(void)handleShowGroup:(NSDictionary *)param
-{
-    NSString *gid = param[@"id"];
-    if (gid.length == 0) {
-        return;
-    }
-    
-    FAGroupHomeViewController *controller = [[FAGroupHomeViewController alloc]init];
-    controller.groupId = gid;
-//    controller.name = group.name;
-    controller.hidesBottomBarWhenPushed = true;
-    
-    [self pushViewController:controller];
-}
-
--(void)handleUserHome:(NSDictionary *)param
-{
-    NSString *uid = param[@"uid"];
-    if (uid.length == 0) {
-        return;
-    }
-    FAUserHomeViewController *controller = [[FAUserHomeViewController alloc]init];
-    controller.uid = uid;
-    [self pushViewController:controller];
-}
 
 #endif
 
@@ -617,22 +510,41 @@ IMP_SINGLETON
     [self pushBind:false completion:nil];
 }
 
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+-(void)jpushLoginDoneNotification:(NSNotification *)notification
 {
-    NSDictionary *userInfo = notification.request.content.userInfo;
-    NSLog(@"user info is: %@",userInfo);
+    self.pushRegisterId = [JPUSHService registrationID];
+    if (self.pushRegisterId.length > 0){
+        
+        BOOL isPush = YES;
+        [self pushBind:isPush completion:^(bool isOk) {
+            
+        }];
+    }
+}
+
+//ios 10本地通知与推送通知一起处理  (前台)
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger options))completionHandler
+{
+    //通知信息
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
     
+    // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
     completionHandler(UNNotificationPresentationOptionAlert);
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+// 通知的点击事件
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
 {
-    NSDictionary *userinfo = response.notification.request.content.userInfo;
     
-    [self handlePush:userinfo];
-    
-    completionHandler();
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification: userInfo];
+        [self handlePush:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
 }
 
 /**
@@ -687,6 +599,8 @@ IMP_SINGLETON
     return param;
     
 }
+
+
 
 
 @end
