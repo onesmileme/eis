@@ -152,10 +152,10 @@
 -(void)handleShortcut:(UIApplicationShortcutItem *)shortcutItem fromLaunch:(BOOL)isLaunch
 {
     NSLog(@"short cut item is: %@",shortcutItem);
-    if (self.rootNavController != self.window.rootViewController) {
+    if (self.rootNavController != self.window.rootViewController || [EALoginViewController isShowLogin]) {
         //do login
         return;
-    }
+    }        
     
     if ([shortcutItem.type isEqualToString:@"com.eis.addtextrecord"]) {
         UIViewController *vc = [[EAAddRecordVC alloc] initWithType:EAAddRecordTypeText];

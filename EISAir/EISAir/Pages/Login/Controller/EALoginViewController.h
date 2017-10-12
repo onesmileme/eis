@@ -10,4 +10,6 @@
 
 @interface EALoginViewController : EABaseViewController
 
++(BOOL)isShowLogin;
+
 @end

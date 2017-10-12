@@ -12,6 +12,8 @@
 #import "TKAccountManager.h"
 #import "TKRequestHandler+Account.h"
 
+static BOOL showLogin = false;
+
 @interface  EALoginViewController ()<UITextFieldDelegate>
 
 @property(nonatomic , strong) IBOutlet UITextField *nameField;
@@ -22,6 +24,11 @@
 
 @implementation EALoginViewController
 
++(BOOL)isShowLogin
+{
+    return showLogin;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -31,6 +38,13 @@
     NSDictionary *attr = @{NSFontAttributeName:SYS_FONT(16),NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.nameField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"用户名" attributes:attr];
     self.passwordField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"密码" attributes:attr];
+    
+    showLogin = true;
+}
+
+-(void)dealloc
+{
+    showLogin = false;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -65,6 +79,8 @@
         
         [[TKAccountManager sharedInstance] save];
         [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil userInfo:@{@"refresh":@(refresh)}];
+        
+        showLogin = false;
         
         if (self.navigationController.viewControllers.count > 1) {
             [self.navigationController popViewControllerAnimated:true];

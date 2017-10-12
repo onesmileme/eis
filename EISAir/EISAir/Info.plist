@@ -37,8 +37,11 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>panyun.oss-cn-beijing.aliyuncs.com</key>
+			<string></string>
+		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>需要访问您的摄像头</string>
@@ -73,7 +76,7 @@
 				<string>firstShortcutKeyValue1</string>
 			</dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>add_icon1</string>
+			<string>sc_add_text</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
@@ -86,7 +89,7 @@
 				<string>firstShortcutKeyValue1</string>
 			</dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>add_icon2</string>
+			<string>sc_add_num</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
@@ -99,7 +102,7 @@
 				<string>firstShortcutKeyValue1</string>
 			</dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>add_icon2</string>
+			<string>sc_task</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
@@ -112,7 +115,7 @@
 				<string>firstShortcutKeyValue1</string>
 			</dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>add_icon2</string>
+			<string>sc_share</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
@@ -125,7 +128,7 @@
 				<string>firstShortcutKeyValue1</string>
 			</dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>add_icon2</string>
+			<string>sc_daily</string>
 		</dict>
 	</array>
 </dict>
