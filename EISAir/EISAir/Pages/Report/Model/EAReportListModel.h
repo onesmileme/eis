@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSArray *receivePersonNames;
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *generateCount;
+@property (nonatomic, assign) BOOL isRead;
 @end
 
 

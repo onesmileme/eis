@@ -14,4 +14,10 @@ typedef enum : int {
     EAKongJianVCTypeSheBei,
 } EAKongJianVCType;
 
+typedef NS_ENUM(NSUInteger, EASheBeiState) {
+    EASheBeiStateOpen,
+    EASheBeiStateClose,
+    EASheBeiStateBug,
+};
+
 #endif /* EADingYueDefines_h */

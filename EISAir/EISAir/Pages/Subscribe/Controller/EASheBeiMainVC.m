@@ -9,8 +9,9 @@
 #import "EASheBeiMainVC.h"
 #import "EAKongJianHeader.h"
 #import "EASpaceModel.h"
-#import "EAFilterView.h"
 #import "TKAccountManager.h"
+#import "EADingYueSheBeiModel.h"
+#import "EASheBeiContainView.h"
 
 @interface EASheBeiMainVC ()
 
@@ -19,15 +20,13 @@
 @implementation EASheBeiMainVC {
     EAKongJianHeader *_header;
     UIScrollView *_contentView;
+    NSArray *_dataArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self initNavbar];
     NSArray *data = @[
                       @[@"空间名称", ToSTR(self.rModel.name)],
-                      @[@"资产状态", ToSTR(self.rModel.name)],
                       @[@"空间面积", ToSTR(self.rModel.area)],
                       @[@"资产属性", ToSTR(self.rModel.name)],
                       ];
@@ -42,35 +41,23 @@
     [self startHeadRefresh:_contentView];
 }
 
-- (void)initNavbar {
-    // 设置右边的搜索按钮
-    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(0, 0, 40, 40);
-    UIImage *img = [UIImage imageNamed:@"common_filter"];
-    [searchButton setImage:img forState:UIControlStateNormal];
-    [searchButton addTarget:self action:@selector(filterAction) forControlEvents:UIControlEventTouchUpInside];
-    [searchButton sizeToFit];
-    
-    UIBarButtonItem *searchItem = [[UIBarButtonItem alloc]initWithCustomView:searchButton];
-    self.navigationItem.rightBarButtonItem = searchItem;
-}
-
-- (void)filterAction {
-    EAFilterView *v = [[EAFilterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    v.confirmBlock = ^(NSString *item, NSInteger index, NSDate *startDate, NSDate *endDate) {
-        if (!(item || (startDate && endDate))) {
-            return ;
-        }
-        if (startDate && endDate) {
-            
-        }
-    };
-    [v updateWithTags:nil hasDate:YES showIndicator:NO];
-    [self.view.window addSubview:v];
-}
-
 - (void)headRefreshAction {
     [self requestData];
+}
+
+- (void)updateContentView {
+    __block float top = 15;
+    [_dataArray enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        EASheBeiContainView *view = [[EASheBeiContainView alloc] initWithTitle:obj[@"title"] items:obj[@"items"]];
+        [_contentView addSubview:view];
+        view.top = top;
+        top = view.bottom + 12;
+    }];
+    _contentView.contentSize = CGSizeMake(_contentView.width, MAX(top, _contentView.height));
+}
+
+- (void)updateData {
+    
 }
 
 #pragma mark - request
@@ -78,25 +65,17 @@
     [self nodata_hideView];
     NSMutableDictionary *params = @{@"productArray": [TKAccountManager sharedInstance].loginUserInfo.productArray ?: @[],
                                     }.mutableCopy;
-//    if (self.spaceId.length) {
-//        params[@"spaceId"] = self.spaceId;
-//    }
-//    if (self.deviceId) {
-//        params[@"deviceId"] = self.deviceId;
-//    }
-    params[@"spaceId"] = @"402881585e710ded015e7117033906b9";
-    params[@"dateType"] = @"day";
-    params[@"compareType"] = @"section";
-    params[@"chooseDate"] = @"2016-08-11";
-    params[@"compareDate"] = @"2016-08-11";
+    params[@"spaceId"] = ToSTR(self.rModel.id);
     weakify(self);
-    [TKRequestHandler postWithPath:@"/eis/open/track/findInfoByObject" params:params jsonModelClass:EAPostBasicModel.class completion:^(id model, NSError *error) {
+    [TKRequestHandler postWithPath:@"/eis/open/track/findDeviceInfoFilter" params:params jsonModelClass:EADingYueSheBeiModel.class completion:^(id model, NSError *error) {
         strongify(self);
         [self requestDataDone:model];
     }];
 }
 
-- (void)requestDataDone:(id)model {
+- (void)requestDataDone:(EADingYueSheBeiModel *)model {
     [self stopRefresh:_contentView];
+    [self updateData];
+    [self updateContentView];
 }
 @end

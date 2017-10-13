@@ -11,6 +11,7 @@
 #import "TKAccountManager.h"
 #import "EASpaceModel.h"
 #import "EASingleKongJianVC.h"
+#import "EASheBeiMainVC.h"
 
 @interface EAKongJianPageVC () {
     EADingYueGridContentView *_contentView;
@@ -52,10 +53,16 @@
 }
 
 - (void)itemPressedWithSection:(NSUInteger)section row:(NSUInteger)row {
-    EASingleKongJianVC *vc = [[EASingleKongJianVC alloc] init];
     EASpaceFloorlistModel *floorModel = _model.data.floorList[section];
-    vc.rModel = floorModel.roomList[row];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (EAKongJianVCTypeKongJian == self.type) {
+        EASingleKongJianVC *vc = [[EASingleKongJianVC alloc] init];
+        vc.rModel = floorModel.roomList[row];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        EASheBeiMainVC *vc = [[EASheBeiMainVC alloc] init];
+        vc.rModel = floorModel.roomList[row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)viewWillLayoutSubviews {

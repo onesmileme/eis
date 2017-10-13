@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *reportType;
 @property (nonatomic, strong) NSArray *receivePersonNames;
 @property (nonatomic, strong) NSString *id;
+@property (nonatomic, assign) BOOL isRead;
 @end
 
 

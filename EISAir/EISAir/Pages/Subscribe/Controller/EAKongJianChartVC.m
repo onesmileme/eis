@@ -48,7 +48,7 @@
         params[@"deviceId"] = self.deviceId;
     }
     params[@"spaceId"] = @"402881585e710ded015e7117033906b9";
-    params[@"track_type"] = EAKongJianVCTypeKongJian == self.type ? @"SPACE_TRACK" : @"DEVICE_TRACK";
+    params[@"trackType"] = EAKongJianVCTypeKongJian == self.type ? @"SPACE_TRACK" : @"DEVICE_TRACK";
     params[@"dateType"] = @"day";
     params[@"compareType"] = @"section";
     params[@"chooseDate"] = @"2016-08-11";

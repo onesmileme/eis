@@ -58,7 +58,7 @@ static const int kTagButton = 100000;
 }
 
 - (void)createTabs {
-    NSArray *tabs = @[@"消息", @"任务", @"状态", ];
+    NSArray *tabs = @[@"消息", @"任务",];
     __block float left = 15;
     float width = 75;
     float interval = (SCREEN_WIDTH - 3 * 75 - 30) / 2;

@@ -184,14 +184,14 @@ static NSString *const kFilterRankDate = @"dateAsc";
         return @{
                  @"title": ToSTR(model.reportName),
                  @"time": ToSTR(model.createDate),
-                 @"red": @"1",
+                 @"red": @(model.isRead),
                  };
     } else {
         EAReportPageListDataModel *model = (EAReportPageListDataModel *)aModel;
         return @{
                  @"title": ToSTR(model.reportName),
                  @"time": ToSTR(model.createDate),
-                 @"red": @"1",
+                 @"red": @(model.isRead),
                  };
     }
 }

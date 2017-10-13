@@ -32,6 +32,8 @@
 		5330A91F1F5A4B5D00F8E07E /* EADingYueRenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A91E1F5A4B5D00F8E07E /* EADingYueRenVC.m */; };
 		5330A9221F5A643000F8E07E /* EADianFeiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9211F5A643000F8E07E /* EADianFeiVC.m */; };
 		5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330A9241F5A644E00F8E07E /* EAKongJianVC.m */; };
+		539FC1421F90ADB5000577F0 /* EADingYueSheBeiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 539FC1411F90ADB5000577F0 /* EADingYueSheBeiModel.m */; };
+		539FC1471F90AEA6000577F0 /* EASheBeiContainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 539FC1461F90AEA6000577F0 /* EASheBeiContainView.m */; };
 		53AD6EBD1F695A42005025BD /* EADingYueGridContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EB61F695A42005025BD /* EADingYueGridContentView.m */; };
 		53AD6EBE1F695A42005025BD /* EADingYueGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EB81F695A42005025BD /* EADingYueGridView.m */; };
 		53AD6EBF1F695A42005025BD /* EASubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EBA1F695A42005025BD /* EASubscribeCell.m */; };
@@ -703,6 +705,10 @@
 		5330A9211F5A643000F8E07E /* EADianFeiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADianFeiVC.m; sourceTree = "<group>"; };
 		5330A9231F5A644E00F8E07E /* EAKongJianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAKongJianVC.h; sourceTree = "<group>"; };
 		5330A9241F5A644E00F8E07E /* EAKongJianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAKongJianVC.m; sourceTree = "<group>"; };
+		539FC1401F90ADB4000577F0 /* EADingYueSheBeiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EADingYueSheBeiModel.h; sourceTree = "<group>"; };
+		539FC1411F90ADB5000577F0 /* EADingYueSheBeiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EADingYueSheBeiModel.m; sourceTree = "<group>"; };
+		539FC1451F90AEA6000577F0 /* EASheBeiContainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASheBeiContainView.h; sourceTree = "<group>"; };
+		539FC1461F90AEA6000577F0 /* EASheBeiContainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASheBeiContainView.m; sourceTree = "<group>"; };
 		53AD6EB51F695A42005025BD /* EADingYueGridContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueGridContentView.h; sourceTree = "<group>"; };
 		53AD6EB61F695A42005025BD /* EADingYueGridContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueGridContentView.m; sourceTree = "<group>"; };
 		53AD6EB71F695A42005025BD /* EADingYueGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueGridView.h; sourceTree = "<group>"; };
@@ -1940,6 +1946,8 @@
 				5306BDAF1F7BA5E900ED2C8F /* EASpaceModel.m */,
 				5306BDCB1F7CFBBA00ED2C8F /* EAEnergyModel.h */,
 				5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */,
+				539FC1401F90ADB4000577F0 /* EADingYueSheBeiModel.h */,
+				539FC1411F90ADB5000577F0 /* EADingYueSheBeiModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1969,6 +1977,8 @@
 				FA3421421F7170CD001D9FDC /* EASheBeiHeader.m */,
 				FA3421441F717515001D9FDC /* EAKongJianHeader.h */,
 				FA3421451F717515001D9FDC /* EAKongJianHeader.m */,
+				539FC1451F90AEA6000577F0 /* EASheBeiContainView.h */,
+				539FC1461F90AEA6000577F0 /* EASheBeiContainView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4992,6 +5002,7 @@
 				6E415E6A1F5171D10078436F /* ZXEANManufacturerOrgSupport.m in Sources */,
 				6E415E751F5171D10078436F /* ZXUPCEANExtensionSupport.m in Sources */,
 				6E415E361F5171D10078436F /* ZXDataMatrixSymbolInfo.m in Sources */,
+				539FC1421F90ADB5000577F0 /* EADingYueSheBeiModel.m in Sources */,
 				6E87411F1F76F476005EFA50 /* EATaskAddCollectionViewCell.m in Sources */,
 				6E415E1E1F5171D10078436F /* ZXDecodeHints.m in Sources */,
 				6E415E501F5171D10078436F /* ZXRSSExpandedDecodedInformation.m in Sources */,
@@ -5003,6 +5014,7 @@
 				5330A8CD1F5303B800F8E07E /* EASearchConditionView.m in Sources */,
 				6E415E8F1F5171D10078436F /* ZXPDF417Reader.m in Sources */,
 				53DB28931F6E51E600FB2B0F /* PYTextStyle.m in Sources */,
+				539FC1471F90AEA6000577F0 /* EASheBeiContainView.m in Sources */,
 				6E6886851F43C71A009AD662 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				6E415E4D1F5171D10078436F /* ZXRSSExpandedBlockParsedResult.m in Sources */,
 				5306BDCD1F7CFBBA00ED2C8F /* EAEnergyModel.m in Sources */,

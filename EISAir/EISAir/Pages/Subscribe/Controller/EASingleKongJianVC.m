@@ -34,7 +34,6 @@
     [self initNavbar];
     NSArray *data = @[
                       @[@"空间名称", ToSTR(self.rModel.name)],
-                      @[@"资产状态", ToSTR(self.rModel.name)],
                       @[@"空间面积", ToSTR(self.rModel.area)],
                       @[@"资产属性", ToSTR(self.rModel.name)],
                       ];
