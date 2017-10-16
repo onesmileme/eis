@@ -12,19 +12,24 @@
 #import "TKAccountManager.h"
 #import "EADingYueSheBeiModel.h"
 #import "EASheBeiContainView.h"
+#import "EADingYueDefines.h"
 
-@interface EASheBeiMainVC ()
+@interface EASheBeiMainVC () {
+    EADingYueSheBeiModel *_model;
+}
 
 @end
 
 @implementation EASheBeiMainVC {
     EAKongJianHeader *_header;
     UIScrollView *_contentView;
-    NSArray *_dataArray;
+    NSMutableArray *_dataArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = [self.rModel.name stringByAppendingString:@"设备"];
+    _dataArray = [NSMutableArray array];
     NSArray *data = @[
                       @[@"空间名称", ToSTR(self.rModel.name)],
                       @[@"空间面积", ToSTR(self.rModel.area)],
@@ -37,7 +42,7 @@
     _contentView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_contentView];
     
-    [self addRefreshView:_contentView];
+    [self addHeaderRefreshView:_contentView];
     [self startHeadRefresh:_contentView];
 }
 
@@ -57,7 +62,22 @@
 }
 
 - (void)updateData {
-    
+    [_dataArray removeAllObjects];
+    NSMutableArray *array = [NSMutableArray array];
+    NSString *title = nil;
+    for (EADingYueSheBeiDataModel *dataModel in _model.data) {
+        [array addObject:@{
+                           @"text": ToSTR(dataModel.name),
+                           @"state": @(EASheBeiStateOpen),
+                           }];
+        if (!title.length) {
+            title = dataModel.classificationParentName;
+        }
+    }
+    [_dataArray addObject:@{
+                            @"title": ToSTR(title),
+                            @"items": array,
+                            }];
 }
 
 #pragma mark - request
@@ -75,7 +95,13 @@
 
 - (void)requestDataDone:(EADingYueSheBeiModel *)model {
     [self stopRefresh:_contentView];
-    [self updateData];
-    [self updateContentView];
+    if (model.success) {
+        _model = model;
+        [self updateData];
+        [self updateContentView];
+    } else {
+        [TKCommonTools showToast:model.msg];
+        [self nodata_showNoDataViewWithTapedBlock:nil];
+    }
 }
 @end

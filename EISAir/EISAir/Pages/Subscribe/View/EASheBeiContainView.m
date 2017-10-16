@@ -35,6 +35,7 @@
             label.width = self.width;
         }
         label.center = CGPointMake(self.width * .5, self.height * .5);
+        [self addSubview:label];
     }
     return self;
 }
@@ -57,7 +58,6 @@
         
         __block float top = titleLabel.bottom + 12;
         float width = (self.width - 45) * .5;
-        __block height = top;
         [items enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             float x = idx % 2 ? (width + 30) : 15;
             EASheBeiContainItemView *itemView = [[EASheBeiContainItemView alloc] initWithFrame:CGRectMake(x, top, width, 32)
