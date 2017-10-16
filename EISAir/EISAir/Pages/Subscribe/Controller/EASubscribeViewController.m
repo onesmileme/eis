@@ -15,7 +15,7 @@
 #import "EAAllSubscribeModel.h"
 #import "EASubscribePageVC.h"
 
-@interface EASubscribeViewController () <UITableViewDelegate, UITableViewDataSource, UIPageViewControllerDelegate, UIPageViewControllerDataSource> {
+@interface EASubscribeViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource> {
     EATabSwitchControl *_tabSwitchControl;
     UIPageViewController *_pageVC;
     NSInteger _currentPage;

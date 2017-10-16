@@ -41,6 +41,8 @@
 		53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */; };
 		53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */; };
 		53AD8CB81F74F413006A02D6 /* EAReportDetailExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */; };
+		53C36B881F947356006EBBB0 /* WMDingYueChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */; };
+		53C36B8D1F947424006EBBB0 /* EADingYueTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */; };
 		53D62B751F6E2E1200E4E43F /* EADingYueEnergyMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */; };
 		53D62B7A1F6E301000E4E43F /* EAEnergyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B791F6E301000E4E43F /* EAEnergyTableView.m */; };
 		53D62B7D1F6E310100E4E43F /* EAEnergyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B7C1F6E310100E4E43F /* EAEnergyCell.m */; };
@@ -723,6 +725,10 @@
 		53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyChartVC.m; sourceTree = "<group>"; };
 		53AD8CB61F74F413006A02D6 /* EAReportDetailExcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportDetailExcel.h; sourceTree = "<group>"; };
 		53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportDetailExcel.m; sourceTree = "<group>"; };
+		53C36B861F947356006EBBB0 /* WMDingYueChartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMDingYueChartModel.h; sourceTree = "<group>"; };
+		53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMDingYueChartModel.m; sourceTree = "<group>"; };
+		53C36B8B1F947424006EBBB0 /* EADingYueTemperatureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EADingYueTemperatureView.h; sourceTree = "<group>"; };
+		53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EADingYueTemperatureView.m; sourceTree = "<group>"; };
 		53D62B731F6E2E1200E4E43F /* EADingYueEnergyMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyMainVC.h; sourceTree = "<group>"; };
 		53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyMainVC.m; sourceTree = "<group>"; };
 		53D62B781F6E301000E4E43F /* EAEnergyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAEnergyTableView.h; sourceTree = "<group>"; };
@@ -1948,6 +1954,8 @@
 				5306BDCC1F7CFBBA00ED2C8F /* EAEnergyModel.m */,
 				539FC1401F90ADB4000577F0 /* EADingYueSheBeiModel.h */,
 				539FC1411F90ADB5000577F0 /* EADingYueSheBeiModel.m */,
+				53C36B861F947356006EBBB0 /* WMDingYueChartModel.h */,
+				53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1979,6 +1987,8 @@
 				FA3421451F717515001D9FDC /* EAKongJianHeader.m */,
 				539FC1451F90AEA6000577F0 /* EASheBeiContainView.h */,
 				539FC1461F90AEA6000577F0 /* EASheBeiContainView.m */,
+				53C36B8B1F947424006EBBB0 /* EADingYueTemperatureView.h */,
+				53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5025,6 +5035,7 @@
 				6E415E761F5171D10078436F /* ZXUPCEANReader.m in Sources */,
 				6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */,
 				53DB28BC1F6E51E700FB2B0F /* WKEchartsView.m in Sources */,
+				53C36B881F947356006EBBB0 /* WMDingYueChartModel.m in Sources */,
 				6E415DEF1F5171D10078436F /* ZXProductParsedResult.m in Sources */,
 				6E415EAD1F5171D10078436F /* ZXMultiFormatWriter.m in Sources */,
 				FA4E4F691F7AA530004A8DBB /* EAConditionSearchModel.m in Sources */,
@@ -5057,6 +5068,7 @@
 				6E415E7A1F5171D10078436F /* ZXModulusPoly.m in Sources */,
 				6E415E431F5171D10078436F /* ZXAI013103decoder.m in Sources */,
 				53DB288E1F6E51E600FB2B0F /* PYNodeStyle.m in Sources */,
+				53C36B8D1F947424006EBBB0 /* EADingYueTemperatureView.m in Sources */,
 				6E6886891F43C71A009AD662 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				6E415E801F5171D10078436F /* ZXPDF417CodewordDecoder.m in Sources */,
 				6E415E211F5171D10078436F /* ZXErrors.m in Sources */,
