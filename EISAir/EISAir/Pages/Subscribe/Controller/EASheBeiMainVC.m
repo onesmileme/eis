@@ -13,6 +13,7 @@
 #import "EADingYueSheBeiModel.h"
 #import "EASheBeiContainView.h"
 #import "EADingYueDefines.h"
+#import "EASingleShebeiVC.h"
 
 @interface EASheBeiMainVC () {
     EADingYueSheBeiModel *_model;
@@ -55,6 +56,14 @@
     [_dataArray enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         EASheBeiContainView *view = [[EASheBeiContainView alloc] initWithTitle:obj[@"title"] items:obj[@"items"]];
         [_contentView addSubview:view];
+        weakify(self);
+        view.clickedBlock = ^(NSDictionary *dic) {
+            strongify(self);
+            EASingleShebeiVC *vc = [[EASingleShebeiVC alloc] init];
+            vc.title = dic[@"text"];
+            vc.shebeiId = dic[@"id"];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         view.top = top;
         top = view.bottom + 12;
     }];
@@ -69,6 +78,7 @@
         [array addObject:@{
                            @"text": ToSTR(dataModel.name),
                            @"state": @(EASheBeiStateOpen),
+                           @"id": ToSTR(dataModel.id),
                            }];
         if (!title.length) {
             title = dataModel.classificationParentName;

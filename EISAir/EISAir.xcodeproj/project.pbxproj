@@ -43,6 +43,7 @@
 		53AD8CB81F74F413006A02D6 /* EAReportDetailExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */; };
 		53C36B881F947356006EBBB0 /* WMDingYueChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */; };
 		53C36B8D1F947424006EBBB0 /* EADingYueTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */; };
+		53C36B901F94B4A6006EBBB0 /* EASingleShebeiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B8F1F94B4A6006EBBB0 /* EASingleShebeiVC.m */; };
 		53D62B751F6E2E1200E4E43F /* EADingYueEnergyMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */; };
 		53D62B7A1F6E301000E4E43F /* EAEnergyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B791F6E301000E4E43F /* EAEnergyTableView.m */; };
 		53D62B7D1F6E310100E4E43F /* EAEnergyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D62B7C1F6E310100E4E43F /* EAEnergyCell.m */; };
@@ -729,6 +730,8 @@
 		53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMDingYueChartModel.m; sourceTree = "<group>"; };
 		53C36B8B1F947424006EBBB0 /* EADingYueTemperatureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EADingYueTemperatureView.h; sourceTree = "<group>"; };
 		53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EADingYueTemperatureView.m; sourceTree = "<group>"; };
+		53C36B8E1F94B4A6006EBBB0 /* EASingleShebeiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EASingleShebeiVC.h; sourceTree = "<group>"; };
+		53C36B8F1F94B4A6006EBBB0 /* EASingleShebeiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EASingleShebeiVC.m; sourceTree = "<group>"; };
 		53D62B731F6E2E1200E4E43F /* EADingYueEnergyMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADingYueEnergyMainVC.h; sourceTree = "<group>"; };
 		53D62B741F6E2E1200E4E43F /* EADingYueEnergyMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyMainVC.m; sourceTree = "<group>"; };
 		53D62B781F6E301000E4E43F /* EAEnergyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAEnergyTableView.h; sourceTree = "<group>"; };
@@ -4204,6 +4207,8 @@
 				5306BDC51F7CAAF800ED2C8F /* EAKongJianEventVC.m */,
 				5306BDC81F7CED8000ED2C8F /* EASheBeiMainVC.h */,
 				5306BDC91F7CED8000ED2C8F /* EASheBeiMainVC.m */,
+				53C36B8E1F94B4A6006EBBB0 /* EASingleShebeiVC.h */,
+				53C36B8F1F94B4A6006EBBB0 /* EASingleShebeiVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4744,6 +4749,7 @@
 				53AD6EC01F695A42005025BD /* EASubscribeHeaderView.m in Sources */,
 				6E6886531F43C71A009AD662 /* NSCache+BlocksKit.m in Sources */,
 				5306BDC31F7CAAEB00ED2C8F /* EAKongJianChartVC.m in Sources */,
+				53C36B901F94B4A6006EBBB0 /* EASingleShebeiVC.m in Sources */,
 				53DB28871F6E51E600FB2B0F /* PYLegend.m in Sources */,
 				6E6386E81F506C0500017FB8 /* TKRequestHandler+Login.m in Sources */,
 				6E8740C91F741B76005EFA50 /* EATaskFilterResultViewController.m in Sources */,
