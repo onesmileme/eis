@@ -14,7 +14,7 @@
 +(instancetype)view
 {
     UINib *nib = [UINib nibWithNibName:@"EAAddTaskGuideView" bundle:nil];
-    EAAddTaskGuideView *v = (EAAddTaskGuideView *)[[nib instantiateWithOwner:self options:nib] firstObject];
+    EAAddTaskGuideView *v = (EAAddTaskGuideView *)[[nib instantiateWithOwner:self options:nil] firstObject];
     return v;
 }
 

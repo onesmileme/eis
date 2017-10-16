@@ -44,9 +44,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>需要访问您的摄像头</string>
+	<string>EISAir需要访问您的摄像头</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要访问您的相册</string>
+	<string>EISAir需要访问您的相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -106,19 +106,6 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.eis.share</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>分享</string>
-			<key>UIApplicationShortcutItemUserInfo</key>
-			<dict>
-				<key>firstShorcutKey1</key>
-				<string>firstShortcutKeyValue1</string>
-			</dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>sc_share</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
 			<string>com.eis.dailyreport</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>日报</string>
@@ -130,6 +117,19 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>sc_daily</string>
 		</dict>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.eis.share</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>分享</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>firstShorcutKey1</key>
+                <string>firstShortcutKeyValue1</string>
+            </dict>
+            <key>UIApplicationShortcutItemIconFile</key>
+            <string>sc_share</string>
+        </dict>
 	</array>
 </dict>
 </plist>

@@ -46,9 +46,9 @@
     //码框周围4个角的颜色
     style.colorAngle = [UIColor whiteColor];
     //矩形框颜色
-    style.colorRetangleLine = [UIColor redColor];
+    style.colorRetangleLine = [UIColor orangeColor];
     //非矩形框区域颜色
-    style.notRecoginitonArea = RGBA(0x33, 0x33, 0x33, 0.8);
+    style.notRecoginitonArea = RGBA(0x33, 0x33, 0x33, .8);
     
     controller.style = style;
     
@@ -77,7 +77,7 @@
     
     [self initBackItem];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = HexColor(0x333333);
     
     _lightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _lightButton.frame = CGRectMake(0, 0, 120, 24);

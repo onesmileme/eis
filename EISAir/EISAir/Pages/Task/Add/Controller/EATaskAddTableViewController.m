@@ -50,14 +50,18 @@
     EAScanViewController *controller = [EAScanViewController scanController];
     __weak typeof(self) wself = self;
     controller.doneBlock = ^(NSString *urlcode) {
-//        wself.model.index = urlcode;
-//        [wself.tableView reloadData];
+        NSInteger index = wself.collectionView.contentOffset.x / wself.view.width;
+        EATaskItemDataModel *m = wself.model.data[index];
+        m.tagid = urlcode;
+        EATaskAddCollectionViewCell *cell = (EATaskAddCollectionViewCell *)[wself.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+        [cell updateWithModel:m];
     };
     [self.navigationController pushViewController:controller animated:true];
 }
 
 -(void)showGuide
 {
+    return;
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"shown_add_task_guide"]){
         EAAddTaskGuideView *guide = [EAAddTaskGuideView view];
         guide.frame = self.view.bounds;

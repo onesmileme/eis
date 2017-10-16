@@ -46,6 +46,7 @@
     _searchBar.layer.cornerRadius = 4;
     _searchBar.layer.masksToBounds = true;
     _searchBar.delegate = self;
+    _searchBar.returnKeyType = UIReturnKeySearch;
     
     //left view
     //search
@@ -74,12 +75,13 @@
 {
     if (!_historyView) {
         CGRect frame = self.view.bounds;
+        __weak typeof(self) wself = self;
         _historyView = [[EAMsgSearchHistoryView alloc]initWithFrame:frame];
         _historyView.clearBlock = ^{
-            
+            [wself clearHistory];
         };
         _historyView.chooseBlock = ^(NSString *key) {
-            
+            [wself search:key];
         };
     }
     return _historyView;
@@ -89,6 +91,13 @@
 {
     NSString *key = [NSString stringWithFormat:@"%@_history_key",self.searchType];    
     return key;
+}
+
+-(void)clearHistory
+{
+    NSString *key = [self cacheKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    [self.historyKeys removeAllObjects];
 }
 
 - (void)viewDidLoad {

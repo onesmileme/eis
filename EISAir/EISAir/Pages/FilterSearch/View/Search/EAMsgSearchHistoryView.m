@@ -46,6 +46,7 @@
     if (_clearBlock) {
         _clearBlock();
     }
+    [self updateWithKeys:nil];
 }
 
 -(void)updateWithKeys:(NSArray *)keys

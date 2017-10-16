@@ -19,6 +19,7 @@
 #import "TKAppInfo.h"
 #import <JPUSHService.h>
 #import "EAAddRecordVC.h"
+#import "EAReportListVC.h"
 
 @interface AppDelegate ()
 
@@ -170,9 +171,13 @@
         [[EABaseViewController currentNavigationController] popToRootViewControllerAnimated:false];
         self.mainController.selectedIndex = 1;
     }else if([shortcutItem.type isEqualToString:@"com.eis.dailyreport"]){
-        
+        EAReportListVC *vc = [[EAReportListVC alloc] init];
+        vc.showType = EAReportListVCTypeFolder;
+        vc.contentType = EAReportListContentTypeDay;
+        vc.hidesBottomBarWhenPushed = YES;
+        [[EABaseViewController currentNavigationController] pushViewController:vc animated:YES];
     }else if([shortcutItem.type isEqualToString:@"com.eis.share"]){
-        
+       
     }
 
 }

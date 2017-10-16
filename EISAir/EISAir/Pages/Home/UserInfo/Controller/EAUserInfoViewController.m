@@ -57,7 +57,7 @@
     if (section == 0) {
         return 1;
     }
-    return 5;
+    return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

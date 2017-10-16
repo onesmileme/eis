@@ -62,6 +62,12 @@ static NSString *const kFilterRankDate = @"dateAsc";
     [self startHeadRefresh:_tableView];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:false animated:true];
+}
+
 - (NSString *)reportType {
     switch (self.contentType) {
         case EAReportListContentTypeDay:
