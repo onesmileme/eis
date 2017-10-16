@@ -55,7 +55,7 @@ static const int kLineStart = 7;
     CGContextSetLineDash(context, 0, arr, 2);
     float top = 0;
     float left = 22;
-    float width = self.width - left - 18;
+    float width = self.width - left - 22;
     NSMutableDictionary *attrs = [self textAttrs];
     for (int temp = _maxTemper; temp >= _minTemper; temp = temp - 5) {
         NSString *tempString = @(temp).description;
@@ -72,26 +72,35 @@ static const int kLineStart = 7;
     }
     
     NSUInteger length = MAX(_data.count, _compareData.count);
-    
+    if (length > 12) {
+        if (length % 2) {
+            length = (length + 1) / 2;
+        } else {
+            length = length / 2 + 1;
+        }
+    }
     top = kLineStart;
     float interval = width / (length - 1);
     float x = left;
     float height = (_maxTemper - _minTemper) / 5 * kRowInterval;
     for (int i = 0; i < length; ++i) {
+        int index = i * 2;
         if (i) {
             CGContextMoveToPoint(context, x, top);
             CGContextAddLineToPoint(context, x, top + height);
         }
         
         NSString *tempString = nil;
-        if (i < _data.count) {
-            tempString = _data[i][@"time"];
-        } else {
-            tempString = _compareData[i][@"time"];
+        if (index < _data.count) {
+            tempString = _data[index][@"time"];
+        } else if (index < _compareData.count) {
+            tempString = _compareData[index][@"time"];
         }
-        CGSize size = [tempString sizeWithAttributes:attrs];
-        CGRect textRect = CGRectMake(x - size.width * .5, top + height + 3, size.width, size.height);
-        [tempString drawInRect:textRect withAttributes:attrs];
+        if (tempString.length) {
+            CGSize size = [tempString sizeWithAttributes:attrs];
+            CGRect textRect = CGRectMake(x - size.width * .5, top + height + 3, size.width, size.height);
+            [tempString drawInRect:textRect withAttributes:attrs];
+        }
         
         x += interval;
     }
@@ -113,6 +122,7 @@ static const int kLineStart = 7;
     
     CGContextStrokePath(context);
     
+    interval = interval * .5;
     [self addLineWithData:_data color:HexColor(0x268ef7) context:context left:left interval:interval height:height];
     [self addLineWithData:_compareData color:HexColor(0xff6663) context:context left:left interval:interval height:height];
 }

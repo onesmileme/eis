@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.type == EAKongJianVCTypeSheBei ? @"设置追踪" : @"空间追踪";
+    self.title = self.type == EAKongJianVCTypeSheBei ? @"设备追踪" : @"空间追踪";
     [self createSubviews];
 }
 
