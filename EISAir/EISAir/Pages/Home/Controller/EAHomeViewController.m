@@ -21,7 +21,7 @@
 
 @property(nonatomic , strong) EAHomeHeaderView *headerView;
 @property(nonatomic , strong) EAHomeFooterView *footerView;
-
+@property(nonatomic , strong) UIButton *backBtn;
 @end
 
 @implementation EAHomeViewController
@@ -32,6 +32,18 @@
     controller.hidesBottomBarWhenPushed = true;
     
     return controller;
+}
+
+-(void)initnav
+{
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.frame = CGRectMake(0, 30, 45, 36);
+    UIImage *img = SYS_IMG(@"normal_back");
+    [backBtn setBackgroundImage:img forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:backBtn];
+    
 }
 
 - (void)viewDidLoad {
@@ -63,6 +75,8 @@
     };
     
     [self loadUserInfo];
+    
+    [self initnav];
 }
 
 - (void)didReceiveMemoryWarning {

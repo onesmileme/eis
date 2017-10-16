@@ -208,18 +208,11 @@
 
 -(void)menuAction
 {
-//    EAHomeViewController *controller = [EAHomeViewController controller];
-//    
-//    [self.navigationController pushViewController:controller animated:true];
     [[EAPushManager sharedInstance] handleOpenUrl:@"eis://show_home"];
 }
 
 -(void)filterAction
 {
-    
-//    NSString *type = self.typeArray[self.currentIndex];
-
-    
     if (self.currentIndex == 0) {
         //全部
         NSMutableArray *tags = nil;
@@ -357,6 +350,7 @@
         }
     }];
 }
+
 
 
 @end

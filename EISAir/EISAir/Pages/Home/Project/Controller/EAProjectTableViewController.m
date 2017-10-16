@@ -43,7 +43,6 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"info_cell"];
     
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -30, 0, 0);
-    
 }
 
 - (void)didReceiveMemoryWarning {

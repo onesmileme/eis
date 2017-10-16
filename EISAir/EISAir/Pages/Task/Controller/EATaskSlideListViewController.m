@@ -16,7 +16,7 @@
 @interface EATaskSlideListViewController ()
 
 @property(nonatomic , strong) NSMutableArray *msgList;
-@property(nonatomic , strong) NSArray *types;
+//@property(nonatomic , strong) NSArray *types;
 
 @property(nonatomic , strong) EAMessageNoDataView *noDataView;
 
@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
     UINib *nib = [UINib nibWithNibName:@"EATaskInfoTableViewCell" bundle:nil];
@@ -41,12 +41,19 @@
     
     _msgList = [[NSMutableArray alloc]init];
     
+    [NotificationCenter addObserver:self selector:@selector(loginDoneNotfiication:) name:kLoginDoneNotification object:nil];
+    
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [NotificationCenter removeObserver:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -208,5 +215,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)loginDoneNotfiication:(NSNotification *)notfication
+{
+    if (_taskType) {
+        [self startHeadRefresh:self.tableView];
+    }
+    
+}
 
 @end

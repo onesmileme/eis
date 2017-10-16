@@ -36,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGRect frame = self.view.bounds;//CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+    CGRect frame = self.view.bounds;
 //    frame.size.height -= (49+38);
     
     _msgListTableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
@@ -57,11 +57,17 @@
     
     _msgList = [[NSMutableArray alloc]init];
     
+    [NotificationCenter addObserver:self selector:@selector(loginDoneNotfiication:) name:kLoginDoneNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [NotificationCenter removeObserver:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -331,6 +337,14 @@
         TMCache *cacher = [TMCache sharedCache];
         [cacher removeObjectForKey:key];
     }
+}
+
+-(void)loginDoneNotfiication:(NSNotification *)notfication
+{
+    if (_types) {
+        [self startHeadRefresh:self.msgListTableView];
+    }
+    
 }
 
 @end
