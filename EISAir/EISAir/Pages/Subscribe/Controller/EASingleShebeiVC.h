@@ -11,5 +11,6 @@
 @interface EASingleShebeiVC : EABaseViewController
 
 @property (nonatomic, strong) NSString *shebeiId;
+@property (nonatomic, strong) NSString *spaceId;
 
 @end

@@ -114,6 +114,9 @@ static const int kTagButton = 100000;
     params[@"pageNum"] = @(page);
     params[@"pageSize"] = @(kEISRequestPageSize);
     params[@"objList"] = @[ToSTR(self.spaceId)];
+    if (EAKongJianVCTypeSheBei == self.type) {
+        params[@"objList"] = @[ToSTR(self.deviceId)];
+    }
     params[@"personId"] = [TKAccountManager sharedInstance].loginUserInfo.personId;
     NSString *path = @"/eis/open/msg/findEisMessage";
     Class cls = EAMessageModel.class;

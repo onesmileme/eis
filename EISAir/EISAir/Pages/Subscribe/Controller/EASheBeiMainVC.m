@@ -34,7 +34,7 @@
     NSArray *data = @[
                       @[@"空间名称", ToSTR(self.rModel.name)],
                       @[@"空间面积", ToSTR(self.rModel.area)],
-                      @[@"资产属性", ToSTR(self.rModel.name)],
+                      @[@"资产属性", ToSTR(@"")],
                       ];
     _header = [[EAKongJianHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0) data:data subscribed:NO];
     [self.view addSubview:_header];
@@ -62,6 +62,7 @@
             EASingleShebeiVC *vc = [[EASingleShebeiVC alloc] init];
             vc.title = dic[@"text"];
             vc.shebeiId = dic[@"id"];
+            vc.spaceId = self.rModel.id;
             [self.navigationController pushViewController:vc animated:YES];
         };
         view.top = top;

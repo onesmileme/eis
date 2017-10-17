@@ -12,4 +12,5 @@
 @interface EAKongJianEventVC : EABaseViewController
 @property (nonatomic, assign) EAKongJianVCType type;
 @property (nonatomic, strong) NSString *spaceId;
+@property (nonatomic, strong) NSString *deviceId;
 @end

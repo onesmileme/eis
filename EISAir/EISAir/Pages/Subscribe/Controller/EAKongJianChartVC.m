@@ -41,7 +41,11 @@
 }
 
 - (void)updateContentView {
-    [_contentView removeAllSubviews];
+    for (UIView *view in _contentView.subviews) {
+        if ([view isKindOfClass:EADingYueTemperatureView.class]) {
+            [view removeFromSuperview];
+        }
+    }
     
     float top = 20;
     int index = 0;
