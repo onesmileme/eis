@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <development version="8000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2Rt-V5-Nt3">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                            <rect key="frame" x="0.0" y="-30" width="375" height="252"/>
                             <color key="backgroundColor" red="0.15686274510000001" green="0.81176470590000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_avatar_bg" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-VU-YGf" userLabel="avatar bg Image View">
@@ -60,7 +60,7 @@
                         <constraint firstItem="GZx-2N-H9g" firstAttribute="top" secondItem="SE3-VU-YGf" secondAttribute="top" constant="3" id="Tjg-jT-P2e"/>
                         <constraint firstItem="2Rt-V5-Nt3" firstAttribute="leading" secondItem="f6O-Ql-L6W" secondAttribute="leading" id="fE8-sZ-oCv"/>
                         <constraint firstItem="NoN-52-KuE" firstAttribute="centerX" secondItem="f6O-Ql-L6W" secondAttribute="centerX" id="jBl-pZ-q5J"/>
-                        <constraint firstItem="2Rt-V5-Nt3" firstAttribute="top" secondItem="f6O-Ql-L6W" secondAttribute="top" id="ksC-cJ-f7z"/>
+                        <constraint firstItem="2Rt-V5-Nt3" firstAttribute="top" secondItem="f6O-Ql-L6W" secondAttribute="top" constant="-30" id="ksC-cJ-f7z"/>
                         <constraint firstItem="GZx-2N-H9g" firstAttribute="leading" secondItem="SE3-VU-YGf" secondAttribute="leading" constant="3" id="lSs-b3-VK1"/>
                         <constraint firstItem="T95-Qe-pdt" firstAttribute="top" secondItem="NoN-52-KuE" secondAttribute="bottom" constant="6" id="oOd-Au-MOv"/>
                         <constraint firstAttribute="trailing" secondItem="NoN-52-KuE" secondAttribute="trailing" id="qWv-K7-4rx"/>

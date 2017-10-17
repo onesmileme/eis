@@ -118,6 +118,7 @@
             cell.detailTextLabel.text = detail;
         }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

@@ -146,7 +146,7 @@
             cell.textLabel.text =  @"修改密码";
         }
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -114,7 +114,6 @@
 		53F02A0C1F78F89C00704B68 /* EARecordAttrModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0B1F78F89C00704B68 /* EARecordAttrModel.m */; };
 		53F02A101F7A3E3F00704B68 /* EAPostBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F02A0F1F7A3E3F00704B68 /* EAPostBasicModel.m */; };
 		6E00B20E1F6E6398006D4BF1 /* EATaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */; };
-		6E14CCDA1F7C77D2008DE669 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCD71F7C77D2008DE669 /* launch.png */; };
 		6E14CCE01F7D4BC9008DE669 /* EATaskDataListModel+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */; };
 		6E14CCE31F7D5258008DE669 /* EAAddTaskGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */; };
 		6E14CCE51F7D5286008DE669 /* EAAddTaskGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */; };
@@ -598,6 +597,7 @@
 		6EBA491F1F71EAE20023C16E /* EAProjectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA491E1F71EAE20023C16E /* EAProjectPickerView.m */; };
 		6EDBF2CA1F6D2F220062A573 /* EAMsgSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */; };
 		6EDBF2CF1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */; };
+		6EE0E9041F95829600509CC5 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EE0E9011F95829500509CC5 /* launch.jpg */; };
 		6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */; };
 		6EE9C50D1F72B559006C6CBC /* EAUserDataModel+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C50C1F72B559006C6CBC /* EAUserDataModel+Pinyin.m */; };
 		6EE9C5221F732715006C6CBC /* EATaskAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C51F1F732714006C6CBC /* EATaskAddTableViewController.m */; };
@@ -870,7 +870,6 @@
 		584BFDFE3D1AE1185885EF76 /* libPods-EISAirTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EISAirTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E00B20C1F6E6398006D4BF1 /* EATaskHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EATaskHelper.h; sourceTree = "<group>"; };
 		6E00B20D1F6E6398006D4BF1 /* EATaskHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EATaskHelper.m; sourceTree = "<group>"; };
-		6E14CCD71F7C77D2008DE669 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		6E14CCDE1F7D4BC9008DE669 /* EATaskDataListModel+Info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EATaskDataListModel+Info.h"; sourceTree = "<group>"; };
 		6E14CCDF1F7D4BC9008DE669 /* EATaskDataListModel+Info.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EATaskDataListModel+Info.m"; sourceTree = "<group>"; };
 		6E14CCE11F7D5258008DE669 /* EAAddTaskGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAddTaskGuideView.h; sourceTree = "<group>"; };
@@ -1814,6 +1813,7 @@
 		6EDBF2C91F6D2F220062A573 /* EAMsgSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryView.m; sourceTree = "<group>"; };
 		6EDBF2CD1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAMsgSearchHistoryHeaderView.h; sourceTree = "<group>"; };
 		6EDBF2CE1F6D67980062A573 /* EAMsgSearchHistoryHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAMsgSearchHistoryHeaderView.m; sourceTree = "<group>"; };
+		6EE0E9011F95829500509CC5 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		6EE9C5011F72AC65006C6CBC /* EAAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAboutViewController.h; sourceTree = "<group>"; };
 		6EE9C5021F72AC65006C6CBC /* EAAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAboutViewController.m; sourceTree = "<group>"; };
 		6EE9C50B1F72B559006C6CBC /* EAUserDataModel+Pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EAUserDataModel+Pinyin.h"; sourceTree = "<group>"; };
@@ -3378,7 +3378,7 @@
 		6E6885621F43C71A009AD662 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E14CCD71F7C77D2008DE669 /* launch.png */,
+				6EE0E9011F95829500509CC5 /* launch.jpg */,
 				6E87413B1F794B3C005EFA50 /* login_bg.jpg */,
 				6E14CCE71F7E8E9C008DE669 /* task_guide.png */,
 				6E8740F71F765550005EFA50 /* guide */,
@@ -4603,6 +4603,7 @@
 				6E415F0D1F526C740078436F /* EATaskInfoTableViewCell.xib in Resources */,
 				6E6886771F43C71A009AD662 /* AssetsPickerChecked@3x.png in Resources */,
 				53DB28C01F6E520200FB2B0F /* theme in Resources */,
+				6EE0E9041F95829600509CC5 /* launch.jpg in Resources */,
 				6E415F011F5267B70078436F /* EAMsgSearchFilterTableViewCell.xib in Resources */,
 				6E68867F1F43C71A009AD662 /* xiang.png in Resources */,
 				6E68867A1F43C71A009AD662 /* paizhao@2x.png in Resources */,
@@ -4624,7 +4625,6 @@
 				6E8741171F76D3CD005EFA50 /* EATaskRejectChooseView.xib in Resources */,
 				6E6886801F43C71A009AD662 /* xiang@2x.png in Resources */,
 				6E7015AA1F71657E0006C2E9 /* EAProjectTableViewCell.xib in Resources */,
-				6E14CCDA1F7C77D2008DE669 /* launch.png in Resources */,
 				53DB28BF1F6E520200FB2B0F /* js in Resources */,
 				6E6386B31F482CDF00017FB8 /* EAFindPassordViewController.xib in Resources */,
 				6E6886761F43C71A009AD662 /* AssetsPickerChecked@2x.png in Resources */,
