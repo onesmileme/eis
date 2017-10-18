@@ -30,7 +30,7 @@
         _contentView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:layout];
         _contentView.delegate = self;
         _contentView.dataSource = self;
-        _contentView.backgroundColor = [UIColor whiteColor];
+        _contentView.backgroundColor = HexColor(0xf7f7f7);
         
         [_contentView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell_id"];
         [self.contentView registerClass:[EAMsgSearchHistoryHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionViewHeader"];
@@ -95,7 +95,7 @@
             [wself clearAction];
         };
     }
-    headView.backgroundColor = [UIColor whiteColor];
+    headView.backgroundColor = [UIColor clearColor];
     return headView;
 }
 

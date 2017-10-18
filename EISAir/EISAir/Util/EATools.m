@@ -43,6 +43,7 @@
     hud.label.text = toast;
     hud.label.numberOfLines = (lineBreak? 0: 1);
     hud.margin = 10.f;
+    hud.label.textColor = [UIColor whiteColor];
     hud.removeFromSuperViewOnHide = YES;
 
     [hud hideAnimated:true afterDelay:time];

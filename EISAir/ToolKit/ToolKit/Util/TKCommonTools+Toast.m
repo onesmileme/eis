@@ -32,10 +32,14 @@
         return;
     }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self keyWindow] animated:YES];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.8];
+    
     
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     hud.label.text = toast;
+    hud.label.textColor = [UIColor whiteColor];
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     

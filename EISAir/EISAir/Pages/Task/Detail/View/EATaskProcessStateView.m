@@ -137,6 +137,7 @@
     }else{
         
         CGContextMoveToPoint(context, kHorPadding, centerY);
+
         if (_state >= EATaskStatusWait) {
             CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
             CGFloat now = perlength*(_state+1)+kHorPadding;
@@ -149,19 +150,25 @@
         CGContextStrokePath(context);
         
         //draw circle
-        //past
         UIBezierPath *path = nil;
+        //issue state
+        CGContextSetFillColorWithColor(context, [lineColor CGColor]);
+        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding, centerY-8, kCircelWidth, kCircelWidth)];
+        [path fill];
+
+        
+        //past        
         if (_state >= EATaskStatusWait) {
             CGContextSetFillColorWithColor(context, [lineColor CGColor]);
             for (int i = 0 ; i <= _state; i++) {
-                path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, kCircelWidth, kCircelWidth)];
+                path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+(i+1)*perlength, centerY-8, kCircelWidth, kCircelWidth)];
                 [path fill];
             }
         }
         //now
         CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
         CGContextSetFillColorWithColor(context, [HexColor(0x00b0ce) CGColor]);
-        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+_state*perlength-(25-kCircelWidth)/2, centerY-12.5, 25, 25)];
+        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+(_state+1)*perlength-(25-kCircelWidth)/2, centerY-12.5, 25, 25)];
         [path fill];
         path.lineWidth = 1;
         [path stroke];
@@ -169,7 +176,7 @@
         //future
         if (_state <= EATaskStatusInvalid) {
             CGContextSetFillColorWithColor(context, [HexColor(0xd8d8d8) CGColor]);
-            for (int i = _state+1 ; i <= EATaskStatusInvalid; i++) {
+            for (int i = _state+2 ; i <= EATaskStatusInvalid; i++) {
                 path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(kHorPadding+i*perlength, centerY-8, 16, 16)];
                 [path fill];
             }

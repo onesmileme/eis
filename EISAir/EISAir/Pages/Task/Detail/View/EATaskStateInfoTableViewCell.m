@@ -75,6 +75,10 @@
         height += [model.taskDescription sizeWithMaxWidth:(SCREEN_WIDTH - 28) font:SYS_FONT(12)].height;
     }
     
+    if (model.objNameList.count == 0) {
+        height -= 15;
+    }
+    
     return height;
 }
 
@@ -109,9 +113,6 @@
     
     _nameLabel.text = model.taskName;
     _objLabel.text = [model.objNameList componentsJoinedByString:@" "];//hehe
-    if (_objLabel.text.length == 0) {
-        _objLabel.text = model.taskName;
-    }
     _infoLabel.text = model.taskDescription;
 }
 

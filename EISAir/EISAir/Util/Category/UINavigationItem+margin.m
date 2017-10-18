@@ -14,7 +14,7 @@
 {    
     UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSeperator.width = -12;//此处修改到边界的距离，请自行测试
-    
+        
     if (_leftBarButtonItem)
     {
         [self setLeftBarButtonItems:@[negativeSeperator, _leftBarButtonItem]];

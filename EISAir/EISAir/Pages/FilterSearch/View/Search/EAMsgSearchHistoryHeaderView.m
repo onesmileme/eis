@@ -22,12 +22,13 @@
         
         _removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_removeButton addTarget:self action:@selector(removeAction:) forControlEvents:UIControlEventTouchUpInside];
+        UIImage *img = SYS_IMG(@"search_remove");
+        [_removeButton setBackgroundImage:img forState:UIControlStateNormal];
         _removeButton.frame = CGRectMake(0, 0, 11, 11);
         
         [self addSubview:_tipLabel];
         [self addSubview:_removeButton];
         
-        _removeButton.backgroundColor = [UIColor grayColor];
     }
     return self;
 }

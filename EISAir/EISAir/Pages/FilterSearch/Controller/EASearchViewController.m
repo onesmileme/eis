@@ -235,6 +235,7 @@
             self.confirmButton.hidden = false;
         }else{
             self.tableView.tableHeaderView = nil;
+            [EATools showToast:@"未搜索到结果"];
         }
     }];
     self.task = task;

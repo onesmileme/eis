@@ -179,6 +179,13 @@ typedef NS_ENUM(NSUInteger, EATableType) {
     __weak typeof(self) wself = self;
     controller.doneBlock = ^(NSString *urlcode) {
         //TODO dosearch
+        /*
+         EAMsgSearchTipDataModel *msgModel = [[EAMsgSearchTipDataModel alloc] init];
+         msgModel.objId = model.id;
+         msgModel.objName = model.name;
+         msgModel.objType = model.objType;
+         wself.doneBlock(msgModel);
+         */                
         [wself.navigationController popViewControllerAnimated:true];
     };
     [self.navigationController pushViewController:controller animated:true];
