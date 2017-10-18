@@ -39,6 +39,7 @@
     } else {
         return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
+    return nil;
 }
 
 @end
