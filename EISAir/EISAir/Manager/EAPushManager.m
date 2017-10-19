@@ -129,6 +129,8 @@ IMP_SINGLETON
     }
     self.deviceToken = [token copy];
     
+    [JPUSHService registerDeviceToken:deviceToken];
+    
     [self pushBind:true completion:nil];
 }
 
@@ -464,12 +466,12 @@ IMP_SINGLETON
  */
 -(void)pushBind:(BOOL)isBind completion:(void (^)(bool isOk))completion
 {
-//    if(self.pushRegisterId.length == 0 ){
-//        if (completion) {
-//            completion(NO);
-//        }
-//        return;
-//    }
+    if(self.pushRegisterId.length == 0 ){
+        if (completion) {
+            completion(NO);
+        }
+        return;
+    }
 
     if (self.deviceToken.length == 0) {
         if (completion) {
@@ -483,13 +485,11 @@ IMP_SINGLETON
         uid = uid.length == 0 ?  @"-1" : uid;
     }
     
-    NSString *cuid = [[EANetworkManager sharedInstance]cuid];
-    
-    [[TKRequestHandler sharedInstance]bindPush:isBind cuid:cuid uid:uid deviceToken:self.deviceToken completion:^(NSURLSessionDataTask *task, NSDictionary *data) {
+    [[TKRequestHandler sharedInstance]bindPush:isBind  uid:uid registerId:self.pushRegisterId  completion:^(NSURLSessionDataTask *task, NSDictionary *data) {
         
         if (completion) {
             BOOL isOk = NO;
-            if(data && [data[@"error"] integerValue] == 0){
+            if(data && [data[@"success"] integerValue] == 0){
                 isOk = YES;
             }
             completion(isOk);

@@ -14,13 +14,13 @@
  *  绑定或者取消绑定
  *
  *  @param isBind     yes 绑定 no 取消绑定
- *  @param deviceId   设备id
+ *  @param registerId   设备id
  *  @param uid        用户uid
  *  @param completion 完成回调
  *
  *  @return 请求对象
  */
--(NSURLSessionDataTask *)bindPush:(BOOL)isBind cuid:(NSString *)cuid uid:(NSString *)uid deviceToken:(NSString *)deviceToken completion:(void (^)(NSURLSessionDataTask *task , NSDictionary* data ))completion;
+-(NSURLSessionDataTask *)bindPush:(BOOL)isBind uid:(NSString *)uid registerId:(NSString *)registerId completion:(void (^)(NSURLSessionDataTask *task , NSDictionary* data ))completion;
 
 /**
  *  推送反馈

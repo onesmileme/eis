@@ -379,11 +379,16 @@ static NSString *const kEARelations = @"kEARelations";
         [TKCommonTools showToast:toast];
         return;
     }
+    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     weakify(self);
     [TKRequestHandler postWithPath:@"/eis/open/record/saveEisWorkRecord" params:[self paramsForSubmit] jsonModelClass:EAPostBasicModel.class completion:^(id model, NSError *error) {
         strongify(self);
         EAPostBasicModel *aModel = model;
-        [TKCommonTools showToast:aModel.msg];
+        hud.label.text = aModel.msg;
+        hud.mode = MBProgressHUDModeText;
+        hud.label.textColor = [UIColor whiteColor];
+        [hud hideAnimated:true afterDelay:0.7];
+//        [TKCommonTools showToast:aModel.msg];
         if (aModel.success) {
             [self.navigationController popViewControllerAnimated:YES];
         }

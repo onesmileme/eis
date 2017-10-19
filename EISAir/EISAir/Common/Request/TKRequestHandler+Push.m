@@ -11,18 +11,39 @@
 
 @implementation TKRequestHandler (Push)
 
--(NSURLSessionDataTask *)bindPush:(BOOL)isBind cuid:(NSString *)cuid uid:(NSString *)uid deviceToken:(NSString *)deviceToken completion:(void (^)(NSURLSessionDataTask *task , NSDictionary* data ))completion
+-(NSURLSessionDataTask *)bindPush:(BOOL)isBind uid:(NSString *)uid registerId:(NSString *)registerId completion:(void (^)(NSURLSessionDataTask *task , NSDictionary* data ))completion
 {
-    NSAssert(deviceToken.length > 0 , @"bind push device id and uid must valid");
+    NSAssert(registerId.length > 0 , @"bind push device id and uid must valid");
     
-    NSDictionary *param = @{@"apns_token":deviceToken,@"uid":uid.length >0 ? uid: @"",@"device_type":@"2", @"cuid":cuid?:@""};
+    /*
+     {
+     "addTag": "string",
+     "registrationId": "string",
+     "removeTag": "string"
+     }
+     */
+    
+    NSDictionary *param = @{@"registrationId":registerId,@"uid":uid.length >0 ? uid: @""};//@"device_type":@"2"
     NSMutableDictionary *mparam = [[NSMutableDictionary alloc]init];
-    [mparam addEntriesFromDictionary:param];
-    
-    NSString *path = [NSString stringWithFormat:@"%@/push/bind",AppHost];
+    mparam[@"registrationId"] = registerId;
+    if (isBind) {
+        mparam[@"addTag"] = uid;
+    }else{
+        mparam[@"removeTag"] = uid;
+    }    
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/push/addAndRemovePersonTag",AppHost];
 
     
-    return [self getRequestForPath:path param:param finish:^(NSURLSessionDataTask *sessionDataTask, id response, NSError *error) {
+    return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask *sessionDataTask, id response, NSError *error) {
+        if (error) {
+            NSLog(@"error is: %@",error);
+            NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+            NSString *info = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
+            NSLog(@"info is: \n%@\n",info);
+        }
+        if (response) {
+            NSLog(@"response is: %@",response);
+        }
         completion(sessionDataTask,response);
     }];
     

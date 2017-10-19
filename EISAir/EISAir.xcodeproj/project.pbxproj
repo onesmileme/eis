@@ -5467,7 +5467,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = EISAir/EISAir.entitlements;
-				DEVELOPMENT_TEAM = 53Q6Z7S7M4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QL39S94DN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToolKit/ToolKit/ThirdParty/TencentSDK",
@@ -5495,7 +5496,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enerbos.eisair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = eisair_dev;
+				PROVISIONING_PROFILE = "af4ada61-dc86-4d61-afa2-21f8378216a5";
+				PROVISIONING_PROFILE_SPECIFIER = eisair_adhoc;
 			};
 			name = Release;
 		};

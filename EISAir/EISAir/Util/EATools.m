@@ -62,7 +62,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.color = [UIColor colorWithWhite:0.1 alpha:0.8];
-
+    hud.label.textColor = [UIColor whiteColor];
+    
     return hud;
 }
 

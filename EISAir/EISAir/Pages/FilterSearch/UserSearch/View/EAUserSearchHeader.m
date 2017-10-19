@@ -20,7 +20,7 @@
         
         UIImageView *leftImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 49, self.height)];
         leftImgView.contentMode = UIViewContentModeCenter;        
-        leftImgView.image = SYS_IMG(@"seach_icon2");
+        leftImgView.image = SYS_IMG(@"seach_icon1");
         _searchBar.leftView = leftImgView;
         _searchBar.leftViewMode = UITextFieldViewModeAlways;
         
