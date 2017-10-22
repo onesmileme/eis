@@ -81,6 +81,8 @@
         [param addEntriesFromDictionary:dict];
     }
     
+    NSLog(@"param is: %@",param);
+    
     return [self postRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
             completion(sessionDataTask,(EAMessageModel *)model , error);

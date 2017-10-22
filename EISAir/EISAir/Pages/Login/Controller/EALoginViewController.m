@@ -123,7 +123,14 @@ static BOOL showLogin = false;
             NSLog(@"error is: \n%@\n",info);
 #endif
             
-            hud.label.text = info[@"error_description"]?info[@"error_description"]:@"请求失败";
+            NSString *tip = info[@"error_description"];
+            if (tip == nil || tip.length == 0 ){
+                tip = @"请求失败";
+            } else if([tip isEqualToString:@"Bad credentials"]) {
+                tip = @"密码不正确";
+            }
+            
+            hud.label.text = tip;
             [hud hideAnimated:true afterDelay:0.7];
             return ;
         }

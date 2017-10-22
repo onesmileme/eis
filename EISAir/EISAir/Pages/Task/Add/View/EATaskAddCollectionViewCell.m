@@ -218,11 +218,11 @@
         cell.titleLabel.text = title;
         cell.contentField.text = content;
         
-        if (indexPath.row == EATaskItemTypeThisNum) {
-            cell.contentField.enabled = true;
-        }else{
-            cell.contentField.enabled = false;
-        }
+//        if (indexPath.row == EATaskItemTypeThisNum) {
+//            cell.contentField.enabled = true;
+//        }else{
+//            cell.contentField.enabled = false;
+//        }
         
         
         c = cell;

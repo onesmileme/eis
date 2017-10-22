@@ -34,15 +34,20 @@
                 if (imgUrl) {
                     
                     EALoginUserInfoDataModel *uinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+//                    EASyncFileInfoItemModel *info = [[EASyncFileInfoItemModel alloc]init];
                     EASyncFileInfoModel *info = [[EASyncFileInfoModel alloc]init];
                     info.quoteId = uinfo.userId;
                     info.quoteType = @"userInfoImg";
                     info.fileSize = size;//[@(size) description];
+                    info.fileDescription = @"user image";
                     info.fileName = [imgUrl lastPathComponent];
                     NSURL *url = [NSURL URLWithString:imgUrl];
-                    info.path = [url path];
+                    info.path = [url absoluteString];
                     info.siteId = uinfo.siteId;
                     info.orgId = uinfo.orgId;
+                    
+//                    EASyncFileInfoModel *model = [[EASyncFileInfoModel alloc]init];
+//                    model.items = @[info];
                     
                     [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
                         
@@ -140,6 +145,11 @@
     
     NSLog(@"param is: \n%@",param);
     
+    return [self postRequestForPath:path param:nil formData:^(id<AFMultipartFormData>  _Nullable formData) {
+        
+    } finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        
+    }];
     return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         
         BOOL success = false;

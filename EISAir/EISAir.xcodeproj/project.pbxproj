@@ -118,6 +118,7 @@
 		6E14CCE31F7D5258008DE669 /* EAAddTaskGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */; };
 		6E14CCE51F7D5286008DE669 /* EAAddTaskGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */; };
 		6E14CCEA1F7E8E9C008DE669 /* task_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E14CCE71F7E8E9C008DE669 /* task_guide.png */; };
+		6E1B0DED1F9CD08300F9079C /* EANetworkQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1B0DEC1F9CD08300F9079C /* EANetworkQueueManager.m */; };
 		6E415B791F5109740078436F /* EALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6887521F4817CC009AD662 /* EALoginViewController.xib */; };
 		6E415BB31F5155FE0078436F /* UINavigationItem+margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */; };
 		6E415DCE1F5171D10078436F /* LBXScanNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E415BCA1F5171D10078436F /* LBXScanNative.m */; };
@@ -876,6 +877,8 @@
 		6E14CCE21F7D5258008DE669 /* EAAddTaskGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAAddTaskGuideView.m; sourceTree = "<group>"; };
 		6E14CCE41F7D5286008DE669 /* EAAddTaskGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EAAddTaskGuideView.xib; sourceTree = "<group>"; };
 		6E14CCE71F7E8E9C008DE669 /* task_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_guide.png; sourceTree = "<group>"; };
+		6E1B0DEB1F9CD08300F9079C /* EANetworkQueueManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EANetworkQueueManager.h; sourceTree = "<group>"; };
+		6E1B0DEC1F9CD08300F9079C /* EANetworkQueueManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EANetworkQueueManager.m; sourceTree = "<group>"; };
 		6E415BB11F5155FE0078436F /* UINavigationItem+margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+margin.h"; sourceTree = "<group>"; };
 		6E415BB21F5155FE0078436F /* UINavigationItem+margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+margin.m"; sourceTree = "<group>"; };
 		6E415BC91F5171D10078436F /* LBXScanNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanNative.h; sourceTree = "<group>"; };
@@ -3354,6 +3357,8 @@
 				6E6886FD1F451261009AD662 /* EAUIInitManager.m */,
 				6E415F481F54E5550078436F /* EAAddressBookManager.h */,
 				6E415F491F54E5550078436F /* EAAddressBookManager.m */,
+				6E1B0DEB1F9CD08300F9079C /* EANetworkQueueManager.h */,
+				6E1B0DEC1F9CD08300F9079C /* EANetworkQueueManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -5174,6 +5179,7 @@
 				6E8741121F76CE82005EFA50 /* EATaskUpdateModel.m in Sources */,
 				6E415E031F5171D10078436F /* ZXCGImageLuminanceSource.m in Sources */,
 				6E415E8C1F5171D10078436F /* ZXPDF417ErrorCorrection.m in Sources */,
+				6E1B0DED1F9CD08300F9079C /* EANetworkQueueManager.m in Sources */,
 				5330A8FB1F595B2600F8E07E /* DDPageScrollView.m in Sources */,
 				6E415E341F5171D10078436F /* ZXDataMatrixErrorCorrection.m in Sources */,
 				6E68868C1F43C71A009AD662 /* ZLPhotoAssets.m in Sources */,

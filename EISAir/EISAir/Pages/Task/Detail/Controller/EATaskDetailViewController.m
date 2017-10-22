@@ -75,7 +75,7 @@
 
 -(void)loadTaskStatusInfo
 {
-    MBProgressHUD *hud = [EATools showLoadHUD:self.view];
+    MBProgressHUD *hud = [EATools showLoadHUD:[[UIApplication sharedApplication]keyWindow]];
     [[TKRequestHandler sharedInstance] findTaskResultByTaskId:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskStatusModel *model, NSError *error) {
         if (error || !model.success) {
             hud.label.text = @"获取任务信息失败";

@@ -82,6 +82,10 @@
         };
         _historyView.chooseBlock = ^(NSString *key) {
             [wself search:key];
+            if (wself.historyView.superview) {
+                [wself.historyView removeFromSuperview];
+                wself.tableView.scrollEnabled = true;
+            }
         };
     }
     return _historyView;
@@ -324,8 +328,6 @@
     }else{
         self.chooedIndexDict[@(indexPath.row)] = @(YES);
     }
-    
-    
     
 //    //show detail
 //    EAMsgSearchTipDataModel *model = _objList[indexPath.row];

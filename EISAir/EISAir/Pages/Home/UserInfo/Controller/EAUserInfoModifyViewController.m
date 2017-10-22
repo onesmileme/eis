@@ -257,6 +257,9 @@
             info.siteId = uinfo.siteId;
             info.orgId = uinfo.orgId;
             
+//            EASyncFileInfoModel *model = [[EASyncFileInfoModel alloc]init];
+//            model.items = @[info];
+            
             [wself saveImageInfo:info imgUrl:imgUrl];
         }else{
             wself.hud.label.text = @"上传失败";

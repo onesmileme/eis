@@ -17,6 +17,7 @@
 #import "EATaskModel.h"
 #import "EATaskAddCollectionViewCell.h"
 #import "EAAddTaskGuideView.h"
+#import "EANetworkQueueManager.h"
 
 @interface EATaskAddTableViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -96,6 +97,8 @@
     
     _collectionView.allowsSelection = NO;
     _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.showsHorizontalScrollIndicator = false;
+    _collectionView.showsVerticalScrollIndicator = false;
     _collectionView.pagingEnabled = YES;
     
     [self.view addSubview:_collectionView];
@@ -126,14 +129,15 @@
 
 -(void)loadTaskItems
 {
-    
     [[TKRequestHandler sharedInstance] findPointData:self.task.tid completion:^(NSURLSessionDataTask *task, EATaskItemModel *model, NSError *error) {
         if (error == nil && model.success) {
             self.model = model;
             [self.collectionView reloadData];
         }else{
-            [self mockData];
+//            [self mockData];
+            [EATools showToast:error.localizedDescription];
             [self.collectionView reloadData];
+            [self.navigationController popViewControllerAnimated:true];
         }
     }];
 }
@@ -143,7 +147,8 @@
     UIView *nextView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.height - 90, SCREEN_WIDTH, 90)];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:SYS_IMG(@"task_btn_next") forState:UIControlStateNormal];
+    button.backgroundColor = RGB(54, 206, 193);
+//    [button setBackgroundImage:SYS_IMG(@"task_btn_next") forState:UIControlStateNormal];
     button.frame = CGRectMake(0, 0, SCREEN_WIDTH*0.8, 43);
     [button addTarget:self action:@selector(nextAction) forControlEvents:UIControlEventTouchUpInside];
     button.center = CGPointMake(nextView.width/2, nextView.height/2);
@@ -175,10 +180,13 @@
         hud = [EATools showLoadHUD:self.view];
     }
     [[TKRequestHandler sharedInstance] savePointData:m.tagid createDate:m.meterDate value:m.readCount completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
-        if (hud) {
-            hud.label.text = @"保存失败";
-            [hud hideAnimated:true afterDelay:1];
-        }
+        if (!success && error.code == -1099 ) {
+            if (hud) {
+                hud.label.text = @"保存失败,稍后自动重试";
+                [hud hideAnimated:true afterDelay:1];
+            }
+            [[EANetworkQueueManager sharedInstance] addTaskEditItem:m];
+        }        
     }];
 }
 

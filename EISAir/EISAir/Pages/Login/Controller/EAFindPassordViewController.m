@@ -81,6 +81,12 @@
     
 }
 
+-(void)stopCountDown
+{
+    _countdownView.hidden = true;
+    [_countdownView stop];
+}
+
 -(IBAction)backAction:(id)sender
 {
     [self.view endEditing:true];
@@ -99,9 +105,14 @@
     [self startCountDown];
     
     self.phone = self.phoneTextField.text;
+    __weak typeof(self) wself = self;
     [[TKRequestHandler sharedInstance]sendMessage:self.phone completion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
         if (model && [model[@"success"] integerValue] == 1) {
             //成功
+        }else{
+            //失败 不倒计时
+            [EATools showToast:@"手机号不存在"];
+            [wself stopCountDown];
         }
     }];
     

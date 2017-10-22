@@ -11,3 +11,8 @@
 @implementation EASyncFileInfoModel
 
 @end
+//
+//@implementation EASyncFileInfoItemModel
+//
+//@end
+

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,11 +51,10 @@
                         <color key="textColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-i4-2g6" userLabel="date Label">
-                        <rect key="frame" x="277" y="10" width="43" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21:05" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-i4-2g6" userLabel="date Label">
+                        <rect key="frame" x="278.5" y="18.5" width="31.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7ns-RF-b8e"/>
-                            <constraint firstAttribute="width" constant="43" id="HD0-lA-UMJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,11 +68,11 @@
                     <constraint firstItem="ZZE-EM-E5x" firstAttribute="top" secondItem="pkg-uq-Wcn" secondAttribute="bottom" constant="8" id="LAR-bK-PDd"/>
                     <constraint firstItem="Dba-aI-Gxa" firstAttribute="trailing" secondItem="fkG-3q-1ES" secondAttribute="trailing" id="MDd-L2-IxO"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="leading" secondItem="fkG-3q-1ES" secondAttribute="leading" id="N6V-Dy-9B4"/>
+                    <constraint firstItem="K6h-i4-2g6" firstAttribute="centerY" secondItem="pkg-uq-Wcn" secondAttribute="centerY" id="SKh-Ks-OaJ"/>
                     <constraint firstItem="fkG-3q-1ES" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZsX-lO-fwz"/>
                     <constraint firstItem="ZZE-EM-E5x" firstAttribute="leading" secondItem="pkg-uq-Wcn" secondAttribute="leading" id="b17-Ah-7Cn"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="top" secondItem="fkG-3q-1ES" secondAttribute="top" id="fF1-2R-VFx"/>
-                    <constraint firstAttribute="trailing" secondItem="K6h-i4-2g6" secondAttribute="trailing" id="iKC-4M-T2l"/>
-                    <constraint firstItem="K6h-i4-2g6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="j2l-z0-6mJ"/>
+                    <constraint firstAttribute="trailing" secondItem="K6h-i4-2g6" secondAttribute="trailing" constant="10" id="iKC-4M-T2l"/>
                     <constraint firstItem="fkG-3q-1ES" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="k9x-Ma-09D"/>
                     <constraint firstItem="pkg-uq-Wcn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="kSJ-0a-mJC"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="bottom" secondItem="fkG-3q-1ES" secondAttribute="bottom" id="mSA-de-zUV"/>

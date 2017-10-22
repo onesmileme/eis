@@ -17,6 +17,7 @@
 #import "TKRequestHandler+Message.h"
 #import "TKAccountManager.h"
 #import "EAMsgSearchTipModel.h"
+#import "TKCommonTools.h"
 
 #define kSlideSwitchHeight 38
 
@@ -130,7 +131,7 @@
     if (index == 0) {
         types = nil;//self.typeArray;
     }else{
-        NSString *type = _typeArray[index-1];
+        NSString *type = _typeArray[index];
         types = @[type];
     }
     if (index == 0) {
@@ -153,7 +154,7 @@
 
     NSArray *types = nil;
     if (index != 0) {
-        NSString *type = _typeArray[index-1];
+        NSString *type = _typeArray[index];
         types = @[type];
     }
     [listController updateWithType:types reload:true];
@@ -165,7 +166,7 @@
     EAMessageSlideListViewController *listController = (EAMessageSlideListViewController *)controller;
     NSArray *types = nil;
     if (index != 0) {
-        NSString *type = _typeArray[index-1];
+        NSString *type = _typeArray[index];
         types = @[type];
     }
     [listController updateWithType:types reload:true];
@@ -256,6 +257,9 @@
             return ;
         }                
         EAMsgFilterModel *model = [[EAMsgFilterModel alloc]init];
+        if (wself.currentIndex != 0) {
+            model.msgTypes =@[wself.typeArray[wself.currentIndex]];
+        }
         NSString *objId = nil;
         if (wself.currentIndex == 0) {
             EAMsgSearchTipDataModel *m = wself.allFilterItems[index];
@@ -268,8 +272,12 @@
         }
         
         if (startDate && endDate) {
-            model.startDate = [NSString stringWithFormat:@"%.0f",[startDate timeIntervalSince1970]];
-            model.endDate = [NSString stringWithFormat:@"%.0f",[endDate timeIntervalSince1970]];
+//            model.startDate = [NSString stringWithFormat:@"%.0f",[startDate timeIntervalSince1970]];
+//            model.endDate = [NSString stringWithFormat:@"%.0f",[endDate timeIntervalSince1970]];                        
+            model.startDate = [TKCommonTools dateStringWithFormat:TKDateFormatChineseLongYMD date:startDate];
+            model.endDate = [TKCommonTools dateStringWithFormat:TKDateFormatChineseLongYMD date:endDate];
+
+            
         }
         [wself showFilterResult:model];
     };

@@ -26,8 +26,23 @@
 
 -(void)logoutAction
 {
-    [[TKAccountManager sharedInstance] logout];
-    [NotificationCenter postNotificationName:kLogoutNotification object:nil];
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"您是否要退出登录" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[TKAccountManager sharedInstance] logout];
+        [NotificationCenter postNotificationName:kLogoutNotification object:nil];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [controller addAction:confirm];
+    [controller addAction:cancel];
+    
+    [self.navigationController presentViewController:controller animated:true completion:nil];
+    
+
 }
 
 - (void)viewDidLoad {

@@ -148,7 +148,7 @@
     
     [controller addAction:action];
     
-    action = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         EATaskUpdateModel *model = [[EATaskUpdateModel alloc]init];
         model.anewStatus = [EATaskHelper executeStatusName:EATaskExecuteStatusReceive];
         //@"接收任务";

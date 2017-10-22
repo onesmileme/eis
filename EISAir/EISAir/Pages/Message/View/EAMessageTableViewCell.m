@@ -95,6 +95,8 @@
     
     _titleLabel.text = model.msgTitle;
     _contentLabel.text = model.msgContent;
+    
+    
     _dateLabel.text = model.createDate;
 }
 

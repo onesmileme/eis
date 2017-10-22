@@ -10,6 +10,12 @@
 
 @interface EASyncFileInfoModel : JSONModel
 
+//@property(nonatomic  , strong) NSArray *items;
+//
+//@end
+//
+//@interface EASyncFileInfoItemModel : JSONModel
+
 @property (nonatomic, copy , nullable) NSString *quoteId;
 @property (nonatomic, copy , nullable) NSString *quoteType;//userInfoImg
 @property (nonatomic, copy , nullable) NSString *fileName;
