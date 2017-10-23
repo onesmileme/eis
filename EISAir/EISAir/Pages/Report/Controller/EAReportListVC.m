@@ -14,6 +14,7 @@
 #import "EAReportListModel.h"
 #import "EAReportPageListModel.h"
 #import "NSDate+Category.h"
+#import "WMWebViewController.h"
 
 typedef NS_ENUM(NSUInteger, EAReportListFilterTimeType) {
     EAReportListFilterTimeTypeCurrent,
@@ -253,8 +254,9 @@ static NSString *const kFilterRankDate = @"dateAsc";
         vc = listVC;
     } else {
         EAReportPageListDataModel *model = _dataArray[indexPath.row];
-        EAReportDetailVC *detailVC = [[EAReportDetailVC alloc] init];
+        WMWebViewController *detailVC = [[WMWebViewController alloc] init];
         detailVC.title = @"详情";
+        detailVC.url = @"https://www.baidu.com/";
         vc = detailVC;
     }
     vc.hidesBottomBarWhenPushed = YES;

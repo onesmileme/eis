@@ -12,6 +12,7 @@
 #import "EAReportListVC.h"
 #import "EAReportDetailVC.h"
 #import "EAReportPageListModel.h"
+#import "WMWebViewController.h"
 
 @interface EAReportViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
@@ -158,7 +159,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EABaseViewController *vc = [[EAReportDetailVC alloc] init];
+    EAReportPageListDataModel *model = _dataArray[indexPath.row];
+    WMWebViewController *vc = [[WMWebViewController alloc] init];
+    vc.title = @"详情";
+    vc.url = @"https://www.baidu.com/";
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

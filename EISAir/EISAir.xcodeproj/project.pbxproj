@@ -41,6 +41,8 @@
 		53AD6EC61F695CC9005025BD /* EAAllSubscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC51F695CC9005025BD /* EAAllSubscribeModel.m */; };
 		53AD6EC91F697805005025BD /* EADingYueEnergyChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */; };
 		53AD8CB81F74F413006A02D6 /* EAReportDetailExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */; };
+		53B433CB1F9E385500796FF8 /* WMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B433CA1F9E385500796FF8 /* WMWebViewController.m */; };
+		53B433D01F9E3B8A00796FF8 /* EAShareReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B433CF1F9E3B8A00796FF8 /* EAShareReportView.m */; };
 		53C36B881F947356006EBBB0 /* WMDingYueChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */; };
 		53C36B8D1F947424006EBBB0 /* EADingYueTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B8C1F947424006EBBB0 /* EADingYueTemperatureView.m */; };
 		53C36B901F94B4A6006EBBB0 /* EASingleShebeiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C36B8F1F94B4A6006EBBB0 /* EASingleShebeiVC.m */; };
@@ -727,6 +729,10 @@
 		53AD6EC81F697805005025BD /* EADingYueEnergyChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADingYueEnergyChartVC.m; sourceTree = "<group>"; };
 		53AD8CB61F74F413006A02D6 /* EAReportDetailExcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAReportDetailExcel.h; sourceTree = "<group>"; };
 		53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAReportDetailExcel.m; sourceTree = "<group>"; };
+		53B433C91F9E385500796FF8 /* WMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMWebViewController.h; sourceTree = "<group>"; };
+		53B433CA1F9E385500796FF8 /* WMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMWebViewController.m; sourceTree = "<group>"; };
+		53B433CE1F9E3B8A00796FF8 /* EAShareReportView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAShareReportView.h; sourceTree = "<group>"; };
+		53B433CF1F9E3B8A00796FF8 /* EAShareReportView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAShareReportView.m; sourceTree = "<group>"; };
 		53C36B861F947356006EBBB0 /* WMDingYueChartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMDingYueChartModel.h; sourceTree = "<group>"; };
 		53C36B871F947356006EBBB0 /* WMDingYueChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMDingYueChartModel.m; sourceTree = "<group>"; };
 		53C36B8B1F947424006EBBB0 /* EADingYueTemperatureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EADingYueTemperatureView.h; sourceTree = "<group>"; };
@@ -4131,6 +4137,8 @@
 				FADB161C1F72BD64003C7E13 /* EAReportListVC.m */,
 				FADB161E1F72BD73003C7E13 /* EAReportDetailVC.h */,
 				FADB161F1F72BD73003C7E13 /* EAReportDetailVC.m */,
+				53B433C91F9E385500796FF8 /* WMWebViewController.h */,
+				53B433CA1F9E385500796FF8 /* WMWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4458,6 +4466,8 @@
 				FADB162C1F7415AA003C7E13 /* EAReportColumnChart.m */,
 				53AD8CB61F74F413006A02D6 /* EAReportDetailExcel.h */,
 				53AD8CB71F74F413006A02D6 /* EAReportDetailExcel.m */,
+				53B433CE1F9E3B8A00796FF8 /* EAShareReportView.h */,
+				53B433CF1F9E3B8A00796FF8 /* EAShareReportView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4931,6 +4941,7 @@
 				6E415E1B1F5171D10078436F /* ZXBinarizer.m in Sources */,
 				6E415DFF1F5171D10078436F /* ZXVINResultParser.m in Sources */,
 				6E6885381F433C49009AD662 /* ViewController.m in Sources */,
+				53B433D01F9E3B8A00796FF8 /* EAShareReportView.m in Sources */,
 				6E415E281F5171D10078436F /* ZXDataMatrixBitMatrixParser.m in Sources */,
 				6E415DD61F5171D10078436F /* ZXAztecEncoder.m in Sources */,
 				6EE9C5031F72AC65006C6CBC /* EAAboutViewController.m in Sources */,
@@ -5142,6 +5153,7 @@
 				6E6886921F43C71A009AD662 /* ZLPhotoPickerViewController.m in Sources */,
 				6E415E5C1F5171D10078436F /* ZXRSSFinderPattern.m in Sources */,
 				6E415F4A1F54E5550078436F /* EAAddressBookManager.m in Sources */,
+				53B433CB1F9E385500796FF8 /* WMWebViewController.m in Sources */,
 				5330A9251F5A644E00F8E07E /* EAKongJianVC.m in Sources */,
 				6E7015A41F7162BB0006C2E9 /* EAProjectInfoTableViewCell.m in Sources */,
 				6E415F1B1F527A630078436F /* EATaskStateInfoTableViewCell.m in Sources */,
