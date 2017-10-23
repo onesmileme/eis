@@ -18,10 +18,13 @@
         _searchBar = [[UITextField alloc]initWithFrame:self.bounds];
         _searchBar.borderStyle = UITextBorderStyleNone;
         
-        UIImageView *leftImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 49, self.height)];
-        leftImgView.contentMode = UIViewContentModeCenter;        
-        leftImgView.image = SYS_IMG(@"seach_icon2");
-        _searchBar.leftView = leftImgView;
+        UIImageView *leftImgView = [[UIImageView alloc]initWithFrame:CGRectMake(18, (_searchBar.height - 16)/2, 16, 16)];
+        leftImgView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        leftImgView.image = SYS_IMG(@"search_icon2");
+        UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, CGRectGetHeight(frame))];
+        [leftView addSubview:leftImgView];
+        _searchBar.leftView = leftView;
         _searchBar.leftViewMode = UITextFieldViewModeAlways;
         
         leftImgView.backgroundColor = [UIColor clearColor];
