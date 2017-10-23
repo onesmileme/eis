@@ -80,7 +80,6 @@
 
 -(void)saveAction:(id)sender
 {
-    
     if (_oldPwdView.textField.text.length == 0 || _setPwdView.textField.text.length == 0 || _confirmPwdView.textField.text.length == 0) {
         [EATools showToast:@"请输入旧密码和新密码"];
         return;
@@ -91,7 +90,11 @@
         return;
     }
     
-    
+    if (_setPwdView.textField.text.length < 6 ) {
+        [EATools showToast:@"密码小于6位"];
+        return;
+    }
+        
     //TODO call modify password
     MBProgressHUD *hud = [EATools showLoadHUD:self.view];
     [[TKRequestHandler sharedInstance]modifyPassword:_setPwdView.textField.text oldPassword:_oldPwdView.textField.text completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {

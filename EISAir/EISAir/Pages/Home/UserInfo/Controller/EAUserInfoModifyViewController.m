@@ -65,7 +65,10 @@
     //TODO call modify password
     EAUserInfoFilterModel *filterModel = [[EAUserInfoFilterModel alloc]init];
     if (_nameTextField.text.length > 0) {
-        filterModel.name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSString *name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (name.length > 0) {
+            filterModel.name = name;
+        }
     }
     
     MBProgressHUD *hud = [EATools showLoadHUD:self.view.window];
@@ -80,7 +83,11 @@
             }
             [self.navigationController popViewControllerAnimated:true];
         }else{
-            hud.label.text = model.msg?:@"更改信息失败";
+            if (model == nil) {
+                hud.label.text = error.localizedDescription;
+            }else{
+                hud.label.text = model.msg?:@"更改信息失败";
+            }
             [hud hideAnimated:true afterDelay:1];
         }
     }];
@@ -210,8 +217,6 @@
         
         __weak typeof(self) wself = self;
         _imagePickerHelper.chooseImageBlock = ^(UIImage *image, NSDictionary<NSString *,id> *editingInfo) {
-            NSLog(@"image is: %@",image);
-            NSLog(@"edit info is: \n%@\n",editingInfo);
             [wself doUpdateloadImage:image];
         };
     }
@@ -227,7 +232,8 @@
     [self getPolicy];
 }
 
--(void)getPolicy{
+-(void)getPolicy
+{
     
     self.hud = [EATools showLoadHUD:self.view];
     __weak typeof(self) wself = self;
@@ -271,13 +277,15 @@
 -(void)saveImageInfo:(EASyncFileInfoModel *)info imgUrl:(NSString *)imgUrl
 {
     __weak typeof(self) wself = self;
-    [[TKRequestHandler sharedInstance] saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
+    [[TKRequestHandler sharedInstance] saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success , NSDictionary *dict , NSError *error) {
         if (success) {
             [wself.hud hideAnimated:true];
             wself.userInfo.avatar = imgUrl;
             if (wself.modifyUserInfoBlock) {
                 wself.modifyUserInfoBlock(wself.userInfo);
             }
+            [wself.tableView reloadData];
+            
         }else{
             wself.hud.label.text = @"上传失败";
             [wself.hud hideAnimated:true afterDelay:1];
@@ -288,6 +296,16 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return true;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSMutableString *name = [[NSMutableString alloc]initWithString:textField.text];
+    [name replaceCharactersInRange:range withString:string];
+    if (name.length > 10) {
+        return false;
+    }
     return true;
 }
 

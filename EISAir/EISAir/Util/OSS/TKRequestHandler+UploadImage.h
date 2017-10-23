@@ -14,5 +14,5 @@
 
 -(NSURLSessionDataTask *)getOssPolicyCompletion:(void(^)(NSURLSessionDataTask *task , EAOssPolicyModel *policy , NSError *error))completion;
 -(NSURLSessionDataTask *)postImage:(UIImage *)image policy:(EAOssPolicyModel *)policy completion:(void (^)(NSURLSessionDataTask *task ,NSString *imgUrl ,NSInteger size , NSError *error))completion;
--(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)(NSURLSessionDataTask *task ,BOOL success  , NSError *error))completion;
+-(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)(NSURLSessionDataTask *task ,BOOL success , NSDictionary *info , NSError *error))completion;
 @end

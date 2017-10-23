@@ -49,7 +49,7 @@
 //                    EASyncFileInfoModel *model = [[EASyncFileInfoModel alloc]init];
 //                    model.items = @[info];
                     
-                    [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSError *error) {
+                    [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSDictionary *dict , NSError *error) {
                         
                     }];
                     
@@ -137,7 +137,7 @@
 }
 
 
--(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)(NSURLSessionDataTask *task ,BOOL success , NSError *error))completion
+-(NSURLSessionDataTask *)saveImageInfo:(EASyncFileInfoModel *)info completion:(void(^)(NSURLSessionDataTask *task ,BOOL success , NSDictionary *info , NSError *error))completion
 {
     NSString *path = [NSString stringWithFormat:@"%@/dss/fileinfos/save",AppHost];
     
@@ -145,26 +145,61 @@
     
     NSLog(@"param is: \n%@",param);
     
-    return [self postRequestForPath:path param:nil formData:^(id<AFMultipartFormData>  _Nullable formData) {
+    NSURL *url = [NSURL URLWithString:path];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"POST";
+    
+    NSArray *item = @[param];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:item options:kNilOptions error:nil];
+    [request setHTTPBody:data];
+    [request setValue:[NSString stringWithFormat:@"%lu",data.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    if ([[TKAccountManager sharedInstance] isLogin]) {        
+        TKUserInfo *userinfo = [TKAccountManager sharedInstance].userInfo;
+        [request setValue:[NSString stringWithFormat:@"%@ %@",[userinfo.tokenType capitalizedString],userinfo.accessToken] forHTTPHeaderField:@"Authorization"];
+    }
+    
+    NSURLSessionDataTask *task =  [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-    } finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
-        
-    }];
-    return [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
-        
+        NSDictionary *dict = nil;
         BOOL success = false;
+        NSDictionary *info = nil;
+        
+        @try{
+            if (data) {
+                dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                
+                NSLog(@"dict is: \n%@\n",dict);
+                
+                success = [dict[@"success"] boolValue];
+                NSArray *datas  = dict[@"data"];
+                if (datas.count > 0) {
+                    info = [datas firstObject];
+                }
+            }
+        }@catch(NSException *e){
+            
+        }
         if (error) {
             NSLog(@"error is: %@",error);
             NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
             NSString *info = [[NSString alloc]initWithData:d encoding:NSUTF8StringEncoding];
             NSLog(@"info is: \n%@\n",info);
-        }else if (response){
-            NSLog(@"response is: %@",response);
-            success = true;
-        }        
-        completion(sessionDataTask ,success, error);
+
+        }
+        
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil,success,info,error);
+            });
+        }
         
     }];
+    [task resume];
+    
+    return task;
     
 }
 
