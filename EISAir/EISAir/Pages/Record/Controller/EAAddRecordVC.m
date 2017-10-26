@@ -228,6 +228,9 @@ static NSString *const kEARelations = @"kEARelations";
                                                             placeHolder:placeholder
                                                          pickerContents:pickerData];
             inputView.chooseBlock = itemDic[@"chooseBlock"];
+            if ([title isEqualToString:@"记录值"]) {
+                [inputView setInputKeyboardType:(UIKeyboardTypeNumbersAndPunctuation)];
+            }
             [_contentView addSubview:inputView];
             [array addObject:inputView];
             if (j == 0) {
@@ -322,11 +325,12 @@ static NSString *const kEARelations = @"kEARelations";
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *inputText = TrimStr(obj.inputText);
             if (!inputText.length) {
-                if (0 == idx) {
-                    toast = @"请输入记录名称";
-                } else if (1 == idx) {
+                if (1 == idx) {
                     toast = @"请选择对象";
                 }
+            }
+            if (0 == idx && (inputText.length < 2 || inputText.length > 20)) {
+                toast = @"请输入2~20个字的记录名称";
             }
             if (2 == idx && inputText.length < 3) {
                 toast = @"请输入记录内容(3-50字)";
@@ -339,9 +343,7 @@ static NSString *const kEARelations = @"kEARelations";
         [_inputViews enumerateObjectsUsingBlock:^(EAInputView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *inputText = TrimStr(obj.inputText);
             if (!inputText.length) {
-                if (0 == idx) {
-                    toast = @"请输入记录名称";
-                } else if (1 == idx) {
+                if (1 == idx) {
                     toast = @"请选择对象";
                 } else if (2 == idx) {
                     toast = @"请输入记录值";
@@ -350,6 +352,9 @@ static NSString *const kEARelations = @"kEARelations";
                 } else if (4 == idx) {
                     toast = @"请选择点位代表时间";
                 }
+            }
+            if (0 == idx && (inputText.length < 2 || inputText.length > 20)) {
+                toast = @"请输入2~20个字的记录名称";
             }
             if (5 == idx && inputText.length < 3) {
                 toast = @"请输入记录内容(3-50字)";
