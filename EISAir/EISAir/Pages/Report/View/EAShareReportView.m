@@ -54,7 +54,7 @@
         topView.layer.cornerRadius = button.layer.cornerRadius;
         [holderView addSubview:topView];
         
-        NSArray *images = @[@"sc_share", @"sc_share", @"sc_share", @"sc_share"];
+        NSArray *images = @[@"复制链接", @"微信", @"朋友圈", @"QQ"];
         NSArray *titles = @[@"复制链接", @"微信", @"朋友圈", @"QQ"];
         __block float x = 12;
         float width = 58;

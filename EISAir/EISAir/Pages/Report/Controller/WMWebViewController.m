@@ -28,7 +28,7 @@
     // 设置右边的搜索按钮
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 0, 40, 40);
-    UIImage *img = [UIImage imageNamed:@"sc_share"];
+    UIImage *img = [UIImage imageNamed:@"点"];
     [searchButton setImage:img forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
     [searchButton sizeToFit];
