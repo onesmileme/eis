@@ -45,7 +45,7 @@
                         <color key="textColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZE-EM-E5x" userLabel="content Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZE-EM-E5x" userLabel="content Label">
                         <rect key="frame" x="82" y="46" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,6 +60,13 @@
                         <color key="textColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQQ-Tw-khd" userLabel="bottomLIne">
+                        <rect key="frame" x="0.0" y="80" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="cqE-yP-1Ir"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZZE-EM-E5x" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-10" id="38u-Ng-wan"/>
@@ -69,6 +76,7 @@
                     <constraint firstItem="Dba-aI-Gxa" firstAttribute="trailing" secondItem="fkG-3q-1ES" secondAttribute="trailing" id="MDd-L2-IxO"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="leading" secondItem="fkG-3q-1ES" secondAttribute="leading" id="N6V-Dy-9B4"/>
                     <constraint firstItem="K6h-i4-2g6" firstAttribute="centerY" secondItem="pkg-uq-Wcn" secondAttribute="centerY" id="SKh-Ks-OaJ"/>
+                    <constraint firstAttribute="trailing" secondItem="jQQ-Tw-khd" secondAttribute="trailing" id="YkZ-Lo-89q"/>
                     <constraint firstItem="fkG-3q-1ES" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZsX-lO-fwz"/>
                     <constraint firstItem="ZZE-EM-E5x" firstAttribute="leading" secondItem="pkg-uq-Wcn" secondAttribute="leading" id="b17-Ah-7Cn"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="top" secondItem="fkG-3q-1ES" secondAttribute="top" id="fF1-2R-VFx"/>
@@ -77,6 +85,8 @@
                     <constraint firstItem="pkg-uq-Wcn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="kSJ-0a-mJC"/>
                     <constraint firstItem="Ogq-OY-qSd" firstAttribute="bottom" secondItem="fkG-3q-1ES" secondAttribute="bottom" id="mSA-de-zUV"/>
                     <constraint firstItem="Dba-aI-Gxa" firstAttribute="top" secondItem="fkG-3q-1ES" secondAttribute="top" id="p4c-xx-snc"/>
+                    <constraint firstAttribute="bottom" secondItem="jQQ-Tw-khd" secondAttribute="bottom" id="usH-FT-Wbp"/>
+                    <constraint firstItem="jQQ-Tw-khd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vzg-nT-6zt"/>
                     <constraint firstItem="pkg-uq-Wcn" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="K6h-i4-2g6" secondAttribute="leading" constant="-10" id="wSt-MB-Chm"/>
                 </constraints>
             </tableViewCellContentView>

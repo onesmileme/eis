@@ -37,7 +37,7 @@
 -(void)initnav
 {
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 30, 45, 36);
+    backBtn.frame = CGRectMake(10, 30, 45, 36);
     UIImage *img = SYS_IMG(@"normal_back");
     [backBtn setBackgroundImage:img forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];

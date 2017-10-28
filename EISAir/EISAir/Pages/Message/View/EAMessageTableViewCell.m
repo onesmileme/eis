@@ -10,6 +10,8 @@
 #import "EAMessageModel.h"
 #import "EAMsgHelper.h"
 #import "TKAccountManager.h"
+#import "NSString+TKSize.h"
+
 
 @interface EAMessageTableViewCell ()
 
@@ -24,6 +26,20 @@
 @end
 
 @implementation EAMessageTableViewCell
+
++(CGFloat)heightForModel:(EAMessageDataListModel *)model
+{
+    CGFloat height = 80;
+    NSString *content = model.msgContent;
+    
+    CGFloat width = SCREEN_WIDTH - 92;
+    CGFloat h = [content sizeWithMaxWidth:width font:SYS_FONT(14)].height;
+    if (h > 17) {
+        height += (h - 17);
+    }
+    
+    return height;
+}
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -56,11 +72,13 @@
 {
     
     EALoginUserInfoDataModel *userinfo = [[TKAccountManager sharedInstance]loginUserInfo];
-    BOOL read = false;
-    for (EAMessageDataListMessageFollowersModel *follower in model.messageFollowers) {
-        if ([follower.personId isEqualToString:userinfo.personId]) {
-            read = true;
-            break;
+    BOOL read = model.read;
+    if (!read) {                
+        for (EAMessageDataListMessageFollowersModel *follower in model.messageFollowers) {
+            if ([follower.personId isEqualToString:userinfo.personId]) {
+                read = true;
+                break;
+            }
         }
     }
     
@@ -93,9 +111,16 @@
         _avatar.hidden = true;
     }
     
-    _titleLabel.text = model.msgTitle;
-    _contentLabel.text = model.msgContent;
+    if (model.objName.length > 0) {
+        _titleLabel.text = [NSString stringWithFormat:@"%@ %@",model.msgTitle,model.objName];
+    }else{
+        _titleLabel.text = model.msgTitle;
+    }
     
+    if (_titleLabel.text.length > 8) {
+        _titleLabel.text = [_titleLabel.text substringToIndex:8];
+    }
+    _contentLabel.text = model.msgContent;
     
     _dateLabel.text = model.createDate;
 }

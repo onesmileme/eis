@@ -23,6 +23,7 @@
 @property(nonatomic , strong) IBOutlet UITextField *passwordTextField;
 @property(nonatomic , strong) IBOutlet UITextField *cofirmTextField;
 @property(nonatomic , strong) IBOutlet UIButton *sendChapterButton;
+@property(nonatomic , strong) IBOutlet UIButton *confirmButton;
 
 @property(nonatomic , strong) EALoginCountdownView *countdownView;
 @property(nonatomic , copy)   NSString *captcha;
@@ -55,6 +56,9 @@
     
     self.contentView.frame = CGRectMake(13.5, 94, SCREEN_WIDTH-27, self.contentView.height);
     [self.scrollView addSubview:self.contentView];
+    
+    self.confirmButton.layer.cornerRadius = 4;
+    self.confirmButton.layer.masksToBounds = true;
     
 }
 
@@ -111,7 +115,11 @@
             //成功
         }else{
             //失败 不倒计时
-            [EATools showToast:@"手机号不存在"];
+            NSString *msg = model[@"msg"];
+            if (msg.length== 0) {
+                msg = @"手机号不存在";
+            }
+            [EATools showToast:msg];
             [wself stopCountDown];
         }
     }];

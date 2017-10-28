@@ -160,7 +160,7 @@
     if (_doneBlock) {
         _doneBlock(strResult.strScanned);
     }
-    [self.navigationController popViewControllerAnimated:true];
+    [self.navigationController popViewControllerAnimated:false];
 }
 
 

@@ -229,16 +229,26 @@
     
     EAMsgFilterModel *filterModel = [[EAMsgFilterModel alloc]init];
     filterModel.objName = text;
+    __weak typeof(self) wself = self;
     NSURLSessionDataTask *task = [[TKRequestHandler sharedInstance] searchWithFilterParam:filterModel completion:^(NSURLSessionDataTask *task, EAMsgSearchTipModel *model, NSError *error) {
+        
+        if (!wself) {
+            return ;
+        }
+        
+//        if (![text isEqualToString:wself.searchBar.text]) {
+//            return;
+//        }
+        
         if (model.data.count > 0) {
-            self.searchKey = text;
-            [self.objList removeAllObjects];
-            [self.objList addObjectsFromArray:model.data];
-            [self.tableView reloadData];
-            self.tableView.tableHeaderView = self.header;
-            self.confirmButton.hidden = false;
+            wself.searchKey = text;
+            [wself.objList removeAllObjects];
+            [wself.objList addObjectsFromArray:model.data];
+            [wself.tableView reloadData];
+            wself.tableView.tableHeaderView = self.header;
+            wself.confirmButton.hidden = false;
         }else{
-            self.tableView.tableHeaderView = nil;
+            wself.tableView.tableHeaderView = nil;
             [EATools showToast:@"未搜索到结果"];
         }
     }];

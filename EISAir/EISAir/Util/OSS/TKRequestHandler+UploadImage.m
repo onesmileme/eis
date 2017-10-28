@@ -14,7 +14,6 @@
 
 +(void)load
 {
-//    return;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
 //        NSString *imgurl = @"http:/panyun.oss-cn-beijing.aliyuncs.com/image/12345/20170925/icon.jpg";
@@ -41,8 +40,8 @@
                     info.fileSize = size;//[@(size) description];
                     info.fileDescription = @"user image";
                     info.fileName = [imgUrl lastPathComponent];
-                    NSURL *url = [NSURL URLWithString:imgUrl];
-                    info.path = [url absoluteString];
+//                    NSURL *url = [NSURL URLWithString:imgUrl];
+                    info.path = imgUrl;//[url absoluteString];
                     info.siteId = uinfo.siteId;
                     info.orgId = uinfo.orgId;
                     
@@ -50,7 +49,11 @@
 //                    model.items = @[info];
                     
                     [[TKRequestHandler sharedInstance]saveImageInfo:info completion:^(NSURLSessionDataTask *task, BOOL success, NSDictionary *dict , NSError *error) {
-                        
+                        if (success) {
+                            [[TKRequestHandler sharedInstance] loadUserImage:nil completion:^(NSURLSessionTask *task, NSString *imgUrl, NSError *error) {
+                                
+                            }];
+                        }
                     }];
                     
                 }
@@ -93,7 +96,12 @@
     NSTimeInterval interval = [[NSDate date]timeIntervalSince1970];
     
     NSString *key = [policy.dir stringByAppendingPathComponent:[NSString stringWithFormat:@"icon_%.0f.jpg",interval*100]];
-    NSString *imgUrl = [policy.host stringByAppendingPathComponent:key];    
+    NSString *imgUrl = nil;
+    if ([policy.host hasSuffix:@"/"]) {
+        imgUrl = [policy.host stringByAppendingString:key];
+    }else{
+        imgUrl = [policy.host stringByAppendingFormat:@"/%@",key];
+    }
     
     NSString *path = policy.host;
     NSDictionary *param = @{@"key":key,
@@ -103,7 +111,7 @@
                             @"callback":policy.callback?:@"",
                             @"signature":policy.signature?:@""};
     
-    NSLog(@"param is: \n%@\n",param);
+//    NSLog(@"param is: \n%@\n",param);
     
     NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
     return [self postRequestForPath:path param:param formData:^(id<AFMultipartFormData> formData) {
@@ -122,8 +130,7 @@
         }@catch(NSException *e){
             NSLog(@"exception is: %@",e);
         }
-        
-        
+      
 //        if (response) {
 //            Class clazz = NSClassFromString(jsonName);
 //            model = [[clazz alloc]initWithDictionary:response error:nil];
@@ -143,7 +150,7 @@
     
     NSDictionary *param = [info toDictionary];
     
-    NSLog(@"param is: \n%@",param);
+    NSLog(@"save image param is: \n%@",param);
     
     NSURL *url = [NSURL URLWithString:path];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -200,6 +207,38 @@
     [task resume];
     
     return task;
+    
+}
+
+-(NSURLSessionTask *)loadUserImage:(NSString *)quoteId completion:(void(^)(NSURLSessionTask *task , NSString *imgUrl , NSError *error))completion
+{
+    ///dss/fileinfos/findByQuoteTypeAndQuoteId
+    NSString *path = [NSString stringWithFormat:@"%@/dss/fileinfos/findByQuoteTypeAndQuoteId",AppHost];
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    if (quoteId == nil) {
+        EALoginUserInfoDataModel *uinfo = [[TKAccountManager sharedInstance]loginUserInfo];
+        param[@"quoteId"] = uinfo.userId;
+    }
+    param[@"quoteType"] = @"userInfoImg";
+    
+    return [self getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        NSString *imgUrl = nil;
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *data = response[@"data"];
+            if (data) {
+                NSArray *imgs = data[@"images"];
+                NSDictionary *imgDict = [imgs firstObject];
+                if (imgDict) {
+                    imgUrl = imgDict[@"path"];
+                }
+            }
+        }
+        if (completion) {
+            completion(sessionDataTask,imgUrl,error);
+        }
+    }];
+    
     
 }
 

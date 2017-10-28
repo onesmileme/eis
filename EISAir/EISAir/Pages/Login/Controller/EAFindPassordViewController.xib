@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="chapterTextField" destination="4HS-ZM-p9S" id="dkG-lq-WnK"/>
                 <outlet property="cofirmTextField" destination="IKH-Bp-JaW" id="irR-t7-MCs"/>
+                <outlet property="confirmButton" destination="sbl-r0-xSY" id="jIe-Z3-CCb"/>
                 <outlet property="contentView" destination="kPx-md-c2Z" id="cnG-sl-qEB"/>
                 <outlet property="passwordTextField" destination="Jww-8T-DEO" id="Zoe-27-cb5"/>
                 <outlet property="phoneLeftButton" destination="VIu-FN-avm" id="muY-UM-10b"/>
@@ -110,7 +111,7 @@
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重复密码" textAlignment="natural" minimumFontSize="17" background="lost_password_input" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IKH-Bp-JaW" userLabel="confirm password Text Field">
                     <rect key="frame" x="17.5" y="192" width="340" height="41"/>
@@ -120,7 +121,7 @@
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2Y-He-dfN" userLabel="chapter Button">
                     <rect key="frame" x="258.5" y="90" width="99" height="41"/>

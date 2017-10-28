@@ -8,6 +8,8 @@
 
 #import "EAHomeHeaderView.h"
 #import "EALoginUserInfoModel.h"
+#import "TKRequestHandler+UploadImage.h"
+#import "TKAccountManager.h"
 
 @implementation EAHomeHeaderView
 
@@ -48,7 +50,27 @@
 
     _nameLabel.text = model.personName;
     _jobLabel.text = model.roleName;
-    
+    NSURL *imgUrl = [NSURL URLWithString:model.avatar];
+    if (!imgUrl) {
+        __weak typeof(self) wself = self;
+        [[TKRequestHandler sharedInstance] loadUserImage:nil completion:^(NSURLSessionTask *task, NSString *imgUrl, NSError *error) {
+            
+            if (imgUrl ) {
+                if (wself) {
+                    NSURL *url = [NSURL URLWithString:imgUrl];
+                    [wself.avatarImageView sd_setImageWithURL:url];
+                }
+                
+                model.avatar = imgUrl;
+                [TKAccountManager sharedInstance].loginUserInfo.avatar = imgUrl;
+                [[TKAccountManager sharedInstance] save];
+            }
+            
+            
+        }];
+    }else{
+        [self.avatarImageView sd_setImageWithURL:imgUrl placeholderImage:nil];
+    }
 }
 
 -(void)updateTask:(NSInteger)task record:(NSInteger)record report:(NSInteger)report

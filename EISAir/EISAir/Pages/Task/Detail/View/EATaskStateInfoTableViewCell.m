@@ -42,7 +42,7 @@
                 if (execStatus == EATaskExecuteStatusAssign || execStatus == EATaskExecuteStatusRefuse) {
                     height += 35;
                 }else{
-                    
+                    height += 15;
                 }
             }
                 break;
@@ -72,7 +72,7 @@
         
     }
     if (model.taskDescription.length > 0) {
-        height += [model.taskDescription sizeWithMaxWidth:(SCREEN_WIDTH - 28) font:SYS_FONT(12)].height;
+        height += [model.taskDescription sizeWithMaxWidth:(SCREEN_WIDTH - 28) font:SYS_FONT(12)].height+3;
     }
     
     if (model.objNameList.count == 0) {

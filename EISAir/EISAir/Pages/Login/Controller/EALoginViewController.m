@@ -11,6 +11,7 @@
 #import "TKRequestHandler+Login.h"
 #import "TKAccountManager.h"
 #import "TKRequestHandler+Account.h"
+#import "TKRequestHandler+UploadImage.h"
 
 static BOOL showLogin = false;
 
@@ -78,6 +79,9 @@ static BOOL showLogin = false;
         [TKAccountManager sharedInstance].loginUserInfo = model.data;
         
         [[TKAccountManager sharedInstance] save];
+        
+        [self loadUserAvatar];
+        
         [[NSNotificationCenter defaultCenter]postNotificationName:kLoginDoneNotification object:nil userInfo:@{@"refresh":@(refresh)}];
         
         showLogin = false;
@@ -88,6 +92,16 @@ static BOOL showLogin = false;
         
         [hud hideAnimated:true];
         
+    }];
+}
+
+-(void)loadUserAvatar
+{
+    [[TKRequestHandler sharedInstance] loadUserImage:nil completion:^(NSURLSessionTask *task, NSString *imgUrl, NSError *error) {
+        if (imgUrl) {
+            [TKAccountManager sharedInstance].loginUserInfo.avatar = imgUrl;
+            [[TKAccountManager sharedInstance] save];
+        }
     }];
 }
 

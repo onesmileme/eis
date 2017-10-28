@@ -11,6 +11,8 @@
 @class EAMessageDataListModel;
 @interface EAMessageTableViewCell : UITableViewCell
 
++(CGFloat)heightForModel:(EAMessageDataListModel *)model;
+
 -(void)updateWithModel:(EAMessageDataListModel *)model;
 
 @end

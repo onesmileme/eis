@@ -25,6 +25,7 @@
 
 @property(nonatomic , strong) NSMutableArray *stateList;
 //@property(nonatomic , assign) BOOL showHandle;
+@property(nonatomic , strong) UIView *taskHeader;
 
 @end
 
@@ -71,6 +72,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:false animated:true];
 }
 
 -(void)loadTaskStatusInfo
@@ -186,7 +193,10 @@
         }
         return 0;
     }
-    return _stateList.count;
+    if (_stateList.count > 0) {
+        return _stateList.count+1;
+    }
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -252,16 +262,45 @@
         
     }else{
         
-        EATaskStateTableViewCell *scell = [tableView dequeueReusableCellWithIdentifier:@"state_cell"];
+        if (indexPath.row == 0) {
+            
+            UITableViewCell *hcell = [tableView dequeueReusableCellWithIdentifier:@"header_cell"];
+            if (!hcell) {
+                hcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"header_cell"];
+                
+                hcell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                UILabel *label = [[UILabel alloc]init];
+                label.font = SYS_FONT(13);
+                label.textColor = HexColor(0xB0B0B0);
+                label.text = @"任务时间线";
+                [label sizeToFit];
+                label.left = 14;
+                label.top = 13.5;
+                
+                [hcell.contentView addSubview:label];
+            }
+            
+            cell = hcell;
+            
+        }else{
+            
+            EATaskStateTableViewCell *scell = [tableView dequeueReusableCellWithIdentifier:@"state_cell"];
+            
+            NSInteger index = indexPath.row - 1;
+            
+            EATaskStatusDataModel *model = self.stateList[index];
+            [scell updateWithModel:model isStart:index == 0 isLast:index == self.stateList.count - 1];
+            
+            cell = scell;
+            
+            //        EATaskStateDoingTableViewCell *dcell = [tableView dequeueReusableCellWithIdentifier:@"doing_cell"];
+            //
+            //        cell = dcell;
+            
+        }
         
-        EATaskStatusDataModel *model = self.stateList[indexPath.row];
-        [scell updateWithModel:model isStart:indexPath.row == 0 isLast:indexPath.row == self.stateList.count - 1];
-        
-        cell = scell;
-        
-//        EATaskStateDoingTableViewCell *dcell = [tableView dequeueReusableCellWithIdentifier:@"doing_cell"];
-//
-//        cell = dcell;
+
     }
     
     
@@ -281,6 +320,9 @@
         return 122;
     }
     
+    if (indexPath.row == 0) {
+        return 35;
+    }
     return 65;//normal status
     //TODO: add executing height
 }
@@ -305,6 +347,21 @@
         header.backgroundColor = HexColor(0xf7f7f7);
         return header;
     }
+//    if (!_taskHeader) {
+//        _taskHeader = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 30)];
+//
+//        UILabel *label = [[UILabel alloc]init];
+//        label.font = SYS_FONT(13);
+//        label.textColor = HexColor(0xB0B0B0);
+//        label.text = @"任务时间线";
+//        [label sizeToFit];
+//        label.left = 14;
+//        label.top = 13.5;
+//
+//        [_taskHeader addSubview:label];
+//    }
+    
+    
     return nil;
 
 }

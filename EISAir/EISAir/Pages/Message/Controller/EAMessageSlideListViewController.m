@@ -45,8 +45,9 @@
     self.automaticallyAdjustsScrollViewInsets = false;
 //    _msgListTableView.contentInset = UIEdgeInsetsMake(0, 0, 51, 0);
     _msgListTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    _msgListTableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
-    _msgListTableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
+//    _msgListTableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
     
     UINib *nib = [UINib nibWithNibName:@"EAMessageTableViewCell" bundle:nil];
     [_msgListTableView registerNib:nib forCellReuseIdentifier:@"msg_cell"];
@@ -233,7 +234,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 81;
+    EAMessageDataListModel *model = _msgList[indexPath.row];
+    
+    return [EAMessageTableViewCell heightForModel:model];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -247,6 +250,7 @@
     
     if (_showMessageBlock) {
         EAMessageDataListModel *model = _msgList[indexPath.row];
+        model.read = true;
         if([self addReadStatus:model]){
             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }

@@ -35,6 +35,8 @@
 //    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     UINib *nib = [UINib nibWithNibName:@"EATaskInfoTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"task_cell"];
     [self addHeaderRefreshView:self.tableView];

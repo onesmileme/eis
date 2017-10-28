@@ -61,7 +61,6 @@
 
 -(void)saveAction:(id)sender
 {
-    
     //TODO call modify password
     EAUserInfoFilterModel *filterModel = [[EAUserInfoFilterModel alloc]init];
     if (_nameTextField.text.length > 0) {
@@ -83,6 +82,18 @@
             }
             [self.navigationController popViewControllerAnimated:true];
         }else{
+            
+            NSData *d = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+            
+            NSDictionary *info = nil;
+            @try {
+                info = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:nil];
+            } @catch (NSException *exception) {
+                
+            } @finally {
+                
+            }
+            
             if (model == nil) {
                 hud.label.text = error.localizedDescription;
             }else{
@@ -258,8 +269,8 @@
             info.quoteType = @"userInfoImg";
             info.fileSize = size;
             info.fileName = [imgUrl lastPathComponent];
-            NSURL *url = [NSURL URLWithString:imgUrl];
-            info.path = [url path];
+//            NSURL *url = [NSURL URLWithString:imgUrl];
+            info.path = imgUrl;//[url path];
             info.siteId = uinfo.siteId;
             info.orgId = uinfo.orgId;
             
@@ -281,6 +292,8 @@
         if (success) {
             [wself.hud hideAnimated:true];
             wself.userInfo.avatar = imgUrl;
+            [TKAccountManager sharedInstance].loginUserInfo.avatar = imgUrl;
+            [[TKAccountManager sharedInstance] save];
             if (wself.modifyUserInfoBlock) {
                 wself.modifyUserInfoBlock(wself.userInfo);
             }

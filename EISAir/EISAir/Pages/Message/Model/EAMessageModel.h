@@ -58,6 +58,7 @@
 @property (nonatomic, copy , nullable) NSString *pointName;
 @property (nonatomic, copy , nullable) NSString *avatar;
 
+@property (nonatomic, assign) BOOL read;
 
 @end
 
