@@ -15,7 +15,7 @@
 /*
  * 更新用户信息
  */
--(NSURLSessionDataTask *)updateUserInfo:(EAUserInfoFilterModel *)model completion:(void (^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion;
+-(NSURLSessionDataTask *)updateUserInfo:(EAUserInfoFilterModel *)model completion:(void (^)(NSURLSessionDataTask *task , NSDictionary *model , NSError *error))completion;
 
 /*
  * 更改密码

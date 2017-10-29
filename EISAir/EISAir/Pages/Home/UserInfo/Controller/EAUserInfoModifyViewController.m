@@ -66,19 +66,21 @@
     if (_nameTextField.text.length > 0) {
         NSString *name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (name.length > 0) {
-            filterModel.name = name;
+            filterModel.loginName = name;
         }
     }
     
     MBProgressHUD *hud = [EATools showLoadHUD:self.view.window];
     __weak typeof(self) wself = self;
-    [[TKRequestHandler sharedInstance] updateUserInfo:filterModel completion:^(NSURLSessionDataTask *task, EALoginUserInfoModel *model, NSError *error) {
-        if (model.success) {
+    [[TKRequestHandler sharedInstance] updateUserInfo:filterModel completion:^(NSURLSessionDataTask *task, NSDictionary *model, NSError *error) {
+        BOOL success = [model[@"success"] integerValue];
+        if (success) {
             [hud hideAnimated:true];
-            [TKAccountManager sharedInstance].loginUserInfo = model.data;
+            EALoginUserInfoDataModel *info = [[TKAccountManager sharedInstance]loginUserInfo];
+            info.loginName = filterModel.loginName;
             [[TKAccountManager sharedInstance] save];
             if (wself.modifyUserInfoBlock) {
-                wself.modifyUserInfoBlock(model.data);
+                wself.modifyUserInfoBlock(info);
             }
             [self.navigationController popViewControllerAnimated:true];
         }else{
@@ -97,7 +99,7 @@
             if (model == nil) {
                 hud.label.text = error.localizedDescription;
             }else{
-                hud.label.text = model.msg?:@"更改信息失败";
+                hud.label.text = model[@"msg"]?:@"更改信息失败";
             }
             [hud hideAnimated:true afterDelay:1];
         }

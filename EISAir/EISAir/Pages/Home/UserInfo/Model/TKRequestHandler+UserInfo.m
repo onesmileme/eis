@@ -12,11 +12,9 @@
 @implementation TKRequestHandler (UserInfo)
 
 
--(NSURLSessionDataTask *)updateUserInfo:(EAUserInfoFilterModel *)model completion:(void (^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion
+-(NSURLSessionDataTask *)updateUserInfo:(EAUserInfoFilterModel *)model completion:(void (^)(NSURLSessionDataTask *task , NSDictionary *model , NSError *error))completion
 {
 
-    NSDictionary *param = [model toDictionary];
-    
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/updateUser",AppHost];
     
     EALoginUserInfoDataModel *user = [[TKAccountManager sharedInstance]loginUserInfo];
@@ -37,10 +35,12 @@
         model.name = user.name;
     }
     
-    NSURLSessionDataTask *task =  [[TKRequestHandler sharedInstance] postRequestForPath:path param:param jsonName:@"EALoginUserInfoModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
+    NSDictionary *param = [model toDictionary];
+    
+    NSURLSessionDataTask *task =  [[TKRequestHandler sharedInstance] postRequestForPath:path param:param  finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, NSDictionary * _Nullable model, NSError * _Nullable error) {
         
         if (completion) {
-            completion(sessionDataTask,(EALoginUserInfoModel *)model , error);
+            completion(sessionDataTask,model , error);
         }
         
     } ];

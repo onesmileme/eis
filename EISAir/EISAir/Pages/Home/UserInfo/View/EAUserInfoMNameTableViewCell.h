@@ -10,6 +10,6 @@
 
 @interface EAUserInfoMNameTableViewCell : UITableViewCell
 
-@property(nonatomic , strong) UITextField *textField;
+@property(nonatomic , strong) IBOutlet UITextField *textField;
 
 @end
