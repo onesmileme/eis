@@ -84,4 +84,13 @@
 }
 
 
+-(NSURLSessionDataTask *)logoutCompletion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError * error))completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/uaa/leave",[EANetworkManager loginAppHost]];
+    
+    return [self postRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
+        
+    }];
+}
+
 @end

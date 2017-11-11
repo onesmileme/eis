@@ -10,6 +10,7 @@
 #import "EAAboutViewController.h"
 #import <SDImageCache.h>
 #import "TKAccountManager.h"
+#import "TKRequestHandler+Login.h"
 
 @interface EASettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,6 +32,8 @@
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[TKAccountManager sharedInstance] logout];
         [NotificationCenter postNotificationName:kLogoutNotification object:nil];
+        
+        [[TKRequestHandler sharedInstance] logoutCompletion:nil];
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

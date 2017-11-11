@@ -10,7 +10,7 @@
 #import "TKAccountManager.h"
 @implementation TKRequestHandler (UploadImage)
 
-#if 0
+#if 1
 
 +(void)load
 {

@@ -17,4 +17,6 @@
 
 -(NSURLSessionDataTask *)findPassword:(NSString *)phone captcha:(NSString *)captcha password:(NSString *)password completion:(void (^)(NSURLSessionDataTask* task , NSDictionary *response , NSError *error))completion;
 
+-(NSURLSessionDataTask *)logoutCompletion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError * error))completion;
+
 @end
