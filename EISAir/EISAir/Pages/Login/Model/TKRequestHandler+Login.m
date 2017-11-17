@@ -13,7 +13,13 @@
 
 -(NSURLSessionDataTask *)loginWithUserName:(NSString *)username password:(NSString *)password completion:(void(^)(NSURLSessionDataTask *task , EAOauthModel *model , NSError * error))completion
 {
+#if kOnLine
+        NSString *path = [NSString stringWithFormat:@"%@/api/uaa/oauth/token",[EANetworkManager loginAppHost]];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/uaa/oauth/token",[EANetworkManager loginAppHost]];
+    
+#endif
+//    NSString *path = [NSString stringWithFormat:@"%@/api/uaa/oauth/token",[EANetworkManager loginAppHost]];
     NSDictionary *param = @{@"username":username,@"password":password,@"grant_type":@"password",@"prod":@"EIS"};
     [[EANetworkManager sharedInstance] setRequestSerializer:false resetAuthorization:true];
     return [[TKRequestHandler sharedInstance]postRequestForPath:path param:param jsonName:@"EAOauthModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
@@ -55,9 +61,6 @@
 
 -(NSURLSessionDataTask *)findPassword:(NSString *)phone captcha:(NSString *)captcha password:(NSString *)password completion:(void (^)(NSURLSessionDataTask* task , NSDictionary * response , NSError *error))completion
 {
-    /*
-     http://218.247.171.92:8090/app/uas/open/ users/resetPasswdByMobile params:code=154090&passwd=123456&repeatPasswd=123456&mobile=15101076951
-     */
     NSString *path = [NSString stringWithFormat:@"%@/uas/open/users/resetPasswdByMobile&code=%@&password=%@&repeatPasswd=%@&mobile=%@",AppHost,captcha,password,password,phone];
     NSDictionary *param = @{@"code":captcha?:@"",
                             @"password" :password?:@"",

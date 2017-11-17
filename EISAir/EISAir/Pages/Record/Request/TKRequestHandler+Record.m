@@ -11,7 +11,11 @@
 @implementation TKRequestHandler (Record)
 
 - (NSURLSessionDataTask *)loadRecord:(int)page completion:(void (^)(NSURLSessionDataTask *task , NSDictionary *model , NSError *error))completion {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/object/findAssets",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/object/findAssets",AppHost];
+#else
+    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/object/findAssets",AppHost];    
+#endif
     NSDictionary *param = @{
                             @"page": @(page).description,
                             };

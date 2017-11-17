@@ -13,7 +13,11 @@
 
 -(NSURLSessionDataTask *)searchWithFilterParam:(EAMsgFilterModel *)filterModel completion:(void (^)(NSURLSessionDataTask *task , EAMsgSearchTipModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/object/findObjects",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/object/findObjects",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/object/findObjects",AppHost];
+#endif
     if (!filterModel.productArray) {
         EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
         filterModel.orgId = dinfo.orgId;

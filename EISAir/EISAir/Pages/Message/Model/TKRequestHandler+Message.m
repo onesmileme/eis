@@ -43,7 +43,7 @@
         
         NSLog(@"param is: \n%@\n",param);
         
-        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findMsgTitleList",AppHost];
+        NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findMsgTitleList",AppHost];
         [[TKRequestHandler sharedInstance] postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
             if (response) {
                 NSLog(@"response is: \n%@\n",response);
@@ -73,7 +73,11 @@
 
 -(NSURLSessionDataTask *)loadMessageByPerson:(NSString *)personId filterParam:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageByPerson",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findEisMessageByPerson",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageByPerson",AppHost];
+#endif
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     param[@"personId"] = personId;
     if (fparam) {
@@ -92,7 +96,11 @@
 
 -(NSURLSessionDataTask *)findMessageDataFilterParam:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , EAMessageModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findEisMessageData",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
+#endif
     NSDictionary *param = [fparam toDictionary];
     
     return [self getRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
@@ -107,7 +115,11 @@
  */
 -(NSURLSessionDataTask *)loadMsgFilterData:(EAMsgFilterModel *)fparam completion:(void (^)(NSURLSessionDataTask *task , JSONModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findEisMessageData",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findEisMessageData",AppHost];
+#endif
     NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithDictionary:[fparam toDictionary]];
     return [self postRequestForPath:path param:param jsonName:@"EAMessageModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         if (completion) {
@@ -141,7 +153,11 @@
 //    
     NSDictionary *param = [model toDictionary];
     
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findMsgTitleList",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findMsgTitleList",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findMsgTitleList",AppHost];
+#endif
     NSURLSessionDataTask *task =  [[TKRequestHandler sharedInstance] postRequestForPath:path param:param jsonName:@"EAMsgFilterTagModel" finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         
         if (completion) {

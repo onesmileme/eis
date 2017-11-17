@@ -22,4 +22,6 @@
 #define LBXScan_Define_ZBar
 
 
+#define kOnLine  1
+
 #endif

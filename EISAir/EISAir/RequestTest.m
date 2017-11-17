@@ -27,7 +27,11 @@
 {
     //GET /eis/open/task/findTaskResultByTaskId
     //POST /eis/open/msg/findMsgTitleList
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/msg/findMsgTitleList",AppHost];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/msg/findMsgTitleList",AppHost];
+#endif
     NSLog(@"path is: \n%@\n\n",path);
     
     EAMsgFilterModel *model = [[EAMsgFilterModel alloc]init];

@@ -20,20 +20,6 @@
 NSString * const KEY_USERNAME_PASSWORD = @"com.company.app.usernamepassword";
 NSString * const KEY_PASSWORD = @"com.company.app.password";
 
-#define kOnLine  1
-
-#if kOnLine 
-
-#define AppBaseHost @""
-
-#else
-
-#define AppBaseHost @""
-
-
-#endif
-
-
 @interface EANetworkManager()<TKRequestHandlerDelegate>
 
 @property(nonatomic , strong) NSMutableDictionary *extraInfo;
@@ -81,14 +67,22 @@ IMP_SINGLETON
 
 +(NSString *)appHost
 {
-    
+#if kOnLine
+    return @"http://eisapp.cn";
+#else
     return @"http://218.247.171.92:8090";
 //    return [[FAConfigManager sharedInstance]host];
+#endif
 }
 
 +(NSString *)loginAppHost
 {
-  return @"http://218.247.171.92:9002";
+#if kOnLine
+    return @"http://eisapp.cn";
+#else
+    return @"http://218.247.171.92:8090";
+#endif
+//  return @"http://218.247.171.92:9002";
 }
 
 -(void)setRequestSerializer:(BOOL)isJson resetAuthorization:(BOOL)resetAuth

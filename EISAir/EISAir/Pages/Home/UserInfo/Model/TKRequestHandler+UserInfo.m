@@ -14,8 +14,11 @@
 
 -(NSURLSessionDataTask *)updateUserInfo:(EAUserInfoFilterModel *)model completion:(void (^)(NSURLSessionDataTask *task , NSDictionary *model , NSError *error))completion
 {
-
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/user/updateUser",AppHost];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/updateUser",AppHost];
+#endif
     
     EALoginUserInfoDataModel *user = [[TKAccountManager sharedInstance]loginUserInfo];
 
@@ -52,8 +55,11 @@
 {
     NSDictionary *param = @{@"newPasswd":newPwd?:@"",@"oldPasswd":oldPwd?:@""};
     
-    //
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/uas/open/personandusers/updatePassword",AppHost];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/app/uas/open/personandusers/updatePassword",AppHost];
+#endif
     
     NSURLSessionDataTask *task = [self postRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         if (completion) {

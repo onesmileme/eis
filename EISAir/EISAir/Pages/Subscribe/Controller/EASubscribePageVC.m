@@ -96,7 +96,12 @@
 
 #pragma mark - Request
 - (void)requestData {
-    NSString *path = EASubscribePageTypeMe == _type ? @"/eis/open/subscribe/findEisSubscribeByPerson" : @"/app/eis/open/subscribe/findAllEisSubscribe";
+    
+#if kOnLine
+    NSString *path = EASubscribePageTypeMe == _type ? @"/eis/open/subscribe/findEisSubscribeByPerson" : @"/eis/open/subscribe/findAllEisSubscribe";
+#else
+        NSString *path = EASubscribePageTypeMe == _type ? @"/eis/open/subscribe/findEisSubscribeByPerson" : @"/app/eis/open/subscribe/findAllEisSubscribe";
+#endif
     NSDictionary *params = nil;
     if (EASubscribePageTypeMe == _type) {
         params = @{ @"personId": ToSTR([TKAccountManager sharedInstance].loginUserInfo.personId)};

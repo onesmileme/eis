@@ -18,7 +18,7 @@
 //    //GET /eis/open/task/findTaskResultByTaskId
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        
-//        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findPointData",AppHost];
+//        NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findPointData",AppHost];
 //        EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
 //        
 ////        EATaskFilterModel *filter = [[EATaskFilterModel alloc]init];
@@ -53,7 +53,7 @@
 
 -(NSURLSessionDataTask *)findEisTask:(NSString *)tid filterParam:(EATaskFilterModel *)filterParam completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTask",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findEisTask",AppHost];
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     if (filterParam) {
         NSDictionary *json = [filterParam toDictionary];
@@ -71,7 +71,7 @@
 -(NSURLSessionDataTask *)deleteTaskById:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion
 {
     //GET /eis/open/task/deleteEisTaskById
-        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/deleteEisTaskById",AppHost];
+        NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/deleteEisTaskById",AppHost];
     
     NSDictionary *param = @{@"id":taskId};
     return [self getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
@@ -94,7 +94,11 @@
 //GET /eis/open/task/findDataComplete
 -(NSURLSessionDataTask *)findDataComplete:(NSString *)taskId orgId:(NSString *)orgId siteId:(NSString *)siteId completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findDataComplete",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findDataComplete",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findDataComplete",AppHost];
+#endif
     NSDictionary *param = @{@"taskId":taskId,@"orgId":orgId?:@"",@"siteId":siteId};
     
     return [self getRequestForPath:path param:param finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
@@ -116,7 +120,11 @@
 //GET /eis/open/task/findEisTaskById 根据任务id查询任务
 -(NSURLSessionDataTask *)findEisTaskById:(NSString *)tid  completion:(void(^)(NSURLSessionDataTask *task , EATaskDetailModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskById",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findEisTaskById",AppHost];
+#else
+       NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskById",AppHost];
+#endif
     NSMutableDictionary *param = [@{@"id":tid} mutableCopy];
     
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
@@ -136,7 +144,7 @@
 {
     ///eis/open/task/findEisTaskByUser
     
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskByUser",AppHost];
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findEisTaskByUser",AppHost];
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     if (filterParam) {
         NSDictionary *json = [filterParam toDictionary];
@@ -154,7 +162,11 @@
 
 -(NSURLSessionDataTask *)findTaskResultByTaskId:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskStatusModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findTaskResultByTaskId",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findTaskResultByTaskId",AppHost];
+#else
+       NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findTaskResultByTaskId",AppHost];
+#endif
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
     NSDictionary *param = @{@"taskId":taskId?:@"",@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
 
@@ -171,8 +183,11 @@
 -(NSURLSessionDataTask *)saveEisTaskResult:(EATaskUpdateModel *)filterParam completion:(void(^)(NSURLSessionDataTask *task , EATaskUpdateModel *model , NSError *error))completion
 {
     ///eis/open/task/findEisTaskByUser
-    
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/saveEisTaskResult",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/saveEisTaskResult",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/saveEisTaskResult",AppHost];
+#endif
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     if (filterParam) {
         NSDictionary *json = [filterParam toDictionary];
@@ -192,8 +207,11 @@
 
 -(NSURLSessionDataTask *)findPointData:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskItemModel *model , NSError *error))completion
 {
-    
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findPointData",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findPointData",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findPointData",AppHost];
+#endif
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
     NSDictionary *param = @{@"taskId":taskId?:@"",@"orgId":dinfo.orgId,@"siteId":dinfo.siteId};
     
@@ -207,8 +225,11 @@
 //open/task/savePointData
 -(NSURLSessionDataTask *)savePointData:(NSString *)tagId createDate:(NSString *)date value:(NSString *)value completion:(void(^)(NSURLSessionDataTask *task , BOOL success , NSError *error))completion
 {
-    
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/savePointData",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/savePointData",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/savePointData",AppHost];
+#endif
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
     NSMutableDictionary *param = [@{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId} mutableCopy];
     if (date.length > 0) {
@@ -239,7 +260,7 @@
 
 //-(NSURLSessionDataTask *)findEisTaskById:(NSString *)taskId completion:(void(^)(NSURLSessionDataTask *task , EATaskModel *model , NSError *error))completion
 //{
-//    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/task/findEisTaskById",AppHost];
+//    NSString *path = [NSString stringWithFormat:@"%@/eis/open/task/findEisTaskById",AppHost];
 //    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
 //    param[@"id"] = taskId?:@"";
 //

@@ -43,7 +43,11 @@
 
 -(NSURLSessionDataTask *)findUsers:(NSInteger)pageNum completion:(void(^)(NSURLSessionDataTask *task , EAUserModel *model , NSError *error))completion
 {
-    NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findUsers",AppHost];
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/user/findUsers",AppHost];
+#else
+        NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findUsers",AppHost];
+#endif
     EALoginUserInfoDataModel *dinfo = [TKAccountManager sharedInstance].loginUserInfo;
     NSDictionary *param = @{@"orgId":dinfo.orgId,@"siteId":dinfo.siteId,@"pageSize":@"300",@"pageNum":@(pageNum)};
     
@@ -61,7 +65,11 @@
  */
 -(NSURLSessionDataTask *)findLoginUserCompletion:(void(^)(NSURLSessionDataTask *task , EALoginUserInfoModel *model , NSError *error))completion
 {
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/user/findLoginUser",AppHost];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findLoginUser",AppHost];
+#endif
     
     return [self getRequestForPath:path param:nil jsonName:@"EALoginUserInfoModel" finish:^(NSURLSessionDataTask * _Nonnull sessionDataTask, JSONModel * _Nullable model, NSError * _Nullable error) {
         
@@ -74,8 +82,11 @@
 //findCountByUser
 -(NSURLSessionDataTask *)findCountByUserCompletion:(void(^)(NSURLSessionDataTask *task , NSInteger taskCount , NSInteger workRecordCount , NSInteger reportCount , NSError *error))completion
 {
+#if kOnLine
+    NSString *path = [NSString stringWithFormat:@"%@/eis/open/user/findCountByUser",AppHost];
+#else
     NSString *path = [NSString stringWithFormat:@"%@/app/eis/open/user/findCountByUser",AppHost];
-    
+#endif
     return [self getRequestForPath:path param:nil finish:^(NSURLSessionDataTask * _Nullable sessionDataTask, id  _Nullable response, NSError * _Nullable error) {
         
         NSInteger taskCount = 0;
