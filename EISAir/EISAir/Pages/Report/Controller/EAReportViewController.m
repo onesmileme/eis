@@ -104,7 +104,7 @@
     return @{
              @"title": ToSTR(model.reportName),
              @"time": ToSTR(model.createDate),
-             @"red": @(model.isRead),
+             @"read": @(model.isRead),
              };
 }
 

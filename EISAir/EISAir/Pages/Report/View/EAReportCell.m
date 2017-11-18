@@ -61,7 +61,7 @@
 - (void)setModel:(NSDictionary *)aModel {
     _titleLabel.text = aModel[@"title"];
     _timeLabel.text = aModel[@"time"];
-    _redPointView.hidden = ![aModel[@"red"] boolValue];
+    _redPointView.hidden = [aModel[@"read"] boolValue];
     
     [_titleLabel sizeToFit];
     [_timeLabel sizeToFit];
