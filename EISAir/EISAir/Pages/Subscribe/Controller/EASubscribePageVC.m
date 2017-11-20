@@ -135,7 +135,10 @@
 }
 
 - (NSString *)descWithModel:(EAAllSubscribeDataModel *)model {
-    return @"薛之谦等100人订阅";
+    if (!model.subscribePersonNames.count) {
+        return @"暂无人订阅";
+    }
+    return [NSString stringWithFormat:@"%@等%d人订阅", model.subscribePersonNames.firstObject, (int)model.subscribePersonNames.count];
 }
 
 @end
